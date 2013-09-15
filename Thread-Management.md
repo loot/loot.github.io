@@ -8,7 +8,7 @@ The opening posts for the BOSS threads are stored in two parts. The generic part
 
 #### The Generic Part
 
-```
+```Markdown
 [center][size=6]BOSS[/size]
 
 A plugin load order optimiser for TES III: Morrowind, TES IV: Oblivion, Nehrim - At Fate's Edge, TES V: Skyrim, Fallout 3 and Fallout: New Vegas.[/center]
