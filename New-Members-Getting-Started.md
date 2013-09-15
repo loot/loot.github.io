@@ -66,7 +66,7 @@ For information on the format and syntax of the masterlists, see `docs/BOSS Meta
 
 ### Getting Help
 
-If you have any problems or questions regarding anything relating to BOSS, feel free to ask current members questions. We can all be contacted by PM - the [[Project Members|Project-Members]] page lists all current members and their usernames on Bethsoft, Nexus and GitHub.
+If you have any problems or questions regarding anything relating to BOSS, feel free to ask current members questions. We can all be contacted by PM - the [[Team Members|Team-Members]] page lists all current members and their usernames on Bethsoft, Nexus and GitHub.
 
 Technical questions are best sent to WrinklyNinja, as he's responsible for BOSS's coding. This includes questions relating to things like how BOSS works, the masterlist syntax, etc.
 
