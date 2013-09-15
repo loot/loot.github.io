@@ -58,6 +58,63 @@ In the shell, enter `git add <file>` to mark the file you manually merged as res
 
 Back in the GfW window, click the "sync" button to update the online repository with your merged revision. You're done!
 
+##### An Example
+
+You sync your local repository to the online repository, and open a file containing the following:
+
+```markdown
+This file is to be used to demonstrate conflict resolution.
+
+This is the last line of the file.
+```
+
+You then edit it, so that it becomes:
+
+```markdown
+This file is to be used to demonstrate conflict resolution.
+
+This line has been added by you.
+
+This is the last line of the file.
+```
+
+In the meantime, someone else also edits the same file, and syncs their changes with the online repository, so its copy of the file becomes:
+
+```markdown
+This file is to be used to demonstrate conflict resolution.
+
+This line has been added by somebody else.
+
+This is the last line of the file.
+```
+
+When you open the file for manual merging, it will have changed to:
+
+```markdown
+This file is to be used to demonstrate conflict resolution.
+
+<<<<<<<
+This line has been added by somebody else.
+=======
+This line has been added by you.
+>>>>>>>
+
+This is the last line of the file.
+```
+
+You could decide to keep both lines one after another, in which you would edit the file so that it becomes:
+
+```markdown
+This file is to be used to demonstrate conflict resolution.
+
+This line has been added by somebody else.
+This line has been added by you.
+
+This is the last line of the file.
+```
+
+Now you are ready to do the `git add <file>` step.
+
 ### Further Reading
 
 Before continuing, see the [[Guidelines|Guidelines]] page to familiarise yourself with the recommendations and team policies detailed there.
