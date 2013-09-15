@@ -8,10 +8,9 @@ It's pretty simple: if a plugin is, or will shortly be (eg. author giving heads-
 
 Plugins that are not available to the public are not suitable for inclusion in the masterlist - if someone reports such a plugin, tell them that it is more appropriate for them to add any necessary metadata using a userlist rule. Such cases include private beta plugins, or more generally plugins distributed amongst a select group of people, or plugins for which you have to pay to access (which is against Bethesda's rules, but has undoubtedly happened before).
 
-Link Requesting
-We ask those submitting unrecognised plugins to provide links to those plugins because we often need to look at what is in the plugin to properly place it in the masterlist, so we need to first download it. The person reporting a plugin is far more likely to know where they got it from, and so are far more likely to easily acquire a link to it, than we are. That, and because committers have to do much more work than submitters already.
+#### Link Requesting
 
-However, because most of BOSS's submitting activity occurs on Bethesda's official forums, we have to abide by their rules. These rules include not linking to nude mods, for instance, and not discussing certain mods that break their rules (eg. Morroblivion).
+Sometimes it is necessary for a BOSS committer to download a plugin to investigate it, eg. to double-check information provided by a user. In such cases, we generally ask the user to provide a link to the plugin in question. However, because most of BOSS's submitting activity occurs on Bethesda's official forums, we have to abide by their rules. These rules include not linking to nude mods, for instance, and not discussing certain mods that break their rules (eg. Morroblivion).
 
 If a user submits a plugin that falls into such a catagory and they provide a link, ask them to remove it, stating why. It's best not to draw negative moderator attention to BOSS's threads, because we need them to stay open. (Moderators are highly unlikely to lock the thread or get on to us about such cases, but better safe than sorry, plus you educate users that may have been unaware of the rules.)
 
