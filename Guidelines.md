@@ -2,10 +2,11 @@
 
 As time goes by, we sometimes find it's good to have rules written down for things relating to how we operate. This is where we write these rules. Please don't change them without prior discussion.
 
-Plugin Addition
-It's pretty simple: if a plugin is, or will shortly be (eg. author giving heads-up about imminent release), publicly available for download, it should be added to the appropriate masterlist.
+#### Plugin Addition
 
-Plugins that are not available to the public are not suitable for inclusion in the masterlist - if someone reports such a plugin, tell them that it is more appropriate for them to sort it using a userlist rule. Such cases include private beta plugins, or more generally plugins distributed amongst a select group of people, or plugins for which you have to pay to access (which is against Bethesda's rules, but has undoubtedly happened before).
+It's pretty simple: if a plugin is, or will shortly be (eg. author giving heads-up about imminent release), publicly available for download, it is eligible for addition to the appropriate masterlist.
+
+Plugins that are not available to the public are not suitable for inclusion in the masterlist - if someone reports such a plugin, tell them that it is more appropriate for them to add any necessary metadata using a userlist rule. Such cases include private beta plugins, or more generally plugins distributed amongst a select group of people, or plugins for which you have to pay to access (which is against Bethesda's rules, but has undoubtedly happened before).
 
 Link Requesting
 We ask those submitting unrecognised plugins to provide links to those plugins because we often need to look at what is in the plugin to properly place it in the masterlist, so we need to first download it. The person reporting a plugin is far more likely to know where they got it from, and so are far more likely to easily acquire a link to it, than we are. That, and because committers have to do much more work than submitters already.
