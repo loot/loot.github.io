@@ -1,3 +1,23 @@
+### Guidelines
+
+* In communication, it's probably best to use your Bethsoft Forum name since we all know each other by the aliases from the forum.
+* Only make edits/additions you're confident about - otherwise discuss on the Bethsoft forum threads or via Private Message.
+* Check out the masterlists and become familiar with the comments and categorisations therein. See the Metadata Syntax HTML file in the boss-code repository for the details.
+* Make as many silent comments as you want within the masterlists - it doesn't hurt (within reason).
+* Use blank lines to separate mods that are grouped together or where it helps readability.
+* Test your changes before uploading them, to make sure you didn't make any syntax typos.
+* Have as much fun as humanly possible editing a text file... (er, yeah, right!)
+
+### Adding Bash Tags
+
+Before adding a tag to a mod, it is recommended that you:
+
+1. Check the mod in TES4Edit or equivalent to see if it does actually require that tag.
+2. Think about the nature of the mod, is it designed so that it is OK if things get overriden, or will it malfunction if that occurs?
+3. Read the mod documentation and the mod description field in Wrye Bash to check whether the mod author has supplied any tags with it, or recommended any to be added.
+
+That should ensure you have the correct information, so you can start to add the necessary tags. Use the Wrye Bash/Flash/Flash NV readme as a reference.
+
 ### Policies
 
 As time goes by, we sometimes find it's good to have rules written down for things relating to how we operate. This is where we write these rules. Please don't change them without prior discussion.
