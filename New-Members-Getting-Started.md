@@ -102,7 +102,7 @@ This line has been added by you.
 This is the last line of the file.
 ```
 
-You could decide to keep both lines one after another, in which you would edit the file so that it becomes:
+You could decide to keep both lines one after another, in which case you would edit the file so that it becomes:
 
 ```markdown
 This file is to be used to demonstrate conflict resolution.
