@@ -7,6 +7,7 @@ This page is intended to serve as a more up-to-date version of the table in the 
 <tbody>
 <tr><td colspan="3">Freso<td>&#x2717;<td>&#x2717;<td>&#x2717;<td>&#x2717;<td>&#x2713;<td>&#x2717;<td>&#x2717;
 <tr><td colspan="2">ineedbettername<td>-<td>&#x2717;<td>&#x2717;<td>&#x2717;<td>&#x2717;<td>&#x2713;<td>&#x2717;<td>&#x2717;
+<tr><td colspan="3">Sharlikran<td>&#x2717;<td>&#x2717;<td>&#x2717;<td>&#x2717;<td>&#x2713;<td>&#x2717;<td>&#x2717;
 <tr><td colspan="2">SilentSpike<td>SilentSpike69<td>&#x2717;<td>&#x2717;<td>&#x2717;<td>&#x2717;<td>&#x2713;<td>&#x2717;<td>&#x2717;
 <tr><td colspan="3">William Imm<td>&#x2717;<td>&#x2717;<td>&#x2713;<td>&#x2717;<td>&#x2713;<td>&#x2717;<td>&#x2717;
 <tr><td colspan="3">WrinklyNinja<td>&#x2713;<td>&#x2713;<td>&#x2717;<td>&#x2717;<td>&#x2717;<td>&#x2717;<td>&#x2717;
