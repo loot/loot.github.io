@@ -29,7 +29,7 @@ BOSS also has an API that gives programmers access to almost all of BOSS's funct
 
 [size=5]Downloads[/size]
 
-BOSS can be downloaded from its [url=http://code.google.com/p/better-oblivion-sorting-software/downloads/list]Google Code page[/url].
+BOSS can be downloaded from its [url=http://boss-developers.github.io]website[/url].
 
 [size=5]Contributions & Help[/size]
 
