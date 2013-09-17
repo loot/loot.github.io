@@ -117,7 +117,7 @@ Now you are ready to do the `git add <file>` step.
 
 ### Further Reading
 
-Before continuing, see the [[Guidelines|Guidelines]] page to familiarise yourself with the recommendations and team policies detailed there.
+Before continuing, see the [[Guidelines|Guidelines]] page to familiarise yourself with the recommendations and team policies detailed there. The [[Masterlist Editing|Masterlist-Editing]] page gives more information on how to go about making changes to the masterlists.
 
 For information on the format and syntax of the masterlists, see `docs/BOSS Metadata Syntax.html` in the [boss-code](https://github.com/boss-developers/boss-code) repository.
 
