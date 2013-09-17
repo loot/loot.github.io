@@ -7,7 +7,7 @@ These aren't absolute rules, and nobody is going to get into trouble for not man
 For the game(s) which masterlist(s) you maintain:
 
 * Consider and make any changes suggested on the forum thread or by PM (discuss the changes first if you think it is warranted).
-* Create a new thread whenever the current one reaches its 200 post limit.
+* Create a new thread whenever the current one reaches its 200 post limit. See [[Thread Management|Thread-Management]] for instructions.
 
 ### Admins
 
