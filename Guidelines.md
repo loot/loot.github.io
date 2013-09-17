@@ -5,7 +5,8 @@
 * Check out the masterlists and become familiar with the comments and categorisations therein. See the Metadata Syntax HTML file in the boss-code repository for the details.
 * Make as many silent comments as you want within the masterlists - it doesn't hurt (within reason).
 * Use blank lines to separate mods that are grouped together or where it helps readability.
-* Test your changes before uploading them, to make sure you didn't make any syntax typos.
+* Test your changes before uploading them, to make sure you didn't make any syntax typos. This is best done by running your edited masterlist through BOSS - make sure to first disable masterlist updating though!
+* If you add a non-standard message and can't translate it yourself (don't just run it through Google Translate or similar), then create an issue in the masterlist repository's issue track about it, so that someone else can see it needs translating and do it for you.
 * Have as much fun as humanly possible editing a text file... (er, yeah, right!)
 
 ### Adding Bash Tags
