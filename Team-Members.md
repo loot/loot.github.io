@@ -9,6 +9,7 @@ The tables on this page summarise the current and past membership of the BOSS te
         <tr><td colspan="2">ineedbettername<td>-<td><td><td><td>&#x2713;<td><td>
         <tr><td colspan="3">LotteryDiscountz<td><td><td><td>&#x2713;<td><td>
         <tr><td colspan="3">niveuseverto<td><td><td><td><td><td>&#x2713;
+        <tr><td>noxwyll<td colspan="2">iyumichan<td>&#x2713;<td><td><td><td><td>&#x2713;
         <tr><td colspan="3">Sharlikran<td><td><td><td>&#x2713;<td><td>
         <tr><td colspan="2">SilentSpike<td>SilentSpike69<td><td><td><td>&#x2713;<td><td>
         <tr><td>TokcDK<td colspan="2">Tokc.D.K.<td><td><td>&#x2713;<td>&#x2713;<td><td>
@@ -24,7 +25,6 @@ The status of the following members is currently unknown:
         <tr><th>Oblivion<th>Skyrim<th>Fallout 3<th>Fallout: New Vegas
     <tbody class="teamTableBody">
         <tr><td>Aellis<td>&#x2713;<td><td><td>&#x2713;<td><td>
-        <tr><td>iyumichan<td><td><td><td><td><td>&#x2713;
         <tr class="inactive"><td>PacificMorrowind<td>&#x2713;<td>&#x2713;<td>&#x2713;<td><td>&#x2713;<td>
         <tr class="inactive"><td>Random007<td>&#x2713;<td>&#x2713;<td>&#x2713;<td><td><td>
         <tr><td>scrapperrm<td><td><td><td>&#x2713;<td><td>
