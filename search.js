@@ -1,7 +1,6 @@
 var masterlists = [
     [ "Oblivion", "https://raw.github.com/boss-developers/boss-oblivion/master/masterlist.yaml" ],
-    [ "Skyrim", /*"http://boss-developers.github.io/boss-skyrim/masterlist.yaml"*/
-    "../boss-skyrim/masterlist.yaml" ],
+    [ "Skyrim", "http://boss-developers.github.io/boss-skyrim/masterlist.yaml" ],
     [ "Fallout 3", "https://raw.github.com/boss-developers/boss-fallout3/master/masterlist.yaml" ],
     [ "Fallout: New Vegas", "https://raw.github.com/boss-developers/boss-fallout-new-vegas/master/masterlist.yaml" ]
 ]
