@@ -33,7 +33,7 @@ function onReqLoad() {
 
     console.log("Starting search.");
     for (var i in lines) {
-        if (lines[i].find(searchBox.value)) {
+        if (lines[i].indexOf(searchBox.value) != -1) {
             console.log(lines[i]);
         }
     }
