@@ -8,6 +8,12 @@ The purpose of this page is to give a bit of detail on the masterlist editing pr
 * Use blank lines to separate mods that are grouped together or where it helps readability.
 * Test your changes before uploading them, to make sure you didn't make any syntax mistakes. This is best done by running your edited masterlist through BOSS - make sure to first disable masterlist updating though, or else BOSS may overwrite your edited one with the latest in the repository!
 
+### Adding New Entries
+
+Before you add a new entry for a plugin, make sure that there isn't already an existing entry for it. BOSS will attempt to merge entries if there are more than one for a plugin, but some metadata may be lost in the process, so it's always safer to only have one entry per plugin. 
+
+Simply opening up the masterlist and doing a `Ctrl-F` search for the plugin filename won't always be enough, because plugin entries can use regular expression matching to match multiple plugin names, and they won't be found. Instead, use the online [Masterlist Search](http://boss-developers.github.io/search/) page to perform a search of the masterlist. As well as being able to match regular expressions, it also checks against the same copy of the masterlist that BOSS users get, so you can be sure that it will always be up-to-date.
+
 ### Dirty Edit Metadata
 
 If a user posts dirty counts for a plugin that already has a dirty message for the same CRC, and the counts are different to what's in the masterlist, just replace the existing counts with what the user gave if they used the latest version of TES5Edit. If they didn't give the TES5Edit version number, only replace the existing counts if the new counts are higher (which generally indicates a newer version).
@@ -41,4 +47,3 @@ The differences are all detailed in the `docs/BOSS Masterlist Syntax.html` file 
 
 * In v2, each condition that checked the CRC of a different plugin would increase execution time, and there was a hierarchy of condition performance generally. In v3, all conditions are cached so they get calculated a maximum of once, and CRCs are calculated anyway during sorting, so they introduce no additional performance hit (and indeed are quicker than regex checks for it). Basically, conditions can no longer realistically impact performance in a noticeable way.
 * In v2, compound conditions were evaluated left-to-right. In v3, they are evaluated according to the standard rules of operator precedence, ie. `<function>` before `not` before `and` before `or`.
-
