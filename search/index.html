@@ -1,19 +1,57 @@
 <!DOCTYPE html>
-<meta charset='utf-8' />
-<title>BOSS Masterlist Search</title>
-<style>
-    code {white-space:pre; display:block; margin:1.5em; margin-top:0;}
-</style>
+<html>
 
-<input type="text" id="searchBox">
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="BOSS : A load order optimisation tool for games using the Elder Scrolls Plugin/Master system." />
 
-<select id="gameSelect">
-</select>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
 
-<button id="searchButton">Search</button>
+    <title>BOSS Masterlist Search</title>
 
-<div id="results"></div>
+    <style>
+        code {white-space:pre; display:block; margin:1.5em; margin-top:0;}
+    </style>
+  </head>
 
-<script src="search.js"></script>
+  <body>
 
-<p id="activityIndicator">
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/boss-developers">View on GitHub</a>
+
+          <h1 id="project_title">BOSS Masterlist Search</h1>
+          <h2 id="project_tagline"></h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+        <input type="text" id="searchBox" autofocus>
+
+        <select id="gameSelect">
+        </select>
+
+        <button id="searchButton">Search</button>
+
+        <div id="results"></div>
+
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    <script src="search.js"></script>
+
+  </body>
+</html>

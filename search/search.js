@@ -51,7 +51,7 @@ function onReqLoad() {
         if (result) {
             var elem = document.createElement('code');
             elem.textContent = result;
-            document.body.appendChild(elem);
+            resultsDiv.appendChild(elem);
 
             console.log("Match: " + result);
         }
@@ -70,21 +70,32 @@ function onReqLoad() {
 
                 var elem = document.createElement('p');
                 elem.textContent = "Line " + i;
-                document.body.appendChild(elem);
+                resultsDiv.appendChild(elem);
             }
 
         } else if (line.indexOf(searchBox.value) !== -1) {
             result = line;
 
             var elem = document.createElement('p');
-            elem.textContent = "Line " + (i + 1);
-            document.body.appendChild(elem);
+            elem.textContent = "Line " + (parseInt(i, 10) + 1);
+            resultsDiv.appendChild(elem);
         }
     }
+
+    if (!resultsDiv.firstChild) {
+        var elem = document.createElement('p');
+        elem.textContent = "No matching entries found.";
+        resultsDiv.appendChild(elem);
+    }
+
     console.log("Search complete.");
 }
 
 function onSearchInit(evt) {
+
+    if (evt.keyCode != 0 && evt.keyCode != 13) {
+        return;
+    }
 
     if (gameSelect.value.length < 5) {
         return;
@@ -108,3 +119,4 @@ for (var i=0; i < masterlists.length; ++i) {
 }
 
 searchButton.addEventListener("click", onSearchInit, false);
+document.body.addEventListener("keypress", onSearchInit, false);
