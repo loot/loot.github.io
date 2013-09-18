@@ -1,8 +1,8 @@
 var masterlists = [
-    [ "Oblivion", "https://raw.github.com/boss-developers/boss-oblivion/master/masterlist.yaml" ],
+    [ "Oblivion", "http://boss-developers.github.io/boss-oblivion/masterlist.yaml" ],
     [ "Skyrim", "http://boss-developers.github.io/boss-skyrim/masterlist.yaml" ],
-    [ "Fallout 3", "https://raw.github.com/boss-developers/boss-fallout3/master/masterlist.yaml" ],
-    [ "Fallout: New Vegas", "https://raw.github.com/boss-developers/boss-fallout-new-vegas/master/masterlist.yaml" ]
+    [ "Fallout 3", "http://boss-developers.github.io/boss-fallout3/masterlist.yaml" ],
+    [ "Fallout: New Vegas", "http://boss-developers.github.io/boss-fallout-new-vegas/masterlist.yaml" ]
 ]
 
 var gameSelect = document.getElementById('gameSelect');
@@ -94,10 +94,6 @@ function onReqLoad() {
 function onSearchInit(evt) {
 
     if (evt.keyCode != 0 && evt.keyCode != 13) {
-        return;
-    }
-
-    if (gameSelect.value.length < 5) {
         return;
     }
 
