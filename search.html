@@ -26,9 +26,23 @@ var searchBox = document.getElementById('searchBox');
 function onReqLoad() {
     /* Do search here. */
     console.log("Got masterlist");
+
+    console.log("Splitting line-by-line.");
+
+    var lines = this.responseText.split("\n");
+
+    console.log("Starting search.");
+    for (var i in lines) {
+        if (lines[i].find(searchBox.value)) {
+            console.log(lines[i]);
+        }
+    }
+    console.log("Search complete.");
 }
 
 function onSearchInit(evt) {
+
+    console.log("Loading masterlist...");
 
     var mlistReq = new XMLHttpRequest();
     mlistReq.onload = onReqLoad;
