@@ -5,10 +5,10 @@ var masterlists = [
     [ "Fallout: New Vegas", "https://raw.github.com/boss-developers/boss-fallout-new-vegas/master/masterlist.yaml" ]
 ]
 
-
 var gameSelect = document.getElementById('gameSelect');
 var searchButton = document.getElementById('searchButton');
 var searchBox = document.getElementById('searchBox');
+var resultsDiv = document.getElementById('results');
 
 function getRegexLineEnd(line) {
     var pos = line.indexOf("\\.esp");
@@ -30,6 +30,11 @@ function onReqLoad() {
     var lines = this.responseText.split("\n");
 
     console.log("Starting search.");
+
+    /* Clear any previous search results. */
+    while (resultsDiv.firstChild) {
+        resultsDiv.removeChild(resultsDiv.firstChild);
+    }
 
     var result = null;
     for (var i in lines) {
@@ -81,7 +86,12 @@ function onReqLoad() {
 
 function onSearchInit(evt) {
 
+    if (gameSelect.value.length < 5) {
+        return;
+    }
+
     console.log("Loading masterlist...");
+    resultsDiv.textContent = "Loading masterlist...";
 
     var mlistReq = new XMLHttpRequest();
     mlistReq.onload = onReqLoad;
