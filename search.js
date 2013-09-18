@@ -11,9 +11,9 @@ var searchButton = document.getElementById('searchButton');
 var searchBox = document.getElementById('searchBox');
 
 function getRegexLineEnd(line) {
-    var pos = line.indexOf("\\.esp", line.length - 5);
+    var pos = line.indexOf("\\.esp");
     if (pos === -1) {
-        pos = line.indexOf("\\.esm", line.length - 5);
+        pos = line.indexOf("\\.esm");
     }
     if (pos !== -1) {
         pos += 5;
@@ -31,35 +31,49 @@ function onReqLoad() {
 
     console.log("Starting search.");
 
+    var result = null;
     for (var i in lines) {
         var line = lines[i];
 
         var pos1 = line.indexOf("name:");
         if (pos1 === -1) {
+            if (result) {
+                result += '\n' + line;
+            }
             continue;
         }
 
+        if (result) {
+            var elem = document.createElement('code');
+            elem.textContent = result;
+            document.body.appendChild(elem);
 
-        var found = false;
+            console.log("Match: " + result);
+        }
+        result = null;
+
         var pos2 = getRegexLineEnd(line);
         if (pos2 !== -1) {
-
+            pos1 += 5;
 
             /* Extract regex from line. */
-            line.substring(pos1, pos2 - pos1);
-            console.log("Extracted " + line);
-            var re = new RegExp(line, "i");
+            var reStr = line.substring(pos1, pos2).trim();
+            var re = new RegExp(reStr, "i");
 
             if (re.test(searchBox.value)) {
-                found = true;
+                result = line;
+
+                var elem = document.createElement('p');
+                elem.textContent = "Line " + i;
+                document.body.appendChild(elem);
             }
 
         } else if (line.indexOf(searchBox.value) !== -1) {
-            found = true;
-        }
+            result = line;
 
-        if (found) {
-            console.log(line);
+            var elem = document.createElement('p');
+            elem.textContent = "Line " + (i + 1);
+            document.body.appendChild(elem);
         }
     }
     console.log("Search complete.");
@@ -83,6 +97,4 @@ for (var i=0; i < masterlists.length; ++i) {
     gameSelect.appendChild(option);
 }
 
-document.getElementById("searchButton").addEventListener("click", onSearchInit, false);
-
-console.log("\\.esp");
+searchButton.addEventListener("click", onSearchInit, false);
