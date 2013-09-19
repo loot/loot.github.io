@@ -73,7 +73,7 @@ function onReqLoad() {
                 resultsDiv.appendChild(elem);
             }
 
-        } else if (line.indexOf(searchBox.value) !== -1) {
+        } else if (line.toLowerCase().indexOf(searchBox.value.toLowerCase()) !== -1) {
             result = line;
 
             var elem = document.createElement('p');
@@ -116,3 +116,22 @@ for (var i=0; i < masterlists.length; ++i) {
 
 searchButton.addEventListener("click", onSearchInit, false);
 document.body.addEventListener("keypress", onSearchInit, false);
+
+/* If the page was loaded with a PHP-style GET string `?game=<game>&search=<search>`, read it for the search term and perform a search. */
+var pos = document.URL.indexOf("?game=");
+if (pos != -1) {
+    var pos2 = document.URL.indexOf("&search=");
+    searchBox.value = document.URL.substring(pos2+8);
+    var game = document.URL.substring(pos+6, pos2).toLowerCase();
+    if (game == "oblivion") {
+        gameSelect.value = masterlists[0][1];
+    } else if (game == "skyrim") {
+        gameSelect.value = masterlists[1][1];
+    } else if (game == "fallout3") {
+        gameSelect.value = masterlists[2][1];
+    } else if (game == "falloutnv") {
+        gameSelect.value = masterlists[3][1];
+    }
+
+    searchButton.click();
+}
