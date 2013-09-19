@@ -12,7 +12,15 @@ The purpose of this page is to give a bit of detail on the masterlist editing pr
 
 Before you add a new entry for a plugin, make sure that there isn't already an existing entry for it. BOSS will attempt to merge entries if there are more than one for a plugin, but some metadata may be lost in the process, so it's always safer to only have one entry per plugin. 
 
-Simply opening up the masterlist and doing a `Ctrl-F` search for the plugin filename won't always be enough, because plugin entries can use regular expression matching to match multiple plugin names, and they won't be found. Instead, use the online [Masterlist Search](http://boss-developers.github.io/search/) page to perform a search of the masterlist. As well as being able to match regular expressions, it also checks against the same copy of the masterlist that BOSS users get, so you can be sure that it will always be up-to-date.
+Simply opening up the masterlist and doing a `Ctrl-F` search for the plugin filename won't always be enough, because plugin entries can use regular expression matching to match multiple plugin names, and they won't be found. Instead, use the online [Masterlist Search](http://boss-developers.github.io/search/) page to perform a search of the masterlist. 
+
+As well as being able to match regular expressions, it also checks against the same copy of the masterlist that BOSS users get, so you can be sure that it will always be up-to-date. It's case-insensitive and you can even pass search parameters in the URL. The syntax is
+
+```yaml
+http://boss-developers.github.io/search/?game=<game>&search=<search>
+```
+
+where `<game>` can be one of `oblivion`, `skyrim`, `fallout3` and `falloutnv`. `<search>` is the string you want to search for.
 
 ### Dirty Edit Metadata
 
