@@ -22,6 +22,56 @@ http://boss-developers.github.io/search/?game=<game>&search=<search>
 
 where `<game>` can be one of `oblivion`, `skyrim`, `fallout3` and `falloutnv`. `<search>` is the string you want to search for.
 
+### Common Metadata
+
+Often the same metadata is used for plugins throughout the masterlist, for example generic messages. Rather than having these messages copy/pasted, YAML's anchor/alias feature can be used to define (anchor) the metadata once somewhere, then reference (alias) it wherever else it needs to be used. This has the advantages of guaranteeing consistency, eliminating typos, cutting down the overall size of the masterlist, and improving readability.
+
+In the masterlists, everything that gets anchored and aliased in this manner should go in the `common` node, which is a sibling of the `plugins` and `globals` nodes that are mentioned in the Metadata Syntax documentation. The `common` node is ignored by BOSS, but the YAML parser still reads it, and will therefore still substitute any aliases made. By putting all the anchors in one place, it makes it easy for other maintainers to take advantage of any existing anchors, and avoids any duplication of anchors.
+
+An example demonstrating just how much of a difference anchors/aliases can make:
+
+```yaml
+common:
+  - &useBP
+    type: say
+    content:
+      - str: Use Bashed Patch tweak instead.
+        lang: eng
+      - str: Используйте вместо этого настройку башед патча.
+        lang: rus
+    condition: 'regex("Bashed Patch.*\.esp")'
+  - &dirtyDoNotClean
+    type: say
+    content:
+      - str: Do not clean. "Dirty" edits are intentional and required for the mod to function.
+        lang: eng
+      - str: Не очищать. "Грязные" правки оставлены специально и требуются для функционирования мода.
+        lang: rus
+  - &skse1.6.5
+    name: "..\skse_loader.exe"
+    display: Skyrim Script Extender v1.6.5+
+    condition: 'version("..\skse_loader.exe", "0.1.6.5", <)'
+
+plugins:
+  - name: BBLuxurySuite.esm
+    msg: [ *dirtyDoNotClean ]
+  - name: Convenient Horses.esp
+    msg: [ *dirtyDoNotClean ]
+  - name: 72HoursRespawn.esp
+    msg: [ *useBP ]
+  - name: Respawn\w{3,5}Days{0,1}\.esp
+    msg: [ *useBP ]
+  - name: Skyrim 120 Day Respawn.esp
+    msg: [ *useBP ]
+  - name: kuerteeDisableLightsFarFromActors.esp
+    req: [ *skse1.6.5 ]
+  - name: CUYC_CleanUpYourCorpses.esp
+    req: [ *skse1.6.5 ]
+   
+```
+
+Notice how in the example above, the `common` node has two different types of data structure in the same list (message and file structures). If this was done anywhere in the `globals` or `plugins` nodes BOSS would complain, because it expects a certain format, but because BOSS doesn't look at the `common` node, this is OK.
+
 ### Dirty Edit Metadata
 
 If a user posts dirty counts for a plugin that already has a dirty message for the same CRC, and the counts are different to what's in the masterlist, just replace the existing counts with what the user gave if they used the latest version of TES5Edit. If they didn't give the TES5Edit version number, only replace the existing counts if the new counts are higher (which generally indicates a newer version).
