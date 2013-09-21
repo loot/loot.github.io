@@ -42,7 +42,7 @@ You should also sync your repository before making any changes, to make sure tha
 
 Before continuing, see the [[Guidelines|Guidelines]] page to familiarise yourself with the recommendations and team policies detailed there. The [[Masterlist Editing|Masterlist-Editing]] page gives more information on how to go about making changes to the masterlists. See the [[Resolving Conflicts|Resolving-Conflicts]] page on how to handle situations where someone else has edited a masterlist at the same time as you and applied their changes first.
 
-For information on the format and syntax of the masterlists, see `docs/BOSS Metadata Syntax.html` in the [boss-code](https://github.com/boss-developers/boss-code) repository.
+For information on the format and syntax of the masterlists, see the [Metadata Syntax](http://boss-developers.github.io/docs/BOSS%20Metadata%20Syntax.html) documentation.
 
 ### Getting Help
 
