@@ -39,6 +39,14 @@ h3{
 
     a[href^="http"]:after {padding-left:2px; content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=);}
 
+    .slideshow img {opacity:0;
+        position:absolute;
+        transition: opacity 1.5s;
+        -moz-transition: opacity 1.5s;
+        -webkit-transition: opacity 1.5s;
+        -o-transition: opacity 1.5s;}
+    .slideshow img:first-child {opacity:1;}
+
     span[title] {border-bottom: 1px dotted; font-family: sans-serif; cursor:help;}
     abbr {cursor:help; border-bottom: 1px dotted black;}
 
@@ -99,9 +107,9 @@ h3{
         <li><a href="#appendix-intro">Introduction To Load Orders</a>
         <li><a href="#appendix-dirty">Dirty Edits, Mod Cleaning &amp; CRCs</a>
         <li><a href="#appendix-permissions">File Permissions</a>
+        <li><a href="#appendix-diff">Differences between BOSS v2 and v3</a>
     </ol>
     <li><a href="#history">Version History</a>
-    <li><a href="BOSS%20Metadata%20Syntax.html">Metadata Syntax</a> (separate document)
 </ol>
 
 <h2 id="intro">Introduction</h2>
@@ -114,12 +122,10 @@ h3{
 
 <p>BOSS is intended to make using mods easier, and mod users should still possess a working knowledge of mod load ordering. See <a href="#appendix-intro">Introduction To Load Orders</a> for an overview.
 
-<p><b>Note:</b> BOSS version 3 is an almost complete redesign and rewrite of v2. As such, it generally produces different load orders compared to v2. Although much of the v2 masterlist data has been converted for v3, some load order metadata must be rebuilt from scratch, and so some plugins that were sorted correctly by v2 may be sorted incorrectly by v3 until their metadata has been recorded. Users can aid this process by submitting any mistakes they spot to the BOSS team, along with their corrections.
-
 
 <h2 id="install">Installation &amp; Uninstallation</h2>
 
-<blockquote class="warning">BOSS version 3 is incompatible with earlier versions, which should be removed. Any existing user rules must be manually recreated in BOSS's user interface.</blockquote>
+<blockquote class="warning">BOSS version 3 is incompatible with earlier versions, which should be removed. Any existing user rules must be manually recreated in BOSS's user interface. Some plugins sorted correctly in v2 may be sorted incorrectly by v3 until their metadata has been recorded. Please <a href="#contrib">notify the team</a> if you observe any load order issues.</blockquote>
 
 <p>BOSS can be installed either using its automated installer or manually. To install BOSS manually:
 <ol>
@@ -150,32 +156,24 @@ h3{
     <img src="images/confirm.png">
     <figcaption>Editing BOSS's calculated load order.</figcaption>
 </figure>
-<p>Clicking the <q>Sort Plugins</q> button in the main window will begin the sorting process, which consists of the following steps:
-<ol>
-    <li>Provided that masterlist updating <a href="#settingsUpdateMasterlist">is enabled</a> and that an online masterlist URL <a href="#settingsMasterlistURL">is set</a>, BOSS checks for updates to its masterlist and downloads any that are available. If there are any syntax errors in the latest masterlist (due to human error by its maintainers), the updater rolls back one version at a time until it finds a version that works. If any other errors are encountered, updating is cancelled. Details of any errors encountered will be supplied in BOSS's report.
-    <li>The game's Data folder is scanned for plugins, including those ghosted by <abbr title="Wrye Bash, Wrye Flash or Wrye Flash NV">Wrye *ash</abbr>. The contents of each plugin are read to obtain data such as: whether or not it is a master file; the FormIDs of the records it contains; what its masters are; any Bash Tags that are applied; and any version number it has been given in its description.
-    <li>The masterlist and userlist are read. Any errors encountered will be detailed in BOSS's report.
-    <li>For each plugin, any userlist data present is merged down to any masterlist data present, which is then in turn combined with the data read from the plugin.
-    <li>For each plugin, any data conditions are evaluated and irrelevant data discarded. Any errors encountered during evaluation will be detailed in BOSS's report.
-    <li>Checks are performed to ensure that all dependencies are present in the game's Data folder, and that no incompatibilities are present. If a dependency is missing or an incompatibility is present, an error message will be displayed in BOSS's report.
-    <li>A directed graph of all the plugins and their interactions is built.
-    <li>If it <a href="#settingsGenerateGraphImage">is enabled</a>, an SVG image of the graph is generated for display in the report.
-    <li>The graph is checked to ensure that it is acyclic, ie. that it contains no cyclic dependencies or similar. If any cycles are found, sorting is aborted, and the cycles will be detailed in BOSS's report.
-    <li>A load order is produced by performing a topological sort of the graph.
-    <li>The dialog shown above is displayed, allowing you to move plugins up or down the load order. The dialog allows multiple plugins to be selected and moved at once.
-    <li>If the <q>OK</q> button is pressed, the final load order will be applied. Otherwise, no load order changes will be made.
-    <li>BOSS's report will be generated and displayed either in a new window or in your default browser, according to the value of the <a href="#settingsViewReports">relevant setting</a>. See the next section for more information on the report.
-</ol>
-<p>While reading very large plugins, such as the game's main master file, BOSS may appear to stop responding: this is not an issue.
-<p>The time it takes for BOSS to sort your load order depends primarily on the size of the masterlist being used, the total size of the files in your load order, and the number of plugins in your load order. The first run is likely to be longer than subsequent runs as BOSS needs to download the full masterlist, rather than just the changes made by updates. In testing, it was found that sorting ~90 plugins with a total size of ~350 MB and a 5 MB masterlist takes around 15 seconds, though performance will vary with computer hardware.
+<p>Clicking the <q>Sort Plugins</q> button in the main window will begin the sorting process.
+
+<p>Provided that masterlist updating <a href="#settingsUpdateMasterlist">is enabled</a> and that an online masterlist URL <a href="#settingsMasterlistURL">is set</a>, BOSS checks for updates to its masterlist and downloads any that are available. If there are any syntax errors in the latest masterlist (due to human error by its maintainers), the updater rolls back one version at a time until it finds a version that works. If any other errors are encountered, updating is cancelled.
+
+<p>During the sorting process, BOSS extracts information from each of the plugins installed in the game's Data folder and combines this information with any relevant metadata provided by the masterlist and userlist. It then uses the combined data to build a graph (as in <i>graph theory</i>, not <i>drawing</i>) of all the interactions between all the installed plugins. A topological sort is then carried out on the graph to produce a list of plugins in their optimal load order, according to BOSS's criteria. If a cycle is detected (eg. A depends on B depends on A), then sorting is cancelled as it becomes impossible to generate a load order that satisfies all conditions.
+<p>If successful, the calculated load order is then displayed in the dialog shown above, which allows the user to edit the load order before it is applied. Multiple plugins may be selected and moved at once. If <q>OK</q> button is clicked, it is then applied, and any edits made are recorded in the userlist for re-application when BOSS next sorts the game's plugins. If the <q>Cancel</q> button is clicked, then the load order and any edits made are discarded.
+<p>BOSS then generates a report and displays it either in a new window or in your default browser, according to the value of the <a href="#settingsViewReports">relevant setting</a>. Any errors encountered during the sorting process will be displayed in this report, including those due to graph cycles, missing dependencies or installed incompatible plugins. If it <a href="#settingsGenerateGraphImage">is enabled</a>, an SVG image of the graph is generated for display in the report. See the next section for more information on the report.
+<p>BOSS is able to sort plugins ghosted by <abbr title="Wrye Bash, Wrye Flash or Wrye Flash NV">Wrye *ash</abbr>, and can extract Bash Tags and version numbers from plugin descriptions. Providing they have the <code>Filter</code> Bash Tag present in their description, BOSS can recognise filter patches and so avoid displaying unnecessary error messages for any of their masters that may be missing.
+<p>While reading very large plugins, such as the game's main master file, BOSS may appear to stop responding: this is not an issue. The time it takes for BOSS to sort your load order depends primarily on the size of the masterlist being used, the total size of the files in your load order, and the number of plugins in your load order. The first run is likely to be longer than subsequent runs as BOSS needs to download the full masterlist, rather than just the changes made by updates. In testing, it was found that sorting ~90 plugins with a total size of ~350 MB and a 5 MB masterlist takes around 15 seconds, though performance will vary with computer hardware.
 
 
 <h3 id="usage-log">The Results Report</h3>
-<figure>
-    <img src="images/viewer-1.png">
-    <img src="images/viewer-2.png">
-    <figcaption>BOSS's report viewer.</figcaption>
+<figure class="slideshow">
+    <img alt="BOSS report summary tab" src="images/viewer-1.png">
+    <img alt="BOSS report details tab" src="images/viewer-2.png">
+    <figcaption style="padding-top:610px;">BOSS's report viewer.</figcaption>
 </figure>
+
 <p>BOSS's results report can be displayed either in BOSS's own report viewer, or in your default web browser, according to the value of the <a href="#settingsViewReports">relevant setting</a>.
 <p>The report is comprised of three main sections:
 <ul>
@@ -391,6 +389,7 @@ To translate the BOSS application:
         <tr><th colspan="3">Member<th rowspan="2">Admin<th rowspan="2">Code<th colspan="4">Contributes To Masterlist
         <tr><th>GitHub<th>Bethesda<th>Nexus<th>Oblivion<th>Skyrim<th>Fallout 3<th>Fallout: New Vegas
     <tbody class="teamTableBody">
+        <tr><td>Aellis-BOSS<td colspan="2">Aellis<td>&#x2713;<td><td><td>&#x2713;<td><td>
         <tr><td colspan="3">Freso<td><td><td><td>&#x2713;<td><td>
         <tr><td colspan="2">ineedbettername<td>-<td><td><td><td>&#x2713;<td><td>
         <tr><td colspan="3">LotteryDiscountz<td><td><td><td>&#x2713;<td><td>
@@ -410,7 +409,6 @@ To translate the BOSS application:
         <tr><th rowspan="2">Member<th rowspan="2">Admin<th rowspan="2">Code<th colspan="4">Contributes To Masterlist
         <tr><th>Oblivion<th>Skyrim<th>Fallout 3<th>Fallout: New Vegas
     <tbody class="teamTableBody">
-        <tr><td>Aellis<td>&#x2713;<td><td><td>&#x2713;<td><td>
         <tr class="inactive"><td>PacificMorrowind<td>&#x2713;<td>&#x2713;<td>&#x2713;<td><td>&#x2713;<td>
         <tr class="inactive"><td>Random007<td>&#x2713;<td>&#x2713;<td>&#x2713;<td><td><td>
         <tr><td>scrapperrm<td><td><td><td>&#x2713;<td><td>
@@ -519,32 +517,88 @@ There are three key pieces of information that are used to accurately describe a
     <li>In the <q>Properties</q> window, select OK to exit. You should now have Full Control permissions over your chosen folder.
 </ol>
 
+<h3 id="appendix-diff">Differences between BOSS v2 and v3</h3>
+<p>BOSS version 3 is an almost complete redesign and rewrite of v2. As part of its development, many features present in v2 have been changed or removed, and the table below provides an overview of these changes.
+<table>
+    <thead>
+        <tr><td>Feature / Component<td>BOSS v2<td>BOSS v3
+    <tbody>
+        <tr><td>Plugin sorting mechanism<td>BOSS scans the game plugin folder for plugins, and arranges those found in the order that they appear in the masterlist. This order is then altered according to any user rules present in the userlist.<td>BOSS scans the game plugin folder for plugins, reads their contents, and uses this data on their masters and the records they change in conjunction with any additional metadata supplied by the masterlist and userlist to calculate the optimal load order according to its sorting algorithm. The load order produced is generally different to that provided by v2.
+        <tr><td>Masterlist updating<td>BOSS downloads a masterlist and inserts into it version information that is scraped from Google Code.<td>BOSS uses Git to update masterlists, benefiting from a more robust mechanism with support for differential updates (reducing the amount of data that needs to be downloaded) and rolling back revisions in case of parsing errors.
+        <tr><td>Masterlist structure &amp; syntax<td>Uses a custom file format.<td>Uses YAML 1.2, with custom condition string syntax modelled after Python's condition expressions.
+        <tr><td>Userlist structure &amp; syntax<td>Uses a custom file format, different from the masterlist format.<td>Uses the same format and syntax as the masterlist.
+        <tr><td>Morrowind support<td>Technically supports Morrowind, though its masterlist is near-empty.<td>Does not support Morrowind.
+        <tr><td>BOSS file locations<td>All BOSS's files are stored in the BOSS folder first installed.<td>BOSS stores any files it creates (reports, masterlists, userlists, settings, graphs) in the <code>%LOCALAPPDATA%\BOSS</code> folder.
+        <tr><td>Game selection on first run.<td>BOSS asks the user to select a game from a list.<td>BOSS selects the first game detected.
+        <tr><td>File CRC calculation<td>File CRC calculation is optional.<td>File CRC calculation is always-on, as it no longer presents any significant additional performance impact.
+        <tr><td>BOSS Log / Report format<td>The BOSS Log can either be generated as plain text or as HTML.<td>The BOSS Report can only be generated as HTML.
+        <tr><td>Perform trial run<td>BOSS can perform a trial run, in which it displays the load order it would set, but does not set it.<td>The option to perform a trial run has been removed, as equivalent functionality is provided by cancelling sorting at the confirmation dialog.
+        <tr><td>Update masterlist only<td>BOSS can be run to update a game's masterlist without then sorting any plugins, even if that game is not installed.<td>BOSS can only update a masterlist as part of the sorting process, and cannot run for games that are not installed. This is because BOSS's updating process no longer inserts version information into the masterlists, and so the exact same masterlists that BOSS uses can now be downloaded from BOSS's online repositories using a web browser, removing the need for BOSS to include this functionality.
+        <tr><td>Undo changes<td>It is possible to run BOSS to undo its changes back one run or two.<td>It is no longer possible to undo load order changes through BOSS. Instead a confirmation dialog is provided to allow users to make sure that BOSS will set a load order they want, and to give them a last-minute opportunity to backup their existing load order, perhaps using a mod manager of their choice.
+        <tr><td>Optionally suppress BOSS Log / Report display<td>BOSS allows the user to stop the BOSS Log being automatically displayed after sorting.<td>The BOSS Report is always displayed after sorting, as it is more important for the user to verify that the automated sorting process completed successfully and correctly.
+        <tr><td>Nehrim support<td>BOSS provides first-class support for  Nehrim alongside Oblivion, Skyrim, Fallout 3 and Fallout: New Vegas<td>BOSS supports Nehrim as an Oblivion-derived game instance, and the Nehrim and Oblivion masterlists have been merged. This is due to v3's generalised support for Total Conversion mods across the games it supports. In practice Nehrim support appears the same.
+        <tr><td>User rules<td>BOSS allows the user to customise its output by providing user rules for specifying relative plugin positions and for adding to or replacing the messages attached to mods.<td>BOSS allows the user to add to any metadata provided by the masterlist.
+        <ul>
+            <li>It is no longer possible to specify a plugin A to load before another plugin B, though an identical effect may be produced by loading B after A.
+            <li>It is no longer possible to sort or insert into groups, as groups no longer exist.
+            <li>It is no longer possible to replace messages provided by the masterlist.
+            <li>Knowledge of message syntax is no longer required to add new messages.
+            <li>It is now possible to provide conditions for user-added messages.
+        </ul>
+        <tr><td>Updating BOSS<td>BOSS includes an update checker and a semi-automated update process.<td>BOSS no longer includes an update checker or a semi-automated update process. This is because new releases are announced in the masterlists anyway, and the semi-automated update process is not as efficient as using the installer.
+        <tr><td>Manual editing of user rules / metadata<td>BOSS allows the user to open the userlist file for manual editing from the GUI.<td>BOSS only provides the GUI metadata editor for editing the userlist. Users may still edit the userlist file manually, but it must also be located manually.
+        <tr><td>Proxy Support<td>BOSS includes support for proxies, allowing users to specify the proxy hostname and port number and provide authentication details.<td>BOSS no longer includes any proxy support, as the proxy support in v2 was reported broken a few times and it was deemed not worth fixing due to very low usage.
+        <tr><td>BOSS Log / Report content<td>The BOSS Log includes the following sections:
+        <ul>
+            <li>Summary
+            <li>User Rules
+            <li>Script Extender Plugins
+            <li>Recognised Plugins
+            <li>Unrecognised Plugins
+        </ul>
+        <td>The user rules and script extender plugins sections have been removed as user metadata cannot fail to be applied, and the script extender plugins information was deemed irrelevant. The recognised and unrecognised plugins sections have been combined into one Details section, as there is no longer any such thing as an unrecognised plugin.
+        <tr><td>BOSS Log / Report Filters<td>The HTML BOSS Log includes a large number of filters to selectively hide content.<td>The number of filters has been reduced, as some are no longer applicable:
+        <ul>
+            <li>BOSS no longer labels active plugins as such, so the active label filter has been removed.
+            <li>Requirement and incompatibility messages no longer exist (instead warnings are displayed if the relevant files are missing / present), so their corresponding filters have been removed.
+            <li>The hide clean plugins filter has been removed as it was misleading, since the plugins hidden were not necessary clean.
+        </ul>
+        <tr><td>BOSS Log plugin submission<td>BOSS allows users to submit unrecognised plugins from the HTML BOSS Log.<td>As there is no longer any such thing as an unrecognised plugin, the submission system has been removed.
+        <tr><td>BOSS Log display customisation<td>BOSS allows users to customise the colour scheme used by the BOSS Log.<td>BOSS does not allow customisation of the colour scheme used by the BOSS report. However, the styling is now provided by a static stylesheet instead of being dynamically generated within the report every time BOSS is run, so this static stylesheet can be edited to achieve the same effect.
+        <tr><td>Command line interface<td>BOSS provides a command line interface.<td>BOSS does not provide a command line interface, as the greater need for user interaction makes it unweildy.
+</table>
+
 <h2 id="history">Version History</h2>
-<p>Only the history of version 3 is given, as changes prior to version 3 are irrelevant due to the complete redesign that occurred. The masterlists are updated far too frequently for their changes to be concisely recorded here, but a full history of changes to them may be viewed by browsing the Google Code repository.
+<p>Only the history of version 3 is given, as changes prior to version 3 are irrelevant due to the complete redesign that occurred. The masterlists are updated far too frequently for their changes to be concisely recorded here, but a full history of changes to them may be viewed by browsing the GitHub repositories.
 
 <h3>3.0.0 - <i>Day Month 2013</i></h3>
 <ul>
-	<li>BOSS completely redesigned from scratch and almost completely rewritten.
-	<li>Command Line Interface removed.
-	<li>Command line arguments removed.
-	<li>Plain text BOSS Log removed.
-	<li>Support for Morrowind removed.
-	<li>BOSS Log Display Settings removed.
-	<li>BOSS Log Filters Hide 'Active' Label, Hide Checksums, Hide Requirements, Hide Incompatibilities, Hide Inactive Plugins and Hide Clean Plugins removed.
-	<li>BOSS Log sections User Rules, Script Extender Plugins and Unrecognised Plugins removed.
-	<li>BOSS Log unrecognised plugin submission removed.
-	<li>Proxy support removed.
-	<li>BOSS program updater removed.
-	<li>Display of file CRCs in BOSS Log removed.
-	<li>Undo Changes functionality removed.
-	<li>Update Masterlist Only functionality removed.
-	<li>Dirty plugin, incompatibility and requirement message types removed.
-	<li>Masterlist format completely changed.
-	<li>Userlist format completely changed.
-	<li>BOSS settings file format completely changed.
-	<li>BOSS files that are edited are now stored in a folder within %LOCALAPPDATA%.
-	<li>BOSS Log retitled BOSS Report.
-    <li>BOSS Log redesigned.
-	<li>Masterlist updater now uses Git.
-	<li>BOSS now sorts plugins according to their parsed contents, supplemented by metadata supplied by the masterlist and userlist.
+	<li>BOSS completely redesigned from scratch and almost completely rewritten. See <a href="#appendix-diff">Differences between BOSS v2 and v3</a> for an overview of the changes.
 </ul>
+
+<script>
+"use strict";
+function nextImage(imgs, i){
+    for(var i=0;i<imgs.length;i++){
+        if(imgs[i].style.opacity=='1' || imgs[i].style.opacity==''){
+            imgs[i].style.opacity='0';
+            if(i+1<imgs.length){
+                imgs[i+1].style.opacity='1';
+            }else{
+                imgs[0].style.opacity='1';
+            }
+            break;
+        }
+    }
+    var t=setTimeout(nextImage, 5000, imgs);
+}
+
+var figures = document.getElementsByTagName('figure');
+if(figures!=null){
+    for (var i=0; i < figures.length; i++) {
+        if (figures[i].className == 'slideshow'){
+            var t=setTimeout(nextImage,5000, figures[i].getElementsByTagName('img'));
+        }
+    }
+}
+</script>
