@@ -72,6 +72,10 @@ plugins:
 
 Notice how in the example above, the `common` node has two different types of data structure in the same list (message and file structures). If this was done anywhere in the `globals` or `plugins` nodes BOSS would complain, because it expects a certain format, but because BOSS doesn't look at the `common` node, this is OK.
 
+### Plugin Groups
+
+In the v2 masterlists, plugins were sorted in groups, generally according to what they did (eg. alternate start, new weapons and armour, quests). In v3, groups no longer exist in the masterlist syntax, since there isn't any meaningful order of plugin entries. However, the v2 groups were added as comments to help organise the masterlist conversion process, so the old group start and end lines can still be found as `# BEGINGROUP:` and `# ENDGROUP:` respectively. Though it's not at all necessary, you can still add new plugin entries to these groups according to what they do.
+
 ### Dirty Edit Metadata
 
 If a user posts dirty counts for a plugin that already has a dirty message for the same CRC, and the counts are different to what's in the masterlist, just replace the existing counts with what the user gave if they used the latest version of TES5Edit. If they didn't give the TES5Edit version number, only replace the existing counts if the new counts are higher (which generally indicates a newer version).
