@@ -6,6 +6,7 @@ The purpose of this page is to give a bit of detail on the masterlist editing pr
 * Check out the masterlists and become familiar with the comments and categorisations therein. See the [Metadata Syntax](http://boss-developers.github.io/docs/BOSS%20Metadata%20Syntax.html) document for the details.
 * Make as many silent comments as you want within the masterlists - it doesn't hurt (within reason).
 * Use blank lines to separate mods that are grouped together or where it helps readability.
+* Where you put a plugin doesn't matter - you may want to see if there are any related plugins in the masterlist already and group them together, or you can just add the plugin to the end of the list.
 * Test your changes before uploading them, to make sure you didn't make any syntax mistakes. This is best done by running your edited masterlist through BOSS - make sure to first disable masterlist updating though, or else BOSS may overwrite your edited one with the latest in the repository!
 
 ### Adding New Entries
@@ -71,10 +72,6 @@ plugins:
 ```
 
 Notice how in the example above, the `common` node has two different types of data structure in the same list (message and file structures). If this was done anywhere in the `globals` or `plugins` nodes BOSS would complain, because it expects a certain format, but because BOSS doesn't look at the `common` node, this is OK.
-
-### Plugin Groups
-
-In the v2 masterlists, plugins were sorted in groups, generally according to what they did (eg. alternate start, new weapons and armour, quests). In v3, groups no longer exist in the masterlist syntax, since there isn't any meaningful order of plugin entries. However, the v2 groups were added as comments to help organise the masterlist conversion process, so the old group start and end lines can still be found as `# BEGINGROUP:` and `# ENDGROUP:` respectively. Though it's not at all necessary, you can still add new plugin entries to these groups according to what they do.
 
 ### Dirty Edit Metadata
 
