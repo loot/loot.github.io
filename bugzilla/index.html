@@ -11,7 +11,7 @@
     <title>BOSS Bugzilla Scan</title>
 
     <style>
-        code {white-space:pre; display:block; margin:1.5em; margin-top:0; overflow-x:auto;}
+        #results {white-space:pre; display:block; margin:1.5em 0; overflow-x:auto;}
     </style>
   </head>
 
@@ -32,14 +32,14 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
       
-        <p>This page allows you to scan the Bugzilla trackers used by BOSS v2 and extract any data within them as v3 masterlist entries.</p>
+        <p>This page allows you to scan the Bugzilla trackers used by BOSS v2 and extract any data within them as v3 masterlist entries. Everything is escaped to be YAML-safe (including newlines), and bug descriptions/comments are listed as URLs. The resulting list will need to be edited to remove any non-URL data or repetitions.</p>
 
         <select id="gameSelect">
         </select>
 
         <button id="searchButton">Extract</button>
 
-        <div id="results"></div>
+        <code id="results"></code>
 
         </section>
     </div>

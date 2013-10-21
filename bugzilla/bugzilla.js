@@ -11,18 +11,62 @@ var games = [
 ];
 var hashmap = {};
 
-function outputBugData() {
-    for (var i in hashmap) {
-        console.log(hashmap[i]);
+function arr_exists(arr, elem) {
+    for (var i in arr) {
+        if (arr[i] == elem) {
+            return true;
+        }
     }
+    return false;
+}
+function isEmpty(obj) {
+    for(var i in obj) {
+        if(obj.hasOwnProperty(i)) {
+            return false;
+        }
+    }
+    return true;
 }
 
+function outputBugData() {
+    /* First combine duplicate bugs. */
+    var plugins = {};
+    for (var i in hashmap) {
+        if (plugins.hasOwnProperty(hashmap[i].name)) {
+            plugins[hashmap[i].name] = plugins[hashmap[i].name].concat(hashmap[i].comments);
+        } else {
+            plugins[hashmap[i].name] = hashmap[i].comments;
+        }
+    }
+    
+    resultsDiv.textContent = '';
+    for (var i in plugins) {
+        
+        var text = '  - name: ' + JSON.stringify(i) + '\n';
+        
+        if (plugins[i].length > 0) {
+            text += '    url:\n';
+        }
+        
+        var urls = [];
+        for (var j in plugins[i]) {
+            if (urls.indexOf(plugins[i][j]) == -1) {
+                text += '      - ' + JSON.stringify(plugins[i][j]) + '\n';
+            }
+            urls.push(plugins[i][j]);
+        }
+        
+        resultsDiv.textContent += text + '\n';
+    }
+}
 function processBugComments() {
     if (this.status == 200 && JSON.parse(this.responseText).error == null) {
         var response = JSON.parse(this.responseText);
-        if (response.result.bugs.length > 0) {
+        if (!isEmpty(response.result.bugs)) {
             for (var i in response.result.bugs) {
-                hashmap[i].comments = response.result.bugs[i].comments;
+                for (var j in response.result.bugs[i].comments) {
+                    hashmap[i].comments.push(response.result.bugs[i].comments[j].text);
+                }
             }
             outputBugData();
         } else { 
@@ -34,21 +78,19 @@ function processBugComments() {
         resultsDiv.textContent = "Error while getting bug comments list.";
     }
 }
-
 function processBugIDs() {
     if (this.status == 200 && JSON.parse(this.responseText).error == null) {
         var response = JSON.parse(this.responseText);
         if (response.result.bugs.length > 0) {
             /* Now we have an array of bug objects. However, the info in these objects doesn't include comments, so that'll have to be gotten for the bugs. */
             var ids = [];
-            for (var i=0; i < response.result.bugs.length; ++i) {
+            for (var i in response.result.bugs) {
                 var id = response.result.bugs[i].id;
-                ids[i] = id;
+                ids.push(id);
                 hashmap[id] = {
                     "name": response.result.bugs[i].summary,
                     "comments": []
                 };
-                console.log("\t" + response.result.bugs[i].id);
             }
             
             var req = {
@@ -97,11 +139,9 @@ function onExtractInit(evt) {
         "id": 1,
         "params": [{
             "product": "BOSS",
-            "component": gameSelect.value,
-            "limit": 0,
+            "component": gameSelect.value
         }]
     };
-
     console.log("Getting bug list...");
     resultsDiv.textContent = "Getting bug list...";
     
@@ -118,7 +158,7 @@ function onExtractInit(evt) {
 }
 
 /* Fill the drop-down games box with stuff. */
-for (var i=0; i < games.length; ++i) {
+for (var i in games) {
     var option = document.createElement('option');
     option.innerText = games[i];
     option.setAttribute('value', games[i]);
