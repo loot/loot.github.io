@@ -2,6 +2,7 @@
 var gameSelect = document.getElementById('gameSelect');
 var searchButton = document.getElementById('searchButton');
 var dateInput = document.getElementById('date');
+var resolutionSelect = document.getElementById('resolutionSelect');
 var resultsDiv = document.getElementById('results');
 var url = 'http://bugzilla.darkcreations.org/jsonrpc.cgi';
 var games = [
@@ -94,6 +95,11 @@ function processBugIDs() {
                 };
             }
             
+            var date = dateInput.value;
+            if (!date) {
+                date = '2009-09-09';
+            }
+            
             var req = {
                 "Bugzilla_login": "bossguest@darkcreations.org",
                 "Bugzilla_password": "bosspassword",
@@ -101,7 +107,7 @@ function processBugIDs() {
                 "id": 2,
                 "params": [{
                     "ids": ids,
-                    "new_since": dateInput.value + 'T00:00:00Z'
+                    "new_since": date + 'T00:00:00Z'
                 }]
             };
             
@@ -124,6 +130,7 @@ function processBugIDs() {
         }
     } else {
         console.log("Error while getting bug list.");
+        console.log(this.response);
         resultsDiv.textContent = "Error while getting bug list.";
     }
 }
@@ -134,8 +141,9 @@ function onExtractInit(evt) {
         return;
     }
     
-    if (!dateInput.value) {
-        dateInput.value = '2009-09-09';
+    var date = dateInput.value;
+    if (!date) {
+        date = '2009-09-09';
     }
     
     var req = {
@@ -146,7 +154,8 @@ function onExtractInit(evt) {
         "params": [{
             "product": "BOSS",
             "component": gameSelect.value,
-            "last_change_time": dateInput.value + 'T00:00:00Z'
+            "last_change_time": date + 'T00:00:00Z',
+            "resolution": resolutionSelect.value
         }]
     };
     console.log("Getting bug list...");

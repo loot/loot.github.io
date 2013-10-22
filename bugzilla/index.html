@@ -34,10 +34,18 @@
       
         <p>This page allows you to scan the Bugzilla trackers used by BOSSv2 and extract each plugin entry's description and comments. These are then outputted in the v3 masterlist syntax, for easy copy/pasting. It is recommended that the output is checked and edited to remove non-URL data.
         <p>Everything is escaped to be YAML-safe. The most obvious consequence is that messages with line breaks will have them replaced with <code>\n</code>.
-        <p>If a date is supplied below, then only descriptions/comments added after this date will be extracted. Otherwise, a date of 2009-09-09 is set, and since the Bugzilla trackers were set up after this date, all descriptions/comments will be extracted.</p>
+        <p>If a date is supplied below, then only descriptions/comments added after this date will be extracted.</p>
 
         <label>Game: <select id="gameSelect"></select></label><br>
-        <label>Newer Than: <input type="text" placeholder="YYYY-MM-DD" id="date"></label><br><br>
+        <label>Changed Since: <input type="text" placeholder="YYYY-MM-DD" id="date"></label><br>
+        <label>Resolution: <select id="resolutionSelect" value="">
+            <option value="">Unresolved</option>
+            <option value="FIXED">Fixed</option>
+            <option value="INVALID">Invalid</option>
+            <option value="WONTFIX">Won't Fix</option>
+            <option value="DUPLICATE">Duplicate</option>
+            <option value="WORKSFORME">Works For Me</option>
+        </select></label><br><br>
 
         <button id="searchButton">Extract</button>
 
