@@ -74,6 +74,9 @@ function outputBugData() {
                 if (!contains(splitStr[k], keywords)) {
                     continue;
                 }
+                
+                /* Replace the trailing bit of Nexus URLs. */
+                splitStr[k] = splitStr[k].replace(/(\/mods\/\d+)\/*\??(#content)?/, "$1");
                 if (urls.indexOf(splitStr[k]) == -1) {
                     urls.push(splitStr[k]);
                 }
