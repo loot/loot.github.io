@@ -11,16 +11,24 @@ var games = [
     "Fallout 3",
     "Fallout: New Vegas"
 ];
+var keywords = [
+    'CRC',
+    'incompatib',
+    'load',
+    'require',
+    'http',
+    /\.es(p|m)/i,
+];
+var blacklist = [
+    'has been marked as a duplicate of this bug. ***',
+    'C:\\',
+    'F:/',
+    /\.(de|ru|com|org)\/?$/i,
+    'http://better-oblivion-sorting-software',
+    'http://creativecommons.org'
+];
 var hashmap = {};
 
-function arr_exists(arr, elem) {
-    for (var i in arr) {
-        if (arr[i] == elem) {
-            return true;
-        }
-    }
-    return false;
-}
 function isEmpty(obj) {
     for(var i in obj) {
         if(obj.hasOwnProperty(i)) {
@@ -28,6 +36,18 @@ function isEmpty(obj) {
         }
     }
     return true;
+}
+function contains(str, arr) {
+    for (var i in arr) {
+        if (typeof(arr[i]) === 'string') {
+            if (str.indexOf(arr[i]) > -1) {
+                return true;
+            }
+        } else if (arr[i].test(str)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function outputBugData() {
@@ -43,23 +63,33 @@ function outputBugData() {
     
     resultsDiv.textContent = '';
     for (var i in plugins) {
-        
-        var text = '  - name: ' + JSON.stringify(i) + '\n';
-        
-        if (plugins[i].length > 0) {
-            text += '    url:\n';
-        }
-        
         var urls = [];
         for (var j in plugins[i]) {
-            if (urls.indexOf(plugins[i][j]) == -1) {
-                text += '      - ' + JSON.stringify(plugins[i][j]) + '\n';
+            if (contains(plugins[i][j], blacklist)) {
+                continue;
             }
-            urls.push(plugins[i][j]);
+            
+            var splitStr = plugins[i][j].split('\n\n');
+            for (var k in splitStr) {
+                if (!contains(splitStr[k], keywords)) {
+                    continue;
+                }
+                if (urls.indexOf(splitStr[k]) == -1) {
+                    urls.push(splitStr[k]);
+                }
+            }
         }
         
-        resultsDiv.textContent += text + '\n';
+        if (urls.length > 0) {  
+            var text = '  - name: ' + JSON.stringify(i) + '\n';
+            text += '    url:\n';
+            for (var j in urls) {
+                text += '      - ' + JSON.stringify(urls[j]) + '\n';
+            }
+            resultsDiv.textContent += text + '\n';
+        }
     }
+    console.log("Done.");
 }
 function processBugComments() {
     if (this.status == 200 && JSON.parse(this.responseText).error == null) {
