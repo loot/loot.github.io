@@ -1,6 +1,7 @@
 'use strict';
 var gameSelect = document.getElementById('gameSelect');
 var searchButton = document.getElementById('searchButton');
+var dateInput = document.getElementById('date');
 var resultsDiv = document.getElementById('results');
 var url = 'http://bugzilla.darkcreations.org/jsonrpc.cgi';
 var games = [
@@ -34,7 +35,7 @@ function outputBugData() {
     for (var i in hashmap) {
         if (plugins.hasOwnProperty(hashmap[i].name)) {
             plugins[hashmap[i].name] = plugins[hashmap[i].name].concat(hashmap[i].comments);
-        } else {
+        } else if (hashmap[i].comments.length > 0) {
             plugins[hashmap[i].name] = hashmap[i].comments;
         }
     }
@@ -99,7 +100,8 @@ function processBugIDs() {
                 "method": "Bug.comments",
                 "id": 2,
                 "params": [{
-                    "ids": ids
+                    "ids": ids,
+                    "new_since": dateInput.value + 'T00:00:00Z'
                 }]
             };
             
@@ -132,6 +134,10 @@ function onExtractInit(evt) {
         return;
     }
     
+    if (!dateInput.value) {
+        dateInput.value = '2009-09-09';
+    }
+    
     var req = {
         "Bugzilla_login": "bossguest@darkcreations.org",
         "Bugzilla_password": "bosspassword",
@@ -139,7 +145,8 @@ function onExtractInit(evt) {
         "id": 1,
         "params": [{
             "product": "BOSS",
-            "component": gameSelect.value
+            "component": gameSelect.value,
+            "last_change_time": dateInput.value + 'T00:00:00Z'
         }]
     };
     console.log("Getting bug list...");
