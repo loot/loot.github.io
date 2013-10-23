@@ -28,6 +28,7 @@ var blacklist = [
     'http://creativecommons.org'
 ];
 var hashmap = {};
+var masterlist = {};
 var isMasterlistLoaded = false;
 var isBugzillaQueried = false;
 
@@ -52,39 +53,60 @@ function contains(str, arr) {
     return false;
 }
 
+function isRegexEntry(name) {
+    var end = name.substring(name.length - 5).toLowerCase();
+    if (end == '\\.esp' || end == '\\.esm') {
+        return true;
+    }
+}
+
 function outputBugData(evt) {
     if (!isMasterlistLoaded || !isBugzillaQueried) {
         return;
     }
     
-    /*
-    var text = '';
+    /* Want to search the masterlist for each plugin and append any missing data. */
     for (var i in hashmap) {
-        if (hashmap[i].length > 0) {  
-            var text = '  - name: ' + JSON.stringify(i) + '\n';
-            text += '    url:\n';
-            for (var j in hashmap[i]) {
-                text += '      - ' + JSON.stringify(hashmap[i][j]) + '\n';
+        var index = -1;
+        for (var j in masterlist["plugins"]) {
+            if (isRegexEntry(masterlist["plugins"][j].name)) {
+                if (RegExp(masterlist["plugins"][j].name, 'i').test(i)) {
+                    index = j;
+                    break;
+                }
+            } else if (i.toLowerCase() == masterlist["plugins"][j].name.toLowerCase()) {
+                index = j;
+                break;
             }
-            text += '\n';
+        }
+        if (index != -1) {
+            if (masterlist["plugins"][index].hasOwnProperty('url')) {
+                for (var j in hashmap[i]) {
+                    if (masterlist["plugins"][index].url.indexOf(hashmap[i][j]) == -1) {
+                        masterlist["plugins"][index].url.push(hashmap[i][j]);
+                    }
+                }
+            } else {
+                masterlist["plugins"][index].url = hashmap[i][j];
+            }
         }
     }
-    resultsDiv.textContent = text;*/
+    console.log(jsyaml.safeDump(masterlist));
 }
 
 function loadMasterlist(evt) {
-    console.log("Loading masterlist...");
-    resultsDiv.textContent += "Loading masterlist...\n";
     
     /* Load masterlist as YAML document. */
-    console.log(evt.target);
     if (evt.target.status !== 200) {
         console.log("Error while getting masterlist.");
         resultsDiv.textContent += "Error while getting masterlist.\n";
         return;
     }
     
-    var doc = jsyaml.load(evt.target.responseText);
+    console.log("Loading masterlist...");
+    resultsDiv.textContent += "Loading masterlist...\n";
+    
+    var masterlist = jsyaml.safeLoad(evt.target.responseText);
     
     isMasterlistLoaded = true;
     outputBugData();
@@ -213,6 +235,7 @@ function onExtractInit(evt) {
     isMasterlistLoaded = false;
     isBugzillaQueried = false;
     hashmap = {};
+    masterlist = {};
 
     if (evt.keyCode != 0 && evt.keyCode != 13) {
         return;
@@ -236,7 +259,7 @@ function onExtractInit(evt) {
         }]
     };
     console.log("Getting bug list...");
-    resultsDiv.textContent = "Getting bug list...";
+    resultsDiv.textContent = "Getting bug list...\n";
     
     try {
         var xhr = new XMLHttpRequest();
@@ -248,6 +271,9 @@ function onExtractInit(evt) {
         console.log("Error while getting bug list: " + err.message);
         resultsDiv.textContent = "Error while getting bug list: " + err.message;
     }
+    
+    console.log("Getting masterlist...");
+    resultsDiv.textContent += "Getting masterlist...\n";
     
     try {
         var xhr = new XMLHttpRequest();
