@@ -91,7 +91,12 @@ function outputBugData(evt) {
             }
         }
     }
-    console.log(jsyaml.safeDump(masterlist));
+    
+    var download = document.createElement('a');
+    download.innerText = "Download masterlist.";
+    download.setAttribute('download', 'masterlist.yaml');
+    download.setAttribute('href', 'data:,' + jsyaml.safeDump(masterlist));
+    resultsDiv.appendChild(download);
 }
 
 function loadMasterlist(evt) {
@@ -106,7 +111,7 @@ function loadMasterlist(evt) {
     console.log("Loading masterlist...");
     resultsDiv.textContent += "Loading masterlist...\n";
     
-    var masterlist = jsyaml.safeLoad(evt.target.responseText);
+    masterlist = jsyaml.safeLoad(evt.target.responseText);
     
     isMasterlistLoaded = true;
     outputBugData();
