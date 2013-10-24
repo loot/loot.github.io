@@ -68,15 +68,17 @@ function outputBugData(evt) {
     /* Want to search the masterlist for each plugin and append any missing data. */
     for (var i in hashmap) {
         var index = -1;
-        for (var j in masterlist["plugins"]) {
-            if (isRegexEntry(masterlist["plugins"][j].name)) {
-                if (RegExp(masterlist["plugins"][j].name, 'i').test(i)) {
+        if (masterlist.hasOwnProperty('plugins')) {
+            for (var j in masterlist["plugins"]) {
+                if (isRegexEntry(masterlist["plugins"][j].name)) {
+                    if (RegExp(masterlist["plugins"][j].name, 'i').test(i)) {
+                        index = j;
+                        break;
+                    }
+                } else if (i.toLowerCase() == masterlist["plugins"][j].name.toLowerCase()) {
                     index = j;
                     break;
                 }
-            } else if (i.toLowerCase() == masterlist["plugins"][j].name.toLowerCase()) {
-                index = j;
-                break;
             }
         }
         if (index != -1) {
@@ -84,19 +86,28 @@ function outputBugData(evt) {
                 for (var j in hashmap[i]) {
                     if (masterlist["plugins"][index].url.indexOf(hashmap[i][j]) == -1) {
                         masterlist["plugins"][index].url.push(hashmap[i][j]);
+                        console.log('Added URL to "' + masterlist["plugins"][index].name + '": ' + hashmap[i][j]);
+                        resultsDiv.textContent += 'Added URL to "' + masterlist["plugins"][index].name + '": ' + hashmap[i][j] + '\n';
                     }
                 }
             } else {
                 masterlist["plugins"][index].url = hashmap[i][j];
+                console.log('Added URL to "' + masterlist["plugins"][index].name + '": ' + hashmap[i][j]);
+                resultsDiv.textContent += 'Added URL to "' + masterlist["plugins"][index].name + '": ' + hashmap[i][j] + '\n';
             }
+        } else {
+            var plugin = {
+                "name": i,
+                "url": hashmap[i]
+            };
+            masterlist["plugins"].push(plugin);
+            console.log('Added new entry for "' + i + '": ' + JSON.stringify(hashmap[i]));
+            resultsDiv.textContent += 'Added new entry for "' + i + '": ' + JSON.stringify(hashmap[i]) + '\n';
         }
     }
     
-    var download = document.createElement('a');
-    download.innerText = "Download masterlist.";
-    download.setAttribute('download', 'masterlist.yaml');
-    download.setAttribute('href', 'data:,' + jsyaml.safeDump(masterlist));
-    resultsDiv.appendChild(download);
+    document.getElementById('downloadLink').href = 'data:text/plain;base64,' + btoa(unescape(encodeURIComponent(jsyaml.safeDump(masterlist))));
+    document.getElementById('downloadLink').textContent = "Download masterlist";
 }
 
 function loadMasterlist(evt) {
@@ -119,7 +130,7 @@ function loadMasterlist(evt) {
 
 function filterBugData() {
     console.log("Filtering bug comments...");
-    resultsDiv.textContent = "Filtering bug comments...";
+    resultsDiv.textContent += "Filtering bug comments...\n";
 
     /* First combine duplicate bugs. */
     var plugins = {};
@@ -134,7 +145,7 @@ function filterBugData() {
     /* Now empty the hashmap and fill it again with filtered URLs. */
     hashmap = {};
     for (var i in plugins) {
-        hashmap[i] = [];
+        var urls = [];
         for (var j in plugins[i]) {
             if (contains(plugins[i][j], blacklist)) {
                 continue;
@@ -150,10 +161,14 @@ function filterBugData() {
                 splitStr[k] = splitStr[k].replace(/(\/mods\/\d+)\/*\??(#content)?/, "$1");
                 
                 /* Now add to hashmap. */
-                if (hashmap[i].indexOf(splitStr[k]) == -1) {
-                    hashmap[i].push(splitStr[k]);
+                if (urls.indexOf(splitStr[k]) == -1) {
+                    urls.push(splitStr[k]);
                 }
             }
+        }
+        
+        if (urls.length > 0) {
+            hashmap[i] = urls;
         }
     }
     isBugzillaQueried = true;
@@ -210,7 +225,7 @@ function processBugIDs(evt) {
             };
             
             console.log("Getting comments for bugs...");
-            resultsDiv.textContent = "Getting comments for bugs...";
+            resultsDiv.textContent += "Getting comments for bugs...\n";
             
             try {
                 var xhr = new XMLHttpRequest();
