@@ -25,6 +25,7 @@ function onReqLoad(evt) {
     }
     
     console.log("Loading masterlist...");
+    resultsDiv.textContent = "Loading masterlist...\n";
     var masterlist = jsyaml.safeLoad(evt.target.responseText);
 
     /* Do search here. */
@@ -37,15 +38,15 @@ function onReqLoad(evt) {
                     index = i;
                     break;
                 }
-            } else if (searchBox.value.toLowerCase() == masterlist["plugins"][i].name.toLowerCase()) {
+            } else if (masterlist["plugins"][i].name.toLowerCase().indexOf(searchBox.value.toLowerCase()) !== -1) {
                 index = i;
                 break;
             }
         }
         if (index != -1) {
-            console.log("Match: " + masterlist["plugins"][index]);
+            console.log("Match: " + JSON.serialise(masterlist["plugins"][index]));
             var elem = document.createElement('code');
-            elem.textContent = jsyaml.safeDump(masterlist["plugins"][index]);
+            elem.textContent = '  - ' + jsyaml.safeDump(masterlist["plugins"][index]).replace('\n', '\n  ');
             resultsDiv.appendChild(elem);
         }
     }
@@ -64,9 +65,6 @@ function onSearchInit(evt) {
     if (evt.keyCode != 0 && evt.keyCode != 13) {
         return;
     }
-
-    console.log("Loading masterlist...");
-    resultsDiv.textContent = "Loading masterlist...";
 
     var mlistReq = new XMLHttpRequest();
     mlistReq.addEventListener('load', onReqLoad, false);
