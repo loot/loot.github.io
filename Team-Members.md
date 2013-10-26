@@ -15,7 +15,7 @@ The tables on this page summarise the current and past membership of the BOSS te
         <tr><td colspan="3">Sharlikran<td><td><td><td>&#x2713;<td><td>
         <tr><td colspan="2">SilentSpike<td>SilentSpike69<td><td><td><td>&#x2713;<td><td>
         <tr><td>TokcDK<td colspan="2">Tokc.D.K.<td><td><td>&#x2713;<td>&#x2713;<td><td>
-        <tr><td colspan="3">William Imm<td><td><td>&#x2713;<td>&#x2713;<td><td>
+        <tr><td>William Imm<td>William Imm<td>WilliamImm<td>&#x2713;<td>&#x2713;<td><td>
         <tr><td colspan="3">WrinklyNinja<td>&#x2713;<td>&#x2713;<td><td><td><td>
 </table>
 
