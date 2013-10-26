@@ -108,7 +108,6 @@ function outputBugData(evt) {
     
     document.getElementById('downloadLink').href = 'data:text/plain;base64,' + btoa(unescape(encodeURIComponent(jsyaml.safeDump(masterlist))));
     document.getElementById('downloadLink').textContent = "Download masterlist";
-    resultsDiv.style.display = "block";
 }
 
 function loadMasterlist(evt) {
@@ -257,6 +256,7 @@ function onExtractInit(evt) {
     isBugzillaQueried = false;
     hashmap = {};
     masterlist = {};
+    resultsDiv.style.display = "block";
 
     if (evt.keyCode != 0 && evt.keyCode != 13) {
         return;
