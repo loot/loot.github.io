@@ -36,11 +36,9 @@ function onReqLoad(evt) {
             if (isRegexEntry(masterlist["plugins"][i].name)) {
                 if (RegExp(masterlist["plugins"][i].name, 'i').test(searchBox.value)) {
                     index = i;
-                    break;
                 }
             } else if (masterlist["plugins"][i].name.toLowerCase().indexOf(searchBox.value.toLowerCase()) !== -1) {
                 index = i;
-                break;
             }
             if (index != -1) {
                 console.log("Match: " + JSON.stringify(masterlist["plugins"][index]));
