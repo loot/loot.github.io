@@ -44,7 +44,7 @@ function onReqLoad(evt) {
             }
         }
         if (index != -1) {
-            console.log("Match: " + JSON.serialise(masterlist["plugins"][index]));
+            console.log("Match: " + JSON.stringify(masterlist["plugins"][index]));
             var elem = document.createElement('code');
             elem.textContent = '  - ' + jsyaml.safeDump(masterlist["plugins"][index]).replace('\n', '\n  ');
             resultsDiv.appendChild(elem);
