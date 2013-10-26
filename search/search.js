@@ -10,74 +10,42 @@ var searchButton = document.getElementById('searchButton');
 var searchBox = document.getElementById('searchBox');
 var resultsDiv = document.getElementById('results');
 
-function getRegexLineEnd(line) {
-    var pos = line.indexOf("\\.esp");
-    if (pos === -1) {
-        pos = line.indexOf("\\.esm");
+function isRegexEntry(name) {
+    var end = name.substring(name.length - 5).toLowerCase();
+    if (end == '\\.esp' || end == '\\.esm') {
+        return true;
     }
-    if (pos !== -1) {
-        pos += 5;
-    }
-    return pos;
 }
 
-function onReqLoad() {
-    /* Do search here. */
-    console.log("Got masterlist");
-
-    console.log("Splitting line-by-line.");
-
-    var lines = this.responseText.split("\n");
-
-    console.log("Starting search.");
+function onReqLoad(evt) {
 
     /* Clear any previous search results. */
     while (resultsDiv.firstChild) {
         resultsDiv.removeChild(resultsDiv.firstChild);
     }
+    
+    console.log("Loading masterlist...");
+    var masterlist = jsyaml.safeLoad(evt.target.responseText);
 
-    var result = null;
-    for (var i in lines) {
-        var line = lines[i];
-
-        var pos1 = line.indexOf("name:");
-        if (pos1 === -1) {
-            if (result) {
-                result += '\n' + line;
+    /* Do search here. */
+    console.log("Starting search.");
+    if (masterlist.hasOwnProperty('plugins')) {
+        var index = -1;
+        for (var i in masterlist['plugins']) {
+            if (isRegexEntry(masterlist["plugins"][i].name)) {
+                if (RegExp(masterlist["plugins"][i].name, 'i').test(searchBox.value)) {
+                    index = i;
+                    break;
+                }
+            } else if (searchBox.value.toLowerCase() == masterlist["plugins"][i].name.toLowerCase()) {
+                index = i;
+                break;
             }
-            continue;
         }
-
-        if (result) {
+        if (index != -1) {
+            console.log("Match: " + masterlist["plugins"][index]);
             var elem = document.createElement('code');
-            elem.textContent = result;
-            resultsDiv.appendChild(elem);
-
-            console.log("Match: " + result);
-        }
-        result = null;
-
-        var pos2 = getRegexLineEnd(line);
-        if (pos2 !== -1) {
-            pos1 += 5;
-
-            /* Extract regex from line. */
-            var reStr = line.substring(pos1, pos2).trim();
-            var re = new RegExp(reStr, "i");
-
-            if (re.test(searchBox.value)) {
-                result = line;
-
-                var elem = document.createElement('p');
-                elem.textContent = "Line " + i;
-                resultsDiv.appendChild(elem);
-            }
-
-        } else if (line.toLowerCase().indexOf(searchBox.value.toLowerCase()) !== -1) {
-            result = line;
-
-            var elem = document.createElement('p');
-            elem.textContent = "Line " + (parseInt(i, 10) + 1);
+            elem.textContent = jsyaml.safeDump(masterlist["plugins"][index]);
             resultsDiv.appendChild(elem);
         }
     }
@@ -101,7 +69,7 @@ function onSearchInit(evt) {
     resultsDiv.textContent = "Loading masterlist...";
 
     var mlistReq = new XMLHttpRequest();
-    mlistReq.onload = onReqLoad;
+    mlistReq.addEventListener('load', onReqLoad, false);
     mlistReq.open("get", gameSelect.value, true);
     mlistReq.send();
 }
