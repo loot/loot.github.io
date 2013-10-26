@@ -31,8 +31,8 @@ function onReqLoad(evt) {
     /* Do search here. */
     console.log("Starting search.");
     if (masterlist.hasOwnProperty('plugins')) {
-        var index = -1;
         for (var i in masterlist['plugins']) {
+            var index = -1;
             if (isRegexEntry(masterlist["plugins"][i].name)) {
                 if (RegExp(masterlist["plugins"][i].name, 'i').test(searchBox.value)) {
                     index = i;
@@ -42,12 +42,12 @@ function onReqLoad(evt) {
                 index = i;
                 break;
             }
-        }
-        if (index != -1) {
-            console.log("Match: " + JSON.stringify(masterlist["plugins"][index]));
-            var elem = document.createElement('code');
-            elem.textContent = '  - ' + jsyaml.safeDump(masterlist["plugins"][index]).replace('\n', '\n  ');
-            resultsDiv.appendChild(elem);
+            if (index != -1) {
+                console.log("Match: " + JSON.stringify(masterlist["plugins"][index]));
+                var elem = document.createElement('code');
+                elem.textContent = '  - ' + jsyaml.safeDump(masterlist["plugins"][index]).replace('\n', '\n    ');
+                resultsDiv.appendChild(elem);
+            }
         }
     }
 
