@@ -1,0 +1,50 @@
+a {
+    text-decoration:none;
+}
+a:hover {
+    text-decoration: underline;
+}
+body {
+    max-width: 640px;
+    background: #f8f8f8;
+    margin:0 auto;
+    font:12pt/1.5 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+}
+#header {
+    padding: 3em 0;
+    border-bottom: #ccc solid 1px;
+}
+img {
+    height: 128px; 
+    width: 128px;
+    display: inline-block;
+    float:left;
+    margin:0 1.5em;
+}
+h1,h2,h3 {
+    font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
+}
+h2 {
+    margin-right: 1.5em;
+}
+#main {
+    margin: 2em 1em;
+}
+#footer {
+    border-top: #ccc solid 1px;
+    margin: 1em 0;
+    padding: 1em 0;
+    text-align: center;
+}
+#header a, #footer a {
+    display:inline-block;
+    margin:0 0.2em;
+    padding:0.5em 0.8em;
+    transition:background 0.2s;
+}
+#header a:hover, #footer a:hover {
+    background: #ccc;
+    text-decoration:none;
+}
+#footer small { display:block; color: #ccc;}
+code {white-space:pre; display:block; margin:1.5em; margin-top:0; overflow-x:auto; box-shadow: 0 0 10px rgba(0,0,0,.1);padding: 3px;font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;font-size: 14px;border-radius: 2px;}

@@ -1,72 +1,50 @@
 <!DOCTYPE html>
-<html>
+<meta charset='utf-8' />
+<title>BOSS: Masterlist Search</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/ico" href="../icon.ico">
+<style>#results {display:none;}</style>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="BOSS : A load order optimisation tool for games using the Elder Scrolls Plugin/Master system." />
+<div id="header">
+<img alt="BOSS" src="../icon.ico">
+<h2>Load order optimisation for Oblivion, Skyrim, Fallout 3 and Fallout: New Vegas</h2>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+<a href="/">Home</a>
+<a href="/docs/">Documentation</a>
+<a href="/search/">Masterlist Search</a>
+<a href="https://github.com/boss-developers">Code</a>
+</div>
 
-    <title>BOSS Bugzilla Scan</title>
-
-    <style>
-        #results {white-space:pre; display:block; margin:1.5em 0; overflow-x:auto;}
-    </style>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/boss-developers">View on GitHub</a>
-
-          <h1 id="project_title">BOSS Bugzilla Scan</h1>
-          <h2 id="project_tagline"></h2>
-
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+<div id="main">
       
-        <p>This page extracts plugin description/comment data from BOSSv2's Bugzilla trackers, filters the data to remove junk and duplicates, and merges it with the latest masterlists as URL metadata. The merged masterlist is then linked to for download.
-        
-        <p>If a date is supplied below, then only descriptions/comments added after this date will be extracted. The extraction can also be filtered by the resolution value of each Bugzilla entry. It is recommended that the output is checked and edited to remove non-URL data.
-        
-        <p>This page was tested on Chrome only, though it should also be fully functional on recent versions of Firefox and Opera.</p>
+<p>This page extracts plugin description/comment data from BOSSv2's Bugzilla trackers, filters the data to remove junk and duplicates, and merges it with the latest masterlists as URL metadata. The merged masterlist is then linked to for download.
 
-        <label>Game: <select id="gameSelect"></select></label><br>
-        <label>Changed Since: <input type="text" placeholder="YYYY-MM-DD" id="date"></label><br>
-        <label>Resolution: <select id="resolutionSelect" value="">
-            <option value="">Unresolved</option>
-            <option value="FIXED">Fixed</option>
-            <option value="INVALID">Invalid</option>
-            <option value="WONTFIX">Won't Fix</option>
-            <option value="DUPLICATE">Duplicate</option>
-            <option value="WORKSFORME">Works For Me</option>
-        </select></label><br><br>
+<p>If a date is supplied below, then only descriptions/comments added after this date will be extracted. The extraction can also be filtered by the resolution value of each Bugzilla entry. It is recommended that the output is checked and edited to remove non-URL data.
 
-        <button id="searchButton">Extract</button>
-        
-        <a href="" download="masterlist.yaml" id="downloadLink"></a>
+<p>This page was tested on Chrome only, though it should also be fully functional on recent versions of Firefox and Opera.
 
-        <code id="results"></code>
+<form>
+<label>Game: <select id="gameSelect"></select></label><br>
+<label>Changed Since: <input type="text" placeholder="YYYY-MM-DD" id="date"></label><br>
+<label>Resolution: <select id="resolutionSelect" value="">
+    <option value="">Unresolved</option>
+    <option value="FIXED">Fixed</option>
+    <option value="INVALID">Invalid</option>
+    <option value="WONTFIX">Won't Fix</option>
+    <option value="DUPLICATE">Duplicate</option>
+    <option value="WORKSFORME">Works For Me</option>
+</select></label>
 
-        </section>
-    </div>
+<p><button id="searchButton">Extract</button>
+</form>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+<p><a href="" download="masterlist.yaml" id="downloadLink"></a>
 
-    <script src="http://nodeca.github.io/js-yaml/js/js-yaml.js"></script>
-    <script src="bugzilla.js"></script>
+<code id="results"></code>
 
-  </body>
-</html>
+<div id="footer">
+<small>&copy; 2013 WrinklyNinja</small>
+</div>
+
+<script src="http://nodeca.github.io/js-yaml/js/js-yaml.js"></script>
+<script src="bugzilla.js"></script>
