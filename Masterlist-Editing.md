@@ -10,6 +10,28 @@ The purpose of this page is to give a bit of detail on the masterlist editing pr
 * Where you put a plugin doesn't matter - you may want to see if there are any related plugins in the masterlist already and group them together, or you can just add the plugin to the end of the list.
 * Test your changes before uploading them, to make sure you didn't make any syntax mistakes. This is best done by running your edited masterlist through BOSS - make sure to first disable masterlist updating though, or else BOSS may overwrite your edited one with the latest in the repository!
 
+### Writing Style
+
+For consistency and to make it easier for people to understand what others have written, it's best to use the following style points when editing the masterlist.
+
+* String values should be enclosed in single quotes. If the string contains any single quotes, they should be repeated. String keys in maps should be unquoted.
+* Child data nodes should be indented two spaces from their parents, for the best trade-off between compactness and readability.
+* Maps should be written in YAML's "block" style. Lists should also use the "block" style, unless they contain only one element, in which case the "flow" style can be used for compactness.
+
+The above points are illustrated in the following example.
+
+```yaml
+A:
+  - 'This string''s not twine.'
+  - 'AB'
+  - 'AC'
+B: [ 'BA' ]
+```
+```yaml
+{A: [ This string's not twine., AB, AC ], B: [ BA ]}
+```
+Although both are valid YAML, the first is useing the correct style, and the second is not.
+
 ### Adding New Entries
 
 Before you add a new entry for a plugin, make sure that there isn't already an existing entry for it. BOSS will attempt to merge entries if there are more than one for a plugin, but some metadata may be lost in the process, so it's always safer to only have one entry per plugin. 
@@ -35,39 +57,39 @@ An example demonstrating just how much of a difference anchors/aliases can make:
 ```yaml
 common:
   - &useBP
-    type: say
+    type: 'say'
     content:
-      - str: Use Bashed Patch tweak instead.
-        lang: eng
-      - str: Используйте вместо этого настройку башед патча.
-        lang: rus
+      - str: 'Use Bashed Patch tweak instead.'
+        lang: 'eng'
+      - str: 'Используйте вместо этого настройку башед патча.'
+        lang: 'rus'
     condition: 'regex("Bashed Patch.*\.esp")'
   - &dirtyDoNotClean
-    type: say
+    type: 'say'
     content:
-      - str: Do not clean. "Dirty" edits are intentional and required for the mod to function.
-        lang: eng
-      - str: Не очищать. "Грязные" правки оставлены специально и требуются для функционирования мода.
-        lang: rus
+      - str: 'Do not clean. "Dirty" edits are intentional and required for the mod to function.'
+        lang: 'eng'
+      - str: 'Не очищать. "Грязные" правки оставлены специально и требуются для функционирования мода.'
+        lang: 'rus'
   - &skse1.6.5
-    name: "..\skse_loader.exe"
-    display: Skyrim Script Extender v1.6.5+
+    name: '..\skse_loader.exe'
+    display: 'Skyrim Script Extender v1.6.5+'
     condition: 'version("..\skse_loader.exe", "0.1.6.5", <)'
 
 plugins:
-  - name: BBLuxurySuite.esm
+  - name: 'BBLuxurySuite.esm'
     msg: [ *dirtyDoNotClean ]
-  - name: Convenient Horses.esp
+  - name: 'Convenient Horses.esp'
     msg: [ *dirtyDoNotClean ]
-  - name: 72HoursRespawn.esp
+  - name: '72HoursRespawn.esp'
     msg: [ *useBP ]
-  - name: Respawn\w{3,5}Days{0,1}\.esp
+  - name: 'Respawn\w{3,5}Days{0,1}\.esp'
     msg: [ *useBP ]
-  - name: Skyrim 120 Day Respawn.esp
+  - name: 'Skyrim 120 Day Respawn.esp'
     msg: [ *useBP ]
-  - name: kuerteeDisableLightsFarFromActors.esp
+  - name: 'kuerteeDisableLightsFarFromActors.esp'
     req: [ *skse1.6.5 ]
-  - name: CUYC_CleanUpYourCorpses.esp
+  - name: 'CUYC_CleanUpYourCorpses.esp'
     req: [ *skse1.6.5 ]
    
 ```
