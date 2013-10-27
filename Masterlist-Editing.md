@@ -30,7 +30,7 @@ B: [ 'BA' ]
 ```yaml
 {A: [ This string's not twine., AB, AC ], B: [ BA ]}
 ```
-Although both are valid YAML, the first is useing the correct style, and the second is not.
+Although both are valid YAML, the first is using the correct style, and the second is not.
 
 ### Adding New Entries
 
