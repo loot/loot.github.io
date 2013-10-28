@@ -20,10 +20,14 @@ function isRegexEntry(name) {
 function onReqLoad(evt) {
     
     var masterlist = jsyaml.safeLoad(evt.target.responseText);
+    
+    /* Clear any previous search results. */
+    while (resultsDiv.firstChild) {
+        resultsDiv.removeChild(resultsDiv.firstChild);
+    }
 
     /* Do search here. */
     console.log("Starting search.");
-    resultsDiv.textContent = '';
     if (masterlist.hasOwnProperty('plugins')) {
         for (var i in masterlist['plugins']) {
             var index = -1;
