@@ -32,6 +32,8 @@ B: [ 'BA' ]
 ```
 Although both are valid YAML, the first is using the correct style, and the second is not.
 
+**Note:** Much of the masterlists' content is machine-generated, and as such does not follow the writing style given above. This isn't an issue, and it's not worth spending time systematically changing all the generated entries, but if you're editing a generated entry, you might as well correct its style while you're at it.
+
 ### Adding New Entries
 
 Before you add a new entry for a plugin, make sure that there isn't already an existing entry for it. BOSS will attempt to merge entries if there are more than one for a plugin, but some metadata may be lost in the process, so it's always safer to only have one entry per plugin. 
