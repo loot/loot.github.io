@@ -41,7 +41,7 @@ function onReqLoad(evt) {
             if (index != -1) {
                 console.log("Match: " + JSON.stringify(masterlist["plugins"][index]));
                 var elem = document.createElement('code');
-                elem.textContent = '  - ' + jsyaml.safeDump(masterlist["plugins"][index]).replace('\n', '\n    ');
+                elem.textContent = '  - ' + jsyaml.safeDump(masterlist["plugins"][index]).replace(new RegExp('\n', 'g'), '\n    ').trim();
                 resultsDiv.appendChild(elem);
             }
         }
