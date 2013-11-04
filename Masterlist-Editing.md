@@ -14,21 +14,40 @@ The purpose of this page is to give a bit of detail on the masterlist editing pr
 
 For consistency and to make it easier for people to understand what others have written, it's best to use the following style points when editing the masterlist.
 
-* String values should be enclosed in single quotes. If the string contains any single quotes, they should be repeated. String keys in maps should be unquoted.
 * Child data nodes should be indented two spaces from their parents, for the best trade-off between compactness and readability.
 * Maps should be written in YAML's "block" style. Lists should also use the "block" style, unless they contain only one element, in which case the "flow" style can be used for compactness.
+* Arbitrary string values should be enclosed in single quotes. If the string contains any single quotes, they should be repeated. The string uses below are exempt from quotation, as they have a very limited range of possible values.
+  * Message types
+  * Bash Tag names
+  * YAML map keys
+  * Language codes
+  * URLs given in location data structures.
 
 The above points are illustrated in the following example.
 
 ```yaml
-A:
-  - 'This string''s not twine.'
-  - 'AB'
-  - 'AC'
-B: [ 'BA' ]
+name: 'Oscuro''s_Oblivion_Overhaul.esm'
+req:
+  - name: 'example.esp'
+    display: '[Example Mod](http://www.example.com)'
+    condition: 'version("Oscuro''s_Oblivion_Overhaul.esm", "15.0", ==)'
+tag:
+  - Actors.Spells
+  - Graphics
+  - Invent
+  - Relations
+  - Scripts
+  - Stats
+  - name: -Relations
+    condition: 'file("Mart''s Monster Mod for OOO.esm") or file("FCOM_Convergence.esm")'
+msg:
+  - type: say
+    content: 'Do not clean. "Dirty" edits are intentional and required for the mod to function.'
+    lang: eng
+url: [ http://oblivion.nexusmods.com/mods/15256 ]
 ```
 ```yaml
-{A: [ This string's not twine., AB, AC ], B: [ BA ]}
+{name: Oscuro's_Oblivion_Overhaul.esm, req: [{ name: example.esp, display: '[Example Mod](http://www.example.com)', condition: 'version("Oscuro''s_Oblivion_Overhaul.esm", "15.0", ==)' }], tag: [ Actors.Spells, Graphics, Invent, Relations, Scripts, Stats, { name: -Relations, condition: file("Mart's Monster Mod for OOO.esm") or file("FCOM_Convergence.esm") }], msg: [{ type: say, content: Do not clean. "Dirty" edits are intentional and required for the mod to function., lang: eng }], url: [ http://oblivion.nexusmods.com/mods/15256 ]}
 ```
 Although both are valid YAML, the first is using the correct style, and the second is not.
 
