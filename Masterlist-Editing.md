@@ -21,7 +21,6 @@ For consistency and to make it easier for people to understand what others have 
   * Bash Tag names
   * YAML map keys
   * Language codes
-  * URLs given in location data structures.
 
 The above points are illustrated in the following example.
 
@@ -44,7 +43,7 @@ msg:
   - type: say
     content: 'Do not clean. "Dirty" edits are intentional and required for the mod to function.'
     lang: eng
-url: [ http://oblivion.nexusmods.com/mods/15256 ]
+url: [ 'http://oblivion.nexusmods.com/mods/15256' ]
 ```
 ```yaml
 {name: Oscuro's_Oblivion_Overhaul.esm, req: [{ name: example.esp, display: '[Example Mod](http://www.example.com)', condition: 'version("Oscuro''s_Oblivion_Overhaul.esm", "15.0", ==)' }], tag: [ Actors.Spells, Graphics, Invent, Relations, Scripts, Stats, { name: -Relations, condition: file("Mart's Monster Mod for OOO.esm") or file("FCOM_Convergence.esm") }], msg: [{ type: say, content: Do not clean. "Dirty" edits are intentional and required for the mod to function., lang: eng }], url: [ http://oblivion.nexusmods.com/mods/15256 ]}
