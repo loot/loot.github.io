@@ -78,20 +78,20 @@ An example demonstrating just how much of a difference anchors/aliases can make:
 ```yaml
 common:
   - &useBP
-    type: 'say'
+    type: say
     content:
       - str: 'Use Bashed Patch tweak instead.'
-        lang: 'eng'
+        lang: eng
       - str: 'Используйте вместо этого настройку башед патча.'
-        lang: 'rus'
+        lang: rus
     condition: 'regex("Bashed Patch.*\.esp")'
   - &dirtyDoNotClean
     type: 'say'
     content:
       - str: 'Do not clean. "Dirty" edits are intentional and required for the mod to function.'
-        lang: 'eng'
+        lang: eng
       - str: 'Не очищать. "Грязные" правки оставлены специально и требуются для функционирования мода.'
-        lang: 'rus'
+        lang: rus
   - &skse1.6.5
     name: '..\skse_loader.exe'
     display: 'Skyrim Script Extender v1.6.5+'
