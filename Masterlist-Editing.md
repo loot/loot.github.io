@@ -66,6 +66,27 @@ http://boss-developers.github.io/search/?game=<game>&search=<search>
 
 where `<game>` can be one of `oblivion`, `skyrim`, `fallout3` and `falloutnv`. `<search>` is the string you want to search for.
 
+### Multiple Matching Plugin Entries
+
+In v2, if a plugin had more than one matching entry in the masterlist, only one of those entries would be used. In v3, matching entries are partially merged, making having multiple matching entries a useful strategy in some cases.
+
+<table>
+  <thead>
+    <tr><th>Plugin Data Structure Field<th>Merge Behaviour (merging B into A)
+  <tbody>
+    <tr><td><code>name</code><td>Not merged
+    <tr><td><code>enabled</code><td>Replaced, but must be `true` anyway.
+    <tr><td><code>priority</code><td>Replaced by B's value.
+    <tr><td><code>after</code><td>Merged. If A and B both contain an entry with the same <code>name</code> value, B's copy is skipped.
+    <tr><td><code>req</code><td>Merged. If A and B both contain an entry with the same <code>name</code> value, B's copy is skipped.
+    <tr><td><code>inc</code><td>Merged. If A and B both contain an entry with the same <code>name</code> value, B's copy is skipped.
+    <tr><td><code>msg</code><td>Merged. If A and B both contain an entry with the same content string (if there are multiple content strings, the first is checked), then B's copy is skipped.
+    <tr><td><code>tag</code><td>Merged. If A and B both contain an entry with the same <code>name</code> value, B's copy is skipped, unless one is suggesting the tag for addition and the other is suggesting it for removal, in which case both entries are kept.
+    <tr><td><code>url</code><td>Currently skipped by the parser, so neither A nor B will contain any entries anyway.
+    <tr><td><code>dirty`<td>Merged. If A and B both contain an entry with the same <code>crc</code> value, B's copy is skipped.
+</table>
+
+Merging only takes place if both entries have their `enabled` field set to `true` (which is the default if unspecified).
 ### Common Metadata
 
 Often the same metadata is used for plugins throughout the masterlist, for example generic messages. Rather than having these messages copy/pasted, YAML's anchor/alias feature can be used to define (anchor) the metadata once somewhere, then reference (alias) it wherever else it needs to be used. This has the advantages of guaranteeing consistency, eliminating typos, cutting down the overall size of the masterlist, and improving readability.
