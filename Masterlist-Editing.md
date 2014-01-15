@@ -5,7 +5,7 @@ The purpose of this page is to give a bit of detail on the masterlist editing pr
 * Only make edits/additions you're confident about - otherwise discuss on the Bethsoft forum threads or via Private Message. You can also create an issue in the masterlist repository's issue tracker.
 * Check out the masterlists and become familiar with the comments and categorisations therein. See the [Metadata Syntax](http://boss-developers.github.io/docs/BOSS%20Metadata%20Syntax.html) document for the details.
 * If you're using Notepad++, you can set it to use spaces instead of tabs when you press the tab key on your keyboard, avoiding YAML parsing errors. To do this, go to Settings > Preferences > Tab Settings > Replace by space. A value of 4 is most common.
-* Make as many silent comments as you want within the masterlists - it doesn't hurt (within reason).
+* Make as many silent comments as you want within the masterlists - it doesn't hurt (within reason). However, make sure to put them *above* the line(s) that they refer to.
 * Use blank lines to separate mods that are grouped together or where it helps readability.
 * Where you put a plugin doesn't matter - you may want to see if there are any related plugins in the masterlist already and group them together, or you can just add the plugin to the end of the list.
 * Test your changes before uploading them, to make sure you didn't make any syntax mistakes. This is best done by running your edited masterlist through BOSS - make sure to first disable masterlist updating though, or else BOSS may overwrite your edited one with the latest in the repository!
