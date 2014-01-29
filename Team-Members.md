@@ -20,17 +20,6 @@ The tables on this page summarise the current and past membership of the BOSS te
         <tr><td colspan="3">WrinklyNinja<td>&#x2713;<td>&#x2713;<td><td><td><td>
 </table>
 
-The status of the following members is currently unknown:
-
-<table>
-    <thead>
-        <tr><th rowspan="2">Member<th rowspan="2">Admin<th rowspan="2">Code<th colspan="4">Contributes To Masterlist
-        <tr><th>Oblivion<th>Skyrim<th>Fallout 3<th>Fallout: New Vegas
-    <tbody class="teamTableBody">
-        <tr class="inactive"><td>Random007<td>&#x2713;<td>&#x2713;<td>&#x2713;<td><td><td>
-        <tr><td>scrapperrm<td><td><td><td>&#x2713;<td><td>
-</table>
-
 Members who have since left the project are credited below:
 
 <table>
@@ -49,8 +38,10 @@ Members who have since left the project are credited below:
         <tr><td>Malonn<td><td><td><td><td><td>&#x2713;
         <tr><td>Peste<td><td><td><td>&#x2713;<td><td>
         <tr><td>Psymon<td><td><td>&#x2713;<td><td><td>
+        <tr class="inactive"><td>Random007<td>&#x2713;<td>&#x2713;<td>&#x2713;<td><td><td>
         <tr><td>Red Eye<td><td><td><td><td><td>&#x2713;
         <tr><td>RiddlingLynx<td><td><td>&#x2713;<td><td><td>
+        <tr><td>scrapperrm<td><td><td><td>&#x2713;<td><td>
         <tr><td>Skyline<td><td><td><td><td><td>&#x2713;
         <tr><td>Space Oden69<td><td><td><td><td>&#x2713;<td>
         <tr><td>Televator<td><td><td><td><td>&#x2713;<td>
