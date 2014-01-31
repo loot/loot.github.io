@@ -8,7 +8,7 @@ The purpose of this page is to explain how symbolic links can be set up to easil
 3. Find the directory BOSS uses. This can be reached by entering `%localappdata%/BOSS` into the start menu's search box.
 4. Go into the game's folder and `shift+rightclick` on `masterlist.yaml`. Choose to `copy as path` and then delete the file. We're going to create a symbolic link in place of this file and windows won't let us do that if it's still present.
 5. Start the command line in administrator mode (required to create symbolic links). The quickest way to do this is to enter `cmd` into the start menu search box and then hit `ctrl+shift+enter`.
-6. In the command window enter `mklink <link path> <target path>`. `link path` is going to be the absolute path we copied earlier. You can paste this in place by right clicking the command window. `target path` is going to be the absolute path to `masterlist.yaml` in your local github repository - you should know where this is.
+6. In the command window enter `mklink <link path> <target path>`. `<link path>` is going to be the absolute path we copied earlier. You can paste this in place by right clicking the command window. `<target path>` is going to be the absolute path to `masterlist.yaml` in your local github repository - you should know where this is.
 7. Repeat for each game you intend to work with.
 
 ### Things to Know
