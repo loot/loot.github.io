@@ -4,7 +4,7 @@ The purpose of this page is to explain how symbolic links can be set up to easil
 ### The Process
 
 1. Run BOSS once for the game you intend to create a symbolic link for. This ensures the required directories are created.
-2. Turn off `Update masterlist before sorting` in the settings of BOSS and then close the program. If you leave this setting on and run BOSS after creating a symbolic link BOSS will overwrite any changes you make locally.
+2. Turn off `Update masterlist before sorting` in the settings of BOSS and then close the program. If you leave this setting on any changes you make in your local repository will be overwritten by BOSS.
 3. Find the directory BOSS uses. This can be reached by entering `%localappdata%/BOSS` into the start menu's search box.
 4. Go into the game's folder and `shift+rightclick` on `masterlist.yaml`. Choose to `copy as path` and then delete the file. We're going to create a symbolic link in place of this file and windows won't let us do that if it's still present.
 5. Start the command line in administrator mode (required to create symbolic links). The quickest way to do this is to enter `cmd` into the start menu search box and then hit `ctrl+shift+enter`.
