@@ -39,11 +39,11 @@ h2 {
 #header a, #footer a {
     display:inline-block;
     margin:0 0.2em;
-    padding:0.5em 0.8em;
+    padding:0.3em 0.8em;
     transition:background 0.2s;
 }
 #header a:hover, #footer a:hover {
-    background: #ccc;
+    background: #eee;
     text-decoration:none;
 }
 #footer small { display:block; color: #ccc;}
