@@ -44,7 +44,7 @@ Now remember to sync your repository!
 
 ### Further Reading
 
-Before continuing, see the [[Guidelines|Guidelines]] page to familiarise yourself with the recommendations and team policies detailed there. The [[Masterlist Editing|Masterlist-Editing]] page gives more information on how to go about making changes to the masterlists, while the [Metadata Syntax documentation](http://boss-developers.github.io/docs/BOSS%20Metadata%20Syntax.html) details the actual format and syntax used by the masterlists.
+Before continuing, see the [[Guidelines|Guidelines]] page to familiarise yourself with the recommendations and team policies detailed there. The [[Masterlist Editing|Masterlist-Editing]] page gives more information on how to go about making changes to the masterlists, while the [Metadata Syntax documentation](http://boss-developers.github.io/docs/dev/BOSS%20Metadata%20Syntax.html) details the actual format and syntax used by the masterlists.
 
 ### Getting Help
 
