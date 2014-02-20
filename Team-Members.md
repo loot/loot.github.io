@@ -1,4 +1,4 @@
-The tables on this page summarise the current and past membership of the BOSS team (except those members who were removed without having contributed anything), and are copied into the BOSS readme shortly before each new release.
+The tables on this page summarise the current and past membership of the BOSS team (except those members who were removed without having contributed anything).
 
 <table>
     <thead>
@@ -52,4 +52,4 @@ Members who have since left the project are credited below:
         <tr><td>Zoe.Alice.Kahala<td><td><td><td>&#x2713;<td><td>
 </table>
 
-Note: Arthmoor has decided not to follow BOSS onto GitHub, but until the move is final, he's still actually a member.
+(This page is linked to in the readme, so should not be deleted.)
