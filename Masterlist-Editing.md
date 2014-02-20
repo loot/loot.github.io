@@ -3,7 +3,7 @@ The purpose of this page is to give a bit of detail on the masterlist editing pr
 ### General Hints
 
 * Only make edits/additions you're confident about - otherwise discuss on the Bethsoft forum threads or via Private Message. You can also create an issue in the masterlist repository's issue tracker.
-* Check out the masterlists and become familiar with the comments and categorisations therein. See the [Metadata Syntax](http://boss-developers.github.io/docs/BOSS%20Metadata%20Syntax.html) document for the details.
+* Check out the masterlists and become familiar with the comments and categorisations therein. See the [Metadata Syntax](http://boss-developers.github.io/docs/dev/BOSS%20Metadata%20Syntax.html) document for the details.
 * If you're using Notepad++, you can set it to use spaces instead of tabs when you press the tab key on your keyboard, avoiding YAML parsing errors. To do this, go to Settings > Preferences > Tab Settings > Replace by space. A value of 4 is most common.
 * Make as many silent comments as you want within the masterlists - it doesn't hurt (within reason). However, make sure to put them *above* the line(s) that they refer to.
 * Use blank lines to separate mods that are grouped together or where it helps readability.
@@ -166,7 +166,7 @@ If you add a message, there are two ways to go about getting it translated into 
 
 ### Differences From v2
 
-The differences are all detailed in the [Metadata Syntax](http://boss-developers.github.io/docs/BOSS%20Metadata%20Syntax.html) document. A few key behavioural differences are worth highlighting here though:
+The differences are all detailed in the [Metadata Syntax](http://boss-developers.github.io/docs/dev/BOSS%20Metadata%20Syntax.html) document. A few key behavioural differences are worth highlighting here though:
 
 * In v2, each condition that checked the CRC of a different plugin would increase execution time, and there was a hierarchy of condition performance generally. In v3, all conditions are cached so they get calculated a maximum of once, and CRCs are calculated anyway during sorting, so they introduce no additional performance hit (and indeed are quicker than regex checks for it). Basically, conditions can no longer realistically impact performance in a noticeable way.
 * In v2, compound conditions were evaluated left-to-right. In v3, they are evaluated according to the standard rules of operator precedence, ie. `<function>` before `not` before `and` before `or`.
