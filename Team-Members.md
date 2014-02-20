@@ -1,5 +1,7 @@
 The tables on this page summarise the current and past membership of the BOSS team (except those members who were removed without having contributed anything).
 
+In alphabetical order, the current team members are:
+
 <table>
     <thead>
         <tr><th colspan="3">Member<th rowspan="2">Admin<th rowspan="2">Code<th colspan="4">Contributes To Masterlist
