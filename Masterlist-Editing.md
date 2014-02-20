@@ -8,7 +8,7 @@ The purpose of this page is to give a bit of detail on the masterlist editing pr
 * Make as many silent comments as you want within the masterlists - it doesn't hurt (within reason). However, make sure to put them *above* the line(s) that they refer to.
 * Use blank lines to separate mods that are grouped together or where it helps readability.
 * Where you put a plugin doesn't matter - you may want to see if there are any related plugins in the masterlist already and group them together, or you can just add the plugin to the end of the list.
-* Test your changes before uploading them, to make sure you didn't make any syntax mistakes. This is best done by running your edited masterlist through BOSS - make sure to first disable masterlist updating though, or else BOSS may overwrite your edited one with the latest in the repository!
+* Test your changes before uploading them, to make sure you didn't make any syntax mistakes. See [[Quickly Testing Your Masterlist Changes|Quickly-Testing-Your-Masterlist-Changes]] for instructions.
 
 ### Writing Style
 
