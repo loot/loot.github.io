@@ -1,8 +1,8 @@
 var masterlists = [
-    [ "Oblivion", "http://boss-developers.github.io/boss-oblivion/masterlist.yaml" ],
-    [ "Skyrim", "http://boss-developers.github.io/boss-skyrim/masterlist.yaml" ],
-    [ "Fallout 3", "http://boss-developers.github.io/boss-fallout3/masterlist.yaml" ],
-    [ "Fallout: New Vegas", "http://boss-developers.github.io/boss-fallout-new-vegas/masterlist.yaml" ]
+    [ "Oblivion", "http://loot.github.io/oblivion/masterlist.yaml" ],
+    [ "Skyrim", "http://loot.github.io/skyrim/masterlist.yaml" ],
+    [ "Fallout 3", "http://loot.github.io/fallout3/masterlist.yaml" ],
+    [ "Fallout: New Vegas", "http://loot.github.io/fallout-new-vegas/masterlist.yaml" ]
 ]
 
 var gameSelect = document.getElementById('gameSelect');

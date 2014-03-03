@@ -6,10 +6,10 @@ var resolutionSelect = document.getElementById('resolutionSelect');
 var resultsDiv = document.getElementById('results');
 var url = 'http://bugzilla.darkcreations.org/jsonrpc.cgi';
 var games = [
-    [ "TES IV: Oblivion", "http://boss-developers.github.io/boss-oblivion/masterlist.yaml" ],
-    [ "TES V: Skyrim", "http://boss-developers.github.io/boss-skyrim/masterlist.yaml" ],
-    [ "Fallout 3", "http://boss-developers.github.io/boss-fallout3/masterlist.yaml" ],
-    [ "Fallout: New Vegas", "http://boss-developers.github.io/boss-fallout-new-vegas/masterlist.yaml" ]
+    [ "TES IV: Oblivion", "http://loot.github.io/oblivion/masterlist.yaml" ],
+    [ "TES V: Skyrim", "http://loot.github.io/skyrim/masterlist.yaml" ],
+    [ "Fallout 3", "http://loot.github.io/fallout3/masterlist.yaml" ],
+    [ "Fallout: New Vegas", "http://loot.github.io/fallout-new-vegas/masterlist.yaml" ]
 ];
 var keywords = [
     'CRC',
