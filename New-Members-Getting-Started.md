@@ -1,14 +1,14 @@
-First of all, thanks for volunteering to help develop/maintain BOSS! This page will guide you from having just volunteered all the way through to getting set up and making your first contribution.
+First of all, thanks for volunteering to help develop/maintain LOOT! This page will guide you from having just volunteered all the way through to getting set up and making your first contribution.
 
 ### Registering on GitHub
 
-BOSS uses Git repositories on GitHub to help manage the changes made to its files by the BOSS team members, so you'll need a GitHub account. Sign up for one then send the BOSS team admin you initially contacted your GitHub username.
+LOOT uses Git repositories on GitHub to help manage the changes made to its files by the LOOT team members, so you'll need a GitHub account. Sign up for one then send the LOOT team admin you initially contacted your GitHub username.
 
 ### Installing a Git Client
 
 To work with the Git repositories, you'll also need a Git client. Any client should do, but [GitHub's own client](http://windows.github.com/) is probably the simplest on Windows for those new to Git. This guide will assume that you're using it.
 
-A text editor such as [Notepad++](http://notepad-plus-plus.org/) is highly recommended for working on BOSS's files.
+A text editor such as [Notepad++](http://notepad-plus-plus.org/) is highly recommended for working on LOOT's files.
 
 ### Setting Up GitHub for Windows
 
@@ -18,9 +18,9 @@ Once you've logged in, Click the "tools" icon at the top middle of the GfW windo
 
 ### Cloning Repositories
 
-Before you can start working on the BOSS files, you need to 'clone' their repositories. This means exactly what it suggests - you take a complete copy of an online repository and put it on your computer.
+Before you can start working on the LOOT files, you need to 'clone' their repositories. This means exactly what it suggests - you take a complete copy of an online repository and put it on your computer.
 
-On the left side of the GfW window, you'll see an entry for the boss-developers account. Clicking on it will display a list of all the repositories belonging to that account online. To clone a repository, mouse over it in the list and click on the "CLONE" button that gets displayed.
+On the left side of the GfW window, you'll see an entry for the loot organisation. Clicking on it will display a list of all the repositories belonging to that account online. To clone a repository, mouse over it in the list and click on the "CLONE" button that gets displayed.
 
 Once the repository has been cloned, you can double-click on its entry in the list to go to the repository page. You can't make any changes to the files in the repository here, but this page is used to 'commit' changes (ie. save them to your repository), sync your repository to the online one, and view the history of changes, among other things. 
 
@@ -44,12 +44,12 @@ Now remember to sync your repository!
 
 ### Further Reading
 
-Before continuing, see the [[Guidelines|Guidelines]] page to familiarise yourself with the recommendations and team policies detailed there. The [[Masterlist Editing|Masterlist-Editing]] page gives more information on how to go about making changes to the masterlists, while the [Metadata Syntax documentation](http://boss-developers.github.io/docs/dev/BOSS%20Metadata%20Syntax.html) details the actual format and syntax used by the masterlists.
+Before continuing, see the [[Guidelines|Guidelines]] page to familiarise yourself with the recommendations and team policies detailed there. The [[Masterlist Editing|Masterlist-Editing]] page gives more information on how to go about making changes to the masterlists, while the [Metadata Syntax documentation](http://loot.github.io/docs/dev/LOOT%20Metadata%20Syntax.html) details the actual format and syntax used by the masterlists.
 
 ### Getting Help
 
-If you have any problems or questions regarding anything relating to BOSS, feel free to ask current members questions. We can all be contacted by PM - the [[Team Members|Team-Members]] page lists all current members and their usernames on Bethsoft, Nexus and GitHub.
+If you have any problems or questions regarding anything relating to LOOT, feel free to ask current members questions. We can all be contacted by PM - the [[Team Members|Team-Members]] page lists all current members and their usernames on Bethsoft, Nexus and GitHub.
 
-Technical questions are best sent to WrinklyNinja, as he's responsible for BOSS's coding. This includes questions relating to things like how BOSS works, the masterlist syntax, etc.
+Technical questions are best sent to WrinklyNinja, as he's responsible for LOOT's coding. This includes questions relating to things like how LOOT works, the masterlist syntax, etc.
 
 Metadata questions are best sent to members that contribute to the masterlist you are asking about. This includes questions like "what do you think about making X load after Y?" and "Alice said that C should be loading after D, but C has a load of patches, so won't that break something?".
