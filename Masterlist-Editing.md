@@ -3,7 +3,7 @@ The purpose of this page is to give a bit of detail on the masterlist editing pr
 ### General Hints
 
 * Only make edits/additions you're confident about - otherwise discuss on the Bethsoft forum threads or via Private Message. You can also create an issue in the masterlist repository's issue tracker.
-* Check out the masterlists and become familiar with the comments and categorisations therein. See the [Metadata Syntax](http://boss-developers.github.io/docs/dev/BOSS%20Metadata%20Syntax.html) document for the details.
+* Check out the masterlists and become familiar with the comments and categorisations therein. See the [Metadata Syntax](http://loot.github.io/docs/dev/LOOT%20Metadata%20Syntax.html) document for the details.
 * If you're using Notepad++, you can set it to use spaces instead of tabs when you press the tab key on your keyboard, avoiding YAML parsing errors. To do this, go to Settings > Preferences > Tab Settings > Replace by space. A value of 4 is most common.
 * Make as many silent comments as you want within the masterlists - it doesn't hurt (within reason). However, make sure to put them *above* the line(s) that they refer to.
 * Use blank lines to separate mods that are grouped together or where it helps readability.
@@ -54,21 +54,21 @@ Although both are valid YAML, the first is using the correct style, and the seco
 
 ### Adding New Entries
 
-Before you add a new entry for a plugin, make sure that there isn't already an existing entry for it. BOSS will attempt to merge entries if there are more than one for a plugin, but some metadata may be lost in the process, so it's always safer to only have one entry per plugin. 
+Before you add a new entry for a plugin, make sure that there isn't already an existing entry for it. LOOT will attempt to merge entries if there are more than one for a plugin, but some metadata may be lost in the process, so it's always safer to only have one entry per plugin. 
 
-Simply opening up the masterlist and doing a `Ctrl-F` search for the plugin filename won't always be enough, because plugin entries can use regular expression matching to match multiple plugin names, and they won't be found. Instead, use the online [Masterlist Search](http://boss-developers.github.io/search/) page to perform a search of the masterlist. 
+Simply opening up the masterlist and doing a `Ctrl-F` search for the plugin filename won't always be enough, because plugin entries can use regular expression matching to match multiple plugin names, and they won't be found. Instead, use the online [Masterlist Search](http://loot.github.io/search/) page to perform a search of the masterlist. 
 
-As well as being able to match regular expressions, it also checks against the same copy of the masterlist that BOSS users get, so you can be sure that it will always be up-to-date. It's case-insensitive and you can even pass search parameters in the URL. The syntax is
+As well as being able to match regular expressions, it also checks against the same copy of the masterlist that users get, so you can be sure that it will always be up-to-date. It's case-insensitive and you can even pass search parameters in the URL. The syntax is
 
 ```yaml
-http://boss-developers.github.io/search/?game=<game>&search=<search>
+http://loot.github.io/search/?game=<game>&search=<search>
 ```
 
 where `<game>` can be one of `oblivion`, `skyrim`, `fallout3` and `falloutnv`. `<search>` is the string you want to search for.
 
 ### Multiple Matching Plugin Entries
 
-In v2, if a plugin had more than one matching entry in the masterlist, only one of those entries would be used. In v3, matching entries are partially merged, making having multiple matching entries a useful strategy in some cases.
+If a plugin has more than one matching entry in the masterlist, they are partially merged, making having multiple matching entries a useful strategy in some cases.
 
 <table>
   <thead>
@@ -91,7 +91,7 @@ Merging only takes place if both entries have their `enabled` field set to `true
 
 Often the same metadata is used for plugins throughout the masterlist, for example generic messages. Rather than having these messages copy/pasted, YAML's anchor/alias feature can be used to define (anchor) the metadata once somewhere, then reference (alias) it wherever else it needs to be used. This has the advantages of guaranteeing consistency, eliminating typos, cutting down the overall size of the masterlist, and improving readability.
 
-In the masterlists, everything that gets anchored and aliased in this manner should go in the `common` node, which is a sibling of the `plugins` and `globals` nodes that are mentioned in the Metadata Syntax documentation. The `common` node is ignored by BOSS, but the YAML parser still reads it, and will therefore still substitute any aliases made. By putting all the anchors in one place, it makes it easy for other maintainers to take advantage of any existing anchors, and avoids any duplication of anchors.
+In the masterlists, everything that gets anchored and aliased in this manner should go in the `common` node, which is a sibling of the `plugins` and `globals` nodes that are mentioned in the Metadata Syntax documentation. The `common` node is ignored by LOOT, but the YAML parser still reads it, and will therefore still substitute any aliases made. By putting all the anchors in one place, it makes it easy for other maintainers to take advantage of any existing anchors, and avoids any duplication of anchors.
 
 An example demonstrating just how much of a difference anchors/aliases can make:
 
@@ -135,7 +135,7 @@ plugins:
    
 ```
 
-Notice how in the example above, the `common` node has two different types of data structure in the same list (message and file structures). If this was done anywhere in the `globals` or `plugins` nodes BOSS would complain, because it expects a certain format, but because BOSS doesn't look at the `common` node, this is OK.
+Notice how in the example above, the `common` node has two different types of data structure in the same list (message and file structures). If this was done anywhere in the `globals` or `plugins` nodes LOOT would complain, because it expects a certain format, but because LOOT doesn't look at the `common` node, this is OK.
 
 ### Dirty Edit Metadata
 
@@ -159,14 +159,7 @@ That should ensure you have the correct information, so you can start to add the
 
 ### Translating Messages
 
-If you add a message, there are two ways to go about getting it translated into the other language BOSS supports:
+If you add a message, there are two ways to go about getting it translated into the other languages LOOT supports:
 
 * If you are fluent in one of the other supported languages, feel free to translate it yourself. Don't just use a translator such as Google Translate though.
-* Chances are that you won't be able to translate it into all the languages BOSS supports, so create an issue in the issue tracker for the repository to which the masterlist you're editing belongs. If it's a message defined in the `common` section of the masterlist, say so. Otherwise, quote the plugin filename to which it is attached. Also quote the English text of message itself, and label the issue with the appropriate translate-language labels so that it can be easily seen by translators.
-
-### Differences From v2
-
-The differences are all detailed in the [Metadata Syntax](http://boss-developers.github.io/docs/dev/BOSS%20Metadata%20Syntax.html) document. A few key behavioural differences are worth highlighting here though:
-
-* In v2, each condition that checked the CRC of a different plugin would increase execution time, and there was a hierarchy of condition performance generally. In v3, all conditions are cached so they get calculated a maximum of once, and CRCs are calculated anyway during sorting, so they introduce no additional performance hit (and indeed are quicker than regex checks for it). Basically, conditions can no longer realistically impact performance in a noticeable way.
-* In v2, compound conditions were evaluated left-to-right. In v3, they are evaluated according to the standard rules of operator precedence, ie. `<function>` before `not` before `and` before `or`.
+* Chances are that you won't be able to translate it into all the languages LOOT supports, so create an issue in the issue tracker for the repository to which the masterlist you're editing belongs. If it's a message defined in the `common` section of the masterlist, say so. Otherwise, quote the plugin filename to which it is attached. Also quote the English text of message itself, and label the issue with the appropriate translate-language labels so that it can be easily seen by translators.
