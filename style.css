@@ -1,5 +1,6 @@
 a {
     text-decoration:none;
+    color: #69aaff;
 }
 a:hover {
     text-decoration: underline;
@@ -15,7 +16,7 @@ body {
     border-bottom: #ccc solid 1px;
 }
 img {
-    height: 128px; 
+    height: 128px;
     width: 128px;
     display: inline-block;
     float:left;
@@ -43,8 +44,22 @@ h2 {
     transition:background 0.2s;
 }
 #header a:hover, #footer a:hover {
-    background: #eee;
+    background: #69aaff;
     text-decoration:none;
+    color:white;
 }
 #footer small { display:block; color: #ccc;}
 code {background:white; white-space:pre; display:block; margin:1.5em; margin-top:0; overflow-x:auto; box-shadow: 0 0 10px rgba(0,0,0,.1);padding: 3px;font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;font-size: 14px;border-radius: 2px;}
+#bigbutton {
+    display:table;
+    padding: 0.5em 1em;
+    font-size: 24pt;
+    text-align:center;
+    color:white;
+    background: #69aaff;
+    margin: 1em auto;
+}
+#bigbutton:hover {
+    text-decoration:none;
+    background: #ffbe69;
+}
