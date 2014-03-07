@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>LOOT Metadata File Syntax</title>
+<title>LOOT Metadata Syntax</title>
 <style>
     body {
         font:10pt/1.5 Helvetica,sans-serif;
@@ -47,9 +47,9 @@ h3{
 </style>
 <!--  LOOT
 
-    A plugin load order optimiser for games that use the esp/esm plugin system.
+    A load order optimisation tool for Oblivion, Skyrim, Fallout 3 and Fallout: New Vegas.
 
-    Copyright (C) 2012–2013    WrinklyNinja
+    Copyright (C) 2012–2014    WrinklyNinja
 
     This file is part of LOOT.
 
@@ -68,7 +68,7 @@ h3{
     <http://www.gnu.org/licenses/>.
 -->
 
-<h1>LOOT Metadata File Syntax</h1>
+<h1>LOOT Metadata Syntax</h1>
 
 <h2>Contents</h2>
 <ol>
@@ -95,7 +95,7 @@ h3{
 </ol>
 
 <h2 id="intro">Introduction</h2>
-<p>With LOOT, the metadata file syntax is what its masterlists and userlists are written in. If you know YAML, good news: the metadata file syntax is essentially just YAML 1.2. If you don't know YAML, then its <a href="https://en.wikipedia.org/wiki/YAML">Wikipedia page</a> is a good introduction. All you really need to know is:
+<p>The metadata syntax is what LOOT's masterlists and userlists are written in. If you know YAML, good news: the syntax is essentially just YAML 1.2. If you don't know YAML, then its <a href="https://en.wikipedia.org/wiki/YAML">Wikipedia page</a> is a good introduction. All you really need to know is:
 <ul>
     <li>How lists and associative arrays (key-value maps) are written.
     <li>That whitespace is important, and that only normal spaces (ie. no non-breaking spaces or tabs) count as such.
@@ -130,7 +130,7 @@ h3{
 <code class="box">globals:
   - type: say
     content: 'You are using the latest version of LOOT.'
-    condition: 'version("LOOT", "1.0.0.0", ==)'
+    condition: 'version("LOOT", "0.5.0.0", ==)'
 plugins:
   - name: 'Armamentarium.esm'
     tag:
@@ -214,7 +214,7 @@ display: 'OBSE v18+'
     <thead><tr><th>Key Name<th>Required<th>Notes
     <tbody>
         <tr><td><code>str</code><td>&#x2713;<td>The actual message content string. Double-quoted URLs will be hyperlinked in the LOOT report. See <a href="#links">URL Hyperlinking</a> for details.
-        <tr><td><code>lang</code><td>&#x2713;<td>The language that <code>str</code> is written in, given as an ISO 639-3 language code. The languages LOOT supports are given in <a href="#lang">Language Codes</a>.
+        <tr><td><code>lang</code><td>&#x2713;<td>The language that <code>str</code> is written in, given as a POSIX language code. The languages LOOT supports are given in <a href="#lang">Language Codes</a>.
 </table>
 
 <p>LOOT handles messages and languages as follows:
@@ -297,7 +297,13 @@ nav: 0
     <tbody>
         <tr><td><code>name</code><td>string<td>&#x2713;<td>Can be an exact plugin filename or a regular expression plugin filename. If the period that precedes the file extension has been escaped (eg. <code>\.esp</code>, <code>\.esm</code>), the string is treated as a regular expression, otherwise it is treated as an exact filename.
         <tr><td><code>enabled</code><td>boolean<td>&#x2717;<td>Enables or disables use of the plugin object. Used for user rules, but no reason to use it in the masterlist. If unspecified, defaults to <code>true</code>.
-        <tr><td><code>priority</code><td>integer<td>&#x2717;<td>Modifies plugin position relative to others that change one or more of the same records, but which are otherwise unrelated (ie. neither plugin lists the other as a master, requirement, or in its <code>after</code> list). A plugin with a higher priority value will load after a plugin with a lower priority value. Value can be anything in the range <code>-2000000000</code> to <code>2000000000</code>, and if unspecified defaults to <code>0</code>.
+        <tr><td><code>priority</code><td>integer<td>&#x2717;<td>Modifies plugin position relative to others that change one or more of the same records, but which are otherwise unrelated (ie. neither plugin lists the other as a master, requirement, or in its <code>after</code> list). Plugins that don't change any of the same records are not compared, unless:
+            <ul>
+                <li>One of the plugins is a "dummy" plugin, containing only a header record.
+                <li>One of the plugins has a priority greater than or equal to 1,000,000. In this case, only the modulo (ie. remainder when divided) with 1,000,000 is used when comparing plugin priority values &endash; the rest is only used to signify that the plugin should be compared against all others.
+            </ul>
+            <p>For example, <code>priority: 153000352</code> and <code>priority: 352</code> have equal values when compared, but a plugin with the first priority will be compared against all others, while a (non-dummy) plugin with the second priority will be compared against only those it conflicts with.
+            <p>A plugin with a higher priority value will load after a plugin with a lower priority value. Value can be anything in the range <code>-2000000000</code> to <code>2000000000</code>, and if unspecified defaults to <code>0</code>.
         <tr><td><code>after</code><td>file list<td>&#x2717;<td>An unordered list of plugins that this plugin must load after, but which are not dependencies. Used for resolving specific compatibility issues and by user rules for specifying custom plugin positions.
         <tr><td><code>req</code><td>file list<td>&#x2717;<td>An unordered list of files that this plugin requires to be present. This plugin will load after any plugins listed. If any of these files are missing, an error message will be displayed. Intended for use specifying implicit dependencies, as LOOT will detect a plugin's explicit masters itself.
         <tr><td><code>inc</code><td>file list<td>&#x2717;<td>An unordered list of files that this plugin is incompatible with. If any of these files are present, an error message will be displayed.
@@ -329,7 +335,7 @@ msg:
 
 
 <h2 id="links">URL Hyperlinking</h2>
-<p>File <code>display</code> strings and message <code>content</code> strings (including the strings in localised content structures) that contain recognised URLs have them displayed as hyperlinks in the LOOT report. 
+<p>File <code>display</code> strings and message <code>content</code> strings (including the strings in localised content structures) that contain recognised URLs have them displayed as hyperlinks in the LOOT report.
 <p>URLs must begin with <code>file:</code>, <code>http:</code> or <code>https:</code>, and be written according to the following subset of <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> syntax. Note that LOOT does not recognise additional Markdown syntaxes to those given below.
 <p>For labelled URLs, the syntax is <code>[<var>label</var>](<var>url</var>)</code>. A single optional space may be included between the closing square bracket and the opening parenthesis, ie. <code>[<var>label</var>] (<var>url</var>)</code>.
 <p>For unlabelled URLs, the syntax is <code>&lt;<var>url</var>&gt;</code>. The URL shall be used as its own label.
@@ -347,7 +353,7 @@ both get displayed as
 <p>Condition strings can be used to ensure that data is only acted on by LOOT under certain circumstances. They are very similar to boolean conditional expressions in programming languages such as Python, though more limited. Their <a href="https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form">EBNF</a> grammar is:
 <code class="box">[ negator ], function, { junctor, [ negator ], function } ;</code>
 <p>The <code>[ negator ], function</code> grammar is referred to as a condition, and two conditions joined by an operator, ie. <code>condition, operator, condition</code> is referred to as a compound condition.
-<p>Unlike BOSS, which LOOT is based on, LOOT caches the results of condition evaluations, so performance is not really an issue. A regular expression check will still take longer than a file check though, so use the former only when appropriate to do so.
+<p>LOOT caches the results of condition evaluations, so performance is not really an issue. A regular expression check will still take longer than a file check though, so use the former only when appropriate to do so.
 
 <h3 id="cond-function">Functions</h3>
 <p>There are several conditions that can be tested for using the functions detailed in the table below.
@@ -433,14 +439,18 @@ both get displayed as
 <h2 id="lang">Language Codes</h2>
 <p>LOOT supports the following languages and language codes:
 <table>
-    <thead><tr><th>Language<th>ISO 639-3 Code
+    <thead><tr><th>Language<th>POSIX Code
     <tbody>
-        <tr><td>English<td>eng
-        <tr><td>Spanish<td>spa
-        <tr><td>Russian<td>rus
+        <tr><td>Chinese<td>zh_CN
+        <tr><td>English<td>en
+        <tr><td>French<td>fr
+        <tr><td>Polish<td>pl
+        <tr><td>Brazilian Portuguese<td>pt_BR
+        <tr><td>Russian<td>ru
+        <tr><td>Spanish<td>es
 </table>
 
 <h2 id="license">License</h2>
 <p>This document is part of the LOOT documentation.<br>
-Copyright (C) 2012–2013 WrinklyNinja<br>
+Copyright (C) 2012&mdash;2014 WrinklyNinja<br>
 See the file <q>LOOT ReadMe.html</q> for copying conditions.
