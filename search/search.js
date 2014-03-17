@@ -1,14 +1,31 @@
-var masterlists = [
-    [ "Oblivion", "http://loot.github.io/oblivion/masterlist.yaml" ],
-    [ "Skyrim", "http://loot.github.io/skyrim/masterlist.yaml" ],
-    [ "Fallout 3", "http://loot.github.io/fallout3/masterlist.yaml" ],
-    [ "Fallout: New Vegas", "http://loot.github.io/fallout-new-vegas/masterlist.yaml" ]
+//Uses the github.js API at https://github.com/michael/github.
+
+//Globals
+///////////////////
+
+//The OAuth token is for loot-automaton.
+auth = {
+    token: "1ca3e4455b74f9b00df02b9f4f0eab0294a08928",
+    auth: "oauth"
+}
+
+repos = [
+    [ "Oblivion", "oblivion" ],
+    [ "Skyrim", "skyrim" ],
+    [ "Fallout 3", "fallout3" ],
+    [ "Fallout: New Vegas", "falloutnv" ]
 ]
+
+var github = new Github(auth);
+var repoBranch = 'master';  //The repository branch to search.
 
 var gameSelect = document.getElementById('gameSelect');
 var searchButton = document.getElementById('searchButton');
 var searchBox = document.getElementById('searchBox');
 var resultsDiv = document.getElementById('results');
+
+//Functions
+///////////////////
 
 function isRegexEntry(name) {
     var end = name.substring(name.length - 5).toLowerCase();
@@ -17,10 +34,14 @@ function isRegexEntry(name) {
     }
 }
 
-function onReqLoad(evt) {
-    
-    var masterlist = jsyaml.safeLoad(evt.target.responseText);
-    
+function readMasterlist(err, data) {
+    if (err !== null) {
+        console.log(err);
+        return;
+    }
+
+    var masterlist = jsyaml.safeLoad(data);
+
     /* Clear any previous search results. */
     while (resultsDiv.firstChild) {
         resultsDiv.removeChild(resultsDiv.firstChild);
@@ -62,20 +83,21 @@ function onSearchInit(evt) {
         return;
     }
 
-    var mlistReq = new XMLHttpRequest();
-    mlistReq.addEventListener('load', onReqLoad, false);
-    mlistReq.open("get", gameSelect.value, true);
-    mlistReq.send();
-    
+    var repo = github.getRepo("loot", gameSelect.value);
+    repo.read(repoBranch, 'masterlist.yaml', readMasterlist);
+
     console.log("Loading masterlist...");
     resultsDiv.textContent = "Loading masterlist...\n";
 }
 
+//Startup Code
+///////////////////
+
 /* Fill the drop-down games box with stuff. */
-for (var i=0; i < masterlists.length; ++i) {
+for (var i=0; i < repos.length; ++i) {
     var option = document.createElement('option');
-    option.innerText = masterlists[i][0];
-    option.setAttribute('value', masterlists[i][1]);
+    option.innerText = repos[i][0];
+    option.setAttribute('value', repos[i][1]);
     gameSelect.appendChild(option);
 }
 
@@ -89,13 +111,13 @@ if (pos != -1) {
     searchBox.value = document.URL.substring(pos2+8);
     var game = document.URL.substring(pos+6, pos2).toLowerCase();
     if (game == "oblivion") {
-        gameSelect.value = masterlists[0][1];
+        gameSelect.value = repos[0][1];
     } else if (game == "skyrim") {
-        gameSelect.value = masterlists[1][1];
+        gameSelect.value = repos[1][1];
     } else if (game == "fallout3") {
-        gameSelect.value = masterlists[2][1];
+        gameSelect.value = repos[2][1];
     } else if (game == "falloutnv") {
-        gameSelect.value = masterlists[3][1];
+        gameSelect.value = repos[3][1];
     }
 
     searchButton.click();
