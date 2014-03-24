@@ -10,15 +10,15 @@ A text editor such as [Notepad++](http://notepad-plus-plus.org/) is highly recom
 
 If you're not a member of the LOOT team, you won't be able to make changes to the official code repositories directly. Instead, you can take advantage of GitHub's Forking system, which is briefly described [here](http://guides.github.com/overviews/forking/).
 
-Once your pull request has been accepted and merged into the official repository you forked, we'd recommend deleting your fork. Then, if you want to submit any more changes in the future, just create a new fork. This avoids having to keep your fork [up to date](https://help.github.com/articles/syncing-a-fork).
-
 Forking is a great way to get to know the project and contribute to it without worrying about making a mistake and breaking something, because someone always has to check your changes before they get included into the official repositories. Make good pull requests and you'll probably be asked to join the team!
+
+*Note*: once your pull request has been accepted and merged into the official repository you forked, we'd recommend deleting your fork. Then, if you want to submit any more changes in the future, just create a new fork. This avoids having to keep your fork [up to date](https://help.github.com/articles/syncing-a-fork).
 
 ### Making Changes
 
-What the above forking guide doesn't explain is where the files to edit are put on your computer. GfW puts all your local repositories in your `My Documents\GitHub\` folder, so you can either go there using Windows Explorer, or if you already have the repository open in GfW, you can open it directly in Windows Explorer by clicking on the gear icon in the upper right corner of the window and choosing "open in explorer".
+GfW puts all your local repositories in your `My Documents\GitHub\` folder, so you can either go there using Windows Explorer, or if you already have the repository open in GfW, you can open it directly in Windows Explorer by clicking on the gear icon in the upper right corner of the window and choosing "open in explorer".
 
-Open the file you want to edit (eg. the repository's `masterlist.yaml`) in your favorite text editor and make any changes you want. Once you're done, save the file, and switch back to the GfW window. Then you can make a commit, sync and create a pull request as described in the guide.
+Open the file you want to edit (eg. the repository's `masterlist.yaml`) in your favorite text editor and make any changes you want. Once you're done, save the file, and switch back to the GfW window. Then you can make a commit, sync and create a pull request as described in the guide linked to above.
 
 If you're editing a masterlist, see the [[Masterlist Editing|Masterlist-Editing]] page for information on how to go about making changes to the masterlists. The [Metadata Syntax documentation](http://loot.github.io/docs/dev/LOOT%20Metadata%20Syntax.html) details the actual format and syntax used by the masterlists.
 
