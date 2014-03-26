@@ -1,8 +1,3 @@
-### Guidelines
-
-* In communication, it's probably best to use your Bethsoft Forum name since we all know each other by the aliases from the forum.
-* Know your [[responsibilities|Member-Responsibilities]].
-
 ### Policies
 
 As time goes by, we sometimes find it's good to have rules written down for things relating to how we operate. This is where we write these rules. Please don't change them without prior discussion.
