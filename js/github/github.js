@@ -173,6 +173,27 @@
         });
       };
 
+      // List organization members
+      // -------
+
+      this.orgMembers = function(orgname, cb) {
+        _request("GET", "/orgs/"+orgname+"/members", null, cb);
+      }
+
+      // List organization teams
+      // -------
+
+      this.orgTeams = function(orgname, cb) {
+        _request("GET", "/orgs/"+orgname+"/teams", null, cb);
+      }
+
+      // List organization team members
+      // -------
+
+      this.teamMembers = function(teamId, cb) {
+        _request("GET", "/teams/"+teamId+"/members", null, cb);
+      }
+
       // Follow user
       // -------
 
@@ -252,18 +273,18 @@
         _request("DELETE", repoPath + "/git/refs/"+ref, options, cb);
       };
 
-      // Create a repo  
+      // Create a repo
       // -------
 
       this.createRepo = function(options, cb) {
         _request("POST", "/user/repos", options, cb);
       };
 
-      // Delete a repo  
-      // --------  
+      // Delete a repo
+      // --------
 
-      this.deleteRepo = function(cb) {  
-        _request("DELETE", repoPath, options, cb);  
+      this.deleteRepo = function(cb) {
+        _request("DELETE", repoPath, options, cb);
       };
 
       // List all tags of a repository
@@ -450,9 +471,9 @@
         _request("POST", repoPath + "/forks", null, cb);
       };
 
-      // Branch repository  
-      // --------  
- 
+      // Branch repository
+      // --------
+
       this.branch = function(oldBranch,newBranch,cb) {
         if(arguments.length === 2 && typeof arguments[1] === "function") {
           cb = newBranch;
@@ -622,6 +643,17 @@
               url += "?" + params.join("&");
           }
           _request("GET", url, null, cb);
+      };
+
+      // List contributors to a repository.
+      // anon: "true" or "1" will include anonymous contributors in the list.
+      // -------
+
+      this.getContributors = function(anon, cb) {
+        var data = {
+          "anon":anon
+        };
+        _request("GET", repoPath + "/contributors", data, cb);
       };
     };
 

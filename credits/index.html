@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta charset='utf-8' />
+<title>LOOT: Credits</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/ico" href="../icon.ico">
+
+<style>
+#contrib, #team, #main li {
+    display:inline;
+    padding-left:0;
+}
+#main li:not(:nth-last-child(-n+2)):after {
+    content: ', ';
+    color: black;
+}
+#main li:last-child:before {
+    content: ' and ';
+    color: black;
+}
+#main li:last-child:after {
+    content: '.';
+    color: black;
+}
+.admin {
+    color: purple;
+}
+.member {
+    color: green;
+}
+</style>
+
+<div id="header">
+<img alt="LOOT" src="../icon.ico">
+<h2>Load order optimisation for Oblivion, Skyrim, Fallout 3 and Fallout: New Vegas</h2>
+
+<a href="/">Home</a>
+<a href="/docs/">Documentation</a>
+<a href="/search/">Masterlist Search</a>
+<a href="https://github.com/loot">Code</a>
+</div>
+
+<div id="main">
+<h3>Credits</h3>
+<p>LOOT relies on the submission of information by users to improve. We can't list everyone who has posted in LOOT's forum threads, but the people who have contributed on GitHub are listed below, in order of decreasing contribution number. The colours denote team <span class="admin">admins</span> and <span class="member">members</span>.
+<ul id="contrib"></ul>
+</div>
+
+<div id="footer">
+<small>&copy; 2013&mdash;2014 WrinklyNinja</small>
+</div>
+
+<script src="../js/github/lib/underscore-min.js"></script>
+<script src="../js/github/lib/base64.js"></script>
+<script src="../js/github/github.js"></script>
+<script src="../js/credits.js"></script>
