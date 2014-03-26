@@ -20,7 +20,7 @@ GfW puts all your local repositories in your `My Documents\GitHub\` folder, so y
 
 Open the file you want to edit (eg. the repository's `masterlist.yaml`) in your favorite text editor and make any changes you want. Once you're done, save the file, and switch back to the GfW window. Then you can make a commit, sync and create a pull request as described in the guide linked to above.
 
-If you're editing a masterlist, see the [[Masterlist Editing|Masterlist-Editing]] page for information on how to go about making changes to the masterlists. The [Metadata Syntax documentation](http://loot.github.io/docs/dev/LOOT%20Metadata%20Syntax.html) details the actual format and syntax used by the masterlists.
+If you're editing a masterlist, see the [[Masterlist Editing|Masterlist-Editing]] page for information on the masterlists and how to edit them.
 
 ### Contributing as a Team Member
 
