@@ -29,7 +29,7 @@ As a team member, contributing becomes a little different to the above - instead
 1. Make sure that your local repository is in sync with the online repository before and after you make any changes.
 2. If you're not sure about some changes you're making, or they need to be made in several commits before they're finished, make them in a separate branch, and merge them in when you're finished. This helps keeps things tidy and means other commits won't interfere with what you're doing until you're ready to merge back in.
 3. If you have committed changes to your local repository, and someone else synced their changes to the online repository after you last synced, then you may need to manually merge the changes. You'll know if you have to do this because GfW will give you an error message when you try to sync, in which case see [[Resolving Conflicts|Resolving-Conflicts]].
-4. You should also have a read of the [[Guidelines|Guidelines]] page to familiarise yourself with the recommendations and team policies detailed there.
+4. You should also have a read of the [[Team Policies|Team-Policies]] and [[Team Member Responsibilities|Team-Member-Responsibilities]] pages to familiarise yourself with their contents.
 
 ### Getting Help
 
