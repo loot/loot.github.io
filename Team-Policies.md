@@ -13,25 +13,3 @@ Sometimes it is necessary for a maintainer to download a plugin to investigate i
 If a user submits a plugin that falls into such a catagory and they provide a link, ask them to remove it, stating why. It's best not to draw negative moderator attention to the threads, because we need them to stay open. (Moderators are highly unlikely to lock the thread or get on to us about such cases, but better safe than sorry, plus you educate users that may have been unaware of the rules.)
 
 If a user submits a plugin that falls into such a catagory and they don't provide a link, ask them to PM you a link to the plugin.
-
-#### Membership Removal
-
-This covers removing an individual from the team purely due to inactivity on their part. We haven't yet needed a policy for removing team members otherwise.
-
-To avoid bloating the team membership, individuals can be removed from the team if they have made no contributions to the masterlists. There are two cases for this:
-
-* If a newly-added member does not make any commits within the first month of their membership being awarded, they can be removed without credit.
-* If a member does not make any commits within the most recent two calendar months (ie. it's not a rolling check, just once a month), they can be removed with credit.
-
-In either case, an email should be sent to the member's given email address containing the following notification:
-
-> You've been removed from the LOOT team membership according to our membership removal policy (see our Guidelines wiki page for details). If you wish to contribute again in future please contact a LOOT admin saying so and you will be reinstated.
-
-For removal "with credit", this means that they remain credited as a LOOT team member, but are moved to the list of inactive members.
-
-Member activity is most easily checked by scrolling back through the commit history and making a list of the authors displayed. Anyone not listed has been inactive.
-
-Note: Admins are exempt from this policy, for a couple of reasons:
-
-* They might be active, just not in masterlist maintenance.
-* They act as safety-nets for the project, in case the active membership disappears. An otherwise inactive admin can step in and get the ball rolling again.
