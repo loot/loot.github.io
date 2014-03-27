@@ -1,9 +1,9 @@
-The purpose of this page is to give a bit of detail on the masterlist editing process itself.
+The purpose of this page is to give a bit of information to help with editing a masterlist.
 
 ### General Hints
 
-* Only make edits/additions you're confident about - otherwise discuss on the Bethsoft forum threads or via Private Message. You can also create an issue in the masterlist repository's issue tracker.
-* Check out the masterlists and become familiar with the comments and categorisations therein. See the [Metadata Syntax](http://loot.github.io/docs/dev/LOOT%20Metadata%20Syntax.html) document for the details.
+* Look in the masterlists for examples, and see the [Metadata Syntax](http://loot.github.io/docs/dev/LOOT%20Metadata%20Syntax.html) document for the details.
+* Only make edits/additions you're confident about - otherwise create an issue in the masterlist repository's issue tracker, or discuss in the BethSoft forum thread.
 * If you're using Notepad++, you can set it to use spaces instead of tabs when you press the tab key on your keyboard, avoiding YAML parsing errors. To do this, go to Settings > Preferences > Tab Settings > Replace by space. A value of 4 is most common.
 * Make as many silent comments as you want within the masterlists - it doesn't hurt (within reason). However, make sure to put them *above* the line(s) that they refer to.
 * Use blank lines to separate mods that are grouped together or where it helps readability.
@@ -56,9 +56,14 @@ Although both are valid YAML, the first is using the correct style, and the seco
 
 Before you add a new entry for a plugin, make sure that there isn't already an existing entry for it. LOOT will attempt to merge entries if there are more than one for a plugin, but some metadata may be lost in the process, so it's always safer to only have one entry per plugin. 
 
-Simply opening up the masterlist and doing a `Ctrl-F` search for the plugin filename won't always be enough, because plugin entries can use regular expression matching to match multiple plugin names, and they won't be found. Instead, use the online [Masterlist Search](http://loot.github.io/search/) page to perform a search of the masterlist. 
+*Don't* open the masterlist and to a `Ctrl-F` search for the plugin filename, or anything similar. Instead, use the online [Masterlist Search](http://loot.github.io/search/) page to perform a search of the masterlist. This search utility has the following features:
 
-As well as being able to match regular expressions, it also checks against the same copy of the masterlist that users get, so you can be sure that it will always be up-to-date. It's case-insensitive and you can even pass search parameters in the URL. The syntax is
+* Accounts for syntax variation.
+* Finds matching regular expression entries.
+* Checks against the latest masterlist revision, so is always up-to-date.
+* Case-insensitive.
+
+You can even pass search parameters in the URL, using the syntax
 
 ```yaml
 http://loot.github.io/search/?game=<game>&search=<search>
