@@ -8,7 +8,7 @@ To get started, you'll need:
 * A Git client, e.g. [GitHub for Windows](http://windows.github.com/)
 * A text editor, e.g. [Notepad++](http://notepad-plus-plus.org/)
 
-This guide will assume you're using GitHub for Windows, and abbreviate it to GFW.
+This guide will assume you're using GitHub for Windows (GFW).
 
 ### Forking a Repository
 
