@@ -43,6 +43,4 @@ Team members don't need to fork LOOT repositories, and can instead clone the ori
 
 If you have any problems or questions regarding anything relating to LOOT, feel free to ask team members questions: the [[Team Members|Team-Members]] page lists members' usernames on the Bethesda Softworks Forums, Nexus Forums and GitHub.
 
-Technical questions are best sent to WrinklyNinja, as he's responsible for LOOT's programming. This includes questions relating to things like how LOOT works, the masterlist syntax, etc.
-
-Metadata questions are best sent to members that contribute to the masterlist you are asking about. This includes questions like "what do you think about making X load after Y?" and "Alice said that C should be loading after D, but C has a load of patches, so won't that break something?".
+Questions are best asked of those who contribute to the relevant repository. For example, if you have a question that's specific to a game's masterlist, it's best to ask that masterlist's contributors. Repository contributors can be viewed by clicking on the contributor count in the bar near the top of the repository's page.
