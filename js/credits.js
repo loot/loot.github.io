@@ -14,12 +14,15 @@ var team = [];
 
 function addToList(listElement, person) {
     var li = document.createElement('li');
+    var a = document.createElement('a');
     var img = document.createElement('img');
     var span = document.createElement('span');
+    a.href = person.html_url;
     img.src = person.avatar_url;
     span.textContent = person.login + ' (' + person.contributions + ')';
-    li.appendChild(img);
-    li.appendChild(span);
+    li.appendChild(a);
+    a.appendChild(img);
+    a.appendChild(span);
     if (admins.indexOf(person.login) !== -1) {
         span.className = 'admin';
     } else if (team.indexOf(person.login) !== -1) {
@@ -47,6 +50,7 @@ function showContributors(err, data) {
             "login":data[i].login,
             "contributions":data[i].contributions,
             "avatar_url":data[i].avatar_url,
+            "html_url":data[i].html_url,
         };
         var j = getContributor(person.login);
         if (j === -1) {
@@ -56,6 +60,7 @@ function showContributors(err, data) {
         }
     }
     numProcessedRepos += 1;
+        console.log(data);
 
     if (numProcessedRepos === numRepos) {
         var contrib = document.getElementById('contrib');
