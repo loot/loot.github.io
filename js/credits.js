@@ -12,13 +12,18 @@ var contributors = [];
 var admins = [];
 var team = [];
 
-function addToList(listElement, textContent) {
+function addToList(listElement, person) {
     var li = document.createElement('li');
-    li.textContent = textContent;
-    if (admins.indexOf(textContent) !== -1) {
-        li.className = 'admin';
-    } else if (team.indexOf(textContent) !== -1) {
-        li.className = 'member';
+    var img = document.createElement('img');
+    var span = document.createElement('span');
+    img.src = person.avatar_url;
+    span.textContent = person.login + ' (' + person.contributions + ')';
+    li.appendChild(img);
+    li.appendChild(span);
+    if (admins.indexOf(person.login) !== -1) {
+        span.className = 'admin';
+    } else if (team.indexOf(person.login) !== -1) {
+        span.className = 'member';
     }
     listElement.appendChild(li);
 }
@@ -56,7 +61,7 @@ function showContributors(err, data) {
         var contrib = document.getElementById('contrib');
         contributors.sort(sortContributors);
         for (var i = 0; i < contributors.length; i++) {
-            addToList(contrib, contributors[i].login);
+            addToList(contrib, contributors[i]);
         }
     }
 }

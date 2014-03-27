@@ -6,26 +6,26 @@
 
 <style>
 #contrib, #team, #main li {
-    display:inline;
+    display:block;
     padding-left:0;
 }
-#main li:not(:nth-last-child(-n+2)):after {
-    content: ', ';
-    color: black;
+#contrib li {
+    display:inline-block;
+    text-align: center;
+    padding: 0.3em;
 }
-#main li:last-child:before {
-    content: ' and ';
-    color: black;
-}
-#main li:last-child:after {
-    content: '.';
-    color: black;
+li span {
+    display: block;
 }
 .admin {
     color: purple;
 }
 .member {
     color: green;
+}
+#contrib img {
+    height: 64px;
+    width: 64px;
 }
 </style>
 
@@ -41,7 +41,7 @@
 
 <div id="main">
 <h3>Credits</h3>
-<p>LOOT relies on the submission of information by users to improve. We can't list everyone who has posted in LOOT's forum threads, but the people who have contributed on GitHub are listed below, in order of decreasing contribution number. The colours denote team <span class="admin">admins</span> and <span class="member">members</span>.
+<p>LOOT relies on the submission of information by users to improve. We can't list everyone who has posted in LOOT's forum threads, but the people who have contributed on GitHub are listed below. Team members are in green, admins are in purple, and the number of contributions for each person is given in brackets.
 <ul id="contrib"></ul>
 </div>
 
