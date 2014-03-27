@@ -2,39 +2,47 @@ This page will guide anyone wishing to contribute to LOOT directly through the p
 
 ### Getting Set Up
 
-LOOT uses Git repositories on GitHub to help manage the changes made to its files, so you'll need a GitHub account, and a Git client. Any client should do, but [GitHub's own client](http://windows.github.com/) is probably the simplest on Windows for those new to Git. This guide will assume that you're using it (and abbreviate its name as GfW).
+To get started, you'll need:
 
-A text editor such as [Notepad++](http://notepad-plus-plus.org/) is highly recommended for working on LOOT's files.
+* A GitHub account
+* A Git client, e.g. [GitHub for Windows](http://windows.github.com/)
+* A text editor, e.g. [Notepad++](http://notepad-plus-plus.org/)
+
+This guide will assume you're using GitHub for Windows, and abbreviate it to GFW.
 
 ### Forking a Repository
 
-If you're not a member of the LOOT team, you won't be able to make changes to the official code repositories directly. Instead, you can take advantage of GitHub's Forking system, which is briefly described [here](http://guides.github.com/overviews/forking/).
+To contribute changes, you will need to [fork](http://guides.github.com/overviews/forking/) the repository that contains the file(s) you wish to edit. LOOT's repositories are listed [here](https://github.com/loot).
 
-Forking is a great way to get to know the project and contribute to it without worrying about making a mistake and breaking something, because someone always has to check your changes before they get included into the official repositories. Make good pull requests and you'll probably be added to the team so that you can contribute without having to fork.
+Forking lets you contribute to the project without worrying about making a mistake and breaking something, because your changes are checked by others before they get applied to the original repository.
 
-*Note*: Forks need to be [kept in sync](https://help.github.com/articles/syncing-a-fork) with the official repositories. If you don't feel comfortable doing this, you can delete your fork once your pull request has been merged into the official repository, then create a new fork when you next want to submit any changes.
+*Note*: A fork needs to be [kept in sync](https://help.github.com/articles/syncing-a-fork) with its original repository. If you'd rather avoid the command line, you can delete your fork once your pull request has been accepted, then create a new fork when you next want to submit any changes.
 
 ### Making Changes
 
-GfW puts all your local repositories in your `My Documents\GitHub\` folder, so you can either go there using Windows Explorer, or if you already have the repository open in GfW, you can open it directly in Windows Explorer by clicking on the gear icon in the upper right corner of the window and choosing "open in explorer".
+Open the repository that contains the file(s) you want to edit in GFW, then click the gear icon in the upper right corner of the window and select "Open in explorer" to view the repository contents.
 
-Open the file you want to edit (eg. the repository's `masterlist.yaml`) in your favorite text editor and make any changes you want. Once you're done, save the file, and switch back to the GfW window. Then you can make a commit, sync and create a pull request as described in the guide linked to above.
+Edit the file(s) you want to make changes to using your text editor or appropriate tool of choice, then once you're done, save the file and switch back to GFW. There you can make a commit, sync and create a pull request as described in the forking guide linked to above.
 
-If you're editing a masterlist, see the [[Masterlist Editing|Masterlist-Editing]] page for information on the masterlists and how to edit them.
+If you're editing a masterlist, see the [[Masterlist Editing|Masterlist-Editing]] page for more information.
+
+### Joining the Team
+
+Contributors can ask or be asked to join the LOOT team, which grants write access to the LOOT repositories, their issue trackers and wikis. Addition of new team members is done by the team admins, who base their decision on the quality of past contributions. If you would like to join the team, and feel comfortable with the workflow, contact a [[team member|Team-Members]].
 
 ### Contributing as a Team Member
 
-As a team member, contributing becomes a little different to the above - instead of forking a repository and cloning your fork, you can clone the official repository and make changes to it directly. The process is much the same, but because there are other people who also make changes to the same repository, there are a few things you should bear in mind so that everyone works together well:
+Team members don't need to fork LOOT repositories, and can instead clone the original repositories and edit their files directly. This introduces a few additional points to ensure team members work well together:
 
-1. Make sure that your local repository is in sync with the online repository before and after you make any changes.
-2. If you're not sure about some changes you're making, or they need to be made in several commits before they're finished, make them in a separate branch, and merge them in when you're finished. This helps keeps things tidy and means other commits won't interfere with what you're doing until you're ready to merge back in.
-3. If you have committed changes to your local repository, and someone else synced their changes to the online repository after you last synced, then you may need to manually merge the changes. You'll know if you have to do this because GfW will give you an error message when you try to sync, in which case see [[Resolving Conflicts|Resolving-Conflicts]].
+1. Make sure that your local repository is in sync with the online repository before and after you make any changes. This helps to avoid conflicts.
+2. It's always best to make commits in your own branch, and merge them into the repository's `master` branch when you're done working. For one-off commits the advantage is not so clear, but if you are making a set of commits with a common theme, a branch will help keep things organised. 
+3. If you have committed changes to your local repository, and someone else synced their changes to the online repository after you last synced, then you may need to manually merge the changes. You'll know if you have to do this because GFW will give you an error message when you try to sync, in which case see [[Resolving Conflicts|Resolving-Conflicts]].
 4. You should also have a read of the [[Team Policies|Team-Policies]] and [[Team Member Responsibilities|Team-Member-Responsibilities]] pages to familiarise yourself with their contents.
 
 ### Getting Help
 
-If you have any problems or questions regarding anything relating to LOOT, feel free to ask current members questions. We can all be contacted by PM - the [[Team Members|Team-Members]] page lists all current members and their usernames on Bethsoft, Nexus and GitHub.
+If you have any problems or questions regarding anything relating to LOOT, feel free to ask team members questions: the [[Team Members|Team-Members]] page lists members' usernames on the Bethesda Softworks Forums, Nexus Forums and GitHub.
 
-Technical questions are best sent to WrinklyNinja, as he's responsible for LOOT's coding. This includes questions relating to things like how LOOT works, the masterlist syntax, etc.
+Technical questions are best sent to WrinklyNinja, as he's responsible for LOOT's programming. This includes questions relating to things like how LOOT works, the masterlist syntax, etc.
 
 Metadata questions are best sent to members that contribute to the masterlist you are asking about. This includes questions like "what do you think about making X load after Y?" and "Alice said that C should be loading after D, but C has a load of patches, so won't that break something?".
