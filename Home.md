@@ -1,1 +1,15 @@
-Welcome to the loot.github.io wiki!
+Welcome to the LOOT project wiki!
+
+If you want to start contributing, you may find the following pages useful:
+
+* [[How To Contribute|How-To-Contribute]]
+* [[Masterlist Editing|Masterlist-Editing]]
+* [[Quickly Testing Your Masterlist Changes|Quickly-Testing-Your-Masterlist-Changes]]
+
+The following pages relate to the LOOT team and its management:
+
+* [[Team Members|Team-Members]]
+* [[Team Member Responsibilities|Team-Member-Responsibilities]]
+* [[Team Policies|Team-Policies]]
+* [[Resolving Conflicts|Resolving-Conflicts]]
+* [[Team: Making A release|Team:-Making-A-release]]
