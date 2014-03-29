@@ -12,7 +12,7 @@ body {
     font:12pt/1.5 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
 }
 #header {
-    padding: 3em 0;
+    padding: 1.5em 0;
     border-bottom: #ccc solid 1px;
 }
 img {
@@ -27,6 +27,12 @@ h1,h2,h3 {
 }
 h2 {
     margin-right: 1.5em;
+    margin-top: 1.2em;
+}
+#nav {
+    clear: both;
+    text-align: center;
+    padding-top: 1em;
 }
 #main {
     margin: 2em 1em;
@@ -49,7 +55,19 @@ h2 {
     color:white;
 }
 #footer small { display:block; color: #ccc;}
-code {background:white; white-space:pre; display:block; margin:1.5em; margin-top:0; overflow-x:auto; box-shadow: 0 0 10px rgba(0,0,0,.1);padding: 3px;font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;font-size: 14px;border-radius: 2px;}
+code {
+    background:white;
+    white-space:pre;
+    display:block;
+    margin:1.5em;
+    margin-top:0;
+    overflow-x:auto;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    padding: 3px;
+    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+    font-size: 14px;
+    border-radius: 2px;
+}
 #bigbutton {
     display:table;
     padding: 0.5em 1em;
@@ -62,4 +80,22 @@ code {background:white; white-space:pre; display:block; margin:1.5em; margin-top
 #bigbutton:hover {
     text-decoration:none;
     background: #ffbe69;
+}
+#contrib {
+    display:block;
+    padding-left:0;
+}
+#contrib li {
+    display:inline-block;
+}
+#contrib img {
+    height: 64px;
+    width: 64px;
+    margin: 4px;
+}
+#contrib img.admin {
+    box-shadow: 0 5px 5px -3px #b0b;
+}
+#contrib img.member {
+    box-shadow: 0 5px 5px -3px #0b0;
 }

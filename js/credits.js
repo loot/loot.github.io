@@ -16,18 +16,17 @@ function addToList(listElement, person) {
     var li = document.createElement('li');
     var a = document.createElement('a');
     var img = document.createElement('img');
-    var span = document.createElement('span');
     a.href = person.html_url;
     img.src = person.avatar_url;
-    span.textContent = person.login + ' (' + person.contributions + ')';
+    img.alt = person.login + ' (' + person.contributions + ')';
+    img.title = img.alt;
+    if (admins.indexOf(person.login) !== -1) {
+        img.className = 'admin';
+    } else if (team.indexOf(person.login) !== -1) {
+        img.className = 'member';
+    }
     li.appendChild(a);
     a.appendChild(img);
-    a.appendChild(span);
-    if (admins.indexOf(person.login) !== -1) {
-        span.className = 'admin';
-    } else if (team.indexOf(person.login) !== -1) {
-        span.className = 'member';
-    }
     listElement.appendChild(li);
 }
 
@@ -60,7 +59,6 @@ function showContributors(err, data) {
         }
     }
     numProcessedRepos += 1;
-        console.log(data);
 
     if (numProcessedRepos === numRepos) {
         var contrib = document.getElementById('contrib');
