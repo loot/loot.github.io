@@ -7,11 +7,10 @@ What needs to be done to release a new version of LOOT.
 
 ### Packaging & Release
 
-1. Compile the .mo translation files from the .po files in the repository.
-2. Build an x86 LOOT executable.
-3. Compile the installer.
-4. Put together the 7-zip archive.
-5. Create a release on GitHub and add the installer and archive to it.
+1. Build an x86 LOOT executable.
+2. Compile the installer.
+3. Put together the 7-zip archive.
+4. Create a release on GitHub and add the installer and archive to it.
 
 ### Website
 
