@@ -14,4 +14,4 @@ The following pages relate to the LOOT team and its management:
 * [[Team Member Responsibilities|Team-Member-Responsibilities]]
 * [[Team Policies|Team-Policies]]
 * [[Resolving Conflicts|Resolving-Conflicts]]
-* [[Making A Release|Making-A-Rrelease]]
+* [[Making A Release|Making-A-Release]]
