@@ -56,7 +56,7 @@ Be sure to read LOOT's readme for more information on these.
 
 **Q.** I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?
 
-**A.** LOOT isn't omniscient. It may prove warnings for outdated plugins through the masterlist, but this depends on user feedback. LOOT has no way of being able to tell by itself if a plugin is outdated or not.
+**A.** LOOT isn't omniscient. It may provide warnings for outdated plugins through the masterlist, but this depends on user feedback. LOOT has no way of being able to tell by itself if a plugin is outdated or not.
 
 ---
 
