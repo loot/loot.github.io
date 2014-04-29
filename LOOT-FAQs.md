@@ -10,13 +10,24 @@ A collection of hopefully helpful FAQs and their answers.
 
 **Q.** Why can't I just keep using BOSS v2.2.0 forever instead of switching to LOOT?
 
-**A.** You can, there is no intention to take BOSS's masterlists offline. However, most of BOSS's current contributors are now more interested in contributing to LOOT, so BOSS will likely lag further behind in getting unrecognised plugins recognised as time goes on. One of the many improvements in LOOT is that it doesn't suffer from this problem.
+**A.** You can, there is no intention to take BOSS's masterlists offline. However, most of BOSS's current contributors are now more interested in contributing to LOOT, so BOSS will likely lag further behind in getting unrecognised plugins recognised as time goes on.
+
+---
+
+**Q.** Is there anything I should bear in mind when switching to LOOT?
+
+**A.** It's worth double-checking the load order LOOT gives you, in case it's gotten something wrong. Also, if you're not starting a new game, changing your load order may cause in-game issues. To avoid disaster, you can backup your load order as follows:
+
+1. Make a backup of your current `.ess` save file, and its accompanying `.skse` file (if you have SKSE installed). These are found in the `%USERPROFILE%\Documents\My Games\Skyrim\Saves` folder.
+2. Make a backup of your load order files, `plugins.txt` and `loadorder.txt`, which are found in the `%LOCALAPPDATA%\Skyrim` folder.
+
+That way, if something does go wrong, you have backups to roll back to. If you don't overwrite or delete save files, you don't need to back them up, so long as you can remember which save was made before you made the changes that caused problems.
 
 ---
 
 **Q.** I've heard that LOOT doesn't have such a thing as an 'unrecognized plugin'. What new devilry is this?
 
-**A.** BOSS sorted mods according to their order in its masterlist, which was hand-ordered by its maintainers. LOOT reads the contents of each plugin to see which plugins conflict, etc. and uses that information to decide on the best ordering. 
+**A.** BOSS sorted mods according to their order in its masterlist, which was hand-ordered by its maintainers. LOOT reads the contents of each plugin to see which plugins conflict, etc. and uses that information to decide on the best ordering. This means that it can sort plugins without needing them added to its masterlist.
 
 ---
 
@@ -26,18 +37,13 @@ A collection of hopefully helpful FAQs and their answers.
 
 ---
 
-**Q.** LOOT's load order is so strange! I'd like to add a couple mods to an already running game, and use LOOT to re-order everything, but how can I be sure it won't become screwed up forever with LOOT's ordering?
+**Q.** How can the load order LOOT gives be right if BOSS gives a very different load order?
 
-**A.** You can't. This is true whenever you add mods to or remove mods from an existing game, or change the load order, whether or not you're using LOOT. Nevertheless, there are a few things you can do to avoid disaster:
-
-1. Make a backup of your current `.ess` save file, and its accompanying `.skse` file (if you have SKSE installed). These are found in the `%USERPROFILE%\Documents\My Games\Skyrim\Saves` folder.
-2. Make a backup of your load order files, `plugins.txt` and `loadorder.txt`, which are found in the `%LOCALAPPDATA%\Skyrim` folder.
-
-That way, if something does go wrong, you have backups to roll back to. If you don't overwrite or delete save files, you don't need to back them up, so long as you can remember which save was made before you made the changes that caused problems.
+**A.** There can be more than one correct load order for a given set of plugins. For example, some plugins may not conflict or depend on each other, so their relative orders wouldn't matter. The load order BOSS gives is hand-made to look 'neat' as well as work, so plugins from the same mod will usually get grouped together, but LOOT doesn't know which plugins belong to which mod, so it just puts them where it thinks they work.
 
 ---
 
-**Q.** I'm still suspicious that LOOT is ordering Mod X after Mod Y - BOSS did it the other way round for years, and I always had a stable game with that order. Is there a way I can validate and/or question some particular load ordering proposed by LOOT?
+**Q.** I'm still suspicious that LOOT is ordering Mod X after Mod Y. Is there a way I can validate and/or question some particular load ordering proposed by LOOT?
 
 **A.** Yes. The most thorough method is to look for conflicts in TES5Edit and decide for yourself if the load order LOOT gives resolves them to your liking. Alternatively, selecting a plugin in LOOT before applying a sorted load order and ticking the "Show only conflicting plugins" checkbox will let you see if the two plugins conflict at all (though it will also show plugins with BSAs if the selected plugin loads a BSA).
 
