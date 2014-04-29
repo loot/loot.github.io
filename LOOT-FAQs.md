@@ -8,9 +8,9 @@ A collection of hopefully helpful FAQs and their answers.
 
 ---
 
-**Q.** Why can't I just keep using BOSS v2.2.0 forever instead of switching to LOOT?
+**Q.** Do I have to switch from BOSS to LOOT?
 
-**A.** You can, there is no intention to take BOSS's masterlists offline. However, most of BOSS's current contributors are now more interested in contributing to LOOT, so BOSS will likely lag further behind in getting unrecognised plugins recognised as time goes on.
+**A.** No. However, most of BOSS's current contributors are now more interested in contributing to LOOT, so BOSS will likely lag further behind in getting unrecognised plugins recognised as time goes on. One of the many improvements in LOOT is that it has no unrecognised plugins.
 
 ---
 
@@ -25,9 +25,9 @@ That way, if something does go wrong, you have backups to roll back to. If you d
 
 ---
 
-**Q.** I've heard that LOOT doesn't have such a thing as an 'unrecognized plugin'. What new devilry is this?
+**Q.** How can LOOT not have unrecognised plugins?
 
-**A.** BOSS sorted mods according to their order in its masterlist, which was hand-ordered by its maintainers. LOOT reads the contents of each plugin to see which plugins conflict, etc. and uses that information to decide on the best ordering. This means that it can sort plugins without needing them added to its masterlist.
+**A.** To sort a plugin, BOSS needs it to be added to its masterlist, which is hand-ordered by its maintainers. LOOT instead reads the contents of each plugin to see which plugins conflict, etc. and uses that information to decide on the best ordering. This means that it can sort all plugins without needing them to become recognised first.
 
 ---
 
@@ -43,9 +43,9 @@ That way, if something does go wrong, you have backups to roll back to. If you d
 
 ---
 
-**Q.** I'm still suspicious that LOOT is ordering Mod X after Mod Y. Is there a way I can validate and/or question some particular load ordering proposed by LOOT?
+**Q.** I'm still suspicious that LOOT is ordering plugin X after plugin Y. How do I double-check the ordering?
 
-**A.** Yes. The most thorough method is to look for conflicts in TES5Edit and decide for yourself if the load order LOOT gives resolves them to your liking. Alternatively, selecting a plugin in LOOT before applying a sorted load order and ticking the "Show only conflicting plugins" checkbox will let you see if the two plugins conflict at all (though it will also show plugins with BSAs if the selected plugin loads a BSA).
+**A.** The most thorough method is to look for conflicts in TES5Edit and decide for yourself if the load order LOOT gives resolves them to your liking. Alternatively, selecting a plugin in LOOT before applying a sorted load order and ticking the "Show only conflicting plugins" checkbox will let you see if the two plugins conflict at all (though it will also show plugins with BSAs if the selected plugin loads a BSA).
 
 ---
 
@@ -66,6 +66,6 @@ Be sure to read LOOT's readme for more information on these.
 
 ---
 
-**Q.** I'm having Internet problems / GitHub issues / firewall quirks and LOOT can't seem to update its masterlist. Is there a manual workaround?
+**Q.** I'm having Internet problems and LOOT can't seem to update its masterlist. Is there a manual workaround?
 
 **A.** Yes. Download [this file](https://raw.githubusercontent.com/loot/skyrim/master/masterlist.yaml) and place it in the `%LOCALAPPDATA%\LOOT\Skyrim` folder. Replace Skyrim with `oblivion`, `fallout3` or `falloutnv` as necessary, in the URL and the folder path.
