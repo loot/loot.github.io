@@ -1,14 +1,14 @@
-# General
+#### General
 
 * [[FAQs|LOOT-FAQs]]
 
-# Contributing
+#### Contributing
 
 * [[How To Contribute|How-To-Contribute]]
 * [[Masterlist Editing|Masterlist-Editing]]
 * [[Quickly Testing Your Masterlist Changes|Quickly-Testing-Your-Masterlist-Changes]]
 
-# Team Stuff
+##### Team Stuff
 
 * [[Team Members|Team-Members]]
 * [[Team Member Responsibilities|Team-Member-Responsibilities]]
