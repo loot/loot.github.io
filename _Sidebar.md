@@ -8,7 +8,7 @@
 * [[Masterlist Editing|Masterlist-Editing]]
 * [[Quickly Testing Your Masterlist Changes|Quickly-Testing-Your-Masterlist-Changes]]
 
-# LOOT Team
+# Team Stuff
 
 * [[Team Members|Team-Members]]
 * [[Team Member Responsibilities|Team-Member-Responsibilities]]
