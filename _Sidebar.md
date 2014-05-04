@@ -14,4 +14,5 @@
 * [[Team Member Responsibilities|Team-Member-Responsibilities]]
 * [[Team Policies|Team-Policies]]
 * [[Resolving Conflicts|Resolving-Conflicts]]
+* [[Thread Management|Thread-Management]]
 * [[Making A Release|Making-A-Release]]
