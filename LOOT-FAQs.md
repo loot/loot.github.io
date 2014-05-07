@@ -25,6 +25,16 @@ That way, if something does go wrong, you have backups to roll back to. If you d
 
 ---
 
+**Q.** I have a SkyProc patcher that runs BOSS. How do I get it to run LOOT instead?
+
+**A.** LOOT support may be added to SkyProc patchers in time. Until then, you can do the following:
+
+1. Run LOOT.
+2. Run your SkyProc patcher(s) with the `-NOBOSS` argument.
+3. Have fun.
+
+---
+
 **Q.** How can LOOT not have unrecognised plugins?
 
 **A.** To sort a plugin, BOSS needs it to be added to its masterlist, which is hand-ordered by its maintainers. LOOT instead reads the contents of each plugin to see which plugins conflict, etc. and uses that information to decide on the best ordering. This means that it can sort all plugins without needing them to become recognised first.
