@@ -1,6 +1,7 @@
 #### General
 
 * [[FAQs|LOOT-FAQs]]
+* [[Error Reporting|Error-Reporting]]
 
 #### Contributing
 
