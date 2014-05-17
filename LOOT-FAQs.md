@@ -79,3 +79,9 @@ Be sure to read LOOT's readme for more information on these.
 **Q.** I'm having Internet problems and LOOT can't seem to update its masterlist. Is there a manual workaround?
 
 **A.** Yes. Download [this file](https://raw.githubusercontent.com/loot/skyrim/master/masterlist.yaml) and place it in the `%LOCALAPPDATA%\LOOT\Skyrim` folder. Replace Skyrim with `oblivion`, `fallout3` or `falloutnv` as necessary, in the URL and the folder path.
+
+---
+
+**Q.** LOOT ran without any errors, but the load order hasn't changed to match what LOOT has in its report. Why?
+
+**A.** If you're sorting for Skyrim, make sure that you haven't replaced or renamed your `TESV.exe`, as this interferes with LOOT's ability to decide how to set the load order.
