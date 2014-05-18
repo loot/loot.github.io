@@ -1,5 +1,20 @@
-A collection of hopefully helpful FAQs and their answers.
+### Contents
 
+1. [What happened to BOSS v3?](#what-happened-to-boss-v3)
+2. [Do I have to switch from BOSS to LOOT?](#do-i-have-to-switch-from-boss-to-loot)
+3. [Is there anything I should bear in mind when switching to LOOT?](#is-there-anything-i-should-bear-in-mind-when-switching-to-loot)
+4. [I have a SkyProc patcher that runs BOSS. How do I get it to run LOOT instead?](#i-have-a-skyproc-patcher-that-runs-boss-how-do-i-get-it-to-run-loot-instead)
+5. [How can LOOT not have unrecognised plugins?](#how-can-loot-not-have-unrecognised-plugins)
+6. [Does LOOT sort based only on plugin content?](#does-loot-sort-based-only-on-plugin-content)
+7. [How can the load order LOOT gives be right if BOSS gives a very different load order?](#how-can-the-load-order-loot-gives-be-right-if-boss-gives-a-very-different-load-order)
+8. [I'm still suspicious that LOOT is ordering plugin X after plugin Y. How do I double-check the ordering?](#im-still-suspicious-that-loot-is-ordering-plugin-x-after-plugin-y-how-do-i-double-check-the-ordering)
+9. [OK, but I still have specific reasons to have in my game a different load order than the one LOOT proposes. What do I do?](#ok-but-i-still-have-specific-reasons-to-have-in-my-game-a-different-load-order-than-the-one-loot-proposes-what-do-i-do)
+10. [I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?](#ive-run-loot-with-obsolete-versions-of-some-plugins-and-loot-didnt-tell-me-to-update-them-how-come)
+11. [I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?](#im-getting-git-errors-when-loot-tries-to-update-its-masterlist-how-do-i-fix-this)
+12. [I'm still having problems updating LOOT's masterlists. Is there a manual workaround?](#im-still-having-problems-updating-loots-masterlists-is-there-a-manual-workaround)
+13. [LOOT ran without any errors, but the load order hasn't changed to match what LOOT has in its report. Why?](#loot-ran-without-any-errors-but-the-load-order-hasnt-changed-to-match-what-loot-has-in-its-report-why)
+
+### Questions
 ##### What happened to BOSS v3?
 
 LOOT is BOSS v3. It got turned into a separate utility because concerns were raised about the major changes in expected functionality between v2 and v3.
