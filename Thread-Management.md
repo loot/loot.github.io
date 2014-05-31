@@ -39,5 +39,6 @@ Previous threads:
 [topic=1492334]Thread #5[/topic]
 [topic=1496381]Thread #6[/topic]
 [topic=1498392]Thread #7[/topic]
+[topic=1499946]Thread #8[/topic]
 [/spoiler]
 ```
