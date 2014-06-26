@@ -13,6 +13,8 @@
 11. [I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?](#im-getting-git-errors-when-loot-tries-to-update-its-masterlist-how-do-i-fix-this)
 12. [I'm still having problems updating LOOT's masterlists. Is there a manual workaround?](#im-still-having-problems-updating-loots-masterlists-is-there-a-manual-workaround)
 13. [LOOT ran without any errors, but the load order hasn't changed to match what LOOT has in its report. Why?](#loot-ran-without-any-errors-but-the-load-order-hasnt-changed-to-match-what-loot-has-in-its-report-why)
+14. [LOOT's report is blank. How do I fix this?](#loots-report-is-blank-how-do-i-fix-this)
+15. [I'm seeing empty box characters in the metadata editor window's plugins list. What are these?](im-seeing-empty-box-characters-in-the-metadata-editor-windows-plugins-list-what-are-these)
 
 ### Questions
 ##### What happened to BOSS v3?
@@ -80,3 +82,13 @@ Yes. Download [this file](https://raw.githubusercontent.com/loot/skyrim/master/m
 ##### LOOT ran without any errors, but the load order hasn't changed to match what LOOT has in its report. Why?
 
 **A.** If you're sorting for Skyrim, make sure that you haven't replaced or renamed your `TESV.exe`, as this interferes with LOOT's ability to decide how to set the load order.
+
+##### LOOT's report is blank. How do I fix this?
+
+LOOT uses Windows' internal web browser to display its report. This web browser is basically Internet Explorer, but it's present even if you have Internet Explorer disabled. If it's not displaying LOOT's report properly, this may be because it isn't up-to-date.
+
+To update the internal web browser, make sure Internet Explorer is enabled in the "Turn Windows features on/off" control panel, and install the latest updates available through Windows update. That should be enough to fix the report display, and you can disable Internet Explorer again if you so wish.
+
+##### I'm seeing empty box characters in the metadata editor window's plugins list. What are these?
+
+They are supposed to be ticks and crosses, but there's a bug in Windows that means they don't always get displayed correctly. [This page](https://superuser.com/questions/371282/my-windows-7-has-suddenly-stopped-displaying-unicode-symbols) describes some possible workarounds for the issue.
