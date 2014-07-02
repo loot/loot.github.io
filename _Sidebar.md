@@ -1,7 +1,7 @@
 #### General
 
 * [[FAQs|LOOT-FAQs]]
-* [[Error Reporting|Error-Reporting]]
+* [[How To Report Issues Helpfully|How-To-Report-Issues-Helpfully]]
 
 #### Contributing
 
