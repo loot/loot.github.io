@@ -93,7 +93,9 @@ Yes. Download [this file](https://raw.githubusercontent.com/loot/skyrim/master/m
 
 ##### LOOT's report is blank. How do I fix this?
 
-LOOT uses Windows' internal web browser to display its report. This web browser is basically Internet Explorer, but it's present even if you have Internet Explorer disabled. If it's not displaying LOOT's report properly, this may be because it isn't up-to-date.
+LOOT uses Windows' internal web browser to display its report. This web browser is basically Internet Explorer, but it's present even if you have Internet Explorer disabled. If it's not displaying LOOT's report properly, this may be because it isn't up-to-date. 
+
+The report display has been tested using IE 11, which is available to all Windows 7 and 8.x users. Windows Vista users can only update as far as IE 10, and though the report should display with this version, it is untested.
 
 To update the internal web browser, make sure Internet Explorer is enabled in the "Turn Windows features on/off" control panel, and install the latest updates available through Windows update. That should be enough to fix the report display, and you can disable Internet Explorer again if you so wish.
 
