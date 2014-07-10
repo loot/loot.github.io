@@ -99,6 +99,8 @@ The report display has been tested using IE 11, which is available to all Window
 
 To update the internal web browser, make sure Internet Explorer is enabled in the "Turn Windows features on/off" control panel, and install the latest updates available through Windows update. That should be enough to fix the report display, and you can disable Internet Explorer again if you so wish.
 
+If you're still not seeing the report fill with content, IE may be blocking Javascript from running on the page. Open "Internet Options" and make sure that the "Allow active content to run in files on My Computer" option is enabled.
+
 ##### I'm seeing empty box characters in the metadata editor window's plugins list. What are these?
 
 They are supposed to be ticks and crosses, but there's a bug in Windows that means they don't always get displayed correctly. [This page](https://superuser.com/questions/371282/my-windows-7-has-suddenly-stopped-displaying-unicode-symbols) describes some possible workarounds for the issue.
