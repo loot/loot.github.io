@@ -26,7 +26,7 @@ While sorting, LOOT checks for load order errors such as incompatibilities and m
 
 LOOT can be downloaded from its [url=http://loot.github.io]website[/url].
 
-[i]See the [url=http://loot.github.io/docs/0.5.0/LOOT%20Readme.html]readme[/url] for more information.[/i]
+[i]See the [url=http://loot.github.io/docs/0.6.0/LOOT%20Readme.html]readme[/url] for more information.[/i]
 
 Previous threads:
 [spoiler]
