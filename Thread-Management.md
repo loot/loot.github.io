@@ -6,8 +6,6 @@ When a thread nears 200 posts, a new thread should be opened with the title `[RE
 
 Once the new thread has been created, it should be linked to in the current thread. The link on the LOOT website should also be updated, by editing the link at the bottom of the website's [root index.html file](https://github.com/loot/loot.github.io/blob/master/index.html). The masterlists may also have a link to the forum thread that would need updating, so quickly check them.
 
-Note that LOOT currently only has the one forum thread, and the thread histories stored in each repository are a leftover from BOSS, and should be ignored.
-
 ### The Opening Post
 
 The contents of the box below can be copy/pasted when creating a new thread. Make sure to add the last thread to the bottom of the thread list whenever a new thread is created.
