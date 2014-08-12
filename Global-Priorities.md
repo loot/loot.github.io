@@ -67,4 +67,11 @@ See [loot/oblivion#7](https://github.com/loot/oblivion/issues/7) for details.
 
 # Fallout 3
 
-*To be determined...*
+```
+-400999000 = -999000 Official DLCs, Unofficial patch
+-300990000 = -990000 Patches besides the unofficial patch
+0
+ 400991000 =  991000 Bashed Patch
+```
+
+*Based on current usage. Further details to be determined.*
