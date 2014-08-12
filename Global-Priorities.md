@@ -27,7 +27,7 @@ Below are the global priorities as they are grouped for the games currently supp
 1990000 = 999000
 ```
 
-See loot/skyrim#26 for details.
+See [loot/skyrim#26](https://github.com/loot/skyrim/issues/26) for details.
 
 # Oblivion
 
@@ -55,7 +55,7 @@ See loot/skyrim#26 for details.
 400990000 = 999000
 ```
 
-See loot/oblivion#7 for details.
+See [loot/oblivion#7](https://github.com/loot/oblivion/issues/7) for details.
 
 # Fallout: New Vegas
 
