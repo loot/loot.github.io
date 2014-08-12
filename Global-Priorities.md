@@ -1,6 +1,10 @@
 *(Some introductory text about global priorities, how they work, etc. should go here...)*
 
-Below are the global priorities as they are grouped for the games currently supported by LOOT.
+Below are the global priorities as they are grouped for the games currently supported by LOOT:
+- [Skyrim](#skyrim)
+- [Oblivion](#oblivion)
+- [Fallout: New Vegas](#fallout-new-vegas)
+- [Fallout 3](#fallout-3)
 
 # Skyrim
 
