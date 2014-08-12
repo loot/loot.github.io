@@ -1,4 +1,4 @@
-*(Some introductory text about global priorities, how they work, etc. should go here...)*
+Global priorities are used to sort plugins on a "global" scale. LOOT will normally only sort plugins that conflict with each other, but setting a "global `priority`" will allow some plugins to load earlier or later than others, even if they don't conflict. This can be useful to make sure that e.g. unofficial patch plugins are loaded earlier than all other non-official plugins. Details about how they work in practice can be seen in [the Metadata Syntax document](https://loot.github.io/docs/dev/LOOT%20Metadata%20Syntax.html#structs-plugin): see the description for the "priority" field under "Plugin Data Structure".
 
 Below are the global priorities as they are grouped for the games currently supported by LOOT:
 - [Skyrim](#skyrim)
