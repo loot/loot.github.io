@@ -22,7 +22,8 @@
 12. [I'm still having problems updating LOOT's masterlists. Is there a manual workaround?](#im-still-having-problems-updating-loots-masterlists-is-there-a-manual-workaround)
 13. [LOOT ran without any errors, but the load order hasn't changed to match what LOOT has in its report. Why?](#loot-ran-without-any-errors-but-the-load-order-hasnt-changed-to-match-what-loot-has-in-its-report-why)
 14. [LOOT's report is blank. How do I fix this?](#loots-report-is-blank-how-do-i-fix-this)
-15. [I'm seeing empty box characters in the metadata editor window's plugins list. What are these?](im-seeing-empty-box-characters-in-the-metadata-editor-windows-plugins-list-what-are-these)
+15. [LOOT's window is blank when I'm starting it through Mod Organizer. What's up?](#loots-window-is-blank-when-im-starting-it-through-mod-organizer-whats-up)
+16. [I'm seeing empty box characters in the metadata editor window's plugins list. What are these?](im-seeing-empty-box-characters-in-the-metadata-editor-windows-plugins-list-what-are-these)
 
 ### Questions
 ##### What happened to BOSS v3?
@@ -100,6 +101,10 @@ The report display has been tested using IE 11, which is available to all Window
 To update the internal web browser, make sure Internet Explorer is enabled in the "Turn Windows features on/off" control panel, and install the latest updates available through Windows update. That should be enough to fix the report display, and you can disable Internet Explorer again if you so wish.
 
 If you're still not seeing the report fill with content, IE may be blocking Javascript from running on the page. Open "Internet Options" and make sure that the "Allow active content to run in files on My Computer" option is enabled.
+
+##### LOOT's window is blank when I'm starting it through Mod Organizer. What's up?
+
+Mod Organizer 1.2.10 has a bug preventing LOOT 0.7.0 from working properly. This will be fixed with Mod Organizer 1.2.11, but until that is released, you will need to downgrade to Mod Organizer 1.2.9.
 
 ##### I'm seeing empty box characters in the metadata editor window's plugins list. What are these?
 
