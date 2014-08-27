@@ -24,7 +24,7 @@ Open the repository that contains the file(s) you want to edit in GFW, then clic
 
 Edit the file(s) you want to make changes to using your text editor or appropriate tool of choice, then once you're done, save the file and switch back to GFW. There you can make a commit, sync and create a pull request as described in the forking guide linked to above.
 
-If you're editing a masterlist, see the [[Masterlist Editing|Masterlist-Editing]] page for more information.
+If you're editing a masterlist, see the [[Masterlist Editing|Masterlist-Editing]] page for more information. If you're adding or updating a translation, the [[Translating LOOT|Translating-LOOT]] page is for you.
 
 ### Joining the Team
 
