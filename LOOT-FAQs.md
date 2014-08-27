@@ -24,8 +24,16 @@
 14. [LOOT's report is blank. How do I fix this?](#loots-report-is-blank-how-do-i-fix-this)
 15. [LOOT's window is blank when I'm starting it through Mod Organizer. What's up?](#loots-window-is-blank-when-im-starting-it-through-mod-organizer-whats-up)
 16. [I'm seeing empty box characters in the metadata editor window's plugins list. What are these?](im-seeing-empty-box-characters-in-the-metadata-editor-windows-plugins-list-what-are-these)
+17. [LOOT shows the wrong or no version number for some plugins. Why?](loot-shows-the-wrong-or-no-version-number-for-some-plugins-why)
+18. [A game is installed, but LOOT cannot detect it. How do I fix this?](a-game-is-installed-but-LOOT-cannot-detect-it-how-do-i-fix-this)
+19. [When LOOT updates the load order, it removes line breaks from `plugins.txt` and `loadorder.txt`. Won't this break something?](when-loot-updates-the-load-order-it-removes-line-breaks-from-pluginstxt-and-loadordertxt-wont-this-break-something)
 
 ### Questions
+
+---
+
+#### General Information
+
 ##### What happened to BOSS v3?
 
 LOOT is BOSS v3. It got turned into a separate utility because concerns were raised about the major changes in expected functionality between v2 and v3.
@@ -67,6 +75,10 @@ There can be more than one correct load order for a given set of plugins. For ex
 
 The most thorough method is to look for conflicts in TES5Edit and decide for yourself if the load order LOOT gives resolves them to your liking. Alternatively, selecting a plugin in LOOT before applying a sorted load order and ticking the "Show only conflicting plugins" checkbox will let you see if the two plugins conflict at all (though it will also show plugins with BSAs if the selected plugin loads a BSA).
 
+---
+
+#### Using LOOT
+
 ##### OK, but I still have specific reasons to have in *my* game a different load order than the one LOOT proposes. What do I do?
 
 Users can supply metadata themselves to alter the order LOOT gives. It's not as precise as the user rules feature offered by BOSS, due to the nature of LOOT's ordering system, but there are two types of metadata that can be supplied to change load order:
@@ -79,6 +91,10 @@ Be sure to read LOOT's readme for more information on these.
 ##### I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?
 
 LOOT isn't omniscient. It may provide warnings for outdated plugins through the masterlist, but this depends on user feedback. LOOT has no way of being able to tell by itself if a plugin is outdated or not.
+
+---
+
+#### Common Issues
 
 ##### I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?
 
@@ -109,3 +125,15 @@ Mod Organizer 1.2.10 has a bug preventing LOOT 0.7.0 from working properly. This
 ##### I'm seeing empty box characters in the metadata editor window's plugins list. What are these?
 
 They are supposed to be ticks and crosses, but there's a bug in Windows that means they don't always get displayed correctly. [This page](https://superuser.com/questions/371282/my-windows-7-has-suddenly-stopped-displaying-unicode-symbols) describes some possible workarounds for the issue.
+
+##### LOOT shows the wrong or no version number for some plugins. Why?
+
+As version numbers are supplied by mod authors in a wide range of formats and LOOT has to detect as many as possible, it occasionally identifies parts of some descriptions as version numbers incorrectly. Authors can also forget to update their plugins' version numbers. When in doubt, check the version number given in a mod's readme.
+
+##### A game is installed, but LOOT cannot detect it. How do I fix this?
+
+Steam likes to remove the game's Registry entry when the game is updated or its cache is verified. Run the game's launcher to add the Registry entry back again. LOOT will then be able to detect the game.
+
+##### When LOOT updates the load order, it removes line breaks from `plugins.txt` and `loadorder.txt`. Won't this break something?
+
+LOOT has probably just replaced the `CR LF` line breaks with `LF` line breaks. It doesn't make any difference to the game.
