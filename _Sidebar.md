@@ -8,6 +8,7 @@
 * [[How To Contribute|How-To-Contribute]]
 * [[Masterlist Editing|Masterlist-Editing]]
 * [[Quickly Testing Your Masterlist Changes|Quickly-Testing-Your-Masterlist-Changes]]
+* [[Translating LOOT|Translating-LOOT]]
 
 ##### Team Stuff
 
@@ -17,3 +18,4 @@
 * [[Resolving Conflicts|Resolving-Conflicts]]
 * [[Thread Management|Thread-Management]]
 * [[Making A Release|Making-A-Release]]
+* [[Global Priorities|Global-Priorities]]
