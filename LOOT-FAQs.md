@@ -25,7 +25,7 @@
 15. [LOOT's window is blank when I'm starting it through Mod Organizer. What's up?](#loots-window-is-blank-when-im-starting-it-through-mod-organizer-whats-up)
 16. [I'm seeing empty box characters in the metadata editor window's plugins list. What are these?](#im-seeing-empty-box-characters-in-the-metadata-editor-windows-plugins-list-what-are-these)
 17. [LOOT shows the wrong or no version number for some plugins. Why?](#loot-shows-the-wrong-or-no-version-number-for-some-plugins-why)
-18. [A game is installed, but LOOT cannot detect it. How do I fix this?](#a-game-is-installed-but-LOOT-cannot-detect-it-how-do-i-fix-this)
+18. [A game is installed, but LOOT cannot detect it. How do I fix this?](#a-game-is-installed-but-loot-cannot-detect-it-how-do-i-fix-this)
 19. [When LOOT updates the load order, it removes line breaks from `plugins.txt` and `loadorder.txt`. Won't this break something?](#when-loot-updates-the-load-order-it-removes-line-breaks-from-pluginstxt-and-loadordertxt-wont-this-break-something)
 
 ### Questions
