@@ -9,7 +9,7 @@ What needs to be done to release a new version of LOOT.
 
 1. Build an x86 LOOT executable.
 2. Compile the installer.
-3. Put together the 7-zip archive.
+3. Put together the 7-Zip archive.
 4. Create a release on GitHub and add the installer and archive to it.
 
 ### Website
