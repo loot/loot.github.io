@@ -1,0 +1,46 @@
+###
+# Kwalify YAML schema definition for LOOT masterlists.
+#
+# LOOT masterlist YAML reference:
+# - https://loot.github.io/docs/dev/LOOT Metadata Syntax.html
+#
+# Kwalify schema definition reference:
+# - http://www.kuwata-lab.com/kwalify/ruby/users-guide.html
+###
+
+type: map
+mapping:
+  'common:
+    # This is not strictly part of the spec., see:
+    # https://github.com/loot/loot.github.io/wiki/Masterlist-Editing#common-metadata
+    type: seq
+    sequence:
+      - type: any
+  'globals':
+    type: seq
+    sequence:
+      - type: map
+        mapping:
+          'msg':
+            &msg
+            type: map
+            mapping:
+              'type':
+                type: str
+                enum: [ 'say', 'warn', 'error' ]
+                required: yes
+              'condition':
+                type: str
+  'plugins':
+    type: seq
+    sequence:
+      - type: map
+        mapping:
+          'name':
+            type: str
+            unique: yes
+            required: yes
+          'enabled':
+            type: bool
+          'msg':
+            *msg
