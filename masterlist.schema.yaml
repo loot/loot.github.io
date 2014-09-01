@@ -10,7 +10,7 @@
 
 type: map
 mapping:
-  'common:
+  'common':
     # This is not strictly part of the spec., see:
     # https://github.com/loot/loot.github.io/wiki/Masterlist-Editing#common-metadata
     type: seq
@@ -29,6 +29,9 @@ mapping:
                 type: str
                 enum: [ 'say', 'warn', 'error' ]
                 required: yes
+              'content':
+                type: any
+                required: yes
               'condition':
                 type: str
   'plugins':
@@ -42,5 +45,38 @@ mapping:
             required: yes
           'enabled':
             type: bool
+          'priority':
+            type: int
+            range: { min: -2000000000, max: 2000000000 }
+          'after':
+            type: any
+          'req':
+            type: any
+          'inc':
+            type: any
           'msg':
             *msg
+          'tag':
+            type: any
+          'url':
+            type: any
+          'dirty':
+            type: seq
+            sequence:
+              - type: map
+                mapping:
+                  'crc':
+                    type: str
+                    pattern: /^0x[0-9a-fA-F]+$/
+                    required: yes
+                  'util':
+                    type: str
+                    required: yes
+                  'itm':
+                    &dirtyValue
+                    type: int
+                    assert: '0 <= val'
+                  'udr':
+                    *dirtyValue
+                  'nav':
+                    *dirtyValue
