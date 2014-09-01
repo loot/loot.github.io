@@ -71,25 +71,6 @@ http://loot.github.io/search/?game=<game>&search=<search>
 
 where `<game>` can be one of `oblivion`, `skyrim`, `fallout3` and `falloutnv`. `<search>` is the string you want to search for.
 
-### Multiple Matching Plugin Entries
-
-If a plugin has more than one matching entry in the masterlist, they are partially merged, making having multiple matching entries a useful strategy in some cases.
-
-Plugin Data Structure Field | Merge Behaviour (merging B into A)
-----------------------------|-----------------------------------
-`name` | Not merged
-`enabled` | Replaced but must be `true` anyway.
-`priority` | Replaced by B's value.
-`after` | Merged. If A and B both contain an entry with the same <code>name</code> value, B's copy is skipped.
-`req` | Merged. If A and B both contain an entry with the same <code>name</code> value, B's copy is skipped.
-`inc` | Merged. If A and B both contain an entry with the same <code>name</code> value, B's copy is skipped.
-`msg` | Merged. If A and B both contain an entry with the same content string (if there are multiple content strings, the first is checked), then B's copy is skipped.
-`tag` | Merged. If A and B both contain an entry with the same <code>name</code> value, B's copy is skipped, unless one is suggesting the tag for addition and the other is suggesting it for removal, in which case both entries are kept.
-`url` | Currently skipped by the parser, so neither A nor B will contain any entries anyway.
-`dirty` | Merged. If A and B both contain an entry with the same <code>crc</code> value, B's copy is skipped.
-
-Merging only takes place if both entries have their `enabled` field set to `true` (which is the default if unspecified).
-
 ### Common Metadata
 
 Often the same metadata is used for plugins throughout the masterlist, for example generic messages. Rather than having these messages copy/pasted, YAML's anchor/alias feature can be used to define (anchor) the metadata once somewhere, then reference (alias) it wherever else it needs to be used. This has the advantages of guaranteeing consistency, eliminating typos, cutting down the overall size of the masterlist, and improving readability.
