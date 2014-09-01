@@ -27,6 +27,7 @@
 17. [LOOT shows the wrong or no version number for some plugins. Why?](#loot-shows-the-wrong-or-no-version-number-for-some-plugins-why)
 18. [A game is installed, but LOOT cannot detect it. How do I fix this?](#a-game-is-installed-but-loot-cannot-detect-it-how-do-i-fix-this)
 19. [When LOOT updates the load order, it removes line breaks from `plugins.txt` and `loadorder.txt`. Won't this break something?](#when-loot-updates-the-load-order-it-removes-line-breaks-from-pluginstxt-and-loadordertxt-wont-this-break-something)
+20. [Some of LOOT's user interface is cut off by the edge of its window. Why?](some-of-loots-user-interface-is-cut-off-by-the-edge-of-its-window-why)
 
 ### Questions
 
@@ -137,3 +138,7 @@ Steam likes to remove the game's Registry entry when the game is updated or its 
 ##### When LOOT updates the load order, it removes line breaks from `plugins.txt` and `loadorder.txt`. Won't this break something?
 
 LOOT has probably just replaced the `CR LF` line breaks with `LF` line breaks. It doesn't make any difference to the game.
+
+##### Some of LOOT's user interface is cut off by the edge of its window. Why?
+
+This is probably due to your display scaling settings, and may also affect other applications. Try setting your scaling to 100% to avoid the issue.
