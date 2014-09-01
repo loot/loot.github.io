@@ -19,21 +19,18 @@ mapping:
   'globals':
     type: seq
     sequence:
-      - type: map
+      - &msg
+        type: map
         mapping:
-          'msg':
-            &msg
-            type: map
-            mapping:
-              'type':
-                type: str
-                enum: [ 'say', 'warn', 'error' ]
-                required: yes
-              'content':
-                type: any
-                required: yes
-              'condition':
-                type: str
+          'type':
+            type: str
+            enum: [ 'say', 'warn', 'error' ]
+            required: yes
+          'content':
+            type: any
+            required: yes
+          'condition':
+            type: str
   'plugins':
     type: seq
     sequence:
@@ -66,8 +63,8 @@ mapping:
               - type: map
                 mapping:
                   'crc':
-                    type: str
-                    pattern: /^0x[0-9a-fA-F]+$/
+                    type: int
+                    range: { min: 0, max: 4294967295 } # 0x00000000 to 0xFFFFFFFF
                     required: yes
                   'util':
                     type: str
