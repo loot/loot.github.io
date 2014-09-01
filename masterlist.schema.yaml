@@ -17,10 +17,10 @@ mapping:
     sequence:
       - type: any
   'globals':
+    &msg
     type: seq
     sequence:
-      - &msg
-        type: map
+      - type: map
         mapping:
           'type':
             type: str
