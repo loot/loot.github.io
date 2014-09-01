@@ -27,7 +27,7 @@
 17. [LOOT shows the wrong or no version number for some plugins. Why?](#loot-shows-the-wrong-or-no-version-number-for-some-plugins-why)
 18. [A game is installed, but LOOT cannot detect it. How do I fix this?](#a-game-is-installed-but-loot-cannot-detect-it-how-do-i-fix-this)
 19. [When LOOT updates the load order, it removes line breaks from `plugins.txt` and `loadorder.txt`. Won't this break something?](#when-loot-updates-the-load-order-it-removes-line-breaks-from-pluginstxt-and-loadordertxt-wont-this-break-something)
-20. [Some of LOOT's user interface is cut off by the edge of its window. Why?](some-of-loots-user-interface-is-cut-off-by-the-edge-of-its-window-why)
+20. [Some of LOOT's user interface is cut off by the edge of its window. Why?](#some-of-loots-user-interface-is-cut-off-by-the-edge-of-its-window-why)
 
 ### Questions
 
