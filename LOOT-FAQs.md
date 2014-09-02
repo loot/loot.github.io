@@ -117,7 +117,9 @@ The report display has been tested using IE 11, which is available to all Window
 
 To update the internal web browser, make sure Internet Explorer is enabled in the "Turn Windows features on/off" control panel, and install the latest updates available through Windows update. That should be enough to fix the report display, and you can disable Internet Explorer again if you so wish.
 
-If you're still not seeing the report fill with content, IE may be blocking Javascript from running on the page. Open "Internet Options" and make sure that the "Allow active content to run in files on My Computer" option is enabled.
+If you're still not seeing the report fill with content, IE may be blocking Javascript from running on the page. Open "Internet Options" and make sure that the "Allow active content to run in files on My Computer" option is enabled. If that doesn't fix it, try replacing the `resources/report/script.js` file in your LOOT folder with [this one](https://raw.githubusercontent.com/loot/loot/master/resources/report/script.js).
+
+
 
 ##### LOOT's window is blank when I'm starting it through Mod Organizer. What's up?
 
