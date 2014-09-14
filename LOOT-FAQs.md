@@ -87,7 +87,7 @@ Users can supply metadata themselves to alter the order LOOT gives. It's not as 
 * 'Load After' entries can be used for pairs of specific plugins.
 * Priority values can be used when the plugin needs to load before or after many other plugins.
 
-Be sure to read LOOT's readme for more information on these. 
+Be sure to read LOOT's readme for more information on these.
 
 ##### I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?
 
@@ -111,15 +111,13 @@ Yes. Download [this file](https://raw.githubusercontent.com/loot/skyrim/master/m
 
 ##### LOOT's report is blank. How do I fix this?
 
-LOOT uses Windows' internal web browser to display its report. This web browser is basically Internet Explorer, but it's present even if you have Internet Explorer disabled. If it's not displaying LOOT's report properly, this may be because it isn't up-to-date. 
+LOOT uses Windows' internal web browser to display its report. This web browser is basically Internet Explorer, but it's present even if you have Internet Explorer disabled. If it's not displaying LOOT's report properly, this may be because it isn't up-to-date.
 
 The report display has been tested using IE 11, which is available to all Windows 7 and 8.x users. Windows Vista users can only update as far as IE 10, and though the report should display with this version, it is untested.
 
 To update the internal web browser, make sure Internet Explorer is enabled in the "Turn Windows features on/off" control panel, and install the latest updates available through Windows update. That should be enough to fix the report display, and you can disable Internet Explorer again if you so wish.
 
 If you're still not seeing the report fill with content, IE may be blocking Javascript from running on the page. Open "Internet Options" and make sure that the "Allow active content to run in files on My Computer" option is enabled. If that doesn't fix it, try replacing the `resources/report/script.js` file in your LOOT folder with [this one](https://raw.githubusercontent.com/loot/loot/master/resources/report/script.js).
-
-
 
 ##### LOOT's window is blank when I'm starting it through Mod Organizer. What's up?
 
