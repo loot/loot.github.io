@@ -46,17 +46,20 @@ mapping:
             type: int
             range: { min: -2000000000, max: 2000000000 }
           'after':
-            type: any
+            &sequenceOfAny
+            type: seq
+            sequence:
+              - type: any
           'req':
-            type: any
+            *sequenceOfAny
           'inc':
-            type: any
+            *sequenceOfAny
           'msg':
             *msg
           'tag':
-            type: any
+            *sequenceOfAny
           'url':
-            type: any
+            *sequenceOfAny
           'dirty':
             type: seq
             sequence:
