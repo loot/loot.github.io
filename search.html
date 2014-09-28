@@ -1,0 +1,22 @@
+---
+layout: page
+title: Masterlist Search
+permalink: /search/
+---
+
+<p>Search for a plugin name to find matching entries in the LOOT masterlists. Partial matching is only supported for non-regex entries, so use the full plugin name to find any regex entries for it.
+
+<p>
+<input type="text" id="searchBox" autofocus placeholder="Plugin filename...">
+<select id="gameSelect"></select>
+<button id="searchButton">Search</button>
+
+<div id="results"></div>
+
+</div>
+
+<script src="/js/js-yaml/js-yaml.min.js"></script>
+<script src="/js/github/lib/underscore-min.js"></script>
+<script src="/js/github/lib/base64.js"></script>
+<script src="/js/github/github.js"></script>
+<script src="/js/search.js"></script>

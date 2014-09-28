@@ -1,0 +1,4 @@
+# GitHub sets these, but setting them here so local development environments
+# replicate GitHub's behaviour properly.
+safe: true
+lsi: false
