@@ -110,8 +110,8 @@ document.body.addEventListener("keypress", onSearchInit, false);
 var pos = document.URL.indexOf("?game=");
 if (pos != -1) {
     var pos2 = document.URL.indexOf("&search=");
-    searchBox.value = document.URL.substring(pos2+8);
-    var game = document.URL.substring(pos+6, pos2).toLowerCase();
+    searchBox.value = decodeURIComponent(document.URL.substring(pos2+8));
+    var game = decodeURIComponent(document.URL.substring(pos+6, pos2).toLowerCase());
     if (game == "oblivion") {
         gameSelect.value = repos[0][1];
     } else if (game == "skyrim") {
