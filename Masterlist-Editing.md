@@ -147,3 +147,7 @@ If you add a message, there are two ways to go about getting it translated into 
 
 * If you are fluent in one of the other supported languages, feel free to translate it yourself. Don't just use a translator such as Google Translate though.
 * Chances are that you won't be able to translate it into all the languages LOOT supports, so create an issue in the issue tracker for the repository to which the masterlist you're editing belongs. If it's a message defined in the `common` section of the masterlist, say so. Otherwise, quote the plugin filename to which it is attached. Also quote the English text of message itself, and label the issue with the appropriate translate-language labels so that it can be easily seen by translators.
+
+### Message Substitutions
+
+LOOT v0.7 adds support for metadata message string substitutions. However, this is implemented so that the substitution occurs during parsing, and the pre-substitution message string and substituted strings are not retained in memory. An example consequence of this is that a metadata file written by LOOT will not retain `subs` keys, or any specifiers in message content strings.
