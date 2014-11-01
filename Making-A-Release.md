@@ -2,15 +2,17 @@ What needs to be done to release a new version of LOOT.
 
 ### Preparation
 
-1. Make sure that the version history has been updated, and the release date has been filled in.
+1. Make sure that the version history has been updated, and the release date has been filled in in the readme and the API header file.
 2. Compile the .mo translation files from the .po files in the `loot` repository.
+3. Generate a new LaTeX copy of the API documentation, and from that generate a PDF.
 
 ### Packaging & Release
 
 1. Build an x86 LOOT executable.
-2. Compile the installer.
-3. Put together the 7-Zip archive.
-4. Create a release on GitHub and add the installer and archive to it.
+2. Build an x86 LOOT API DLL.
+2. Run the installer script.
+3. Run the archiver archive.
+4. Create a release on GitHub and add installer and both archives (application and API) to it.
 
 ### Website
 
