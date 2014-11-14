@@ -28,7 +28,7 @@ Below are the global priorities as they are grouped for the games currently supp
 1960000 = 996000
 1970000 = 997000 Deadly Combat PISE Patches
 1980000 = 998000
-1990000 = 999000
+1990000 = 999000 SUM.esp
 ```
 
 See [loot/skyrim#26](https://github.com/loot/skyrim/issues/26) for details.
