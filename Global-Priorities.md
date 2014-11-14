@@ -23,12 +23,12 @@ Below are the global priorities as they are grouped for the games currently supp
 1910000 = 991000 Bash Patch
 1920000 = 992000 Post Bash Patch
 1930000 = 993000 Dynamic Patches (Sky Proc)
+1939999 = 993999 SUM.esp
 1940000 = 994000 Qotsafan Compatibility Patches
 1950000 = 995000
 1960000 = 996000
 1970000 = 997000 Deadly Combat PISE Patches
 1980000 = 998000
-1990000 = 999000 SUM.esp
 ```
 
 See [loot/skyrim#26](https://github.com/loot/skyrim/issues/26) for details.
