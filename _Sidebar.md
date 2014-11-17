@@ -2,6 +2,9 @@
 
 * [[FAQs|LOOT-FAQs]]
 * [[How To Report Issues Helpfully|How-To-Report-Issues-Helpfully]]
+* [[Introduction To Load Orders|Introduction-To-Load-Orders]]
+* [[Dirty Edits, Mod Cleaning & CRCs|Dirty-Edits,-Mod-Cleaning-&-CRCs]]
+* [[Setting Windows' File Permissions|Setting-Windows'-File-Permissions]]
 
 #### Contributing
 
