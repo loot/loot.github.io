@@ -1,1 +1,0 @@
-getting error message when trying to install loot 
