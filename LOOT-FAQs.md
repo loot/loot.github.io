@@ -28,6 +28,7 @@
 18. [A game is installed, but LOOT cannot detect it. How do I fix this?](#a-game-is-installed-but-loot-cannot-detect-it-how-do-i-fix-this)
 19. [When LOOT updates the load order, it removes line breaks from `plugins.txt` and `loadorder.txt`. Won't this break something?](#when-loot-updates-the-load-order-it-removes-line-breaks-from-pluginstxt-and-loadordertxt-wont-this-break-something)
 20. [Some of LOOT's user interface is cut off by the edge of its window. Why?](#some-of-loots-user-interface-is-cut-off-by-the-edge-of-its-window-why)
+21. [I get an Error 12 when trying to update the masterlist. How do I fix this?](#i-get-an-error-12-when-trying-to-update-the-masterlist-how-do-i-fix-this)
 
 ### Questions
 
@@ -101,6 +102,8 @@ LOOT isn't omniscient. It may provide warnings for outdated plugins through the 
 
 Try deleting the `.git` folder in `%LOCALAPPDATA%\LOOT\<game folder>\`. If that doesn't work, make sure any firewalls or security software you have installed aren't stopping LOOT from reaching the online masterlist.
 
+Alternatively, your WinSock configuration may be corrupt: this can be fixed using the instructions [here](https://support.microsoft.com/kb/817571) and [here](https://support.microsoft.com/kb/318584), or there's a fix-it utility [here](http://h10025.www1.hp.com/ewfrf/wc/document?cc=uk&lc=en&docname=c01184567).
+
 ##### I'm still having problems updating LOOT's masterlists. Is there a manual workaround?
 
 Yes. Download [this file](https://raw.githubusercontent.com/loot/skyrim/master/masterlist.yaml) and place it in the `%LOCALAPPDATA%\LOOT\Skyrim` folder. Replace Skyrim with `oblivion`, `fallout3` or `falloutnv` as necessary, in the URL and the folder path.
@@ -142,3 +145,4 @@ LOOT has probably just replaced the `CR LF` line breaks with `LF` line breaks. I
 ##### Some of LOOT's user interface is cut off by the edge of its window. Why?
 
 This is probably due to your display scaling settings, and may also affect other applications. Try setting your scaling to 100% to avoid the issue.
+
