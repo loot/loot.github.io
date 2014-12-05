@@ -19,7 +19,6 @@
 #### Common Issues
 
 11. [I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?](#im-getting-git-errors-when-loot-tries-to-update-its-masterlist-how-do-i-fix-this)
-12. [I'm still having problems updating LOOT's masterlists. Is there a manual workaround?](#im-still-having-problems-updating-loots-masterlists-is-there-a-manual-workaround)
 13. [LOOT ran without any errors, but the load order hasn't changed to match what LOOT has in its report. Why?](#loot-ran-without-any-errors-but-the-load-order-hasnt-changed-to-match-what-loot-has-in-its-report-why)
 14. [LOOT's report is blank. How do I fix this?](#loots-report-is-blank-how-do-i-fix-this)
 15. [LOOT's window is blank when I'm starting it through Mod Organizer. What's up?](#loots-window-is-blank-when-im-starting-it-through-mod-organizer-whats-up)
@@ -28,7 +27,6 @@
 18. [A game is installed, but LOOT cannot detect it. How do I fix this?](#a-game-is-installed-but-loot-cannot-detect-it-how-do-i-fix-this)
 19. [When LOOT updates the load order, it removes line breaks from `plugins.txt` and `loadorder.txt`. Won't this break something?](#when-loot-updates-the-load-order-it-removes-line-breaks-from-pluginstxt-and-loadordertxt-wont-this-break-something)
 20. [Some of LOOT's user interface is cut off by the edge of its window. Why?](#some-of-loots-user-interface-is-cut-off-by-the-edge-of-its-window-why)
-21. [I get an Error 12 when trying to update the masterlist. How do I fix this?](#i-get-an-error-12-when-trying-to-update-the-masterlist-how-do-i-fix-this)
 
 ### Questions
 
@@ -104,13 +102,11 @@ Try deleting the `.git` folder in `%LOCALAPPDATA%\LOOT\<game folder>\`. If that 
 
 Alternatively, your WinSock configuration may be corrupt: this can be fixed using the instructions [here](https://support.microsoft.com/kb/817571) and [here](https://support.microsoft.com/kb/318584), or there's a fix-it utility [here](http://h10025.www1.hp.com/ewfrf/wc/document?cc=uk&lc=en&docname=c01184567).
 
-##### I'm still having problems updating LOOT's masterlists. Is there a manual workaround?
-
-Yes. Download [this file](https://raw.githubusercontent.com/loot/skyrim/master/masterlist.yaml) and place it in the `%LOCALAPPDATA%\LOOT\Skyrim` folder. Replace Skyrim with `oblivion`, `fallout3` or `falloutnv` as necessary, in the URL and the folder path.
+If LOOT still can't update its masterlist, you can update manually by downloading [this file](https://raw.githubusercontent.com/loot/skyrim/master/masterlist.yaml) and placing it in the `%LOCALAPPDATA%\LOOT\Skyrim` folder. Replace Skyrim with `oblivion`, `fallout3` or `falloutnv` as necessary, in the URL and the folder path.
 
 ##### LOOT ran without any errors, but the load order hasn't changed to match what LOOT has in its report. Why?
 
-**A.** If you're sorting for Skyrim, make sure that you haven't replaced or renamed your `TESV.exe`, as this interferes with LOOT's ability to decide how to set the load order.
+If you're sorting for Skyrim, make sure that you haven't replaced or renamed your `TESV.exe`, as this interferes with LOOT's ability to decide how to set the load order.
 
 ##### LOOT's report is blank. How do I fix this?
 
@@ -124,7 +120,9 @@ If you're still not seeing the report fill with content, IE may be blocking Java
 
 ##### LOOT's window is blank when I'm starting it through Mod Organizer. What's up?
 
-Mod Organizer 1.2.10 has a bug preventing LOOT 0.7.0 from working properly. This has been fixed in Mod Organizer 1.2.11, so either upgrade to that, or downgrade to Mod Organizer 1.2.9.
+Mod Organizer 1.2.10 has a bug preventing LOOT 0.7.0 from working properly. This has been fixed in Mod Organizer 1.2.11, and later versions.
+
+There is also another issue that occasionally causes LOOT's window to be blank when started through Mod Organiser - this can be avoided by adding the `--single-process` argument to Mod Organiser's LOOT launching settings.
 
 ##### I'm seeing empty box characters in the metadata editor window's plugins list. What are these?
 
@@ -145,4 +143,3 @@ LOOT has probably just replaced the `CR LF` line breaks with `LF` line breaks. I
 ##### Some of LOOT's user interface is cut off by the edge of its window. Why?
 
 This is probably due to your display scaling settings, and may also affect other applications. Try setting your scaling to 100% to avoid the issue.
-
