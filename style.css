@@ -1,58 +1,66 @@
 a {
     text-decoration:none;
-    color: #69aaff;
+    color: #64B5F6;
 }
 a:hover {
     text-decoration: underline;
 }
+paper-item > a, paper-button > a {
+    color: inherit;
+}
+paper-item > a:hover, paper-button > a:hover {
+    text-decoration: none;
+}
 body {
-    max-width: 640px;
-    background: #f8f8f8;
+    background: white;
     margin:0 auto;
-    font:12pt/1.5 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+    font:13pt/20pt RobotoDraft, sans-serif;
+    color: rgba(0, 0, 0, 0.87);
 }
-#header {
-    padding: 1.5em 0;
-    border-bottom: #ccc solid 1px;
+core-toolbar {
+    background: #3F51B5;
+    color: white;
 }
-img {
+core-toolbar > img {
+    position: relative;
+    top: 1.6em;
     height: 128px;
-    width: 128px;
-    display: inline-block;
-    float:left;
-    margin:0 1.5em;
 }
-h1,h2,h3 {
-    font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
+core-toolbar > div {
+    vertical-align: middle;
+}
+core-icon {
+    margin-right: 0.5em;
 }
 h2 {
     margin-right: 1.5em;
     margin-top: 1.2em;
 }
-#nav {
-    clear: both;
-    text-align: center;
-    padding-top: 1em;
+div[drawer] {
+    background: white;
+}
+div[drawer] > nav {
+    overflow-y: auto;
+}
+#drawerLogo {
+    padding-left: 16px;
+    height: 64px;
+}
+#drawerLogo > img {
+    height: 64px;
+    margin-right: 0.5em;
+}
+#drawerLogo > h1 {
+    display: inline-block;
+    vertical-align: top;
 }
 #main {
     margin: 2em 1em;
 }
 #footer {
-    border-top: #ccc solid 1px;
     margin: 1em 0;
     padding: 1em 0;
     text-align: center;
-}
-#header a, #footer a {
-    display:inline-block;
-    margin:0 0.2em;
-    padding:0.3em 0.8em;
-    transition:background 0.2s;
-}
-#header a:hover, #footer a:hover {
-    background: #69aaff;
-    text-decoration:none;
-    color:white;
 }
 #footer small { display:block; color: #ccc;}
 code {
@@ -69,17 +77,29 @@ code {
     border-radius: 2px;
 }
 #bigbutton {
-    display:table;
-    padding: 0.5em 1em;
+    display: table;
     font-size: 24pt;
-    text-align:center;
-    color:white;
-    background: #69aaff;
+    background: #64B5F6;
     margin: 1em auto;
 }
-#bigbutton:hover {
-    text-decoration:none;
-    background: #ffbe69;
+#bigbutton > a {
+    color:white;
+}
+.subheading {
+    font-size: 15px;
+    padding-left: 16px;
+    height: 48px;
+    color: rgba(0, 0, 0, 0.54);
+    line-height: 48px;
+}
+/* This animates the drawer toggle appearing in narrow view. */
+#drawerToggle {
+    display: none;
+}
+@media screen and (max-width: 750px) {
+    #drawerToggle {
+        display: block;
+    }
 }
 #contrib {
     display:block;
