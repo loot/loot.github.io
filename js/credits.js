@@ -63,6 +63,7 @@ function showContributors(err, data) {
     if (numProcessedRepos === numRepos) {
         var contrib = document.getElementById('contrib');
         contributors.sort(sortContributors);
+        contrib.removeChild(contrib.firstElementChild);
         for (var i = 0; i < contributors.length; i++) {
             addToList(contrib, contributors[i]);
         }

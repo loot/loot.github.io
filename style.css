@@ -101,21 +101,3 @@ code {
         display: block;
     }
 }
-#contrib {
-    display:block;
-    padding-left:0;
-}
-#contrib li {
-    display:inline-block;
-}
-#contrib img {
-    height: 64px;
-    width: 64px;
-    margin: 4px;
-}
-#contrib img.admin {
-    box-shadow: 0 5px 5px -3px #b0b;
-}
-#contrib img.member {
-    box-shadow: 0 5px 5px -3px #0b0;
-}

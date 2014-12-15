@@ -4,10 +4,39 @@ title: Credits
 permalink: /credits/
 ---
 
-<h3>{{ page.title }}</h3>
+<style>
+#contrib {
+    display:block;
+    padding-left:0;
+}
+#contrib li {
+    display:inline-block;
+}
+#contrib img {
+    height: 64px;
+    width: 64px;
+    margin: 4px;
+}
+#contrib img.admin {
+    box-shadow: 0 5px 5px -3px #b0b;
+}
+#contrib img.member {
+    box-shadow: 0 5px 5px -3px #0b0;
+}
+#contrib paper-spinner {
+    margin-right: 0.5em;
+}
+#contrib paper-spinner + div {
+    display: inline-block;
+    vertical-align: top;
+}
+</style>
+
 <p>LOOT relies on the submission of information by users to improve. We can't list everyone who has posted in LOOT's forum threads, but the people who have contributed on GitHub are listed below.
 <p>Hovering over a contributor's picture displays their name and the number of contributions they've made. Team members have a green shadow, and admins have a purple shadow.
-<ul id="contrib"></ul>
+<ul id="contrib">
+    <li><paper-spinner active></paper-spinner><div>Fetching contributors...</div></li>
+</ul>
 </div>
 
 <script src="/js/github/lib/underscore-min.js"></script>
