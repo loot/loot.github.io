@@ -82,12 +82,7 @@ paper-button {
     color: rgba(0, 0, 0, 0.54);
     line-height: 48px;
 }
-/* This animates the drawer toggle appearing in narrow view. */
-#drawerToggle {
+/* This makes the drawer toggle appear only in narrow view. */
+core-drawer-panel:not([narrow]) #drawerToggle {
     display: none;
-}
-@media screen and (max-width: 750px) {
-    #drawerToggle {
-        display: block;
-    }
 }
