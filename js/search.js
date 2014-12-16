@@ -43,11 +43,7 @@ function readMasterlist(err, data) {
     }
 
     var masterlist = jsyaml.safeLoad(data);
-
-    /* Clear any previous search results. */
-    while (resultsDiv.firstChild) {
-        resultsDiv.removeChild(resultsDiv.firstChild);
-    }
+    document.getElementById('progress').classList.remove('show');
 
     /* Do search here. */
     console.log("Starting search.");
@@ -63,9 +59,12 @@ function readMasterlist(err, data) {
             }
             if (index != -1) {
                 console.log("Match: " + JSON.stringify(masterlist["plugins"][index]));
-                var elem = document.createElement('code');
-                elem.textContent = '  - ' + jsyaml.safeDump(masterlist["plugins"][index]).replace(new RegExp('\n', 'g'), '\n    ').trim();
-                resultsDiv.appendChild(elem);
+                var paperShadow = document.createElement('paper-shadow');
+                paperShadow.setZ(1);
+                var code = document.createElement('code');
+                code.textContent = '  - ' + jsyaml.safeDump(masterlist["plugins"][index]).replace(new RegExp('\n', 'g'), '\n    ').trim();
+                paperShadow.appendChild(code);
+                resultsDiv.appendChild(paperShadow);
             }
         }
     }
@@ -88,8 +87,14 @@ function onSearchInit(evt) {
     var repo = github.getRepo("loot", gameSelect.value);
     repo.read(repoBranch, 'masterlist.yaml', readMasterlist);
 
+    /* Clear any previous search results. */
+    var progress = document.getElementById('progress');
+    while (progress.nextElementSibling) {
+        progress.parentElement.removeChild(progress.nextElementSibling);
+    }
+
     console.log("Loading masterlist...");
-    resultsDiv.textContent = "Loading masterlist...\n";
+    progress.classList.add('show');
 }
 
 // Startup Code

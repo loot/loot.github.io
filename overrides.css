@@ -5,3 +5,6 @@ paper-item::shadow ::content > a {
     padding: 0.9em 1em;
     margin: -0.9em -1em;
 }
+paper-input-decorator {
+    display: inline-block !important;
+}

@@ -4,15 +4,37 @@ title: Masterlist Search
 permalink: /search/
 ---
 
-<p>Search for a plugin name to find matching entries in the LOOT masterlists. Partial matching is only supported for non-regex entries, so use the full plugin name to find any regex entries for it.
+<style>
+#results paper-spinner {
+    margin-right: 0.5em;
+}
+#results paper-spinner + div {
+    display: inline-block;
+    vertical-align: top;
+}
+#progress {
+    display: none;
+}
+#progress.show {
+    display: block;
+}
+</style>
+
+<p>Search for a plugin name to find matching entries in the LOOT masterlists. Partial matching is only supported for non-regex entries, so use the full plugin name to find any regex entries for it.</p>
 
 <p>
-<input type="text" id="searchBox" autofocus placeholder="Plugin filename...">
-<select id="gameSelect"></select>
-<button id="searchButton">Search</button>
+    <paper-input-decorator label="Plugin filename...">
+        <input is="core-input" type="text" id="searchBox" autofocus />
+    </paper-input-decorator>
 
-<div id="results"></div>
+    <select id="gameSelect"></select>
+    <paper-button id="searchButton">Search</paper-button>
+</p>
 
+<div id="results" flex>
+    <div id="progress">
+        <paper-spinner active></paper-spinner><div>Loading masterlist...</div>
+    </div>
 </div>
 
 <script src="/js/js-yaml/js-yaml.min.js"></script>

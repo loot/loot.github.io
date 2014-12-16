@@ -64,20 +64,20 @@ div[drawer] > nav {
     margin: 0;
 }
 #main {
-    margin: 2em 1em;
+    padding: 2em 1em;
+    height: 100%;
+    overflow-y: auto;
+}
+paper-shadow {
+    margin: 1.5em;
 }
 code {
     background:white;
     white-space:pre;
     display:block;
-    margin:1.5em;
-    margin-top:0;
     overflow-x:auto;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
-    padding: 3px;
-    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-    font-size: 14px;
-    border-radius: 2px;
+    font-family: monospace;
+    font-size: 12pt;
 }
 #bigbutton {
     display: table;
