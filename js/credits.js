@@ -59,6 +59,11 @@ function getContributor(login) {
 }
 
 function showContributors(err, data) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+
     for (var i = 0; i < data.length; i++) {
         var person = {
             "login":data[i].login,
@@ -97,6 +102,11 @@ function listContributors() {
 }
 
 function storeAdmins(err, data) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+
     for (var i = 0; i < data.length; i++) {
         admins.push(data[i].login);
     }
@@ -105,6 +115,11 @@ function storeAdmins(err, data) {
 }
 
 function getTeams(err, data) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+
     for (var i = 0; i < data.length; i++) {
         if (data[i].name === "Owners") {
             github.getUser().teamMembers(data[i].id, storeAdmins);
@@ -113,6 +128,11 @@ function getTeams(err, data) {
 }
 
 function storeTeamMembers(err, data) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+    
     for (var i = 0; i < data.length; i++) {
         team.push(data[i].login);
     }

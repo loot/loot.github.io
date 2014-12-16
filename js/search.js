@@ -37,7 +37,7 @@ function isRegexEntry(name) {
 }
 
 function readMasterlist(err, data) {
-    if (err !== null) {
+    if (err) {
         console.log(err);
         return;
     }
