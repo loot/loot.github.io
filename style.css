@@ -20,6 +20,7 @@ body {
 core-toolbar {
     background: #3F51B5;
     color: white;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 core-icon {
     margin-right: 0.5em;
@@ -37,14 +38,20 @@ div[drawer] {
 }
 div[drawer] > nav {
     overflow-y: auto;
+    border-right: 1px rgba(0, 0, 0, 0.12) solid;
 }
 #drawerLogo {
     padding-left: 16px;
     height: 64px;
+    background: #3F51B5;
+    color: white;
+    border-right: 1px rgba(0, 0, 0, 0.12) solid;
 }
 #drawerLogo > img {
-    height: 64px;
+    display: inline-block;
+    height: 48px;
     margin-right: 0.5em;
+    margin-top: 8px;
 }
 #drawerLogo > h1 {
     font-weight: 400;
@@ -57,6 +64,7 @@ div[drawer] > nav {
 #content {
     padding: 16px;
     overflow-y: auto;
+    background: #FAFAFA;
 }
 paper-button {
     background: #64B5F6;
