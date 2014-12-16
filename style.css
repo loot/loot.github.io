@@ -28,10 +28,12 @@ core-icon {
 h1 {
     font-weight: 400;
     font-size: 24pt;
+    line-height: 32pt;
 }
 h2 {
     font-weight: 400;
     font-size: 15pt;
+    line-height: 24pt;
 }
 div[drawer] {
     background: white;
@@ -73,6 +75,7 @@ paper-button {
 #bigbutton {
     display: table;
     font-size: 24pt;
+    line-height: 32pt;
     margin: 1em auto;
 }
 #bigbutton a {
@@ -80,10 +83,10 @@ paper-button {
 }
 .subheading {
     font-size: 15px;
+    line-height: 48px;
     padding-left: 16px;
     height: 48px;
     color: rgba(0, 0, 0, 0.54);
-    line-height: 48px;
 }
 /* This makes the drawer toggle appear only in narrow view. */
 core-drawer-panel:not([narrow]) #drawerToggle {
