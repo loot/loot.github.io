@@ -23,13 +23,16 @@ permalink: /search/
 <p>Search for a plugin name to find matching entries in the LOOT masterlists. Partial matching is only supported for non-regex entries, so use the full plugin name to find any regex entries for it.</p>
 
 <p>
+
+    <paper-button id="searchButton" raised>Search</paper-button> for
     <paper-input-decorator label="Plugin filename...">
         <input is="core-input" type="text" id="searchBox" autofocus />
     </paper-input-decorator>
-
+    in the
     <select id="gameSelect"></select>
-    <paper-button id="searchButton">Search</paper-button>
+    masterlist.<br>
 </p>
+
 
 <div id="results" flex>
     <div id="progress">
