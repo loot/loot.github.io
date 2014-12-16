@@ -1,11 +1,11 @@
 paper-button::shadow .button-content ::content a {
     margin: -0.7em -0.57em;
-    flex: 0 1 auto;
+    flex: 1 1 auto;
 }
 paper-item::shadow .button-content ::content a {
     padding: 0.9em 1em;
     margin: -0.9em -1em;
-    flex: 0 1 auto;
+    flex: 1 1 auto;
 }
 paper-input-decorator {
     display: inline-block !important;
