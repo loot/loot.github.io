@@ -1,0 +1,33 @@
+{
+  "name": "loot.github.io",
+  "version": "0.0.0",
+  "homepage": "https://github.com/loot/loot.github.io",
+  "authors": [
+    "Oliver Hamlet <oliver.hamlet@gmail.com>"
+  ],
+  "license": "GPL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.2",
+    "core-drawer-panel": "Polymer/core-drawer-panel#~0.5.2",
+    "core-toolbar": "Polymer/core-toolbar#~0.5.2",
+    "core-icons": "Polymer/core-icons#~0.5.2",
+    "core-input": "Polymer/core-input#~0.5.2",
+    "core-menu": "Polymer/core-menu#~0.5.2",
+    "paper-button": "Polymer/paper-button#~0.5.2",
+    "paper-icon-button": "Polymer/paper-icon-button#~0.5.2",
+    "paper-item": "Polymer/paper-item#~0.5.2",
+    "paper-spinner": "Polymer/paper-spinner#~0.5.2",
+    "paper-input": "Polymer/paper-input#~0.5.2",
+    "paper-shadow": "Polymer/paper-shadow#~0.5.2",
+    "paper-dropdown-menu": "Polymer/paper-dropdown-menu#~0.5.2",
+    "paper-dropdown": "Polymer/paper-dropdown#~0.5.2"
+  }
+}
