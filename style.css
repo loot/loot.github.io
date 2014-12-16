@@ -63,17 +63,6 @@ div[drawer] > nav {
     padding: 2em 1em;
     overflow-y: auto;
 }
-paper-shadow {
-    margin: 1.5em;
-}
-code {
-    background:white;
-    white-space:pre;
-    display:block;
-    overflow-x:auto;
-    font-family: monospace;
-    font-size: 12pt;
-}
 paper-button {
     background: #64B5F6;
     color: white;
