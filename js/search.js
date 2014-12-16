@@ -59,12 +59,9 @@ function readMasterlist(err, data) {
             }
             if (index != -1) {
                 console.log("Match: " + JSON.stringify(masterlist["plugins"][index]));
-                var paperShadow = document.createElement('paper-shadow');
-                paperShadow.setZ(1);
                 var code = document.createElement('code');
                 code.textContent = '  - ' + jsyaml.safeDump(masterlist["plugins"][index]).replace(new RegExp('\n', 'g'), '\n    ').trim();
-                paperShadow.appendChild(code);
-                resultsDiv.appendChild(paperShadow);
+                resultsDiv.appendChild(code);
             }
         }
     }

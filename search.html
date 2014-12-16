@@ -8,36 +8,41 @@ permalink: /search/
 #searchButton {
     vertical-align: middle;
 }
-#results paper-spinner {
+#results {
+    background: white;
+}
+#progress {
+    display: none;
+    padding: 16px;
+}
+#progress.show {
+    display: block;
+}
+#progress paper-spinner {
     margin-right: 0.5em;
+    vertical-align: middle;
 }
-#results paper-spinner + div {
+#progress paper-spinner + div {
     display: inline-block;
-    vertical-align: top;
-}
-#results paper-shadow {
-    margin: 1.5em;
+    vertical-align: middle;
 }
 #results code {
-    background:white;
     white-space:pre;
     display:block;
     overflow-x:auto;
     font-family: monospace;
     font-size: 12pt;
+    padding: 0.75em;
+    border-top: 1px rgba(0, 0, 0, 0.12) solid;
 }
-#progress {
-    display: none;
-}
-#progress.show {
-    display: block;
+#results code:first-of-type {
+    border-top: none;
 }
 </style>
 
 <p>Search for a plugin name to find matching entries in the LOOT masterlists. Partial matching is only supported for non-regex entries, so use the full plugin name to find any regex entries for it.</p>
 
 <p>
-
     <paper-button id="searchButton" raised>Search</paper-button>
      for
     <paper-input-decorator label="Plugin filename...">
@@ -55,11 +60,11 @@ permalink: /search/
 </p>
 
 
-<div id="results" flex>
+<paper-shadow id="results" flex Z="1">
     <div id="progress">
         <paper-spinner active></paper-spinner><div>Loading masterlist...</div>
     </div>
-</div>
+</paper-shadow>
 
 <script src="/js/js-yaml/js-yaml.min.js"></script>
 <script src="/js/github/lib/underscore-min.js"></script>
