@@ -21,11 +21,6 @@ core-toolbar {
     background: #3F51B5;
     color: white;
 }
-core-toolbar img {
-    position: relative;
-    top: 1.6em;
-    height: 128px;
-}
 core-icon {
     margin-right: 0.5em;
 }
@@ -60,7 +55,7 @@ div[drawer] > nav {
     margin: 0;
 }
 #content {
-    padding: 2em 1em;
+    padding: 16px;
     overflow-y: auto;
 }
 paper-button {
