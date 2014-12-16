@@ -3,8 +3,8 @@ paper-button::shadow .button-content ::content a {
     flex: 1 1 auto;
 }
 paper-item::shadow .button-content ::content a {
-    padding: 0.9em 1em;
-    margin: -0.9em -1em;
+    padding: 16px 16px 20px;
+    margin: -16px -16px -20px;
     flex: 1 1 auto;
 }
 paper-input-decorator {
