@@ -10,3 +10,7 @@ paper-item::shadow .button-content ::content a {
 paper-input-decorator {
     display: inline-block !important;
 }
+paper-input-decorator /deep/ .focused-underline {
+    /* line color when the input is focused */
+    background-color: #64B5F6;
+}
