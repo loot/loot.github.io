@@ -79,11 +79,6 @@ function readMasterlist(err, data) {
 }
 
 function onSearchInit(evt) {
-
-    if (evt.keyCode != 0 && evt.keyCode != 13) {
-        return;
-    }
-
     var repo = github.getRepo("loot", gameSelect.selected);
     repo.read(repoBranch, 'masterlist.yaml', readMasterlist);
 
@@ -109,7 +104,6 @@ for (var i=0; i < repos.length; ++i) {
 }
 
 searchButton.addEventListener("click", onSearchInit, false);
-document.body.addEventListener("keypress", onSearchInit, false);
 
 /* If the page was loaded with a PHP-style GET string `?game=<game>&search=<search>`, read it for the search term and perform a search. */
 var pos = document.URL.indexOf("?game=");

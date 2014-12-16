@@ -1,7 +1,7 @@
-paper-button::shadow ::content > a {
+paper-button::shadow .button-content ::content a {
     margin: -0.7em -0.57em;
 }
-paper-item::shadow ::content > a {
+paper-item::shadow .button-content ::content a {
     padding: 0.9em 1em;
     margin: -0.9em -1em;
 }

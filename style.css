@@ -5,10 +5,10 @@ a {
 a:hover {
     text-decoration: underline;
 }
-paper-item > a, paper-button > a {
+paper-item a, paper-button a {
     color: inherit;
 }
-paper-item > a:hover, paper-button > a:hover {
+paper-item a:hover, paper-button a:hover {
     text-decoration: none;
 }
 body {
@@ -21,13 +21,10 @@ core-toolbar {
     background: #3F51B5;
     color: white;
 }
-core-toolbar > img {
+core-toolbar img {
     position: relative;
     top: 1.6em;
     height: 128px;
-}
-core-toolbar > div {
-    vertical-align: middle;
 }
 core-icon {
     margin-right: 0.5em;
@@ -62,7 +59,7 @@ div[drawer] > nav {
     line-height: 64px;
     margin: 0;
 }
-#main {
+#content {
     padding: 2em 1em;
     overflow-y: auto;
 }
@@ -86,7 +83,7 @@ paper-button {
     font-size: 24pt;
     margin: 1em auto;
 }
-#bigbutton > a {
+#bigbutton a {
     color:white;
 }
 .subheading {
