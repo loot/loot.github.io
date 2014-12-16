@@ -21,7 +21,7 @@ repos = [
 var github = new Github(auth);
 var repoBranch = 'master';  //The repository branch to search.
 
-var gameSelect = document.getElementById('gameSelect');
+var gameSelect = document.getElementById('gameSelectMenu');
 var searchButton = document.getElementById('searchButton');
 var searchBox = document.getElementById('searchBox');
 var resultsDiv = document.getElementById('results');
@@ -84,7 +84,7 @@ function onSearchInit(evt) {
         return;
     }
 
-    var repo = github.getRepo("loot", gameSelect.value);
+    var repo = github.getRepo("loot", gameSelect.selected);
     repo.read(repoBranch, 'masterlist.yaml', readMasterlist);
 
     /* Clear any previous search results. */
@@ -102,9 +102,9 @@ function onSearchInit(evt) {
 
 /* Fill the drop-down games box with stuff. */
 for (var i=0; i < repos.length; ++i) {
-    var option = document.createElement('option');
-    option.innerText = repos[i][0];
-    option.setAttribute('value', repos[i][1]);
+    var option = document.createElement('paper-item');
+    option.textContent = repos[i][0];
+    option.setAttribute('data-game', repos[i][1]);
     gameSelect.appendChild(option);
 }
 
@@ -118,14 +118,18 @@ if (pos != -1) {
     searchBox.value = decodeURIComponent(document.URL.substring(pos2+8));
     var game = decodeURIComponent(document.URL.substring(pos+6, pos2).toLowerCase());
     if (game == "oblivion") {
-        gameSelect.value = repos[0][1];
+        gameSelect.selected = repos[0][1];
     } else if (game == "skyrim") {
-        gameSelect.value = repos[1][1];
+        gameSelect.selected = repos[1][1];
     } else if (game == "fallout3") {
-        gameSelect.value = repos[2][1];
+        gameSelect.selected = repos[2][1];
     } else if (game == "falloutnv") {
-        gameSelect.value = repos[3][1];
+        gameSelect.selected = repos[3][1];
+    } else {
+        gameSelect.selected = repos[0][1];
     }
 
     searchButton.click();
+} else {
+    gameSelect.selected = repos[0][1];
 }

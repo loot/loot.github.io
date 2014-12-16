@@ -24,13 +24,20 @@ permalink: /search/
 
 <p>
 
-    <paper-button id="searchButton" raised>Search</paper-button> for
+    <paper-button id="searchButton" raised>Search</paper-button>
+     for
     <paper-input-decorator label="Plugin filename...">
         <input is="core-input" type="text" id="searchBox" autofocus />
     </paper-input-decorator>
     in the
-    <select id="gameSelect"></select>
-    masterlist.<br>
+    <paper-dropdown-menu>
+        <paper-dropdown class="dropdown">
+            <core-menu class="menu" valueattr="data-game" id="gameSelectMenu">
+
+            </core-menu>
+        </paper-dropdown>
+    </paper-dropdown-menu>
+    masterlist.
 </p>
 
 
