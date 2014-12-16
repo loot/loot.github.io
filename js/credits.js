@@ -13,20 +13,35 @@ var admins = [];
 var team = [];
 
 function addToList(listElement, person) {
-    var li = document.createElement('li');
+    var li = document.createElement('paper-item');
     var a = document.createElement('a');
     var img = document.createElement('img');
+    var div = document.createElement('div');
+    var primarySpan = document.createElement('span');
+    var secondarySpan = document.createElement('span');
+
+    li.setAttribute('layout', '');
+    li.setAttribute('horizontal', '');
+    li.setAttribute('center', '');
+
+    secondarySpan.className = 'secondary';
+
     a.href = person.html_url;
     img.src = person.avatar_url;
-    img.alt = person.login + ' (' + person.contributions + ')';
-    img.title = img.alt;
+    primarySpan.textContent = person.login;
+    secondarySpan.textContent = person.contributions + ' contributions';
+
     if (admins.indexOf(person.login) !== -1) {
-        img.className = 'admin';
+        li.className = 'admin';
     } else if (team.indexOf(person.login) !== -1) {
-        img.className = 'member';
+        li.className = 'member';
     }
     li.appendChild(a);
     a.appendChild(img);
+    a.appendChild(div);
+    div.appendChild(primarySpan);
+    div.appendChild(document.createElement('br'));
+    div.appendChild(secondarySpan);
     listElement.appendChild(li);
 }
 

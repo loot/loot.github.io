@@ -9,34 +9,42 @@ permalink: /credits/
     display:block;
     padding-left:0;
 }
-#contrib li {
-    display:inline-block;
-}
-#contrib img {
-    height: 64px;
-    width: 64px;
+#contrib > paper-item {
+    display: inline-block;
+    box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
     margin: 4px;
 }
-#contrib img.admin {
-    box-shadow: 0 5px 5px -3px #b0b;
+#contrib > paper-item > a > :first-child {
+    height: 40px;
+    width: 40px;
 }
-#contrib img.member {
-    box-shadow: 0 5px 5px -3px #0b0;
+#contrib > paper-item > a > div {
+    display: inline-block;
+    padding-left: 16px;
+    font-size: 16pt;
+}
+#contrib > paper-item.admin {
+    box-shadow: rgba(121, 134, 203, 1) 0px 2px 4px, rgba(121, 134, 203, 1) 0px 0px 3px;
+}
+#contrib > paper-item.member {
+    box-shadow: rgba(100, 181, 246, 0.0980392) 0px 2px 4px, rgba(100, 181, 246, 1) 0px 0px 3px;
+}
+.secondary {
+    font-size: 14pt;
+    color: rgba(0, 0, 0, 0.54);
 }
 #contrib paper-spinner {
     margin-right: 0.5em;
 }
-#contrib paper-spinner + div {
-    display: inline-block;
-    vertical-align: top;
-}
 </style>
 
 <p>LOOT relies on the submission of information by users to improve. We can't list everyone who has posted in LOOT's forum threads, but the people who have contributed on GitHub are listed below.
-<p>Hovering over a contributor's picture displays their name and the number of contributions they've made. Team members have a green shadow, and admins have a purple shadow.
-<ul id="contrib">
-    <li><paper-spinner active></paper-spinner><div>Fetching contributors...</div></li>
-</ul>
+<p>Team members and admins have blue and purple shadows respectively.
+<div id="contrib">
+    <li layout horizontal center>
+        <paper-spinner active></paper-spinner><div>Fetching contributors...</div>
+    </li>
+</div>
 
 <script src="/js/github/lib/underscore-min.js"></script>
 <script src="/js/github/lib/base64.js"></script>
