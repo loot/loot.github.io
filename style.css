@@ -65,7 +65,6 @@ div[drawer] > nav {
 }
 #main {
     padding: 2em 1em;
-    height: 100%;
     overflow-y: auto;
 }
 paper-shadow {
@@ -79,10 +78,13 @@ code {
     font-family: monospace;
     font-size: 12pt;
 }
+paper-button {
+    background: #64B5F6;
+    color: white;
+}
 #bigbutton {
     display: table;
     font-size: 24pt;
-    background: #64B5F6;
     margin: 1em auto;
 }
 #bigbutton > a {

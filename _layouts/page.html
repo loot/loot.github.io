@@ -46,14 +46,14 @@
                 <paper-item><core-icon icon="social:post-youtube"></core-icon><a href="https://www.youtube.com/watch?v=SzoyWugzZAw">Unofficial Tutorial Video</a></paper-item>
             </nav>
         </div>
-        <div main>
+        <div main layout vertical>
 
             <core-toolbar>
                 <core-icon-button id="drawerToggle" icon="menu" core-drawer-toggle></core-icon-button>
                 <h1 flex>{{ page.title }}</h1>
             </core-toolbar>
 
-            <div id="main" layout vertical>
+            <div id="main" flex>
                 {{ content }}
             </div>
         </div>
