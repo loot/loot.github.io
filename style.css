@@ -38,17 +38,17 @@ h2 {
 div[drawer] {
     background: white;
 }
-div[drawer] > nav {
+div[drawer] nav {
     overflow-y: auto;
     border-right: 1px rgba(0, 0, 0, 0.12) solid;
 }
 div[drawer] > core-toolbar {
     border-right: 1px rgba(0, 0, 0, 0.12) solid;
 }
-div[drawer] > core-toolbar > img {
+div[drawer] > core-toolbar img {
     height: 48px;
 }
-div[drawer] > core-toolbar > h1 {
+div[drawer] > core-toolbar h1 {
     font-weight: 400;
     font-size: 34pt;
 }
