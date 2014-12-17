@@ -42,26 +42,15 @@ div[drawer] > nav {
     overflow-y: auto;
     border-right: 1px rgba(0, 0, 0, 0.12) solid;
 }
-#drawerLogo {
-    padding-left: 16px;
-    height: 64px;
-    background: #3F51B5;
-    color: white;
+div[drawer] > core-toolbar {
     border-right: 1px rgba(0, 0, 0, 0.12) solid;
 }
-#drawerLogo > img {
-    display: inline-block;
+div[drawer] > core-toolbar > img {
     height: 48px;
-    margin-right: 0.5em;
-    margin-top: 8px;
 }
-#drawerLogo > h1 {
+div[drawer] > core-toolbar > h1 {
     font-weight: 400;
     font-size: 34pt;
-    display: inline-block;
-    vertical-align: top;
-    line-height: 64px;
-    margin: 0;
 }
 #content {
     padding: 16px;
