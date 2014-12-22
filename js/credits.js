@@ -20,10 +20,15 @@ function addToList(listElement, person) {
     var primarySpan = document.createElement('span');
     var secondarySpan = document.createElement('span');
 
-    li.setAttribute('layout', '');
-    li.setAttribute('horizontal', '');
-    li.setAttribute('center', '');
+    li.classList.add('two-line');
+    
+    a.setAttribute('layout', '');
+    a.setAttribute('horizontal', '');
+    a.setAttribute('center', '');
 
+    img.className = 'avatar';
+    div.className = 'text';
+    primarySpan.className = 'primary';
     secondarySpan.className = 'secondary';
 
     a.href = person.html_url;
@@ -32,9 +37,9 @@ function addToList(listElement, person) {
     secondarySpan.textContent = person.contributions + ' contributions';
 
     if (admins.indexOf(person.login) !== -1) {
-        li.className = 'admin';
+        li.classList.add('admin');
     } else if (team.indexOf(person.login) !== -1) {
-        li.className = 'member';
+        li.classList.add('member');
     }
     li.appendChild(a);
     a.appendChild(img);
@@ -132,7 +137,7 @@ function storeTeamMembers(err, data) {
         console.log(err);
         return;
     }
-    
+
     for (var i = 0; i < data.length; i++) {
         team.push(data[i].login);
     }

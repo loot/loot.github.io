@@ -1,12 +1,78 @@
+/* paper-button */
+paper-button {
+    min-width: 88px;
+    height: 36px;
+    line-height: 36px;
+    margin: 6px 4px;
+}
+paper-button::shadow .button-content {
+    padding: 0 8px;
+}
 paper-button::shadow .button-content ::content a {
-    margin: -0.7em -0.57em;
-    flex: 1 1 auto;
+    margin: 0 -8px;
+    padding: 0 8px;
+    -ms-flex: 1 1 auto;
+}
+/* paper-item */
+nav > paper-item {
+    color: rgba(0, 0, 0, 0.87);
+    height: 48px;
+    line-height: 48px;
+}
+nav > paper-item:first-child {
+    margin-top: 8px;
+}
+paper-item core-icon {
+    margin-right: 32px;
+    color: rgba(0, 0, 0, 0.54);
+}
+paper-item .avatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    vertical-align: top;
+}
+paper-item::shadow .button-content {
+    padding: 0 16px;
+}
+paper-item::shadow .button-content ::content * {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 paper-item::shadow .button-content ::content a {
-    padding: 16px 16px 20px;
-    margin: -16px -16px -20px;
-    flex: 1 1 auto;
+    margin: 0 -16px;
+    padding: 0 16px;
+    -ms-flex: 1 1 auto;
 }
+/* paper-item (two-line) */
+paper-item.two-line {
+    height: 72px;
+}
+paper-item.two-line::shadow .button-content {
+    padding: 16px 16px;
+}
+paper-item.two-line::shadow .button-content ::content a {
+    margin: -16px -16px;
+    padding: 16px 16px;
+}
+paper-item.two-line .text {
+    /* Padding is disabled as otherwise text won't fit in correctly. */
+    /*padding: 4px 0;*/
+    line-height: normal;
+}
+paper-item.two-line .primary {
+    /* MD spec says 16sp, but that doesn't fit, so use 14sp. */
+    /*font-size: 1.143rem;*/
+    font-size: 1rem;
+}
+paper-item.two-line .secondary {
+    /* MD spec says 14sp, but that doesn't fit, so use 12sp. */
+    /*font-size: 1rem; */
+    font-size: 0.857rem;
+    color: rgba(0, 0, 0, 0.54);
+}
+/* paper-input-decorator */
 paper-input-decorator {
     display: inline-block !important;
 }

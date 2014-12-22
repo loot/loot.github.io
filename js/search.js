@@ -43,7 +43,7 @@ function readMasterlist(err, data) {
     }
 
     var masterlist = jsyaml.safeLoad(data);
-    document.getElementById('progress').classList.remove('show');
+    document.getElementById('progress').classList.add('hidden');
 
     /* Do search here. */
     console.log("Starting search.");
@@ -86,7 +86,7 @@ function onSearchInit(evt) {
     }
 
     console.log("Loading masterlist...");
-    progress.classList.add('show');
+    progress.classList.remove('hidden');
 }
 
 // Startup Code

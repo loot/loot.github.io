@@ -1,3 +1,88 @@
+/*  Typography
+    The font sizes and line heights have been calculated assuming a body font
+    size of 14sp and a subhead font size of 16sp, which are the MD values for
+    devices. The desktop sizes are 13sp and 15sp respectively.
+    Letter spacing (tracking) values in the spec are assumed to be in units of
+    1/1000 em. They are commented out as the results don't match the image in
+    the spec.
+ */
+html {
+    font:13pt/20pt RobotoDraft, sans-serif;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+.display4 {
+    font-weight: 300;
+    font-size: 8rem;
+    color: rgba(0, 0, 0, 0.54);
+    /*letter-spacing: -0.01em;*/
+}
+.display3 {
+    font-weight: 400;
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.54);
+    /*letter-spacing: -0.005em;*/
+}
+.display2 {
+    font-weight: 400;
+    font-size: 3.214rem;
+    color: rgba(0, 0, 0, 0.54);
+    line-height: 1.067;
+}
+.display1 {
+    font-weight: 400;
+    font-size: 2.429rem;
+    color: rgba(0, 0, 0, 0.54);
+    line-height: 1.176;
+}
+.headline {
+    font-weight: 400;
+    font-size: 1.714rem;
+    line-height: 1.333;
+}
+.title {
+    font-weight: 500;
+    font-size: 1.429rem;
+    /*letter-spacing: 0.005em;*/
+}
+.subhead, h2 {
+    font-weight: 400;
+    font-size: 1.143rem;
+    line-height: 1.75;
+    /* Alternate line height: */
+    /* line-height: 1.5; */
+    /*letter-spacing: 0.01em;*/
+}
+.body2, .subheader, nav > paper-item {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.714;
+    /*letter-spacing: 0.01em;*/
+}
+.body1 {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.429;
+    /*letter-spacing: 0.01em;*/
+}
+.caption {
+    font-weight: 400;
+    font-size: 0.857rem;
+    color: rgba(0, 0, 0, 0.54);
+    /*letter-spacing: 0.02em;*/
+}
+.button, paper-button {
+    font-weight: 500;
+    font-size: 1rem;
+    text-transform: uppercase;
+    /*letter-spacing: 0.01em;*/
+}
+.display4.dark, .display3.dark, .display2.dark, .display1.dark, .caption.dark {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Misc */
 a {
     text-decoration:none;
     color: #64B5F6;
@@ -14,26 +99,11 @@ paper-item a:hover, paper-button a:hover {
 body {
     background: white;
     margin:0 auto;
-    font:13pt/20pt RobotoDraft, sans-serif;
-    color: rgba(0, 0, 0, 0.87);
 }
 core-toolbar {
     background: #3F51B5;
     color: white;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-}
-core-icon {
-    margin-right: 0.5em;
-}
-h1 {
-    font-weight: 400;
-    font-size: 24pt;
-    line-height: 32pt;
-}
-h2 {
-    font-weight: 400;
-    font-size: 15pt;
-    line-height: 24pt;
 }
 div[drawer] {
     background: white;
@@ -44,36 +114,60 @@ div[drawer] nav {
 }
 div[drawer] > core-toolbar {
     border-right: 1px rgba(0, 0, 0, 0.12) solid;
+    box-shadow: none;
 }
 div[drawer] > core-toolbar img {
     height: 48px;
 }
-div[drawer] > core-toolbar h1 {
-    font-weight: 400;
-    font-size: 34pt;
-}
 #content {
-    padding: 16px;
+    padding: 0 16px;
     overflow-y: auto;
     background: #FAFAFA;
 }
 paper-button {
     background: #64B5F6;
     color: white;
+    vertical-align: middle;
 }
-#bigbutton {
+#download-button {
     display: table;
-    font-size: 24pt;
-    line-height: 32pt;
-    margin: 1em auto;
+    margin-left: auto;
+    margin-right: auto;
 }
-#bigbutton a {
-    color:white;
+/* Progress indication for search and contributor listing. */
+#progress {
+    padding: 0 16px;
+    height: 48px;
 }
-.subheading {
-    font-size: 15px;
-    line-height: 48px;
+#progress paper-spinner {
+    margin-right: 28px;
+}
+
+/* For MD subheaders suitable for lists, menus and grids. */
+.subheader {
+    color: rgba(0, 0, 0, 0.54);
     padding-left: 16px;
     height: 48px;
-    color: rgba(0, 0, 0, 0.54);
+    line-height: 48px;
+}
+/* For MD navigation drawer subheaders. */
+nav > .subheader {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    margin-top: 8px;
+}
+nav > .subheader.dark {
+    border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+/* For MD generic dividers. */
+.divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.12);
+}
+.divider.dark {
+    background: rgba(255, 255, 255, 0.12);
+}
+/* For MD navigation drawer dividers. */
+nav > .divider {
+    margin: 8px 0;
 }

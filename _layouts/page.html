@@ -14,14 +14,13 @@
 <link href="//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet" type="text/css">
 
 <body unresolved fullbleed>
-    <core-drawer-panel>
+    <core-drawer-panel drawerWidth="276px">
         <div drawer layout vertical>
             <core-toolbar>
                 <img alt="LOOT" src="/icon.png">
-                <h1>LOOT</h1>
+                <h1 class="display1 dark">LOOT</h1>
             </core-toolbar>
             <nav flex>
-                <div class="subheading">On This Site</div>
                 <paper-item><a href="/">
                     <core-icon icon="home"></core-icon>Home
                 </a></paper-item>
@@ -34,14 +33,14 @@
                 <paper-item><a href="/credits/">
                     <core-icon icon="social:people"></core-icon>Credits
                 </a></paper-item>
-                <div class="subheading">On GitHub</div>
+                <div class="subheader">On GitHub</div>
                 <paper-item><a href="https://github.com/loot">
                     <core-icon icon="social:post-github"></core-icon>Code
                 </a></paper-item>
                 <paper-item><a href="https://github.com/loot/loot.github.io/wiki">
                     <core-icon icon="subject"></core-icon>Wiki
                 </a></paper-item>
-                <div class="subheading">Help, Support &amp; Discussion</div>
+                <div class="subheader">Help, Support &amp; Discussion</div>
                 <paper-item><a href="http://forums.bethsoft.com/topic/1511411-rel-loot-thread-15/">
                     <core-icon icon="communication:forum"></core-icon>Forum Thread
                 </a></paper-item>
@@ -57,7 +56,7 @@
 
             <core-toolbar>
                 <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-                <h1>{{ page.title }}</h1>
+                <h1 class="headline dark">{{ page.title }}</h1>
             </core-toolbar>
 
             <div id="content" flex>
