@@ -14,7 +14,7 @@ paper-button::shadow .button-content ::content a {
     -ms-flex: 1 1 auto;
 }
 /* paper-item */
-nav > paper-item {
+nav > paper-item, core-menu > paper-item {
     color: rgba(0, 0, 0, 0.87);
     height: 48px;
     line-height: 48px;
@@ -75,8 +75,54 @@ paper-item.two-line .secondary {
 /* paper-input-decorator */
 paper-input-decorator {
     display: inline-block !important;
+    margin: 0 4px;
 }
-paper-input-decorator /deep/ .focused-underline {
+paper-input-decorator::shadow .underline .unfocused-underline {
+    /* line color when the input is unfocused */
+    background-color: rgba(0, 0, 0, 0.12);
+}
+paper-input-decorator::shadow .underline .focused-underline {
     /* line color when the input is focused */
     background-color: #64B5F6;
+}
+/* input */
+paper-input-decorator::shadow .label-text,
+input::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.26);
+}
+::-moz-placeholder {
+    opacity:  1 !important;
+    color: rgba(0, 0, 0, 0.26) !important;
+}
+:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.26) !important;
+}
+
+/* paper-dropdown-menu */
+paper-dropdown-menu {
+    margin-left: 4px;
+    margin-right: 4px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+paper-dropdown-menu::shadow #label {
+    color: rgba(0, 0, 0, 0.87);
+}
+paper-dropdown-menu::shadow #arrow {
+    color: rgba(0, 0, 0, 0.26);
+}
+paper-dropdown-menu .core-selected {
+    color: #64B5F6;
+    background-color: inherit;
+}
+/* paper-dropdown */
+paper-dropdown {
+    padding: 8px 0;
+}
+paper-dropdown::shadow #scroller {
+    /* The calculated height is too high for the content. */
+    height: auto !important;
+}
+/* core-menu */
+core-menu {
+    margin: 0;
 }
