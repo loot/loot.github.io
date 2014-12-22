@@ -20,10 +20,11 @@ function addToList(listElement, person) {
     var primarySpan = document.createElement('span');
     var secondarySpan = document.createElement('span');
 
-    li.classList.add('two-line', 'grid');
-
+    li.classList.add('two-line');
+    
     a.setAttribute('layout', '');
-    a.setAttribute('vertical', '');
+    a.setAttribute('horizontal', '');
+    a.setAttribute('center', '');
 
     img.className = 'avatar';
     div.className = 'text';
