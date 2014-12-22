@@ -93,7 +93,6 @@ paper-item.grid.two-line .text {
     line-height: inherit;
     padding: 8px 16px;
     height: 52px;
-    width: 100%;
 }
 paper-item.grid.two-line .primary {
     /* MD spec says 16sp, but that doesn't fit, so use 14sp. */
