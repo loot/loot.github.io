@@ -97,6 +97,7 @@ for (var i=0; i < repos.length; ++i) {
     var option = document.createElement('paper-item');
     option.textContent = repos[i][0];
     option.setAttribute('data-game', repos[i][1]);
+    option.setAttribute('noink', '');
     gameSelect.appendChild(option);
 }
 
