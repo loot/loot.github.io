@@ -5,27 +5,29 @@ permalink: /credits/
 ---
 
 <style>
-#contrib {
-    display:block;
-    padding-left:0;
-}
 #contrib > paper-item {
     display: inline-block;
-    box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
-    margin: 4px;
-    width: 280px;
+    margin: 2px;
 }
-#contrib > paper-item.admin {
-    box-shadow: rgba(121, 134, 203, 1) 0px 2px 4px, rgba(121, 134, 203, 1) 0px 0px 3px;
+#contrib > paper-item .text {
+    background: #E8EAF6;
 }
-#contrib > paper-item.member {
-    box-shadow: rgba(100, 181, 246, 0.0980392) 0px 2px 4px, rgba(100, 181, 246, 1) 0px 0px 3px;
+#contrib > paper-item.admin .text {
+    background: #303F9F;
+    color: white;
+}
+#contrib > paper-item.member .text {
+    background: #64B5F6;
+    color: white;
+}
+.grid.two-line.admin .secondary, .grid.two-line.member .secondary {
+    color: rgba(255, 255, 255, 0.7);
 }
 </style>
 
 <p>LOOT relies on the submission of information by users to improve. We can't list everyone who has posted in LOOT's forum threads, but the people who have contributed on GitHub are listed below.
-<p>Team members and admins have blue and purple shadows respectively.
-<div id="contrib">
+<p>Team members and admins have blue and purple backgrounds respectively.
+<div id="contrib" layout horizontal wrap>
     <div id="progress" layout horizontal center>
         <paper-spinner active></paper-spinner><div>Fetching contributors...</div>
     </div>
