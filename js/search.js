@@ -66,7 +66,7 @@ function readMasterlist(err, data) {
         }
     }
 
-    if (!resultsDiv.firstChild) {
+    if (!resultsDiv.firstElementChild.nextElementSibling) {
         var elem = document.createElement('p');
         elem.textContent = "No matching entries found.";
         resultsDiv.appendChild(elem);
