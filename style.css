@@ -129,11 +129,6 @@ paper-button {
     color: white;
     vertical-align: middle;
 }
-#download-button {
-    display: table;
-    margin-left: auto;
-    margin-right: auto;
-}
 .stable {
     background: #303F9F;
 }
