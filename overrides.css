@@ -84,7 +84,7 @@ paper-item.grid .avatar {
     vertical-align: inherit;
     z-index: -2;
 }
-paper-item.grid::shadow .button-content ::content a {
+paper-item.grid.two-line::shadow .button-content ::content a {
     margin: -16px -16px;
     padding: 0;
 }
