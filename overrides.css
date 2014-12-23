@@ -72,6 +72,34 @@ paper-item.two-line .secondary {
     font-size: 0.857rem;
     color: rgba(0, 0, 0, 0.54);
 }
+/* paper-item (two-line grid item) */
+paper-item.grid {
+    height: auto;
+    width: 160px;
+}
+paper-item.grid .avatar {
+    width: 160px;
+    height: 160px;
+    margin-right: 0;
+    vertical-align: inherit;
+    z-index: -2;
+}
+paper-item.grid::shadow .button-content ::content a {
+    margin: -16px -16px;
+    padding: 0;
+}
+paper-item.grid.two-line .text {
+    line-height: inherit;
+    padding: 8px 16px;
+    height: 52px;
+}
+paper-item.grid.two-line .primary {
+    font-size: 1.143rem;
+}
+paper-item.grid.two-line .secondary {
+    font-size: 0.857rem;
+    color: rgba(0, 0, 0, 0.54);
+}
 /* paper-input-decorator */
 paper-input-decorator {
     display: inline-block !important;
