@@ -21,6 +21,7 @@ Below are the global priorities as they are grouped for the games currently supp
 -1890000 = -890000
 0
 1980000 = 980000 Skyrim Climate Overhaul
+1910000 = 991000 TES5Edit Merge patch
 1910000 = 991000 Bash Patch
 1920000 = 992000 Post Bash Patch
 1930000 = 993000 Dynamic Patches (Sky Proc)
