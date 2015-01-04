@@ -77,9 +77,7 @@ html {
     font-size: 1.429rem;
     /*letter-spacing: 0.005em;*/
 }
-.subhead, h4,
-#summary > h1,
-html /deep/ paper-item {
+.subhead, h4 {
     font-weight: 400;
     font-size: 1.143rem;
     line-height: 1.75;
@@ -87,9 +85,7 @@ html /deep/ paper-item {
     /* line-height: 1.5; */
     /*letter-spacing: 0.01em;*/
 }
-.button,
-html /deep/ paper-tab,
-html /deep/ paper-button {
+.button {
     font-weight: 500;
     font-size: 1rem;
     text-transform: uppercase;
@@ -105,17 +101,17 @@ a:hover {
     text-decoration: underline;
 }
 /* Tables */
-html /deep/ table {
+table {
     border-collapse: collapse;
     width: 100%;
     background-color: #E8EAF6;
 }
-html /deep/ table td, table th {
+table td, table th {
     vertical-align: top;
     text-align: left;
     padding: 8px 16px;
 }
-html /deep/ table th {
+table th {
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -394,7 +390,7 @@ var {
             <li>The <var>language</var> is the language LOOT runs in that the message will be displayed for. This field has no effect for user-added messages, as they cannot contain multiple localisations, and LOOT will always display messages that have only one localisation, even if it doesn't match the current language.
         </ul>
         <p>If a message's condition determines that it should not be displayed, then it will not be displayed, no matter the language. However, if a message's condition determines that it should be displayed, but the language is specified and doesn't match the language LOOT is running in, the message will not be displayed.
-        <tr><td>Bash Tags<td>A list of Bash Tags. These are used by Wrye Bash when generating a Bashed Patch. LOOT's metadata includes Bash Tag addition and removal suggestions, and any Bash Tags that came with the plugin are also displayed.
+        <tr><td>Bash Tags<td>A list of Bash Tags. These are used by Wrye Bash when generating a Bashed Patch, and are detailed in <a href="https://wrye-bash.github.io/docs/Wrye%20Bash%20Advanced%20Readme.html#patch-tags">Wrye Bash's readme</a>. LOOT's metadata includes Bash Tag addition and removal suggestions, and any Bash Tags that came with the plugin are also displayed.
         <p>As LOOT can suggest Bash Tags be added or removed, it is possible for the same Tag to appear twice, being suggested for addition and removal. In such cases, removal overrides addition.
         <p>Each Bash Tag has three fields:
         <ul>
