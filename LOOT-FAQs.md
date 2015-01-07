@@ -122,7 +122,7 @@ If you're still not seeing the report fill with content, IE may be blocking Java
 
 Mod Organizer 1.2.10 has a bug preventing LOOT 0.7.0 from working properly. This has been fixed in Mod Organizer 1.2.11, and later versions.
 
-There is also another issue that occasionally causes LOOT's window to be blank when started through Mod Organiser - this can be avoided by adding the `--single-process` argument to Mod Organiser's LOOT launching settings.
+There is also another issue that occasionally causes LOOT's window to be blank when started through Mod Organiser: this can be avoided by adding the `--single-process` argument to Mod Organiser's LOOT launching settings, though doing so also reduces the quality of text displayed in LOOT.
 
 ##### I'm seeing empty box characters in the metadata editor window's plugins list. What are these?
 
