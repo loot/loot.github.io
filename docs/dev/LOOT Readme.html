@@ -103,7 +103,6 @@ a:hover {
 /* Tables */
 table {
     border-collapse: collapse;
-    width: 100%;
     background-color: #E8EAF6;
 }
 table td, table th {
@@ -239,7 +238,7 @@ var {
 
 <p>When LOOT is run, it will attempt to detect which of the supported games are installed. If a <a href="#settingsDefaultGame">default game</a> has been set, LOOT will run for it, otherwise it will run for the same game as it last ran for. If the relevant game cannot be detected, or if there is no record of the last game LOOT ran for, it will run for the first detected game.
 
-<p>LOOT can also be launched with the <code>LOOT.exe [--game=&lt;game folder name&gt;]</code> command line parameter to set the game to run for. If the supplied game folder name is valid, the default and last game values are ignored. The default folder names are <code>Oblivion</code>, <code>Skyrim</code>, <code>Fallout3</code> and <code>FalloutNV</code>.
+<p>LOOT can also be launched with the <code>--game=&lt;game folder name&gt;</code> command line parameter to set the game to run for. If the supplied game folder name is valid, the default and last game values are ignored. The default folder names are <code>Oblivion</code>, <code>Skyrim</code>, <code>Fallout3</code> and <code>FalloutNV</code>.
 
 <p>If LOOT cannot detect any supported game installs, it will immediately open the <a href="#usage-settings">Settings dialog</a>. There you can edit LOOT's settings to provide a path to a supported game, after which you can select it from the Game menu.
 
@@ -289,8 +288,8 @@ var {
 
 <figure>
     <div style="width: 100%; overflow-x: auto;">
-        <div class="clipper" style="height: 315px; width: 690px;">
-            <img src="images/main.png" style="position: relative; top: -90px; left: -355px;">
+        <div class="clipper" style="height: 315px; width: 670px;">
+            <img src="images/main.png" style="position: relative; top: -116px; left: -340px;">
         </div>
     </div>
 <figcaption>Examples of plugin cards.</figcaption>
@@ -348,8 +347,8 @@ var {
 
 <figure>
     <div style="width: 100%; overflow-x: auto;">
-        <div class="clipper" style="height: 290px; width: 690px;">
-            <img src="images/main.png" style="position: relative; top: -405px; left: -355px;">
+        <div class="clipper" style="height: 290px; width: 670px;">
+            <img src="images/main.png" style="position: relative; top: -435px; left: -340px;">
         </div>
     </div>
 <figcaption>A metadata editor panel.</figcaption>
@@ -485,6 +484,7 @@ var {
         <li>Finnish: 3ventic
         <li>French: Kaos
         <li>German: lpradel
+        <li>Korean: SteamB23
         <li>Polish: Łukasz Niemczyk
         <li>Russian: Tokc.D.K.
         <li>Spanish: Sharlikran
@@ -538,7 +538,7 @@ A copy of the license is included in the file named "GNU FDL v1.3.txt".</blockqu
 </ul>
 <h4>Additions</h4>
 <ul>
-    <li>Danish translation.
+    <li>Danish and Korean translations.
     <li>If LOOT can't detect any installed games, it now launches to the settings dialog, where the game settings can be edited to allow a game to be detected.
     <li><q>Copy Content</q> menu item to copy the plugin list and all information it contains to the clipboard as YAML-formatted text.
     <li>A <q>Refresh Content</q> item has been added to the main menu, which re-scans plugin headers and updates LOOT's content.
