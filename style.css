@@ -169,3 +169,8 @@ nav > .subheader.dark {
 nav > .divider {
     margin: 8px 0;
 }
+
+/* Greyscale non-Polymer icons. */
+core-icon[src] {
+    opacity: 0.54;
+}
