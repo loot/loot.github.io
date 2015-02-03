@@ -20,5 +20,5 @@ bower install ./
 Vulcanize must be run manually whenever the Polymer dependencies are updated or `polymer-loader.html` is changed. The command to do so is:
 
 ```
-vulcanize ./polymer-loader.html --abspath ./ --inline -o ./polymer-loader.vulcanized.html
+vulcanize ./polymer-loader.html --abspath ./ --inline --strip -o ./polymer-loader.vulcanized.html
 ```
