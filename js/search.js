@@ -102,6 +102,7 @@ for (var i=0; i < repos.length; ++i) {
 }
 
 searchButton.addEventListener("click", onSearchInit, false);
+searchBox.addEventListener('change', onSearchInit, false);
 
 /* If the page was loaded with a PHP-style GET string `?game=<game>&search=<search>`, read it for the search term and perform a search. */
 var pos = document.URL.indexOf("?game=");
