@@ -11,3 +11,8 @@ bower_components/*
 !/bower_components/js-yaml/LICENSE
 !/bower_components/js-yaml/dist/
 /bower_components/js-yaml/dist/js-yaml.js
+
+# Don't ignore the Octokat file
+!/bower_components/octokat/
+/bower_components/octokat/*
+!/bower_components/octokat/dist/
