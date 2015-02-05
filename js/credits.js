@@ -64,8 +64,12 @@ function addToList(listElement, person) {
 }
 
 function sortContributors(a,b) {
-    return b.contributions - a.contributions;
-}
+    if (a.contributions != b.contributions) {
+        return b.contributions - a.contributions;
+    } else {
+        return a.name.localeCompare(b.name);
+    }
+} 
 
 function getContributor(name) {
     for (var i = 0; i < contributors.length; ++i) {
