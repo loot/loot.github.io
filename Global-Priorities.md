@@ -9,8 +9,8 @@ Below are the global priorities as they are grouped for the games currently supp
 # Skyrim
 
 ```
--1999000 = -999000 Skyrim.esm, Update.esm
--1980000 = -980000 DLC, Unofficial Patches, SPO
+-1999999 = -999999 Update.esm
+-1999000 = -999000 DLC, Unofficial Patches, SPO
 -1960000 = -960000 Falskar, Wyrmstooth
 -1950000 = -950000
 -1940000 = -940000
