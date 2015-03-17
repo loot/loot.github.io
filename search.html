@@ -29,6 +29,10 @@ permalink: /search/
 #results code:first-of-type {
     border-top: none;
 }
+#searchBoxDecorator {
+    position: relative;
+    top: 11px;
+}
 </style>
 
 <p>Search for a plugin name to find matching entries in the LOOT masterlists. Partial matching is only supported for non-regex entries, so use the full plugin name to find any regex entries for it.</p>
@@ -36,7 +40,7 @@ permalink: /search/
 <p>
     <paper-button id="searchButton" raised>Search</paper-button>
      for
-    <paper-input-decorator label="Plugin filename...">
+    <paper-input-decorator id="searchBoxDecorator" label="Plugin filename...">
         <input is="core-input" type="text" id="searchBox" autofocus />
     </paper-input-decorator>
     in the
