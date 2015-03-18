@@ -6,7 +6,7 @@ Since team members are contact points for LOOT users, the table below gives the 
         <tr><th>GitHub<th>Bethesda<th>Nexus
     <tbody>
         <tr><td>Aellis-BOSS<td>Aellis<td>A.ellis
-        <tr><td colspan="2">egocarib<td>-
+        <tr><td colspan="3">egocarib
         <tr><td colspan="3">Freso
         <tr><td colspan="2">ineedbettername<td>-
         <tr><td colspan="3">LotteryDiscountz
