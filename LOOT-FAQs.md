@@ -19,10 +19,7 @@
 #### Common Issues
 
 11. [I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?](#im-getting-git-errors-when-loot-tries-to-update-its-masterlist-how-do-i-fix-this)
-13. [LOOT ran without any errors, but the load order hasn't changed to match what LOOT has in its report. Why?](#loot-ran-without-any-errors-but-the-load-order-hasnt-changed-to-match-what-loot-has-in-its-report-why)
-14. [LOOT's report is blank. How do I fix this?](#loots-report-is-blank-how-do-i-fix-this)
 15. [LOOT's window is blank when I'm starting it through Mod Organizer. What's up?](#loots-window-is-blank-when-im-starting-it-through-mod-organizer-whats-up)
-16. [I'm seeing empty box characters in the metadata editor window's plugins list. What are these?](#im-seeing-empty-box-characters-in-the-metadata-editor-windows-plugins-list-what-are-these)
 17. [LOOT shows the wrong or no version number for some plugins. Why?](#loot-shows-the-wrong-or-no-version-number-for-some-plugins-why)
 18. [A game is installed, but LOOT cannot detect it. How do I fix this?](#a-game-is-installed-but-loot-cannot-detect-it-how-do-i-fix-this)
 19. [When LOOT updates the load order, it removes line breaks from `plugins.txt` and `loadorder.txt`. Won't this break something?](#when-loot-updates-the-load-order-it-removes-line-breaks-from-pluginstxt-and-loadordertxt-wont-this-break-something)
@@ -104,27 +101,11 @@ Alternatively, your WinSock configuration may be corrupt: this can be fixed usin
 
 If LOOT still can't update its masterlist, you can update manually by downloading [this file](https://raw.githubusercontent.com/loot/skyrim/master/masterlist.yaml) and placing it in the `%LOCALAPPDATA%\LOOT\Skyrim` folder. Replace Skyrim with `oblivion`, `fallout3` or `falloutnv` as necessary, in the URL and the folder path.
 
-##### LOOT ran without any errors, but the load order hasn't changed to match what LOOT has in its report. Why?
-
-If you're sorting for Skyrim, make sure that you haven't replaced or renamed your `TESV.exe`, as this interferes with LOOT's ability to decide how to set the load order.
-
-##### LOOT's report is blank. How do I fix this?
-
-LOOT uses Windows' internal web browser to display its report. This web browser is basically Internet Explorer, but it's present even if you have Internet Explorer disabled. If it's not displaying LOOT's report properly, this may be because it isn't up-to-date.
-
-The report display has been tested using IE 11, which is available to all Windows 7 and 8.x users. Windows Vista users can only update as far as IE 10, and though the report should display with this version, it is untested.
-
-To update the internal web browser, make sure Internet Explorer is enabled in the "Turn Windows features on/off" control panel, and install the latest updates available through Windows update. That should be enough to fix the report display, and you can disable Internet Explorer again if you so wish.
-
 ##### LOOT's window is blank when I'm starting it through Mod Organizer. What's up?
 
 Mod Organizer 1.2.10 has a bug preventing LOOT 0.7.0 from working properly. This has been fixed in Mod Organizer 1.2.11, and later versions.
 
 There is also another issue that occasionally causes LOOT's window to be blank when started through Mod Organiser: this can be avoided by adding the `--single-process` argument to Mod Organiser's LOOT launching settings, though doing so also reduces the quality of text displayed in LOOT.
-
-##### I'm seeing empty box characters in the metadata editor window's plugins list. What are these?
-
-They are supposed to be ticks and crosses, but there's a bug in Windows that means they don't always get displayed correctly. [This page](https://superuser.com/questions/371282/my-windows-7-has-suddenly-stopped-displaying-unicode-symbols) describes some possible workarounds for the issue.
 
 ##### LOOT shows the wrong or no version number for some plugins. Why?
 
@@ -133,6 +114,8 @@ As version numbers are supplied by mod authors in a wide range of formats and LO
 ##### A game is installed, but LOOT cannot detect it. How do I fix this?
 
 Steam likes to remove the game's Registry entry when the game is updated or its cache is verified. Run the game's launcher to add the Registry entry back again. LOOT will then be able to detect the game.
+
+Another cause may be that the game is installed in a location where you does not have read permissions, in which case LOOT cannot read your plugins, and so treats the game as undetected. Try checking the game path's permissions, and ensuring you have read access.
 
 ##### When LOOT updates the load order, it removes line breaks from `plugins.txt` and `loadorder.txt`. Won't this break something?
 
