@@ -7,6 +7,7 @@ If you want to start contributing, you may find the following pages useful:
 * [[How To Contribute|How-To-Contribute]]
 * [[Masterlist Editing|Masterlist-Editing]]
 * [[Quickly Testing Your Masterlist Changes|Quickly-Testing-Your-Masterlist-Changes]]
+* [[Masterlist Versioning|Masterlist-Versioning]]
 
 The following pages relate to the LOOT team and its management:
 
