@@ -2,7 +2,7 @@ The purpose of this page is to give a bit of information to help with editing a 
 
 ### General Hints
 
-* Look in the masterlists for examples, and see the [Metadata Syntax](http://loot.github.io/docs/dev/LOOT%20Metadata%20Syntax.html) document for the details.
+* Look in the masterlists for examples, and see the [Metadata Syntax](http://loot.github.io/docs/0.7.1/LOOT%20Metadata%20Syntax.html) document for the details.
 * Only make edits/additions you're confident about - otherwise create an issue in the masterlist repository's issue tracker, or discuss in the BethSoft forum thread.
 * If you're using Notepad++, you can set it to use spaces instead of tabs when you press the tab key on your keyboard, avoiding YAML parsing errors. To do this, go to Settings > Preferences > Tab Settings > Replace by space. A value of 4 is most common.
 * Make as many silent comments as you want within the masterlists - it doesn't hurt (within reason). However, make sure to put them *above* the line(s) that they refer to.
