@@ -13,47 +13,44 @@ var admins = [];
 var members = [];
 
 function addToList(listElement, person) {
-    var li = document.createElement('paper-item');
     var a = document.createElement('a');
-    var avatar;
-    if (person.avatar_url) {
-        avatar = document.createElement('img');
-        avatar.src = person.avatar_url;
-    } else {
-        avatar = document.createElement('core-icon');
-        avatar.setAttribute('icon', 'face');
-    }
-    var div = document.createElement('div');
-    var primarySpan = document.createElement('span');
-    var secondarySpan = document.createElement('span');
+    var avatar = document.createElement('div');
+    var text = document.createElement('div');
+    var name = document.createElement('div');
+    var contributions = document.createElement('div');
 
-    li.classList.add('two-line');
+    a.classList.add('loot-contributor');
 
-    a.setAttribute('layout', '');
-    a.setAttribute('horizontal', '');
-    a.setAttribute('center', '');
-
-    avatar.className = 'avatar';
-    div.className = 'text';
-    primarySpan.className = 'primary';
-    secondarySpan.className = 'secondary';
+    avatar.className = 'loot-contributor__avatar';
+    text.className = 'loot-contributor__text';
+    name.className = 'loot-contributor__name';
+    contributions.className = 'loot-contributor__contributions';
 
     a.href = person.html_url;
-    primarySpan.textContent = person.name;
-    secondarySpan.textContent = person.contributions + ' contributions';
+    name.textContent = person.name;
+    contributions.textContent = person.contributions + ' contributions';
 
     if (admins.indexOf(person.name) !== -1) {
-        li.classList.add('admin');
+        a.classList.add('loot-admin');
     } else if (members.indexOf(person.name) !== -1) {
-        li.classList.add('member');
+        a.classList.add('loot-member');
     }
-    li.appendChild(a);
+    if (person.avatar_url) {
+        var img = document.createElement('img');
+        img.src = person.avatar_url;
+        avatar.appendChild(img);
+    } else {
+        var icon = document.createElement('i');
+        icon.className = 'material-icons';
+        icon.textContent = 'face';
+        avatar.appendChild(icon);
+    }
+
     a.appendChild(avatar);
-    a.appendChild(div);
-    div.appendChild(primarySpan);
-    div.appendChild(document.createElement('br'));
-    div.appendChild(secondarySpan);
-    listElement.appendChild(li);
+    a.appendChild(text);
+    text.appendChild(name);
+    text.appendChild(contributions);
+    listElement.appendChild(a);
 }
 
 function sortContributors(a,b) {

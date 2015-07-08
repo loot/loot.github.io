@@ -66,3 +66,47 @@ nav > .subheader {
 nav > .divider {
     margin: 8px 0;
 }
+
+/* Custom two-line Material Design item with avatar. */
+.loot-contributor {
+    display: inline-block;
+    height: 40px;
+    width: 192px;
+    padding: 16px;
+    margin: 2px;
+    background: #E8EAF6;
+    color: inherit;
+}
+.loot-contributor__avatar,
+.loot-contributor__text {
+    display: inline-block;
+}
+.loot-contributor__avatar > * {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+}
+.loot-contributor__avatar {
+    vertical-align: top;
+}
+.loot-contributor__avatar > .material-icons {
+    font-size: 40px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.54);
+}
+.loot-contributor.loot-admin {
+    background: #303F9F;
+    color: white;
+}
+.loot-contributor.loot-member {
+    background: #64B5F6;
+    color: white;
+}
+.loot-contributor__contributions {
+    font-size: 0.857rem;
+    color: rgba(0, 0, 0, 0.54);
+}
+.loot-admin .loot-contributor__contributions,
+.loot-member .loot-contributor__contributions {
+    color: rgba(255, 255, 255, 0.7);
+}
