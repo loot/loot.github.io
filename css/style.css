@@ -37,11 +37,7 @@ a {
 
 /* Progress indication for search and contributor listing. */
 #progress {
-    padding: 0 16px;
-    height: 48px;
-}
-#progress > .mdl-spinner {
-    margin-right: 28px;
+    margin: 16px;
 }
 
 /* For MD subheaders suitable for lists, menus and grids. */
