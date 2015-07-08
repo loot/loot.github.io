@@ -1,26 +1,54 @@
-/* paper-button */
-paper-button {
-    min-width: 88px;
-    height: 36px;
-    line-height: 36px;
-    margin: 6px 4px;
+/* Adjust large screen sidebar width. */
+@media screen and (min-width: 851px) {
+    .mdl-layout > .mdl-layout__drawer {
+        width: 276px !important;
+    }
+    .mdl-layout--fixed-drawer > .mdl-layout__content {
+        margin-left: 276px !important;
+    }
+    /* Also stop title bar having too much padding on large screens. */
+    .mdl-layout__header-row {
+        padding-left: 40px !important;
+    }
 }
-paper-button::shadow .button-content {
-    padding: 0 8px;
+.mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__header {
+    margin-left: 276px !important;
+    width: calc(100% - 276px) !important;
 }
-paper-button::shadow .button-content ::content a {
-    margin: 0 -8px;
-    padding: 0 8px;
-    -ms-flex: 1 1 auto;
+/* Limit navigation item height to 48px. */
+.mdl-navigation__link--icon {
+    line-height: 48px;
+    height: 48px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    white-space: nowrap;
 }
+/* Don't stretch YouTube videos. */
+.mdl-layout__content > iframe {
+    width: 560px;
+    display: inline;
+}
+/* Override default sidebar colour scheme. */
+.mdl-layout .mdl-layout__drawer {
+    background-color: white;
+}
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+    color: rgba(0, 0, 0, 0.87) !important;
+}
+.mdl-navigation .mdl-navigation__link .material-icons {
+    color: rgba(0, 0, 0, 0.54);
+}
+/* Fix search input vertical position. */
+.mdl-textfield {
+    vertical-align: top;
+    top: 1px;
+}
+
 /* paper-item */
-nav > paper-item, core-menu > paper-item {
+core-menu > paper-item {
     color: rgba(0, 0, 0, 0.87);
     height: 48px;
     line-height: 48px;
-}
-nav > paper-item:first-child {
-    margin-top: 8px;
 }
 paper-item core-icon {
     margin-right: 32px;
@@ -74,32 +102,6 @@ paper-item.two-line .secondary {
     font-size: 0.857rem;
     color: rgba(0, 0, 0, 0.54);
 }
-/* paper-input-decorator */
-paper-input-decorator {
-    display: inline-block !important;
-    margin: 0 4px;
-}
-paper-input-decorator::shadow .underline .unfocused-underline {
-    /* line color when the input is unfocused */
-    background-color: rgba(0, 0, 0, 0.12);
-}
-paper-input-decorator::shadow .underline .focused-underline {
-    /* line color when the input is focused */
-    background-color: #64B5F6;
-}
-/* input */
-paper-input-decorator::shadow .label-text,
-input::-webkit-input-placeholder {
-    color: rgba(0, 0, 0, 0.26);
-}
-::-moz-placeholder {
-    opacity:  1 !important;
-    color: rgba(0, 0, 0, 0.26) !important;
-}
-:-ms-input-placeholder {
-    color: rgba(0, 0, 0, 0.26) !important;
-}
-
 /* paper-dropdown-menu */
 paper-dropdown-menu {
     margin-left: 4px;

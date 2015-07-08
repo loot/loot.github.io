@@ -11,55 +11,65 @@
 <link rel="import" href="/polymer-loader.vulcanized.html">
 <link href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet" type="text/css">
 
+<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-blue.min.css">
+<script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 <body unresolved fullbleed>
-    <core-drawer-panel drawerWidth="276px">
-        <div drawer layout vertical>
-            <core-toolbar>
-                <img alt="LOOT" src="/images/icon.png">
-                <h1 class="display1 dark">LOOT</h1>
-            </core-toolbar>
-            <nav flex>
-                <paper-item><a href="/">
-                    <core-icon icon="home"></core-icon>Home
-                </a></paper-item>
-                <paper-item><a href="/docs/">
-                    <core-icon icon="book"></core-icon>Documentation
-                </a></paper-item>
-                <paper-item><a href="/search/">
-                    <core-icon icon="search"></core-icon>Masterlist Search
-                </a></paper-item>
-                <paper-item><a href="/credits/">
-                    <core-icon icon="social:people"></core-icon>Credits
-                </a></paper-item>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+                      mdl-layout--fixed-header">
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">
+                    <img alt="LOOT" src="/images/icon.png">
+                    <span>LOOT</span>
+            </span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link mdl-navigation__link--icon" href="/">
+                    <i class="material-icons">file_download</i>
+                    <span>Download</span>
+                </a>
+                <a class="mdl-navigation__link mdl-navigation__link--icon" href="/docs/">
+                    <i class="material-icons">book</i>
+                    <span>Documentation</span>
+                </a>
+                <a class="mdl-navigation__link mdl-navigation__link--icon" href="/search/">
+                    <i class="material-icons">search</i>
+                    <span>Masterlist Search</span>
+                </a>
+                <a class="mdl-navigation__link mdl-navigation__link--icon" href="/credits/">
+                    <i class="material-icons">people</i>
+                    <span>Credits</span>
+                </a>
                 <div class="subheader">On GitHub</div>
-                <paper-item><a href="https://github.com/loot">
-                    <core-icon src="/images/github-mark.svg"></core-icon>Code
-                </a></paper-item>
-                <paper-item><a href="https://github.com/loot/loot.github.io/wiki">
-                    <core-icon icon="subject"></core-icon>Wiki
-                </a></paper-item>
+                <a class="mdl-navigation__link mdl-navigation__link--icon" href="https://github.com/loot">
+                    <i class="material-icons">code</i>
+                    <span>Code</span>
+                </a>
+                <a class="mdl-navigation__link mdl-navigation__link--icon" href="https://github.com/loot/loot.github.io/wiki">
+                    <i class="material-icons">subject</i>
+                    <span>Wiki</span>
+                </a>
                 <div class="subheader">Support &amp; Discussion</div>
-                <paper-item><a href="http://forums.bethsoft.com/topic/1519842-rel-loot-thread-19/">
-                    <core-icon icon="communication:forum"></core-icon>Forum Thread
-                </a></paper-item>
-                <paper-item><a href="https://webchat.freenode.net/?channels=%23loot">
-                    <core-icon icon="communication:live-help"></core-icon>IRC Channel
-                </a></paper-item>
-                <paper-item><a href="/tutorials/">
-                    <core-icon icon="av:video-collection"></core-icon>Unofficial Tutorials
-                </a></paper-item>
+                <a class="mdl-navigation__link mdl-navigation__link--icon" href="http://forums.bethsoft.com/topic/1519842-rel-loot-thread-19/">
+                    <i class="material-icons">forum</i>
+                    <span>Forum Thread</span>
+                </a>
+                <a class="mdl-navigation__link mdl-navigation__link--icon" href="https://webchat.freenode.net/?channels=%23loot">
+                    <i class="material-icons">announcement</i>
+                    <span>IRC Channel</span>
+                </a>
+                <a class="mdl-navigation__link mdl-navigation__link--icon" href="/tutorials/">
+                    <i class="material-icons">video_library</i>
+                    <span>Unofficial Tutorials</span>
+                </a>
             </nav>
         </div>
-        <div main layout vertical>
-
-            <core-toolbar>
-                <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-                <h1 class="headline dark">{{ page.title }}</h1>
-            </core-toolbar>
-
-            <div id="content" flex>
-                {{ content }}
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">{{ page.title }}</span>
             </div>
-        </div>
-    </core-drawer-panel>
+        </header>
+        <main class="mdl-layout__content">
+            {{ content }}
+        </main>
 </body>

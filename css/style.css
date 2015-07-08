@@ -6,138 +6,41 @@
     1/1000 em. They are commented out as the results don't match the image in
     the spec.
  */
-html {
-    font:14px/20px Roboto, sans-serif;
+html > body {
+    font-family: Roboto, 'Helvetica','Arial', sans-serif;
     color: rgba(0, 0, 0, 0.87);
     font-weight: 400;
     text-rendering: optimizeLegibility;
 }
-.display4 {
-    font-weight: 300;
-    font-size: 8rem;
-    color: rgba(0, 0, 0, 0.54);
-    /*letter-spacing: -0.01em;*/
+
+/* Improve layout of navigation elements. */
+.mdl-layout-title > img {
+    height: 48px;
+    margin-right: 8px;
 }
-.display3 {
-    font-weight: 400;
-    font-size: 4rem;
-    color: rgba(0, 0, 0, 0.54);
-    /*letter-spacing: -0.005em;*/
+.mdl-navigation__link--icon > span,
+.mdl-navigation__link--icon > .material-icons {
+    vertical-align: middle;
 }
-.display2 {
-    font-weight: 400;
-    font-size: 3.214rem;
-    color: rgba(0, 0, 0, 0.54);
-    line-height: 1.067;
-}
-.display1 {
-    font-weight: 400;
-    font-size: 2.429rem;
-    color: rgba(0, 0, 0, 0.54);
-    line-height: 1.176;
-}
-.headline {
-    font-weight: 400;
-    font-size: 1.714rem;
-    line-height: 1.333;
-}
-.title {
-    font-weight: 500;
-    font-size: 1.429rem;
-    /*letter-spacing: 0.005em;*/
-}
-.subhead, h2 {
-    font-weight: 400;
-    font-size: 1.143rem;
-    line-height: 1.75;
-    /* Alternate line height: */
-    /* line-height: 1.5; */
-    /*letter-spacing: 0.01em;*/
-}
-.body2, .subheader, nav > paper-item {
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 1.714;
-    /*letter-spacing: 0.01em;*/
-}
-.body1 {
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.429;
-    /*letter-spacing: 0.01em;*/
-}
-.caption {
-    font-weight: 400;
-    font-size: 0.857rem;
-    color: rgba(0, 0, 0, 0.54);
-    /*letter-spacing: 0.02em;*/
-}
-.button, paper-button {
-    font-weight: 500;
-    font-size: 1rem;
-    text-transform: uppercase;
-    /*letter-spacing: 0.01em;*/
-}
-.display4.dark, .display3.dark, .display2.dark, .display1.dark, .caption.dark {
-    color: rgba(255, 255, 255, 0.7);
+.mdl-navigation__link--icon > .material-icons {
+    margin-right: 32px;
 }
 
 /* Misc */
 a {
     text-decoration:none;
-    color: #2196F3;
 }
-a:hover {
-    text-decoration: underline;
-}
-paper-item a, paper-button a {
-    color: inherit;
-}
-paper-item a:hover, paper-button a:hover {
-    text-decoration: none;
-}
-body {
-    background: white;
-    margin:0 auto;
-}
-core-toolbar {
-    background: #3F51B5;
-    color: white;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-}
-div[drawer] {
-    background: white;
-}
-div[drawer] nav {
-    overflow-y: auto;
-    border-right: 1px rgba(0, 0, 0, 0.12) solid;
-}
-div[drawer] > core-toolbar {
-    border-right: 1px rgba(0, 0, 0, 0.12) solid;
-    box-shadow: none;
-}
-div[drawer] > core-toolbar img {
-    height: 48px;
-}
-#content {
-    padding: 0 16px;
-    overflow-y: auto;
+.mdl-layout__content {
+    padding: 16px;
     background: #FAFAFA;
 }
-paper-button {
-    background: #64B5F6;
-    color: white;
-    vertical-align: middle;
-}
-.stable {
-    background: #303F9F;
-}
+
 /* Progress indication for search and contributor listing. */
 #progress {
     padding: 0 16px;
     height: 48px;
 }
-#progress paper-spinner {
+#progress > .mdl-spinner {
     margin-right: 28px;
 }
 
@@ -153,24 +56,13 @@ nav > .subheader {
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     margin-top: 8px;
 }
-nav > .subheader.dark {
-    border-top-color: rgba(255, 255, 255, 0.12);
-}
 
 /* For MD generic dividers. */
 .divider {
     height: 1px;
     background: rgba(0, 0, 0, 0.12);
 }
-.divider.dark {
-    background: rgba(255, 255, 255, 0.12);
-}
 /* For MD navigation drawer dividers. */
 nav > .divider {
     margin: 8px 0;
-}
-
-/* Greyscale non-Polymer icons. */
-core-icon[src] {
-    opacity: 0.54;
 }

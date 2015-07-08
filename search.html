@@ -5,9 +5,6 @@ permalink: /search/
 ---
 
 <style>
-#content {
-    padding-bottom: 16px;
-}
 #results {
     background: white;
 }
@@ -41,11 +38,12 @@ permalink: /search/
 <p>Search for a plugin name to find matching entries in the LOOT masterlists. Partial matching is only supported for non-regex entries, so use the full plugin name to find any regex entries for it.</p>
 
 <p>
-    <paper-button id="searchButton" raised>Search</paper-button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" id="searchButton">Search</button>
      for
-    <paper-input-decorator id="searchBoxDecorator" label="Plugin filename...">
-        <input is="core-input" type="text" id="searchBox" autofocus />
-    </paper-input-decorator>
+    <span class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" id="searchBox" autofocus />
+        <label class="mdl-textfield__label" for="searchBox">Plugin</label>
+    </span>
     in the
     <paper-dropdown-menu>
         <paper-dropdown class="dropdown">
@@ -58,11 +56,12 @@ permalink: /search/
 </p>
 
 
-<paper-shadow id="results" flex Z="1">
+<div id="results" class="mdl-shadow--2dp">
     <div id="progress" class="hidden" layout horizontal center>
-        <paper-spinner active></paper-spinner><div>Loading masterlist...</div>
+        <div class="mdl-spinner mdl-js-spinner is-active"></div>
+        <div>Loading masterlist...</div>
     </div>
-</paper-shadow>
+</div>
 
 <script src="/bower_components/js-yaml/dist/js-yaml.min.js"></script>
 <script src="/bower_components/octokat/dist/octokat.js"></script>
