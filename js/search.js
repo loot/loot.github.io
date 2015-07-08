@@ -15,6 +15,7 @@ var repos = [
 var repoBranch = 'master';  //The repository branch to search.
 
 var gameSelect = document.getElementById('gameSelectMenu');
+var gameButton = document.getElementById(gameSelect.getAttribute('for'));
 var searchButton = document.getElementById('searchButton');
 var searchBox = document.getElementById('searchBox');
 var resultsDiv = document.getElementById('results');
@@ -78,7 +79,7 @@ function fetchMasterlist(err, data) {
 
     for (var i = 0; i < data.tree.length; ++i) {
         if (data.tree[i].path == 'masterlist.yaml') {
-            github.repos('loot', gameSelect.selected).git.blobs(data.tree[i].sha).read(readMasterlist);
+            github.repos('loot', gameButton.getAttribute('data-selected')).git.blobs(data.tree[i].sha).read(readMasterlist);
             break;
         }
     }
@@ -91,14 +92,14 @@ function fetchTree(err, data) {
         return;
     }
 
-    github.repos('loot', gameSelect.selected).git.trees(data.object.sha).fetch(fetchMasterlist);
+    github.repos('loot', gameButton.getAttribute('data-selected')).git.trees(data.object.sha).fetch(fetchMasterlist);
 }
 
 function onSearchInit(evt) {
     /* The GitHub Repository API can't be used because it only supports
        files of sizes up to 1 MB. The Skyrim masterlist is larger than this, so
        use the GitHub Git Data API instead. */
-    github.repos('loot', gameSelect.selected).git.refs('heads/' + repoBranch).fetch(fetchTree);
+    github.repos('loot', gameButton.getAttribute('data-selected')).git.refs('heads/' + repoBranch).fetch(fetchTree);
 
     /* Clear any previous search results. */
     var progress = document.getElementById('progress');
@@ -110,17 +111,24 @@ function onSearchInit(evt) {
     progress.classList.remove('hidden');
 }
 
+function onGameSelect(evt) {
+    gameButton.textContent = evt.target.textContent;
+    gameButton.setAttribute('data-selected', evt.target.getAttribute('data-game'));
+}
+
 // Startup Code
 ///////////////////
 
 /* Fill the drop-down games box with stuff. */
 for (var i=0; i < repos.length; ++i) {
-    var option = document.createElement('paper-item');
+    var option = document.createElement('li');
+    option.className = 'mdl-menu__item';
     option.textContent = repos[i][0];
     option.setAttribute('data-game', repos[i][1]);
-    option.setAttribute('noink', '');
     gameSelect.appendChild(option);
+    option.addEventListener('click', onGameSelect, false);
 }
+gameSelect.firstElementChild.click();
 
 searchButton.addEventListener("click", onSearchInit, false);
 searchBox.addEventListener('change', onSearchInit, false);
@@ -132,18 +140,18 @@ if (pos != -1) {
     searchBox.value = decodeURIComponent(document.URL.substring(pos2+8));
     var game = decodeURIComponent(document.URL.substring(pos+6, pos2).toLowerCase());
     if (game == "oblivion") {
-        gameSelect.selected = repos[0][1];
+        gameButton.setAttribute('data-selected', repos[0][1]);
     } else if (game == "skyrim") {
-        gameSelect.selected = repos[1][1];
+        gameButton.setAttribute('data-selected', repos[1][1]);
     } else if (game == "fallout3") {
-        gameSelect.selected = repos[2][1];
+        gameButton.setAttribute('data-selected', repos[2][1]);
     } else if (game == "falloutnv") {
-        gameSelect.selected = repos[3][1];
+        gameButton.setAttribute('data-selected', repos[3][1]);
     } else {
-        gameSelect.selected = repos[0][1];
+        gameButton.setAttribute('data-selected', repos[0][1]);
     }
 
     searchButton.click();
 } else {
-    gameSelect.selected = repos[0][1];
+    gameButton.setAttribute('data-selected', repos[0][1]);
 }

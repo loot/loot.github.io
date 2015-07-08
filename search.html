@@ -37,7 +37,7 @@ permalink: /search/
 
 <p>Search for a plugin name to find matching entries in the LOOT masterlists. Partial matching is only supported for non-regex entries, so use the full plugin name to find any regex entries for it.</p>
 
-<p>
+<div>
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" id="searchButton">Search</button>
      for
     <span class="mdl-textfield mdl-js-textfield">
@@ -45,15 +45,12 @@ permalink: /search/
         <label class="mdl-textfield__label" for="searchBox">Plugin</label>
     </span>
     in the
-    <paper-dropdown-menu>
-        <paper-dropdown class="dropdown">
-            <core-menu class="menu" valueattr="data-game" id="gameSelectMenu">
+    <button id="gameSelectButton" class="mdl-button mdl-js-button"></button>
+    <ul id="gameSelectMenu" for="gameSelectButton" class="mdl-menu mdl-js-menu">
 
-            </core-menu>
-        </paper-dropdown>
-    </paper-dropdown-menu>
+    </ul>
     masterlist.
-</p>
+</div>
 
 
 <div id="results" class="mdl-shadow--2dp">
