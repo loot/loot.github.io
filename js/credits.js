@@ -18,8 +18,10 @@ function addToList(listElement, person) {
     var avatar;
     if (person.avatar_url) {
         avatar = document.createElement('img');
+        avatar.src = person.avatar_url;
     } else {
-        avatar = document.createElement('div');
+        avatar = document.createElement('core-icon');
+        avatar.setAttribute('icon', 'face');
     }
     var div = document.createElement('div');
     var primarySpan = document.createElement('span');
@@ -37,11 +39,6 @@ function addToList(listElement, person) {
     secondarySpan.className = 'secondary';
 
     a.href = person.html_url;
-    if (person.avatar_url) {
-        avatar.src = person.avatar_url;
-    } else {
-        avatar.textContent = '?';
-    }
     primarySpan.textContent = person.name;
     secondarySpan.textContent = person.contributions + ' contributions';
 
