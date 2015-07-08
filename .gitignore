@@ -2,9 +2,6 @@ _site/
 .sass-cache/
 bower_components/*
 
-# Don't ignore the Web Components polyfill
-!/bower_components/webcomponentsjs/
-
 # Don't ignore the js-yaml files
 !/bower_components/js-yaml/
 /bower_components/js-yaml/*
