@@ -19,7 +19,7 @@ function addToList(listElement, person) {
     var name = document.createElement('div');
     var contributions = document.createElement('div');
 
-    a.classList.add('loot-contributor');
+    a.classList.add('loot-contributor', 'mdl-shadow--2dp');
 
     avatar.className = 'loot-contributor__avatar';
     text.className = 'loot-contributor__text';

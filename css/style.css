@@ -69,8 +69,8 @@ nav > .divider {
     height: 40px;
     width: 192px;
     padding: 16px;
-    margin: 2px;
-    background: #E8EAF6;
+    margin: 4px;
+    background: white;
     color: inherit;
 }
 .loot-contributor__avatar,
@@ -91,11 +91,11 @@ nav > .divider {
     color: rgba(0, 0, 0, 0.54);
 }
 .loot-contributor.loot-admin {
-    background: #303F9F;
+    background: rgb(63,81,181);
     color: white;
 }
 .loot-contributor.loot-member {
-    background: #64B5F6;
+    background: rgb(68,138,255);
     color: white;
 }
 .loot-contributor__contributions {
