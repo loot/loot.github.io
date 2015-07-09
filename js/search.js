@@ -55,14 +55,16 @@ function readMasterlist(err, data) {
             if (index != -1) {
                 console.log("Match: " + JSON.stringify(masterlist["plugins"][index]));
                 var code = document.createElement('code');
+                code.className = 'loot-search-result';
                 code.textContent = '  - ' + jsyaml.safeDump(masterlist["plugins"][index]).replace(new RegExp('\n', 'g'), '\n    ').trim();
                 resultsDiv.appendChild(code);
             }
         }
     }
 
-    if (!resultsDiv.firstElementChild.nextElementSibling) {
-        var elem = document.createElement('p');
+    if (resultsDiv.children.length == 0) {
+        var elem = document.createElement('code');
+        elem.className = 'loot-search-result';
         elem.textContent = "No matching entries found.";
         resultsDiv.appendChild(elem);
     }
@@ -102,9 +104,8 @@ function onSearchInit(evt) {
     github.repos('loot', gameButton.getAttribute('data-selected')).git.refs('heads/' + repoBranch).fetch(fetchTree);
 
     /* Clear any previous search results. */
-    var progress = document.getElementById('progress');
-    while (progress.nextElementSibling) {
-        progress.parentElement.removeChild(progress.nextElementSibling);
+    while (resultsDiv.children.length > 0) {
+        resultsDiv.removeChild(resultsDiv.firstElementChild);
     }
 
     console.log("Loading masterlist...");

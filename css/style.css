@@ -39,6 +39,9 @@ a {
 #progress {
     margin: 16px;
 }
+#progress.hidden {
+    display: none;
+}
 
 /* For MD subheaders suitable for lists, menus and grids. */
 .subheader {
@@ -105,4 +108,19 @@ nav > .divider {
 .loot-admin .loot-contributor__contributions,
 .loot-member .loot-contributor__contributions {
     color: rgba(255, 255, 255, 0.7);
+}
+
+/* For masterlist search results. */
+code.loot-search-result {
+    background: white;
+    white-space:pre;
+    display:block;
+    overflow-x:auto;
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 16px;
+    border-top: 1px rgba(0, 0, 0, 0.12) solid;
+}
+code.loot-search-result:first-of-type {
+    border-top: none;
 }

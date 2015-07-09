@@ -4,37 +4,6 @@ title: Masterlist Search
 permalink: /search/
 ---
 
-<style>
-#results {
-    background: white;
-}
-#progress.hidden {
-    display: none;
-}
-#results p {
-    padding: 0 16px;
-    height: 48px;
-    line-height: 48px;
-}
-#results code {
-    white-space:pre;
-    display:block;
-    overflow-x:auto;
-    font-family: monospace;
-    font-size: 1rem;
-    padding: 16px;
-    border-top: 1px rgba(0, 0, 0, 0.12) solid;
-}
-#results code:first-of-type {
-    border-top: none;
-}
-#searchBoxDecorator {
-    vertical-align: top;
-    position: relative;
-    top: 7px;
-}
-</style>
-
 <p>Search for a plugin name to find matching entries in the LOOT masterlists. Partial matching is only supported for non-regex entries, so use the full plugin name to find any regex entries for it.</p>
 
 <div>
@@ -52,10 +21,8 @@ permalink: /search/
     masterlist.
 </div>
 
-
-<div id="results" class="mdl-shadow--2dp">
-    <div id="progress" class="mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active hidden"></div>
-</div>
+<div id="progress" class="mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active hidden"></div>
+<div id="results" class="mdl-shadow--2dp"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.3.1/js-yaml.min.js"></script>
 <script src="/bower_components/octokat/dist/octokat.js"></script>
