@@ -42,3 +42,7 @@
 .mdl-textfield {
     vertical-align: middle;
 }
+/* Fix header colour change when a dropdown menu is toggled. */
+.mdl-layout__header {
+    z-index: 1 !important;
+}
