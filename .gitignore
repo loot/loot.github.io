@@ -2,13 +2,6 @@ _site/
 .sass-cache/
 bower_components/*
 
-# Don't ignore the js-yaml files
-!/bower_components/js-yaml/
-/bower_components/js-yaml/*
-!/bower_components/js-yaml/LICENSE
-!/bower_components/js-yaml/dist/
-/bower_components/js-yaml/dist/js-yaml.js
-
 # Don't ignore the Octokat file
 !/bower_components/octokat/
 /bower_components/octokat/*
