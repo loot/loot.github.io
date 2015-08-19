@@ -5,10 +5,10 @@ This page will guide anyone wishing to contribute to LOOT directly through the p
 To get started, you'll need:
 
 * A GitHub account
-* A Git client, e.g. [GitHub for Windows](http://windows.github.com/)
+* A Git client, e.g. [GitHub Desktop](http://desktop.github.com/)
 * A text editor, e.g. [Notepad++](http://notepad-plus-plus.org/)
 
-This guide will assume you're using GitHub for Windows (GFW).
+This guide will assume you're using GitHub Desktop.
 
 ### Forking a Repository
 
@@ -20,9 +20,9 @@ Forking lets you contribute to the project without worrying about making a mista
 
 ### Making Changes
 
-Open the repository that contains the file(s) you want to edit in GFW, then click the gear icon in the upper right corner of the window and select "Open in explorer" to view the repository contents.
+Open the repository that contains the file(s) you want to edit in GitHub Desktop, then click the gear icon in the upper right corner of the window and select "Open in explorer" to view the repository contents.
 
-Edit the file(s) you want to make changes to using your text editor or appropriate tool of choice, then once you're done, save the file and switch back to GFW. There you can make a commit, sync and create a pull request as described in the forking guide linked to above.
+Edit the file(s) you want to make changes to using your text editor or appropriate tool of choice, then once you're done, save the file and switch back to GitHub Desktop. There you can make a commit, sync and create a pull request as described in the forking guide linked to above.
 
 If you're editing a masterlist, see the [[Masterlist Editing|Masterlist-Editing]] page for more information.
 
