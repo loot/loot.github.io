@@ -1,4 +1,4 @@
-This is where GitHub for Windows falls short - to resolve conflicts, you're probably going to have to use the command line shell at some point. [This page](http://git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project#Private-Small-Team) discusses the issue well, but is aimed at people who don't use a GUI client at all. It's still worth a read to get an understanding of the issues, and its diagrams are very good.
+This is where GitHub Desktop falls short - to resolve conflicts, you're probably going to have to use the command line shell at some point. [This page](http://git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project#Private-Small-Team) discusses the issue well, but is aimed at people who don't use a GUI client at all. It's still worth a read to get an understanding of the issues, and its diagrams are very good.
 
 Below is some guidance for resolving conflicts using GfW and the shell where necessary.
 
