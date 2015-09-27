@@ -25,6 +25,5 @@ What needs to be done to release a new version of LOOT.
 ### Release!
 
 1. Create a release in GitHub's loot/loot repository and add installer and both archives (application and API) to it.
-2. Update the link on the LOOT's website homepage to point to the new release.
-3. Commit the release's documentation to an appropriate subfolder in the `docs` directory of LOOT's website repository, and update `docs/index.html` to list it.
-4. Post an announcement in the official forum thread.
+2. Commit the release's documentation to an appropriate subfolder in the `docs` directory of LOOT's website repository, and update `docs/index.html` to list it.
+3. Post an announcement in the official forum thread.
