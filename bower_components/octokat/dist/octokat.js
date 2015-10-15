@@ -1,6 +1,6 @@
-!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.Octokat=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Octokat = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var Chainer, URL_TESTER, URL_VALIDATOR, plus, toPromise, toQueryString,
-  __slice = [].slice;
+  slice = [].slice;
 
 URL_VALIDATOR = require('./grammar').URL_VALIDATOR;
 
@@ -9,15 +9,15 @@ plus = require('./plus');
 toPromise = require('./helper-promise').toPromise;
 
 toQueryString = function(options) {
-  var key, params, value, _ref;
+  var key, params, ref, value;
   if (!options || options === {}) {
     return '';
   }
   params = [];
-  _ref = options || {};
-  for (key in _ref) {
-    value = _ref[key];
-    params.push("" + key + "=" + (encodeURIComponent(value)));
+  ref = options || {};
+  for (key in ref) {
+    value = ref[key];
+    params.push(key + "=" + (encodeURIComponent(value)));
   }
   return "?" + (params.join('&'));
 };
@@ -31,11 +31,11 @@ URL_TESTER = function(path) {
 };
 
 Chainer = function(request, _path, name, contextTree, fn) {
-  var verbFunc, verbName, verbs, _fn;
+  var fn1, verbFunc, verbName, verbs;
   if (fn == null) {
     fn = function() {
       var args, separator;
-      args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+      args = 1 <= arguments.length ? slice.call(arguments, 0) : [];
       if (!args.length) {
         throw new Error('BUG! must be called with at least one argument');
       }
@@ -44,7 +44,7 @@ Chainer = function(request, _path, name, contextTree, fn) {
       } else {
         separator = '/';
       }
-      return Chainer(request, "" + _path + "/" + (args.join(separator)), name, contextTree);
+      return Chainer(request, _path + "/" + (args.join(separator)), name, contextTree);
     };
   }
   verbs = {
@@ -89,9 +89,9 @@ Chainer = function(request, _path, name, contextTree, fn) {
     },
     contains: function() {
       var args, cb;
-      cb = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      cb = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
       URL_TESTER(_path);
-      return request('GET', "" + _path + "/" + (args.join('/')), null, {
+      return request('GET', _path + "/" + (args.join('/')), null, {
         isBoolean: true
       }, cb);
     }
@@ -103,18 +103,18 @@ Chainer = function(request, _path, name, contextTree, fn) {
     }
   }
   if (typeof fn === 'function' || typeof fn === 'object') {
-    _fn = function(name) {
+    fn1 = function(name) {
       delete fn[plus.camelize(name)];
       return Object.defineProperty(fn, plus.camelize(name), {
         configurable: true,
         enumerable: true,
         get: function() {
-          return Chainer(request, "" + _path + "/" + name, name, contextTree[name]);
+          return Chainer(request, _path + "/" + name, name, contextTree[name]);
         }
       });
     };
     for (name in contextTree || {}) {
-      _fn(name);
+      fn1(name);
     }
   }
   return fn;
@@ -123,11 +123,10 @@ Chainer = function(request, _path, name, contextTree, fn) {
 module.exports = Chainer;
 
 
-
 },{"./grammar":2,"./helper-promise":4,"./plus":6}],2:[function(require,module,exports){
 var DEFAULT_HEADER, OBJECT_MATCHER, PREVIEW_HEADERS, TREE_OPTIONS, URL_VALIDATOR;
 
-URL_VALIDATOR = /^(https?:\/\/[^\/]+)?(\/api\/v3)?\/(zen|octocat|users|issues|gists|emojis|markdown|meta|rate_limit|feeds|events|notifications|notifications\/threads(\/[^\/]+)|notifications\/threads(\/[^\/]+)\/subscription|gitignore\/templates(\/[^\/]+)?|user|user\/(repos|orgs|followers|following(\/[^\/]+)?|emails(\/[^\/]+)?|issues|starred|starred(\/[^\/]+){2}|teams)|orgs\/[^\/]+|orgs\/[^\/]+\/(repos|issues|members|events|teams)|teams\/[^\/]+|teams\/[^\/]+\/(members(\/[^\/]+)?|memberships\/[^\/]+|repos|repos(\/[^\/]+){2})|users\/[^\/]+|users\/[^\/]+\/(repos|orgs|gists|followers|following(\/[^\/]+){0,2}|keys|starred|received_events(\/public)?|events(\/public)?|events\/orgs\/[^\/]+)|search\/(repositories|issues|users|code)|gists\/(public|starred|([a-f0-9]{20}|[0-9]+)|([a-f0-9]{20}|[0-9]+)\/forks|([a-f0-9]{20}|[0-9]+)\/comments(\/[0-9]+)?|([a-f0-9]{20}|[0-9]+)\/star)|repos(\/[^\/]+){2}|repos(\/[^\/]+){2}\/(readme|tarball(\/[^\/]+)?|zipball(\/[^\/]+)?|compare\/[a-f0-9:]{40}\.{3}[a-f0-9:]{40}|deployments(\/[0-9]+)?|deployments\/[0-9]+\/statuses(\/[0-9]+)?|hooks|hooks\/[^\/]+|hooks\/[^\/]+\/tests|assignees|languages|teams|tags|branches(\/[^\/]+){0,2}|contributors|subscribers|subscription|stargazers|comments(\/[0-9]+)?|downloads(\/[0-9]+)?|forks|milestones|labels|releases|releases\/([0-9]+)|releases\/([0-9]+)\/assets|releases\/latest|releases\/tags\/([^\/]+)|releases\/assets\/([0-9]+)|events|notifications|merges|statuses\/[a-f0-9]{40}|pages|pages\/builds|pages\/builds\/latest|commits|commits\/[a-f0-9]{40}|commits\/[a-f0-9]{40}\/(comments|status|statuses)?|contents\/|contents(\/[^\/]+)*|collaborators(\/[^\/]+)?|(issues|pulls)|(issues|pulls)\/(|events|events\/[0-9]+|comments(\/[0-9]+)?|[0-9]+|[0-9]+\/events|[0-9]+\/comments)|pulls\/[0-9]+\/(files|commits)|git\/(refs|refs\/heads(\/[^\/]+)?|trees(\/[^\/]+)?|blobs(\/[a-f0-9]{40}$)?|commits(\/[a-f0-9]{40}$)?)|stats\/(contributors|commit_activity|code_frequency|participation|punch_card))|licenses|licenses\/([^\/]+)|authorizations|authorizations\/((\d+)|clients\/([^\/]{20})|clients\/([^\/]{20})\/([^\/]+))|applications\/([^\/]{20})\/tokens|applications\/([^\/]{20})\/tokens\/([^\/]+)|enterprise\/(settings\/license|stats\/(issues|hooks|milestones|orgs|comments|pages|users|gists|pulls|repos|all))|staff\/indexing_jobs|users\/[^\/]+\/(site_admin|suspended)|setup\/api\/(start|upgrade|configcheck|configure|settings(authorized-keys)?|maintenance))$/;
+URL_VALIDATOR = /^(https?:\/\/[^\/]+)?(\/api\/v3)?\/(zen|octocat|users|issues|gists|emojis|markdown|meta|rate_limit|feeds|events|notifications|notifications\/threads(\/[^\/]+)|notifications\/threads(\/[^\/]+)\/subscription|gitignore\/templates(\/[^\/]+)?|user|user\/(repos|orgs|followers|following(\/[^\/]+)?|emails(\/[^\/]+)?|issues|starred|starred(\/[^\/]+){2}|teams)|orgs\/[^\/]+|orgs\/[^\/]+\/(repos|issues|members|events|teams)|teams\/[^\/]+|teams\/[^\/]+\/(members(\/[^\/]+)?|memberships\/[^\/]+|repos|repos(\/[^\/]+){2})|users\/[^\/]+|users\/[^\/]+\/(repos|orgs|gists|followers|following(\/[^\/]+){0,2}|keys|starred|received_events(\/public)?|events(\/public)?|events\/orgs\/[^\/]+)|search\/(repositories|issues|users|code)|gists\/(public|starred|([a-f0-9]{20}|[0-9]+)|([a-f0-9]{20}|[0-9]+)\/forks|([a-f0-9]{20}|[0-9]+)\/comments(\/[0-9]+)?|([a-f0-9]{20}|[0-9]+)\/star)|repos(\/[^\/]+){2}|repos(\/[^\/]+){2}\/(readme|tarball(\/[^\/]+)?|zipball(\/[^\/]+)?|compare\/([^\.{3}]+)\.{3}([^\.{3}]+)|deployments(\/[0-9]+)?|deployments\/[0-9]+\/statuses(\/[0-9]+)?|hooks|hooks\/[^\/]+|hooks\/[^\/]+\/tests|assignees|languages|teams|tags|branches(\/[^\/]+){0,2}|contributors|subscribers|subscription|stargazers|comments(\/[0-9]+)?|downloads(\/[0-9]+)?|forks|milestones|milestones\/[0-9]+|milestones\/[0-9]+\/labels|labels(\/[^\/]+)?|releases|releases\/([0-9]+)|releases\/([0-9]+)\/assets|releases\/latest|releases\/tags\/([^\/]+)|releases\/assets\/([0-9]+)|events|notifications|merges|statuses\/[a-f0-9]{40}|pages|pages\/builds|pages\/builds\/latest|commits|commits\/[a-f0-9]{40}|commits\/[a-f0-9]{40}\/(comments|status|statuses)?|contents\/|contents(\/[^\/]+)*|collaborators(\/[^\/]+)?|(issues|pulls)|(issues|pulls)\/(events|events\/[0-9]+|comments(\/[0-9]+)?|[0-9]+|[0-9]+\/events|[0-9]+\/comments|[0-9]+\/labels(\/[^\/]+)?)|pulls\/[0-9]+\/(files|commits)|git\/(refs|refs\/(.+|heads(\/[^\/]+)?|tags(\/[^\/]+)?)|trees(\/[^\/]+)?|blobs(\/[a-f0-9]{40}$)?|commits(\/[a-f0-9]{40}$)?)|stats\/(contributors|commit_activity|code_frequency|participation|punch_card))|licenses|licenses\/([^\/]+)|authorizations|authorizations\/((\d+)|clients\/([^\/]{20})|clients\/([^\/]{20})\/([^\/]+))|applications\/([^\/]{20})\/tokens|applications\/([^\/]{20})\/tokens\/([^\/]+)|enterprise\/(settings\/license|stats\/(issues|hooks|milestones|orgs|comments|pages|users|gists|pulls|repos|all))|staff\/indexing_jobs|users\/[^\/]+\/(site_admin|suspended)|setup\/api\/(start|upgrade|configcheck|configure|settings(authorized-keys)?|maintenance))$/;
 
 TREE_OPTIONS = {
   'zen': false,
@@ -223,7 +222,9 @@ TREE_OPTIONS = {
     'comments': false,
     'downloads': false,
     'forks': false,
-    'milestones': false,
+    'milestones': {
+      'labels': false
+    },
     'labels': false,
     'releases': {
       'assets': false,
@@ -239,7 +240,8 @@ TREE_OPTIONS = {
       'comments': false,
       'commits': false,
       'files': false,
-      'events': false
+      'events': false,
+      'labels': false
     },
     'pages': {
       'builds': {
@@ -255,11 +257,13 @@ TREE_OPTIONS = {
     'collaborators': false,
     'issues': {
       'events': false,
-      'comments': false
+      'comments': false,
+      'labels': false
     },
     'git': {
       'refs': {
-        'heads': false
+        'heads': false,
+        'tags': false
       },
       'trees': false,
       'blobs': false,
@@ -349,7 +353,6 @@ module.exports = {
 };
 
 
-
 },{}],3:[function(require,module,exports){
 (function (global){
 var base64encode;
@@ -369,11 +372,10 @@ if (typeof window !== "undefined" && window !== null) {
 module.exports = base64encode;
 
 
-
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],4:[function(require,module,exports){
-var Promise, allPromises, injector, newPromise, req, toPromise, _ref,
-  __slice = [].slice;
+var Promise, allPromises, injector, newPromise, ref, req, toPromise,
+  slice = [].slice;
 
 if (typeof window !== "undefined" && window !== null) {
   if (window.Q) {
@@ -415,7 +417,7 @@ if (typeof window !== "undefined" && window !== null) {
         return $q.all(promises);
       };
     });
-  } else if ((_ref = window.jQuery) != null ? _ref.Deferred : void 0) {
+  } else if ((ref = window.jQuery) != null ? ref.Deferred : void 0) {
     newPromise = (function(_this) {
       return function(fn) {
         var promise, reject, resolve;
@@ -432,10 +434,10 @@ if (typeof window !== "undefined" && window !== null) {
     })(this);
     allPromises = (function(_this) {
       return function(promises) {
-        var _ref1;
-        return (_ref1 = window.jQuery).when.apply(_ref1, promises).then(function() {
+        var ref1;
+        return (ref1 = window.jQuery).when.apply(ref1, promises).then(function() {
           var promises;
-          promises = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+          promises = 1 <= arguments.length ? slice.call(arguments, 0) : [];
           return promises;
         });
       };
@@ -478,11 +480,11 @@ if (typeof window !== "undefined" && window !== null) {
 toPromise = function(orig) {
   return function() {
     var args, last;
-    args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+    args = 1 <= arguments.length ? slice.call(arguments, 0) : [];
     last = args[args.length - 1];
     if (typeof last === 'function') {
       args.pop();
-      return orig.apply(null, [last].concat(__slice.call(args)));
+      return orig.apply(null, [last].concat(slice.call(args)));
     } else if (newPromise) {
       return newPromise(function(resolve, reject) {
         var cb;
@@ -492,7 +494,7 @@ toPromise = function(orig) {
           }
           return resolve(val);
         };
-        return orig.apply(null, [cb].concat(__slice.call(args)));
+        return orig.apply(null, [cb].concat(slice.call(args)));
       });
     } else {
       throw new Error('You must specify a callback or have a promise library loaded');
@@ -507,14 +509,13 @@ module.exports = {
 };
 
 
-
 },{}],5:[function(require,module,exports){
 (function (global){
-var Chainer, OBJECT_MATCHER, Octokat, Replacer, Request, TREE_OPTIONS, plus, toPromise, _ref;
+var Chainer, OBJECT_MATCHER, Octokat, Replacer, Request, TREE_OPTIONS, plus, reChainChildren, ref, toPromise;
 
 plus = require('./plus');
 
-_ref = require('./grammar'), TREE_OPTIONS = _ref.TREE_OPTIONS, OBJECT_MATCHER = _ref.OBJECT_MATCHER;
+ref = require('./grammar'), TREE_OPTIONS = ref.TREE_OPTIONS, OBJECT_MATCHER = ref.OBJECT_MATCHER;
 
 Chainer = require('./chainer');
 
@@ -524,14 +525,48 @@ Request = require('./request');
 
 toPromise = require('./helper-promise').toPromise;
 
+reChainChildren = function(request, url, obj) {
+  var context, i, k, key, len, re, ref1;
+  for (key in OBJECT_MATCHER) {
+    re = OBJECT_MATCHER[key];
+    if (re.test(obj.url)) {
+      context = TREE_OPTIONS;
+      ref1 = key.split('.');
+      for (i = 0, len = ref1.length; i < len; i++) {
+        k = ref1[i];
+        context = context[k];
+      }
+      Chainer(request, url, k, context, obj);
+    }
+  }
+  return obj;
+};
+
 Octokat = function(clientOptions) {
-  var obj, path, request, _request;
+  var _request, disableHypermedia, obj, parse, request;
   if (clientOptions == null) {
     clientOptions = {};
   }
+  disableHypermedia = clientOptions.disableHypermedia;
+  if (disableHypermedia == null) {
+    disableHypermedia = false;
+  }
   _request = Request(clientOptions);
+  parse = function(obj, path, request) {
+    var replacer, url;
+    url = obj.url || path;
+    if (url) {
+      replacer = new Replacer(request);
+      obj = replacer.replace(obj);
+      Chainer(request, url, true, {}, obj);
+      reChainChildren(request, url, obj);
+    } else {
+      Chainer(request, '', null, TREE_OPTIONS, obj);
+    }
+    return obj;
+  };
   request = function(method, path, data, options, cb) {
-    var replacer, _ref1;
+    var ref1, replacer;
     if (options == null) {
       options = {
         raw: false,
@@ -540,38 +575,31 @@ Octokat = function(clientOptions) {
       };
     }
     replacer = new Replacer(request);
-    if (data && !(typeof global !== "undefined" && global !== null ? (_ref1 = global['Buffer']) != null ? _ref1.isBuffer(data) : void 0 : void 0)) {
+    if (data && !(typeof global !== "undefined" && global !== null ? (ref1 = global['Buffer']) != null ? ref1.isBuffer(data) : void 0 : void 0)) {
       data = replacer.uncamelize(data);
     }
     return _request(method, path, data, options, function(err, val) {
-      var context, k, key, obj, re, url, _i, _len, _ref2;
+      var obj;
       if (err) {
         return cb(err);
       }
       if (options.raw) {
         return cb(null, val);
       }
-      obj = replacer.replace(val);
-      url = obj.url || path;
-      for (key in OBJECT_MATCHER) {
-        re = OBJECT_MATCHER[key];
-        if (re.test(url)) {
-          context = TREE_OPTIONS;
-          _ref2 = key.split('.');
-          for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
-            k = _ref2[_i];
-            context = context[k];
-          }
-          Chainer(request, url, k, context, obj);
-        }
+      if (!disableHypermedia) {
+        obj = parse(val, path, request);
+        return cb(null, obj);
+      } else {
+        return cb(null, val);
       }
-      return cb(null, obj);
     });
   };
-  path = '';
   obj = {};
-  Chainer(request, path, null, TREE_OPTIONS, obj);
+  Chainer(request, '', null, TREE_OPTIONS, obj);
   obj.me = obj.user;
+  obj.parse = function(jsonObj) {
+    return parse(jsonObj, '', request);
+  };
   obj.status = toPromise(function(cb) {
     return request('GET', 'https://status.github.com/api/status.json', null, null, cb);
   });
@@ -588,7 +616,6 @@ Octokat = function(clientOptions) {
 };
 
 module.exports = Octokat;
-
 
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
@@ -634,16 +661,15 @@ plus = {
 module.exports = plus;
 
 
-
 },{}],7:[function(require,module,exports){
-var Chainer, OBJECT_MATCHER, Replacer, TREE_OPTIONS, plus, toPromise, _ref,
-  __slice = [].slice;
+var Chainer, OBJECT_MATCHER, Replacer, TREE_OPTIONS, plus, ref, toPromise,
+  slice = [].slice;
 
 plus = require('./plus');
 
 toPromise = require('./helper-promise').toPromise;
 
-_ref = require('./grammar'), TREE_OPTIONS = _ref.TREE_OPTIONS, OBJECT_MATCHER = _ref.OBJECT_MATCHER;
+ref = require('./grammar'), TREE_OPTIONS = ref.TREE_OPTIONS, OBJECT_MATCHER = ref.OBJECT_MATCHER;
 
 Chainer = require('./chainer');
 
@@ -653,20 +679,22 @@ Replacer = (function() {
   }
 
   Replacer.prototype.uncamelize = function(obj) {
-    var i, key, o, value;
+    var i, j, key, len, o, ref1, value;
     if (Array.isArray(obj)) {
       return (function() {
-        var _i, _len, _results;
-        _results = [];
-        for (_i = 0, _len = obj.length; _i < _len; _i++) {
-          i = obj[_i];
-          _results.push(this.uncamelize(i));
+        var j, len, results;
+        results = [];
+        for (j = 0, len = obj.length; j < len; j++) {
+          i = obj[j];
+          results.push(this.uncamelize(i));
         }
-        return _results;
+        return results;
       }).call(this);
     } else if (obj === Object(obj)) {
       o = {};
-      for (key in obj) {
+      ref1 = Object.keys(obj);
+      for (j = 0, len = ref1.length; j < len; j++) {
+        key = ref1[j];
         value = obj[key];
         o[plus.uncamelize(key)] = this.uncamelize(value);
       }
@@ -687,20 +715,27 @@ Replacer = (function() {
   };
 
   Replacer.prototype._replaceObject = function(orig) {
-    var acc, context, k, key, re, url, value, _i, _len, _ref1;
+    var acc, context, j, k, key, l, len, len1, len2, n, re, ref1, ref2, ref3, url, value;
     acc = {};
-    for (key in orig) {
+    ref1 = Object.keys(orig);
+    for (j = 0, len = ref1.length; j < len; j++) {
+      key = ref1[j];
       value = orig[key];
       this._replaceKeyValue(acc, key, value);
     }
     url = acc.url;
-    for (key in OBJECT_MATCHER) {
+    if (url) {
+      Chainer(this._request, url, true, null, acc);
+    }
+    ref2 = Object.keys(OBJECT_MATCHER);
+    for (l = 0, len1 = ref2.length; l < len1; l++) {
+      key = ref2[l];
       re = OBJECT_MATCHER[key];
       if (re.test(url)) {
         context = TREE_OPTIONS;
-        _ref1 = key.split('.');
-        for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-          k = _ref1[_i];
+        ref3 = key.split('.');
+        for (n = 0, len2 = ref3.length; n < len2; n++) {
+          k = ref3[n];
           context = context[k];
         }
         Chainer(this._request, url, k, context, acc);
@@ -710,21 +745,21 @@ Replacer = (function() {
   };
 
   Replacer.prototype._replaceArray = function(orig) {
-    var arr, item, key, value;
+    var arr, item, j, key, len, ref1, value;
     arr = (function() {
-      var _i, _len, _results;
-      _results = [];
-      for (_i = 0, _len = orig.length; _i < _len; _i++) {
-        item = orig[_i];
-        _results.push(this.replace(item));
+      var j, len, results;
+      results = [];
+      for (j = 0, len = orig.length; j < len; j++) {
+        item = orig[j];
+        results.push(this.replace(item));
       }
-      return _results;
+      return results;
     }).call(this);
-    for (key in orig) {
+    ref1 = Object.keys(orig);
+    for (j = 0, len = ref1.length; j < len; j++) {
+      key = ref1[j];
       value = orig[key];
-      if (typeof key === 'string') {
-        this._replaceKeyValue(arr, key, value);
-      }
+      this._replaceKeyValue(arr, key, value);
     }
     return arr;
   };
@@ -734,8 +769,11 @@ Replacer = (function() {
     if (/_url$/.test(key)) {
       fn = (function(_this) {
         return function() {
-          var args, cb, contentType, data, i, m, match, param, url, _ref1;
-          cb = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+          var args, cb, contentType, data, i, m, match, param, ref1, url;
+          cb = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+          if (!(/\{/.test(value) || /_page_url$/.test(key))) {
+            console.warn('Deprecation warning: Use the .fooUrl field instead of calling the method');
+          }
           url = value;
           i = 0;
           while (m = /(\{[^\}]+\})/.exec(url)) {
@@ -759,7 +797,7 @@ Replacer = (function() {
             i++;
           }
           if (/upload_url$/.test(key)) {
-            _ref1 = args.slice(-2), contentType = _ref1[0], data = _ref1[1];
+            ref1 = args.slice(-2), contentType = ref1[0], data = ref1[1];
             return _this._request('POST', url, data, {
               contentType: contentType,
               raw: true
@@ -772,9 +810,12 @@ Replacer = (function() {
       fn = toPromise(fn);
       fn.url = value;
       newKey = key.substring(0, key.length - '_url'.length);
-      return acc[plus.camelize(newKey)] = fn;
+      acc[plus.camelize(newKey)] = fn;
+      if (!/\{/.test(value)) {
+        return acc[plus.camelize(key)] = value;
+      }
     } else if (/_at$/.test(key)) {
-      return acc[plus.camelize(key)] = new Date(value);
+      return acc[plus.camelize(key)] = value ? new Date(value) : null;
     } else {
       return acc[plus.camelize(key)] = this.replace(value);
     }
@@ -785,7 +826,6 @@ Replacer = (function() {
 })();
 
 module.exports = Replacer;
-
 
 
 },{"./chainer":1,"./grammar":2,"./helper-promise":4,"./plus":6}],8:[function(require,module,exports){
@@ -800,7 +840,7 @@ if (typeof window === "undefined" || window === null) {
 }
 
 ajax = function(options, cb) {
-  var XMLHttpRequest, name, req, value, xhr, _ref;
+  var XMLHttpRequest, name, ref, req, value, xhr;
   if (typeof window !== "undefined" && window !== null) {
     XMLHttpRequest = window.XMLHttpRequest;
   } else {
@@ -816,17 +856,17 @@ ajax = function(options, cb) {
   if (options.data && options.type !== 'GET') {
     xhr.setRequestHeader('Content-Type', options.contentType);
   }
-  _ref = options.headers;
-  for (name in _ref) {
-    value = _ref[name];
+  ref = options.headers;
+  for (name in ref) {
+    value = ref[name];
     xhr.setRequestHeader(name, value);
   }
   xhr.onreadystatechange = function() {
-    var _name, _ref1;
+    var name1, ref1;
     if (4 === xhr.readyState) {
-      if ((_ref1 = options.statusCode) != null) {
-        if (typeof _ref1[_name = xhr.status] === "function") {
-          _ref1[_name]();
+      if ((ref1 = options.statusCode) != null) {
+        if (typeof ref1[name1 = xhr.status] === "function") {
+          ref1[name1]();
         }
       }
       if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304 || xhr.status === 302) {
@@ -840,10 +880,10 @@ ajax = function(options, cb) {
 };
 
 ETagResponse = (function() {
-  function ETagResponse(eTag, data, status) {
-    this.eTag = eTag;
-    this.data = data;
-    this.status = status;
+  function ETagResponse(eTag1, data1, status1) {
+    this.eTag = eTag1;
+    this.data = data1;
+    this.status = status1;
   }
 
   return ETagResponse;
@@ -851,7 +891,7 @@ ETagResponse = (function() {
 })();
 
 Request = function(clientOptions) {
-  var _cachedETags, _listeners;
+  var _cachedETags, cacheHandler, emitter;
   if (clientOptions == null) {
     clientOptions = {};
   }
@@ -864,8 +904,16 @@ Request = function(clientOptions) {
   if (clientOptions.usePostInsteadOfPatch == null) {
     clientOptions.usePostInsteadOfPatch = false;
   }
-  _listeners = [];
+  emitter = clientOptions.emitter;
   _cachedETags = {};
+  cacheHandler = clientOptions.cacheHandler || {
+    get: function(method, path) {
+      return _cachedETags[method + " " + path];
+    },
+    add: function(method, path, eTag, data, status) {
+      return _cachedETags[method + " " + path] = new ETagResponse(eTag, data, status);
+    }
+  };
   return function(method, path, data, options, cb) {
     var ajaxConfig, auth, headers, mimeType;
     if (options == null) {
@@ -910,8 +958,8 @@ Request = function(clientOptions) {
     if (userAgent) {
       headers['User-Agent'] = userAgent;
     }
-    if (("" + method + " " + path) in _cachedETags) {
-      headers['If-None-Match'] = _cachedETags["" + method + " " + path].eTag;
+    if (cacheHandler.get(method, path)) {
+      headers['If-None-Match'] = cacheHandler.get(method, path).eTag;
     } else {
       headers['If-Modified-Since'] = 'Thu, 01 Jan 1970 00:00:00 GMT';
     }
@@ -919,7 +967,7 @@ Request = function(clientOptions) {
       if (clientOptions.token) {
         auth = "token " + clientOptions.token;
       } else {
-        auth = 'Basic ' + base64encode("" + clientOptions.username + ":" + clientOptions.password);
+        auth = 'Basic ' + base64encode(clientOptions.username + ":" + clientOptions.password);
       }
       headers['Authorization'] = auth;
     }
@@ -947,50 +995,61 @@ Request = function(clientOptions) {
         })(this)
       };
     }
+    if (emitter != null) {
+      emitter.emit('start', method, path, data, options);
+    }
     return ajax(ajaxConfig, function(err, val) {
-      var converted, discard, eTag, eTagResponse, href, i, jqXHR, json, links, listener, part, rateLimit, rateLimitRemaining, rel, _i, _j, _k, _len, _len1, _ref, _ref1, _ref2;
+      var converted, discard, eTag, eTagResponse, emitterRate, href, i, j, jqXHR, json, k, len, links, part, rateLimit, rateLimitRemaining, rateLimitReset, ref, ref1, ref2, rel;
       jqXHR = err || val;
-      rateLimit = parseFloat(jqXHR.getResponseHeader('X-RateLimit-Limit'));
-      rateLimitRemaining = parseFloat(jqXHR.getResponseHeader('X-RateLimit-Remaining'));
-      for (_i = 0, _len = _listeners.length; _i < _len; _i++) {
-        listener = _listeners[_i];
-        listener(rateLimitRemaining, rateLimit, method, path, data, options);
+      if (emitter) {
+        rateLimit = parseFloat(jqXHR.getResponseHeader('X-RateLimit-Limit'));
+        rateLimitRemaining = parseFloat(jqXHR.getResponseHeader('X-RateLimit-Remaining'));
+        rateLimitReset = parseFloat(jqXHR.getResponseHeader('X-RateLimit-Reset'));
+        emitterRate = {
+          rate: {
+            remaining: rateLimitRemaining,
+            limit: rateLimit,
+            reset: rateLimitReset
+          }
+        };
+        if (jqXHR.getResponseHeader('X-OAuth-Scopes')) {
+          emitterRate.scopes = jqXHR.getResponseHeader('X-OAuth-Scopes').split(', ');
+        }
+        emitter.emit('request', emitterRate, method, path, data, options, jqXHR.status);
       }
       if (!err) {
         if (jqXHR.status === 304) {
-          if (clientOptions.useETags && _cachedETags["" + method + " " + path]) {
-            eTagResponse = _cachedETags["" + method + " " + path];
+          if (clientOptions.useETags && cacheHandler.get(method, path)) {
+            eTagResponse = cacheHandler.get(method, path);
             return cb(null, eTagResponse.data, eTagResponse.status, jqXHR);
           } else {
             return cb(null, jqXHR.responseText, status, jqXHR);
           }
-        } else if (jqXHR.status === 204 && options.isBoolean) {
-
         } else if (jqXHR.status === 302) {
           return cb(null, jqXHR.getResponseHeader('Location'));
-        } else {
+        } else if (!(jqXHR.status === 204 && options.isBoolean)) {
           if (jqXHR.responseText && ajaxConfig.dataType === 'json') {
             data = JSON.parse(jqXHR.responseText);
             links = jqXHR.getResponseHeader('Link');
-            _ref = (links != null ? links.split(',') : void 0) || [];
-            for (_j = 0, _len1 = _ref.length; _j < _len1; _j++) {
-              part = _ref[_j];
-              _ref1 = part.match(/<([^>]+)>;\ rel="([^"]+)"/), discard = _ref1[0], href = _ref1[1], rel = _ref1[2];
-              data["" + rel + "_page_url"] = href;
+            ref = (links != null ? links.split(',') : void 0) || [];
+            for (j = 0, len = ref.length; j < len; j++) {
+              part = ref[j];
+              ref1 = part.match(/<([^>]+)>;\ rel="([^"]+)"/), discard = ref1[0], href = ref1[1], rel = ref1[2];
+              data[rel + "_page_url"] = href;
             }
           } else {
             data = jqXHR.responseText;
           }
           if (method === 'GET' && options.isBase64) {
             converted = '';
-            for (i = _k = 0, _ref2 = data.length; 0 <= _ref2 ? _k <= _ref2 : _k >= _ref2; i = 0 <= _ref2 ? ++_k : --_k) {
+            for (i = k = 0, ref2 = data.length; 0 <= ref2 ? k < ref2 : k > ref2; i = 0 <= ref2 ? ++k : --k) {
               converted += String.fromCharCode(data.charCodeAt(i) & 0xff);
             }
             data = converted;
           }
           if (method === 'GET' && jqXHR.getResponseHeader('ETag') && clientOptions.useETags) {
             eTag = jqXHR.getResponseHeader('ETag');
-            _cachedETags["" + method + " " + path] = new ETagResponse(eTag, data, jqXHR.status);
+            cacheHandler.add(method, path, eTag, data, jqXHR.status);
           }
           return cb(null, data, jqXHR.status, jqXHR);
         }
@@ -1016,7 +1075,6 @@ Request = function(clientOptions) {
 };
 
 module.exports = Request;
-
 
 
 },{"./grammar":2,"./helper-base64":3}]},{},[5])(5)
