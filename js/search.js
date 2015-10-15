@@ -72,36 +72,8 @@ function readMasterlist(err, data) {
     console.log("Search complete.");
 }
 
-function fetchMasterlist(err, data) {
-    if (err) {
-        console.log(err);
-        document.getElementById('progress').classList.add('hidden');
-        return;
-    }
-
-    for (var i = 0; i < data.tree.length; ++i) {
-        if (data.tree[i].path == 'masterlist.yaml') {
-            github.repos('loot', gameButton.getAttribute('data-selected')).git.blobs(data.tree[i].sha).read(readMasterlist);
-            break;
-        }
-    }
-}
-
-function fetchTree(err, data) {
-    if (err) {
-        console.log(err);
-        document.getElementById('progress').classList.add('hidden');
-        return;
-    }
-
-    github.repos('loot', gameButton.getAttribute('data-selected')).git.trees(data.object.sha).fetch(fetchMasterlist);
-}
-
 function onSearchInit(evt) {
-    /* The GitHub Repository API can't be used because it only supports
-       files of sizes up to 1 MB. The Skyrim masterlist is larger than this, so
-       use the GitHub Git Data API instead. */
-    github.repos('loot', gameButton.getAttribute('data-selected')).git.refs('heads/' + repoBranch).fetch(fetchTree);
+    github.repos('loot', gameButton.getAttribute('data-selected')).contents('masterlist.yaml').read(readMasterlist);
 
     /* Clear any previous search results. */
     while (resultsDiv.children.length > 0) {
