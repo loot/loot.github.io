@@ -1,16 +1,10 @@
 'use strict';
 
-// The accept header is to preview the Organization Permissions API that will
-// apply beginning 2015-02-24. After that date, the acceptHeader can be removed.
-var github = new Octokat({
-    acceptHeader: 'application/vnd.github.moondragon+json'
-});
+var github = new Octokat();
 
 var numRepos = 0;
 var numProcessedRepos = 0;
 var contributors = [];
-var admins = [];
-var members = [];
 
 function addToList(listElement, person) {
     var a = document.createElement('a');
@@ -30,11 +24,6 @@ function addToList(listElement, person) {
     name.textContent = person.name;
     contributions.textContent = person.contributions + ' contributions';
 
-    if (admins.indexOf(person.name) !== -1) {
-        a.classList.add('loot-admin');
-    } else if (members.indexOf(person.name) !== -1) {
-        a.classList.add('loot-member');
-    }
     if (person.avatar_url) {
         var img = document.createElement('img');
         img.src = person.avatar_url;
@@ -123,37 +112,5 @@ function getRepositoriesContributors(err, repos) {
     }
 }
 
-function storeAdmins(err, persons) {
-    if (err) {
-        console.log(err);
-        return;
-    }
-
-    for (var i = 0; i < persons.length; ++i) {
-        admins.push(persons[i].login);
-    }
-
-    // Now fetch the organisation repositories.
-    github.orgs('loot').repos.fetch(getRepositoriesContributors);
-}
-
-function storeMembers(err, persons) {
-    if (err) {
-        console.log(err);
-        return;
-    }
-
-    for (var i = 0; i < persons.length; ++i) {
-        members.push(persons[i].login);
-    }
-
-    // Now get organisation administrators.
-    github.orgs('loot').members.fetch({role: 'admin'}, storeAdmins);
-}
-
-function getContributors() {
-    // First get all organisation members.
-    github.orgs('loot').members.fetch(storeMembers);
-}
-
-getContributors();
+// Now fetch the organisation repositories.
+github.orgs('loot').repos.fetch(getRepositoriesContributors);
