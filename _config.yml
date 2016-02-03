@@ -6,3 +6,6 @@ lsi: false
 # Enable page redirection
 gems:
   - jekyll-redirect-from
+
+whitelist:
+  - jekyll-redirect-from
