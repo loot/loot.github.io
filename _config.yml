@@ -2,3 +2,7 @@
 # replicate GitHub's behaviour properly.
 safe: true
 lsi: false
+
+# Enable page redirection
+gems:
+  - jekyll-redirect-from
