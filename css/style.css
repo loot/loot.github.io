@@ -18,10 +18,6 @@ html > body {
     height: 48px;
     margin-right: 8px;
 }
-.mdl-navigation__link--icon > span,
-.mdl-navigation__link--icon > .material-icons {
-    vertical-align: middle;
-}
 .mdl-navigation__link--icon > .material-icons {
     margin-right: 32px;
 }
@@ -92,14 +88,6 @@ nav > .divider {
     font-size: 40px;
     text-align: center;
     color: rgba(0, 0, 0, 0.54);
-}
-.loot-contributor.loot-admin {
-    background: rgb(63,81,181);
-    color: white;
-}
-.loot-contributor.loot-member {
-    background: rgb(68,138,255);
-    color: white;
 }
 .loot-contributor__contributions {
     font-size: 0.857rem;

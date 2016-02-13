@@ -1,31 +1,12 @@
-/* Limit navigation item height to 48px. */
-.mdl-navigation__link--icon {
-    line-height: 48px;
-    height: 48px;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+/* Don't allow navigation text to wrap. */
+.mdl-navigation__link {
     white-space: nowrap;
 }
 /* Don't stretch YouTube videos. */
 .mdl-layout__content > iframe {
     width: 560px;
-    display: inline;
-}
-/* Override default sidebar colour scheme. */
-.mdl-layout .mdl-layout__drawer {
-    background-color: white;
-}
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
-    color: rgba(0, 0, 0, 0.87) !important;
-}
-.mdl-navigation .mdl-navigation__link .material-icons {
-    color: rgba(0, 0, 0, 0.54);
 }
 /* Fix search input vertical position. */
 .mdl-textfield {
     vertical-align: middle;
-}
-/* Fix header colour change when a dropdown menu is toggled. */
-.mdl-layout__header {
-    z-index: 1 !important;
 }
