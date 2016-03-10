@@ -23,6 +23,7 @@
 17. [LOOT shows the wrong or no version number for some plugins. Why?](#loot-shows-the-wrong-or-no-version-number-for-some-plugins-why)
 18. [A game is installed, but LOOT cannot detect it. How do I fix this?](#a-game-is-installed-but-loot-cannot-detect-it-how-do-i-fix-this)
 19. [When LOOT updates the load order, it removes line breaks from `plugins.txt` and `loadorder.txt`. Won't this break something?](#when-loot-updates-the-load-order-it-removes-line-breaks-from-pluginstxt-and-loadordertxt-wont-this-break-something)
+20. [I'm using a proxy to connect to the Internet. How do I configure LOOT's masterlist updater to use it?](im-using-a-proxy-to-connect-to-the-internet-how-do-i-configure-loots-masterlist-updater-to-use-it)
 
 ### Questions
 
@@ -119,3 +120,17 @@ Another cause may be that the game is installed in a location where you does not
 ##### When LOOT updates the load order, it removes line breaks from `plugins.txt` and `loadorder.txt`. Won't this break something?
 
 LOOT has probably just replaced the `CR LF` line breaks with `LF` line breaks. It doesn't make any difference to the game.
+
+##### I'm using a proxy to connect to the Internet. How do I configure LOOT's masterlist updater to use it?
+
+First of all, LOOT only supports unauthenticated proxies, so if your proxy requires some form of authentication, LOOT won't be able to use it directly.
+
+If your proxy is unauthenticated, LOOT will use the `https_proxy` environmental variable. If your proxy configuration doesn't already set it, you can do so in Windows by:
+
+1. Opening the System item in the Control Panel.
+2. Open the System Properties dialog by clicking the "Advanced system settings" item in the sidebar.
+3. Open the Environmental Variables dialog by clicking the "Environmental Variables..." button in the "Advanced" tab.
+4. In the User variables section, click the "New..." button.
+5. Put https_proxy as the variable name, and the proxy URL as the variable value in the New User Variable dialog.
+6. Click "OK", then "OK" in the Environmental Variables dialog.
+7. Relaunch LOOT.
