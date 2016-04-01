@@ -9,7 +9,8 @@ var repos = [
     [ "Oblivion", "oblivion" ],
     [ "Skyrim", "skyrim" ],
     [ "Fallout 3", "fallout3" ],
-    [ "Fallout: New Vegas", "falloutnv" ]
+    [ "Fallout: New Vegas", "falloutnv" ],
+    [ "Fallout 4", "fallout4" ]
 ]
 
 var repoBranch = 'master';  //The repository branch to search.
