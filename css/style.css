@@ -112,3 +112,28 @@ code.loot-search-result {
 code.loot-search-result:first-of-type {
     border-top: none;
 }
+
+/* Scale headings */
+h3 {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 30px 0 20px;
+}
+h4 {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 24px 0 16px;
+}
+h5 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin: 21px 0 14px;
+}
+
+/* Position readme version selector */
+#versionSelect {
+  position: relative;
+  top: -2px;
+  left: 30px;
+}

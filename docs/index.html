@@ -4,40 +4,56 @@ title: Documentation
 permalink: /docs/
 ---
 
-<p>Each release of LOOT has its documentation listed below.</p>
+<h3>
+  Readme Files
+  <select id="versionSelect">
+    <option value="0.8.1" selected>v0.8.1</option>
+    <option value="0.8.0">v0.8.0</option>
+    <option value="0.7.1">v0.7.1</option>
+    <option value="0.7.0">v0.7.0</option>
+    <option value="0.6.1">v0.6.1</option>
+    <option value="0.6.0">v0.6.0</option>
+    <option value="0.5.0">v0.5.0</option>
+  </select>
+</h3>
+<ul>
+  <li><a id="readmeLink" href="0.8.1/LOOT%20Readme.html">LOOT Readme</a></li>
+  <li><a id="syntaxLink" href="0.8.1/LOOT%20Metadata%20Syntax.html">LOOT Metadata Syntax</a></li>
+</ul>
 
-<h6>v0.8.1</h6>
+<h3>Help</h3>
 <ul>
-    <li><a href="0.8.1/LOOT%20Readme.html">LOOT Readme</a></li>
-    <li><a href="0.8.1/LOOT%20Metadata%20Syntax.html">LOOT Metadata Syntax</a></li>
+  <li><a href="help/LOOT-FAQs.html">FAQs</a></li>
+  <li><a href="help/How-To-Report-Issues-Helpfully.html">How To Report Issues Helpfully</a></li>
+  <li><a href="help/Introduction-To-Load-Orders.html">Introduction To Load Orders</a></li>
+  <li><a href="help/Dirty-Edits,-Mod-Cleaning-&amp;-CRCs.html">Dirty Edits, Mod Cleaning &amp; CRCs</a></li>
+  <li><a href="help/Setting-Windows'-File-Permissions.html">Setting Windows' File Permissions</a></li>
+  <li><a href="help/Using-Noto-fonts-for-Chinese-and-Korean-in-LOOT.html">Using Noto fonts for Chinese and Korean in LOOT</a></li>
 </ul>
-<h6>v0.8.0</h6>
+
+<h3>Contributing</h3>
 <ul>
-    <li><a href="0.8.0/LOOT%20Readme.html">LOOT Readme</a></li>
-    <li><a href="0.8.0/LOOT%20Metadata%20Syntax.html">LOOT Metadata Syntax</a></li>
+  <li><a href="contributing/How-To-Contribute.html">How To Contribute</a></li>
+  <li><a href="contributing/Masterlist-Editing.html">Masterlist Editing</a></li>
+  <li><a href="contributing/Quickly-Testing-Your-Masterlist-Changes.html">Quickly Testing Your Masterlist Changes</a></li>
+  <li><a href="contributing/Masterlist-Versioning.html">Masterlist Versioning</a></li>
+  <li><a href="contributing/Global-Priorities.html">Global Priorities</a></li>
+  <li><a href="contributing/Resolving-Conflicts.html">Resolving Conflicts</a></li>
 </ul>
-<h6>v0.7.1</h6>
+
+<h3>Team</h3>
 <ul>
-    <li><a href="0.7.1/LOOT%20Readme.html">LOOT Readme</a></li>
-    <li><a href="0.7.1/LOOT%20Metadata%20Syntax.html">LOOT Metadata Syntax</a></li>
+  <li><a href="team/Team-Members.html">Team Members</a></li>
+  <li><a href="team/Team-Member-Responsibilities.html">Team Member Responsibilities</a></li>
+  <li><a href="team/Making-A-Release.html">Making A Release</a></li>
+  <li><a href="team/Thread-Management.html">Thread Management</a></li>
+  <li><a href="team/Team-Policies.html">Team Policies</a></li>
 </ul>
-<h6>v0.7.0</h6>
-<ul>
-    <li><a href="0.7.0/LOOT%20Readme.html">LOOT Readme</a></li>
-    <li><a href="0.7.0/LOOT%20Metadata%20Syntax.html">LOOT Metadata Syntax</a></li>
-</ul>
-<h6>v0.6.1</h6>
-<ul>
-    <li><a href="0.6.1/LOOT%20Readme.html">LOOT Readme</a></li>
-    <li><a href="0.6.1/LOOT%20Metadata%20Syntax.html">LOOT Metadata Syntax</a></li>
-</ul>
-<h6>v0.6.0</h6>
-<ul>
-    <li><a href="0.6.0/LOOT%20Readme.html">LOOT Readme</a></li>
-    <li><a href="0.6.0/LOOT%20Metadata%20Syntax.html">LOOT Metadata Syntax</a></li>
-</ul>
-<h6>v0.5.0</h6>
-<ul>
-    <li><a href="0.5.0/LOOT%20Readme.html">LOOT Readme</a></li>
-    <li><a href="0.5.0/LOOT%20Metadata%20Syntax.html">LOOT Metadata Syntax</a></li>
-</ul>
+
+<script>
+  var select = document.getElementById('versionSelect');
+  select.addEventListener('input', function(evt) {
+    document.getElementById('readmeLink').href = evt.target.value + '/LOOT%20Readme.html';
+    document.getElementById('syntaxLink').href = evt.target.value + '/LOOT%20Metadata%20Syntax.html';
+  });
+</script>

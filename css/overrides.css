@@ -10,3 +10,7 @@
 .mdl-textfield {
     vertical-align: middle;
 }
+/* Override link font weight. */
+a {
+    font-weight: normal;
+}
