@@ -1,0 +1,120 @@
+<p>The purpose of this page is to give a bit of information to help with editing a masterlist.</p>
+<h3 id="general-hints">General Hints</h3>
+<ul>
+<li>Look in the masterlists for examples, and see the <a href="http://loot.github.io/docs/0.7.1/LOOT%20Metadata%20Syntax.html">Metadata Syntax</a> document for the details.</li>
+<li>Only make edits/additions you're confident about - otherwise create an issue in the masterlist repository's issue tracker, or discuss in the BethSoft forum thread.</li>
+<li>If you're using Notepad++, you can set it to use spaces instead of tabs when you press the tab key on your keyboard, avoiding YAML parsing errors. To do this, go to Settings &gt; Preferences &gt; Tab Settings &gt; Replace by space. A value of 4 is most common.</li>
+<li>Make as many silent comments as you want within the masterlists - it doesn't hurt (within reason). However, make sure to put them <em>above</em> the line(s) that they refer to.</li>
+<li>Use blank lines to separate mods that are grouped together or where it helps readability.</li>
+<li>Where you put a plugin doesn't matter - you may want to see if there are any related plugins in the masterlist already and group them together, or you can just add the plugin to the end of the list.</li>
+<li>Test your changes before uploading them, to make sure you didn't make any syntax mistakes. See [[Quickly Testing Your Masterlist Changes|Quickly-Testing-Your-Masterlist-Changes]] for instructions.</li>
+</ul>
+<h3 id="writing-style">Writing Style</h3>
+<p>For consistency and to make it easier for people to understand what others have written, it's best to use the following style points when editing the masterlist.</p>
+<ul>
+<li>Child data nodes should be indented two spaces from their parents, for the best trade-off between compactness and readability.</li>
+<li>Maps should be written in YAML's &quot;block&quot; style. Lists should also use the &quot;block&quot; style, unless they contain only one element, in which case the &quot;flow&quot; style can be used for compactness.</li>
+<li>Arbitrary string values should be enclosed in single quotes. If the string contains any single quotes, they should be repeated. The string uses below are exempt from quotation, as they have a very limited range of possible values.</li>
+<li>Message types</li>
+<li>Bash Tag names</li>
+<li>YAML map keys</li>
+<li>Language codes</li>
+</ul>
+<p>The above points are illustrated in the following example.</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">name:</span> <span class="st">&#39;Oscuro&#39;</span><span class="er">&#39;s_Oblivion_Overhaul.esm&#39;</span>
+<span class="fu">req:</span>
+  <span class="kw">-</span> <span class="fu">name:</span> <span class="st">&#39;example.esp&#39;</span>
+    <span class="fu">display:</span> <span class="st">&#39;[Example Mod](http://www.example.com)&#39;</span>
+    <span class="fu">condition:</span> <span class="st">&#39;version(&quot;Oscuro&#39;</span><span class="er">&#39;s_Oblivion_Overhaul.esm&quot;, &quot;15.0&quot;, ==)&#39;</span>
+<span class="fu">tag:</span>
+  <span class="kw">-</span> Actors.Spells
+  <span class="kw">-</span> Graphics
+  <span class="kw">-</span> Invent
+  <span class="kw">-</span> Relations
+  <span class="kw">-</span> Scripts
+  <span class="kw">-</span> Stats
+  <span class="kw">-</span> <span class="fu">name:</span> -Relations
+    <span class="fu">condition:</span> <span class="st">&#39;file(&quot;Mart&#39;</span><span class="er">&#39;s Monster Mod for OOO.esm&quot;) or file(&quot;FCOM_Convergence.esm&quot;)&#39;</span>
+<span class="fu">msg:</span>
+  <span class="kw">-</span> <span class="fu">type:</span> say
+    <span class="fu">content:</span> <span class="st">&#39;Do not clean. &quot;Dirty&quot; edits are intentional and required for the mod to function.&#39;</span>
+    <span class="fu">lang:</span> eng
+<span class="fu">url:</span> <span class="kw">[</span> <span class="st">&#39;http://oblivion.nexusmods.com/mods/15256&#39;</span> <span class="kw">]</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="kw">{</span><span class="fu">name:</span> Oscuro&#39;s_Oblivion_Overhaul.esm<span class="kw">,</span> <span class="fu">req:</span> <span class="kw">[</span><span class="fu">{ name:</span> example.esp, display: &#39;[Example Mod](http://www.example.com)&#39;, condition: &#39;version(&quot;Oscuro&#39;&#39;s_Oblivion_Overhaul.esm&quot;, &quot;15.0&quot;, ==)&#39; }], tag: [ Actors.Spells, Graphics, Invent, Relations, Scripts, Stats, { name: -Relations, condition: file(&quot;Mart&#39;s Monster Mod for OOO.esm&quot;) or file(&quot;FCOM_Convergence.esm&quot;) }], msg: [{ type: say, content: Do not clean. &quot;Dirty&quot; edits are intentional and required for the mod to function., lang: eng }], url: [ http://oblivion.nexusmods.com/mods/15256 ]}</code></pre></div>
+<p>Although both are valid YAML, the first is using the correct style, and the second is not.</p>
+<p><strong>Note:</strong> Much of the masterlists' content is machine-generated, and as such does not follow the writing style given above. This isn't an issue, and it's not worth spending time systematically changing all the generated entries, but if you're editing a generated entry, you might as well correct its style while you're at it.</p>
+<h3 id="adding-new-entries">Adding New Entries</h3>
+<p>Before you add a new entry for a plugin, make sure that there isn't already an existing entry for it. LOOT will attempt to merge entries if there are more than one for a plugin, but some metadata may be lost in the process, so it's always safer to only have one entry per plugin.</p>
+<p><em>Don't</em> open the masterlist and to a <code>Ctrl-F</code> search for the plugin filename, or anything similar. Instead, use the online <a href="http://loot.github.io/search/">Masterlist Search</a> page to perform a search of the masterlist. This search utility has the following features:</p>
+<ul>
+<li>Accounts for syntax variation.</li>
+<li>Finds matching regular expression entries.</li>
+<li>Checks against the latest masterlist revision, so is always up-to-date.</li>
+<li>Case-insensitive.</li>
+</ul>
+<p>You can even pass search parameters in the URL, using the syntax</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">http:</span>//loot.github.io/search/?game=&lt;game&gt;&amp;search=&lt;search&gt;</code></pre></div>
+<p>where <code>&lt;game&gt;</code> can be one of <code>oblivion</code>, <code>skyrim</code>, <code>fallout3</code> and <code>falloutnv</code>. <code>&lt;search&gt;</code> is the string you want to search for.</p>
+<h3 id="common-metadata">Common Metadata</h3>
+<p>Often the same metadata is used for plugins throughout the masterlist, for example generic messages. Rather than having these messages copy/pasted, YAML's anchor/alias feature can be used to define (anchor) the metadata once somewhere, then reference (alias) it wherever else it needs to be used. This has the advantages of guaranteeing consistency, eliminating typos, cutting down the overall size of the masterlist, and improving readability.</p>
+<p>In the masterlists, everything that gets anchored and aliased in this manner should go in the <code>common</code> node, which is a sibling of the <code>plugins</code> and <code>globals</code> nodes that are mentioned in the Metadata Syntax documentation. The <code>common</code> node is ignored by LOOT, but the YAML parser still reads it, and will therefore still substitute any aliases made. By putting all the anchors in one place, it makes it easy for other maintainers to take advantage of any existing anchors, and avoids any duplication of anchors.</p>
+<p>An example demonstrating just how much of a difference anchors/aliases can make:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">common:</span>
+  <span class="kw">-</span> <span class="dt">&amp;useBP</span>
+    <span class="fu">type:</span> say
+    <span class="fu">content:</span>
+      <span class="kw">-</span> <span class="fu">str:</span> <span class="st">&#39;Use Bashed Patch tweak instead.&#39;</span>
+        <span class="fu">lang:</span> eng
+      <span class="kw">-</span> <span class="fu">str:</span> <span class="st">&#39;Используйте вместо этого настройку башед патча.&#39;</span>
+        <span class="fu">lang:</span> rus
+    <span class="fu">condition:</span> <span class="st">&#39;regex(&quot;Bashed Patch.*\.esp&quot;)&#39;</span>
+  <span class="kw">-</span> <span class="dt">&amp;dirtyDoNotClean</span>
+    <span class="fu">type:</span> <span class="st">&#39;say&#39;</span>
+    <span class="fu">content:</span>
+      <span class="kw">-</span> <span class="fu">str:</span> <span class="st">&#39;Do not clean. &quot;Dirty&quot; edits are intentional and required for the mod to function.&#39;</span>
+        <span class="fu">lang:</span> eng
+      <span class="kw">-</span> <span class="fu">str:</span> <span class="st">&#39;Не очищать. &quot;Грязные&quot; правки оставлены специально и требуются для функционирования мода.&#39;</span>
+        <span class="fu">lang:</span> rus
+  <span class="kw">-</span> <span class="dt">&amp;skse1.6.5</span>
+    <span class="fu">name:</span> <span class="st">&#39;..\skse_loader.exe&#39;</span>
+    <span class="fu">display:</span> <span class="st">&#39;Skyrim Script Extender v1.6.5+&#39;</span>
+    <span class="fu">condition:</span> <span class="st">&#39;version(&quot;..\skse_loader.exe&quot;, &quot;0.1.6.5&quot;, &lt;)&#39;</span>
+
+<span class="fu">plugins:</span>
+  <span class="kw">-</span> <span class="fu">name:</span> <span class="st">&#39;BBLuxurySuite.esm&#39;</span>
+    <span class="fu">msg:</span> <span class="kw">[</span> <span class="dt">*dirtyDoNotClean</span> <span class="kw">]</span>
+  <span class="kw">-</span> <span class="fu">name:</span> <span class="st">&#39;Convenient Horses.esp&#39;</span>
+    <span class="fu">msg:</span> <span class="kw">[</span> <span class="dt">*dirtyDoNotClean</span> <span class="kw">]</span>
+  <span class="kw">-</span> <span class="fu">name:</span> <span class="st">&#39;72HoursRespawn.esp&#39;</span>
+    <span class="fu">msg:</span> <span class="kw">[</span> <span class="dt">*useBP</span> <span class="kw">]</span>
+  <span class="kw">-</span> <span class="fu">name:</span> <span class="st">&#39;Respawn\w{3,5}Days{0,1}\.esp&#39;</span>
+    <span class="fu">msg:</span> <span class="kw">[</span> <span class="dt">*useBP</span> <span class="kw">]</span>
+  <span class="kw">-</span> <span class="fu">name:</span> <span class="st">&#39;Skyrim 120 Day Respawn.esp&#39;</span>
+    <span class="fu">msg:</span> <span class="kw">[</span> <span class="dt">*useBP</span> <span class="kw">]</span>
+  <span class="kw">-</span> <span class="fu">name:</span> <span class="st">&#39;kuerteeDisableLightsFarFromActors.esp&#39;</span>
+    <span class="fu">req:</span> <span class="kw">[</span> <span class="dt">*skse1.6.5</span> <span class="kw">]</span>
+  <span class="kw">-</span> <span class="fu">name:</span> <span class="st">&#39;CUYC_CleanUpYourCorpses.esp&#39;</span>
+    <span class="fu">req:</span> <span class="kw">[</span> <span class="dt">*skse1.6.5</span> <span class="kw">]</span>
+   </code></pre></div>
+<p>Notice how in the example above, the <code>common</code> node has two different types of data structure in the same list (message and file structures). If this was done anywhere in the <code>globals</code> or <code>plugins</code> nodes LOOT would complain, because it expects a certain format, but because LOOT doesn't look at the <code>common</code> node, this is OK.</p>
+<h3 id="dirty-edit-metadata">Dirty Edit Metadata</h3>
+<p>If a user posts dirty counts for a plugin that already has a dirty message for the same CRC, and the counts are different to what's in the masterlist, just replace the existing counts with what the user gave if they used the latest version of TES5Edit. If they didn't give the TES5Edit version number, only replace the existing counts if the new counts are higher (which generally indicates a newer version).</p>
+<h4 id="intentional-itms">Intentional ITMs</h4>
+<p>A very tiny minority of dirty edits (and only ever ITMs) are intentional and should not be removed - this is for cases where a mod will not function correctly unless certain data have their vanilla values, so the mod includes a copy of the vanilla data to override anything that might change it.</p>
+<p>Mod authors who don't have a good understanding of dirty edits will often claim that their edits are required - you must download the mod in question and see for yourself if any such claim is made.</p>
+<h3 id="adding-bash-tags">Adding Bash Tags</h3>
+<p>Before adding a tag to a mod, it is recommended that you:</p>
+<ol style="list-style-type: decimal">
+<li>Check the mod in TES4Edit or equivalent to see if it does actually require that tag.</li>
+<li>Think about the nature of the mod, is it designed so that it is OK if things get overriden, or will it malfunction if that occurs?</li>
+<li>Read the mod documentation and the mod description field in Wrye Bash to check whether the mod author has supplied any tags with it, or recommended any to be added.</li>
+</ol>
+<p>That should ensure you have the correct information, so you can start to add the necessary tags. Use the Wrye Bash/Flash/Flash NV readme as a reference.</p>
+<h3 id="translating-messages">Translating Messages</h3>
+<p>If you add a message, there are two ways to go about getting it translated into the other languages LOOT supports:</p>
+<ul>
+<li>If you are fluent in one of the other supported languages, feel free to translate it yourself. Don't just use a translator such as Google Translate though.</li>
+<li>Chances are that you won't be able to translate it into all the languages LOOT supports, so create an issue in the issue tracker for the repository to which the masterlist you're editing belongs. If it's a message defined in the <code>common</code> section of the masterlist, say so. Otherwise, quote the plugin filename to which it is attached. Also quote the English text of message itself, and label the issue with the appropriate translate-language labels so that it can be easily seen by translators.</li>
+</ul>
+<h3 id="message-substitutions">Message Substitutions</h3>
+<p>LOOT v0.7 adds support for metadata message string substitutions. However, this is implemented so that the substitution occurs during parsing, and the pre-substitution message string and substituted strings are not retained in memory. An example consequence of this is that a metadata file written by LOOT will not retain <code>subs</code> keys, or any specifiers in message content strings.</p>

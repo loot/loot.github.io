@@ -1,0 +1,29 @@
+<p>What needs to be done to release a new version of LOOT.</p>
+<h3 id="preparation">Preparation</h3>
+<ol style="list-style-type: decimal">
+<li>Make sure that the release date and version history have been updated in the readme and <code>src/api/api.h</code>.</li>
+<li>Update the version numbers in <code>src/api/api.h</code>, <code>src/backend/globals.cpp.in</code>, <code>src/resource.rc</code> and <code>scripts/installer.iss</code>.</li>
+<li>Compile the .mo translation files from the .po files in the <code>loot</code> repository.</li>
+<li>Generate a new LaTeX copy of the API documentation, and from that generate a PDF.</li>
+</ol>
+<h3 id="masterlists">Masterlists</h3>
+<ol style="list-style-type: decimal">
+<li>If the new release makes metadata syntax changes:</li>
+<li>For each masterlist, create a new version branch for that release.</li>
+<li>For each masterlist, set the default repository branch on GitHub to the new branch.</li>
+<li>Update the default masterlist branch settings for each game, in <code>src/backend/game/game_settings.cpp</code> and <code>src/gui/loot_state.cpp</code>.</li>
+<li>Update the &quot;update released&quot; message version check in each masterlist's previous version branch.</li>
+</ol>
+<h3 id="packaging">Packaging</h3>
+<ol style="list-style-type: decimal">
+<li>Build an x86 LOOT executable.</li>
+<li>Build an x86 LOOT API DLL.</li>
+<li>Run the installer script.</li>
+<li>Run the archiver archive.</li>
+</ol>
+<h3 id="release">Release!</h3>
+<ol style="list-style-type: decimal">
+<li>Create a release in GitHub's loot/loot repository and add installer and both archives (application and API) to it.</li>
+<li>Commit the release's documentation to an appropriate subfolder in the <code>docs</code> directory of LOOT's website repository, and update <code>docs/index.html</code> to list it.</li>
+<li>Post an announcement in the official forum thread.</li>
+</ol>
