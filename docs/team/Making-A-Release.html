@@ -3,7 +3,7 @@ layout: page
 title: Making A Release
 ---
 
-<p>What needs to be done to release a new version of LOOT.</p>
+<p>This page describes what needs to be done when releasing a new version of LOOT.</p>
 
 <h3>Preparation</h3>
 
@@ -16,12 +16,12 @@ title: Making A Release
 
 <h3>Masterlists</h3>
 
+<p>Update the "update released" message version check in each masterlist's default branch. If the new release makes metadata syntax changes:</p>
+
 <ol>
-  <li>If the new release makes metadata syntax changes:</li>
   <li>For each masterlist, create a new version branch for that release.</li>
   <li>For each masterlist, set the default repository branch on GitHub to the new branch.</li>
   <li>Update the default masterlist branch settings for each game, in <code>src/backend/game/game_settings.cpp</code> and <code>src/gui/loot_state.cpp</code>.</li>
-  <li>Update the "update released" message version check in each masterlist's previous version branch.</li>
 </ol>
 
 <h3>Packaging</h3>
@@ -30,7 +30,7 @@ title: Making A Release
   <li>Build an x86 LOOT executable.</li>
   <li>Build an x86 LOOT API DLL.</li>
   <li>Run the installer script.</li>
-  <li>Run the archiver archive.</li>
+  <li>Run the archiver script.</li>
 </ol>
 
 <h3>Release!</h3>
