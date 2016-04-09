@@ -137,3 +137,22 @@ h5 {
   top: -2px;
   left: 30px;
 }
+
+pre {
+  border: 1px solid #e1e4e5;
+  background-color: white;
+  padding: 8px;
+  overflow: auto;
+}
+pre code:not(.loot-search-result) {
+  padding: 0;
+  color: black;
+  border: none;
+}
+
+code:not(.loot-search-result) {
+  background-color: white;
+  padding: 2px 5px;
+  color: #E74C3C;
+  border: 1px solid #e1e4e5;
+}
