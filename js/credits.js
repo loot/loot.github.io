@@ -113,4 +113,4 @@ function getRepositoriesContributors(err, repos) {
 }
 
 // Now fetch the organisation repositories.
-github.orgs('loot').repos.fetch(getRepositoriesContributors);
+github.orgs('loot').repos.fetch({type: 'sources'}, getRepositoriesContributors);
