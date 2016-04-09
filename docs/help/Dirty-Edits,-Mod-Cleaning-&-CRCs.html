@@ -1,21 +1,28 @@
 ---
 layout: page
-title: Dirty Edits, Mod Cleaning & CRCs
+title: Dirty Edits, Mod Cleaning &amp; CRCs
 ---
 
 <p>Dirty edits are often a side-effect of mod creation, and are often due to bugs in the utilities Bethesda has provided to create mods, rather than bad practice by mod authors. Dirty edits can cause a wide range of issues, including incorrect game settings, missing content, broken quests and crashing to desktop. The more dirty edits there are in a mod, and the more mods with dirty edits you use, the more likely you are to experience issues.</p>
+
 <p>Thankfully there is a way to remove dirty edits from mods relatively easily, a process known as <em>mod cleaning</em>, using TES4Edit, FO3Edit, FNVEdit or TES5Edit (for Oblivion, Fallout 3, Fallout: New Vegas and Skyrim respectively). Detailed instructions and information on mod cleaning are available for <a href="http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide">Oblivion</a> and <a href="http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit">Skyrim</a>, with the process being largely the same for the others.</p>
+
 <p>The problem of dirty edits is largely a problem of ignorance on the part of mod authors and users alike of the problems dirty mods can cause. As such, there are community efforts to raise awareness of dirty edits and cleaning. LOOT plays a key role in these efforts, as it holds the complete list of all known dirty mods (as does BOSS), and it uses this information to provide notification messages to users for any dirty mods they have installed.</p>
+
 <p>LOOT identifies and describes unclean plugins using four key pieces of information. They are:</p>
+
 <ul>
-<li><em><abbr title="Cyclic Redundancy Check">CRC</abbr> value</em>: CRC values are a highly accurate way of identifying files based on their contents, as if the contents change, so does the CRC value. LOOT identifies an unclean plugin by comparing the installed plugin's CRC value against the CRC values for known unclean versions of that plugin. Although it's a lot faster than actually checking for dirty edits in the plugin, this identification method has a few limitations:</li>
-<li>it can't detect unknown unclean plugins,</li>
-<li>it can't detect plugins that have been edited but not cleaned,</li>
-<li>it may report false positives for ITM records when a plugin is used with different versions (most commonly different localisations) of its dependencies than those it was created with.</li>
-<li><em><abbr title="Identical To Master">ITM</abbr> Count</em>: ITM records are a type of dirty edit where a mod has overwritten something in the game without actually changing anything. If another mod higher up in the load order makes an intentional change to that thing, it will have its effect cancelled out by the ITM record, which can cause problems. The ITM count is the number of ITM records found and corrected in the mod plugin.</li>
-<li><em>Deleted Reference Count</em>: Deleted references are a significant cause of crashes and game bugs. They can be fixed by undeleting and disabling the references, which has the same effect without causing issues. The deleted reference count is equivalent to the <abbr title="Undeleted and Disabled Reference">UDR</abbr> count, which is the number of deleted references that have been fixed, and the two terms are used interchangeably in many places.</li>
-<li><em>Deleted Navmesh Count</em>: Like deleting records, deleting navmeshes can cause crashes. However, these cannot be automatically corrected, and require manual cleaning. Navmeshes don't exist in Oblivion, so this information doesn't apply.</li>
+  <li><em><abbr title="Cyclic Redundancy Check">CRC</abbr> value</em>: CRC values are a highly accurate way of identifying files based on their contents, as if the contents change, so does the CRC value. LOOT identifies an unclean plugin by comparing the installed plugin's CRC value against the CRC values for known unclean versions of that plugin. Although it's a lot faster than actually checking for dirty edits in the plugin, this identification method has a few limitations:</li>
+  <li>it can't detect unknown unclean plugins,</li>
+  <li>it can't detect plugins that have been edited but not cleaned,</li>
+  <li>it may report false positives for ITM records when a plugin is used with different versions (most commonly different localisations) of its dependencies than those it was created with.</li>
+  <li><em><abbr title="Identical To Master">ITM</abbr> Count</em>: ITM records are a type of dirty edit where a mod has overwritten something in the game without actually changing anything. If another mod higher up in the load order makes an intentional change to that thing, it will have its effect cancelled out by the ITM record, which can cause problems. The ITM count is the number of ITM records found and corrected in the mod plugin.</li>
+  <li><em>Deleted Reference Count</em>: Deleted references are a significant cause of crashes and game bugs. They can be fixed by undeleting and disabling the references, which has the same effect without causing issues. The deleted reference count is equivalent to the <abbr title="Undeleted and Disabled Reference">UDR</abbr> count, which is the number of deleted references that have been fixed, and the two terms are used interchangeably in many places.</li>
+  <li><em>Deleted Navmesh Count</em>: Like deleting records, deleting navmeshes can cause crashes. However, these cannot be automatically corrected, and require manual cleaning. Navmeshes don't exist in Oblivion, so this information doesn't apply.</li>
 </ul>
+
 <p>In addition to the above, there is another type of dirty edit known as a <em>wild edit</em>. These are any edit that is unrelated to the purpose of the mod, and so provide unnecessary opportunity for conflicts with other mods that do need to change the same thing. It can be difficult to tell if an edit is a wild edit, and so they cannot be automatically cleaned. LOOT can still notify users of wild edits and link to information on fixing them if the CRCs of plugins with wild edits are reported, along with details on what needs cleaning.</p>
+
 <p>LOOT and the modding communities rely on user contribution of this information to progress. If you find that a mod contains dirty edits, you should also report this to the mod's author so that they can fix it.</p>
+
 <p><strong>Note:</strong> TES4Edit et al. will include a variety of <em>junk records</em> in the ITM count for a plugin, such as new empty cells that are automatically generated and are almost impossible to remove. These junk records are non-harmful, and LOOT may inform users when a mod contains these and no true ITMs to avoid confusion.</p>

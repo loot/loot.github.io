@@ -3,97 +3,145 @@ layout: page
 title: FAQs
 ---
 
-<h3 id="contents">Contents</h3>
-<h4 id="general-information">General Information</h4>
-<ol style="list-style-type: decimal">
-<li><a href="#what-happened-to-boss-v3">What happened to BOSS v3?</a></li>
-<li><a href="#do-i-have-to-switch-from-boss-to-loot">Do I have to switch from BOSS to LOOT?</a></li>
-<li><a href="#is-there-anything-i-should-bear-in-mind-when-switching-to-loot">Is there anything I should bear in mind when switching to LOOT?</a></li>
-<li><a href="#i-have-a-skyproc-patcher-that-runs-boss-how-do-i-get-it-to-run-loot-instead">I have a SkyProc patcher that runs BOSS. How do I get it to run LOOT instead?</a></li>
-<li><a href="#how-can-loot-not-have-unrecognised-plugins">How can LOOT not have unrecognised plugins?</a></li>
-<li><a href="#does-loot-sort-based-only-on-plugin-content">Does LOOT sort based only on plugin content?</a></li>
-<li><a href="#how-can-the-load-order-loot-gives-be-right-if-boss-gives-a-very-different-load-order">How can the load order LOOT gives be right if BOSS gives a very different load order?</a></li>
-<li><a href="#im-still-suspicious-that-loot-is-ordering-plugin-x-after-plugin-y-how-do-i-double-check-the-ordering">I'm still suspicious that LOOT is ordering plugin X after plugin Y. How do I double-check the ordering?</a></li>
+<h3>Contents</h3>
+
+<h4>General Information</h4>
+
+<ol>
+  <li><a href="#boss-v3">What happened to BOSS v3?</a></li>
+  <li><a href="#boss-to-loot">Do I have to switch from BOSS to LOOT?</a></li>
+  <li><a href="#switching-to-loot">Is there anything I should bear in mind when switching to LOOT?</a></li>
+  <li><a href="#skyproc-patcher">I have a SkyProc patcher that runs BOSS. How do I get it to run LOOT instead?</a></li>
+  <li><a href="#unrecognised-plugins">How can LOOT not have unrecognised plugins?</a></li>
+  <li><a href="#sort-basis">Does LOOT sort based only on plugin content?</a></li>
+  <li><a href="#correct-load-order">How can the load order LOOT gives be right if BOSS gives a very different load order?</a></li>
+  <li><a href="#check-the-ordering">I'm still suspicious that LOOT is ordering plugin X after plugin Y. How do I double-check the ordering?</a></li>
 </ol>
-<h4 id="using-loot">Using LOOT</h4>
-<ol start="9" style="list-style-type: decimal">
-<li><a href="#ok-but-i-still-have-specific-reasons-to-have-in-my-game-a-different-load-order-than-the-one-loot-proposes-what-do-i-do">OK, but I still have specific reasons to have in my game a different load order than the one LOOT proposes. What do I do?</a></li>
-<li><a href="#ive-run-loot-with-obsolete-versions-of-some-plugins-and-loot-didnt-tell-me-to-update-them-how-come">I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?</a></li>
+
+<h4>Using LOOT</h4>
+
+<ol start="9">
+  <li><a href="#different-load-order">OK, but I still have specific reasons to have in my game a different load order than the one LOOT proposes. What do I do?</a></li>
+  <li><a href="#obsolete-versions">I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?</a></li>
 </ol>
-<h4 id="common-issues">Common Issues</h4>
-<ol start="11" style="list-style-type: decimal">
-<li><a href="#im-getting-git-errors-when-loot-tries-to-update-its-masterlist-how-do-i-fix-this">I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?</a></li>
-<li><a href="#loots-window-is-blank-when-im-starting-it-through-mod-organizer-whats-up">LOOT's window is blank when I'm starting it through Mod Organizer. What's up?</a></li>
-<li><a href="#loot-shows-the-wrong-or-no-version-number-for-some-plugins-why">LOOT shows the wrong or no version number for some plugins. Why?</a></li>
-<li><a href="#a-game-is-installed-but-loot-cannot-detect-it-how-do-i-fix-this">A game is installed, but LOOT cannot detect it. How do I fix this?</a></li>
-<li><a href="#when-loot-updates-the-load-order-it-removes-line-breaks-from-pluginstxt-and-loadordertxt-wont-this-break-something">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</a></li>
-<li><a href="im-using-a-proxy-to-connect-to-the-internet-how-do-i-configure-loots-masterlist-updater-to-use-it">I'm using a proxy to connect to the Internet. How do I configure LOOT's masterlist updater to use it?</a></li>
+
+<h4>Common Issues</h4>
+
+<ol start="11">
+  <li><a href="#git-errors">I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?</a></li>
+  <li><a href="#blank-window">LOOT's window is blank when I'm starting it through Mod Organizer. What's up?</a></li>
+  <li><a href="#no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</a></li>
+  <li><a href="#game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</a></li>
+  <li><a href="#line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</a></li>
+  <li><a href="#proxy">I'm using a proxy to connect to the Internet. How do I configure LOOT's masterlist updater to use it?</a></li>
 </ol>
-<h3 id="questions">Questions</h3>
-<hr />
-<h4 id="general-information-1">General Information</h4>
-<h5 id="what-happened-to-boss-v3">What happened to BOSS v3?</h5>
+
+<h4>General Information</h4>
+
+<h5 id="boss-v3">What happened to BOSS v3?</h5>
+
 <p>LOOT is BOSS v3. It got turned into a separate utility because concerns were raised about the major changes in expected functionality between v2 and v3.</p>
-<h5 id="do-i-have-to-switch-from-boss-to-loot">Do I have to switch from BOSS to LOOT?</h5>
+
+<h5 id="boss-to-loot">Do I have to switch from BOSS to LOOT?</h5>
+
 <p>No. However, most of BOSS's current contributors are now more interested in contributing to LOOT, so BOSS will likely lag further behind in getting unrecognised plugins recognised as time goes on. One of the many improvements in LOOT is that it has no unrecognised plugins.</p>
-<h5 id="is-there-anything-i-should-bear-in-mind-when-switching-to-loot">Is there anything I should bear in mind when switching to LOOT?</h5>
+
+<h5 id="switching-to-loot">Is there anything I should bear in mind when switching to LOOT?</h5>
+
 <p>It's worth double-checking the load order LOOT gives you, in case it's gotten something wrong. Also, if you're not starting a new game, changing your load order may cause in-game issues. To avoid disaster, you can backup your load order as follows:</p>
-<ol style="list-style-type: decimal">
-<li>Make a backup of your current <code>.ess</code> save file, and its accompanying <code>.skse</code> file (if you have SKSE installed). These are found in the <code>%USERPROFILE%\Documents\My Games\Skyrim\Saves</code> folder.</li>
-<li>Make a backup of your load order files, <code>plugins.txt</code> and <code>loadorder.txt</code>, which are found in the <code>%LOCALAPPDATA%\Skyrim</code> folder.</li>
+
+<ol>
+  <li>Make a backup of your current <code>.ess</code> save file, and its accompanying <code>.skse</code> file (if you have SKSE installed). These are found in the <code>%USERPROFILE%\Documents\My Games\Skyrim\Saves</code> folder.</li>
+  <li>Make a backup of your load order files, <code>plugins.txt</code> and <code>loadorder.txt</code>, which are found in the <code>%LOCALAPPDATA%\Skyrim</code> folder.</li>
 </ol>
+
 <p>That way, if something does go wrong, you have backups to roll back to. If you don't overwrite or delete save files, you don't need to back them up, so long as you can remember which save was made before you made the changes that caused problems.</p>
-<h5 id="i-have-a-skyproc-patcher-that-runs-boss.-how-do-i-get-it-to-run-loot-instead">I have a SkyProc patcher that runs BOSS. How do I get it to run LOOT instead?</h5>
+
+<h5 id="skyproc-patcher">I have a SkyProc patcher that runs BOSS. How do I get it to run LOOT instead?</h5>
+
 <p>LOOT support may be added to SkyProc patchers in time. Until then, you can do the following:</p>
-<ol style="list-style-type: decimal">
-<li>Run LOOT.</li>
-<li>Run your SkyProc patcher(s) with the <code>-NOBOSS</code> argument.</li>
-<li>Have fun.</li>
+
+<ol>
+  <li>Run LOOT.</li>
+  <li>Run your SkyProc patcher(s) with the <code>-NOBOSS</code> argument.</li>
+  <li>Have fun.</li>
 </ol>
-<h5 id="how-can-loot-not-have-unrecognised-plugins">How can LOOT not have unrecognised plugins?</h5>
+
+<h5 id="unrecognised-plugins">How can LOOT not have unrecognised plugins?</h5>
+
 <p>To sort a plugin, BOSS needs it to be added to its masterlist, which is hand-ordered by its maintainers. LOOT instead reads the contents of each plugin to see which plugins conflict, etc. and uses that information to decide on the best ordering. This means that it can sort all plugins without needing them to become recognised first.</p>
-<h5 id="does-loot-sort-based-only-on-plugin-content">Does LOOT sort based only on plugin content?</h5>
+
+<h5 id="sort-basis">Does LOOT sort based only on plugin content?</h5>
+
 <p>No. While it can sort most plugins correctly, sometimes it gets things wrong, and LOOT's masterlist is used to provide metadata so that it can sort such plugins correctly. Unlike in BOSS, LOOT's masterlist doesn't give specific load order positions, which makes it more adaptable and easier to maintain.</p>
-<h5 id="how-can-the-load-order-loot-gives-be-right-if-boss-gives-a-very-different-load-order">How can the load order LOOT gives be right if BOSS gives a very different load order?</h5>
+
+<h5 id="correct-load-order">How can the load order LOOT gives be right if BOSS gives a very different load order?</h5>
+
 <p>There can be more than one correct load order for a given set of plugins. For example, some plugins may not conflict or depend on each other, so their relative orders wouldn't matter. The load order BOSS gives is hand-made to look 'neat' as well as work, so plugins from the same mod will usually get grouped together, but LOOT doesn't know which plugins belong to which mod, so it just puts them where it thinks they work.</p>
-<h5 id="im-still-suspicious-that-loot-is-ordering-plugin-x-after-plugin-y.-how-do-i-double-check-the-ordering">I'm still suspicious that LOOT is ordering plugin X after plugin Y. How do I double-check the ordering?</h5>
-<p>The most thorough method is to look for conflicts in TES5Edit and decide for yourself if the load order LOOT gives resolves them to your liking. Alternatively, selecting a plugin in LOOT before applying a sorted load order and ticking the &quot;Show only conflicting plugins&quot; checkbox will let you see if the two plugins conflict at all (though it will also show plugins with BSAs if the selected plugin loads a BSA).</p>
-<hr />
-<h4 id="using-loot-1">Using LOOT</h4>
-<h5 id="ok-but-i-still-have-specific-reasons-to-have-in-my-game-a-different-load-order-than-the-one-loot-proposes.-what-do-i-do">OK, but I still have specific reasons to have in <em>my</em> game a different load order than the one LOOT proposes. What do I do?</h5>
+
+<h5 id="check-the-ordering">I'm still suspicious that LOOT is ordering plugin X after plugin Y. How do I double-check the ordering?</h5>
+
+<p>The most thorough method is to look for conflicts in TES5Edit and decide for yourself if the load order LOOT gives resolves them to your liking. Alternatively, selecting a plugin in LOOT before applying a sorted load order and ticking the "Show only conflicting plugins" checkbox will let you see if the two plugins conflict at all (though it will also show plugins with BSAs if the selected plugin loads a BSA).</p>
+
+<h4>Using LOOT</h4>
+
+<h5 id="different-load-order">OK, but I still have specific reasons to have in <em>my</em> game a different load order than the one LOOT proposes. What do I do?</h5>
+
 <p>Users can supply metadata themselves to alter the order LOOT gives. It's not as precise as the user rules feature offered by BOSS, due to the nature of LOOT's ordering system, but there are two types of metadata that can be supplied to change load order:</p>
+
 <ul>
-<li>'Load After' entries can be used for pairs of specific plugins.</li>
-<li>Priority values can be used when the plugin needs to load before or after many other plugins.</li>
+  <li>'Load After' entries can be used for pairs of specific plugins.</li>
+  <li>Priority values can be used when the plugin needs to load before or after many other plugins.</li>
 </ul>
+
 <p>Be sure to read LOOT's readme for more information on these.</p>
-<h5 id="ive-run-loot-with-obsolete-versions-of-some-plugins-and-loot-didnt-tell-me-to-update-them-how-come">I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?</h5>
+
+<h5 id="obsolete-versions">I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?</h5>
+
 <p>LOOT isn't omniscient. It may provide warnings for outdated plugins through the masterlist, but this depends on user feedback. LOOT has no way of being able to tell by itself if a plugin is outdated or not.</p>
-<hr />
-<h4 id="common-issues-1">Common Issues</h4>
-<h5 id="im-getting-git-errors-when-loot-tries-to-update-its-masterlist.-how-do-i-fix-this">I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?</h5>
+
+<h4>Common Issues</h4>
+
+<h5 id="git-errors">I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?</h5>
+
 <p>Try deleting the <code>.git</code> folder in <code>%LOCALAPPDATA%\LOOT\&lt;game folder&gt;\</code>. If that doesn't work, make sure any firewalls or security software you have installed aren't stopping LOOT from reaching the online masterlist.</p>
+
 <p>Alternatively, your WinSock configuration may be corrupt: this can be fixed using the instructions <a href="https://support.microsoft.com/kb/817571">here</a> and <a href="https://support.microsoft.com/kb/318584">here</a>, or there's a fix-it utility <a href="http://h10025.www1.hp.com/ewfrf/wc/document?cc=uk&amp;lc=en&amp;docname=c01184567">here</a>.</p>
+
 <p>If LOOT still can't update its masterlist, you can update manually by downloading <a href="https://raw.githubusercontent.com/loot/skyrim/master/masterlist.yaml">this file</a> and placing it in the <code>%LOCALAPPDATA%\LOOT\Skyrim</code> folder. Replace Skyrim with <code>oblivion</code>, <code>fallout3</code> or <code>falloutnv</code> as necessary, in the URL and the folder path.</p>
-<h5 id="loots-window-is-blank-when-im-starting-it-through-mod-organizer.-whats-up">LOOT's window is blank when I'm starting it through Mod Organizer. What's up?</h5>
+
+<h5 id="blank-window">LOOT's window is blank when I'm starting it through Mod Organizer. What's up?</h5>
+
 <p>Mod Organizer 1.2.10 has a bug preventing LOOT 0.7.0 from working properly. This has been fixed in Mod Organizer 1.2.11, and later versions.</p>
+
 <p>There is also another issue that occasionally causes LOOT's window to be blank when started through Mod Organiser: this can be avoided by adding the <code>--single-process</code> argument to Mod Organiser's LOOT launching settings, though doing so also reduces the quality of text displayed in LOOT.</p>
-<h5 id="loot-shows-the-wrong-or-no-version-number-for-some-plugins.-why">LOOT shows the wrong or no version number for some plugins. Why?</h5>
+
+<h5 id="no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</h5>
+
 <p>As version numbers are supplied by mod authors in a wide range of formats and LOOT has to detect as many as possible, it occasionally identifies parts of some descriptions as version numbers incorrectly. Authors can also forget to update their plugins' version numbers. When in doubt, check the version number given in a mod's readme.</p>
-<h5 id="a-game-is-installed-but-loot-cannot-detect-it.-how-do-i-fix-this">A game is installed, but LOOT cannot detect it. How do I fix this?</h5>
+
+<h5 id="game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</h5>
+
 <p>Steam likes to remove the game's Registry entry when the game is updated or its cache is verified. Run the game's launcher to add the Registry entry back again. LOOT will then be able to detect the game.</p>
+
 <p>Another cause may be that the game is installed in a location where you does not have read permissions, in which case LOOT cannot read your plugins, and so treats the game as undetected. Try checking the game path's permissions, and ensuring you have read access.</p>
-<h5 id="when-loot-updates-the-load-order-it-removes-line-breaks-from-plugins.txt-and-loadorder.txt.-wont-this-break-something">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</h5>
+
+<h5 id="line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</h5>
+
 <p>LOOT has probably just replaced the <code>CR LF</code> line breaks with <code>LF</code> line breaks. It doesn't make any difference to the game.</p>
-<h5 id="im-using-a-proxy-to-connect-to-the-internet.-how-do-i-configure-loots-masterlist-updater-to-use-it">I'm using a proxy to connect to the Internet. How do I configure LOOT's masterlist updater to use it?</h5>
+
+<h5 id="proxy">I'm using a proxy to connect to the Internet. How do I configure LOOT's masterlist updater to use it?</h5>
+
 <p>First of all, LOOT only supports unauthenticated proxies, so if your proxy requires some form of authentication, LOOT won't be able to use it directly.</p>
+
 <p>If your proxy is unauthenticated, LOOT will use the <code>https_proxy</code> environmental variable. If your proxy configuration doesn't already set it, you can do so in Windows by:</p>
-<ol style="list-style-type: decimal">
-<li>Opening the System item in the Control Panel.</li>
-<li>Open the System Properties dialog by clicking the &quot;Advanced system settings&quot; item in the sidebar.</li>
-<li>Open the Environmental Variables dialog by clicking the &quot;Environmental Variables...&quot; button in the &quot;Advanced&quot; tab.</li>
-<li>In the User variables section, click the &quot;New...&quot; button.</li>
-<li>Put https_proxy as the variable name, and the proxy URL as the variable value in the New User Variable dialog.</li>
-<li>Click &quot;OK&quot;, then &quot;OK&quot; in the Environmental Variables dialog.</li>
-<li>Relaunch LOOT.</li>
+
+<ol>
+  <li>Opening the System item in the Control Panel.</li>
+  <li>Open the System Properties dialog by clicking the "Advanced system settings" item in the sidebar.</li>
+  <li>Open the Environmental Variables dialog by clicking the "Environmental Variables..." button in the "Advanced" tab.</li>
+  <li>In the User variables section, click the "New..." button.</li>
+  <li>Put https_proxy as the variable name, and the proxy URL as the variable value in the New User Variable dialog.</li>
+  <li>Click "OK", then "OK" in the Environmental Variables dialog.</li>
+  <li>Relaunch LOOT.</li>
 </ol>

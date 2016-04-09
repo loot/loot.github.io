@@ -3,9 +3,12 @@ layout: page
 title: Global Priorities
 ---
 
-<p>Global priorities are used to sort plugins on a &quot;global&quot; scale. LOOT will normally only sort plugins that conflict with each other, but setting a &quot;global <code>priority</code>&quot; will allow some plugins to load earlier or later than others, even if they don't conflict. This can be useful to make sure that e.g. unofficial patch plugins are loaded earlier than all other non-official plugins. Details about how they work in practice can be seen in <a href="https://loot.github.io/docs/dev/LOOT%20Metadata%20Syntax.html#structs-plugin">the Metadata Syntax document</a>: see the description for the &quot;priority&quot; field under &quot;Plugin Data Structure&quot;.</p>
+<p>Global priorities are used to sort plugins on a &quot;global&quot; scale. LOOT will normally only sort plugins that conflict with each other, but setting a global priority will allow some plugins to load earlier or later than others, even if they don't conflict. This can be useful to make sure that e.g. unofficial patch plugins are loaded earlier than all other non-official plugins. Details about how they work in practice can be seen in <a href="https://loot.github.io/docs/dev/LOOT%20Metadata%20Syntax.html#structs-plugin">the Metadata Syntax document</a>: see the description for the &quot;priority&quot; field under &quot;Plugin Data Structure&quot;.</p>
+
 <p>Below are the global priorities as they are grouped for the games currently supported by LOOT: - <a href="#skyrim">Skyrim</a> - <a href="#oblivion">Oblivion</a> - <a href="#fallout-new-vegas">Fallout: New Vegas</a> - <a href="#fallout-3">Fallout 3</a></p>
+
 <h1 id="skyrim">Skyrim</h1>
+
 <pre><code>-1999999 = -999999 Update.esm
 -1999000 = -999000 DLC, Unofficial Patches, SPO
 -1960000 = -960000 Falskar, Wyrmstooth
@@ -28,8 +31,11 @@ title: Global Priorities
 1960000 = 996000
 1970000 = 997000 Deadly Combat PISE Patches
 1980000 = 998000</code></pre>
+
 <p>See <a href="https://github.com/loot/skyrim/issues/26">loot/skyrim#26</a> for details.</p>
+
 <h1 id="oblivion">Oblivion</h1>
+
 <pre><code>-400999000 = -999000 Oblivion.esm
 -400980000 = -980000 DLCShiveringIsles.esp
 -400970000 = -970000 DLCHorseArmor.esp
@@ -51,12 +57,18 @@ title: Global Priorities
 400970000 = 997000
 400980000 = 998000
 400990000 = 999000</code></pre>
+
 <p>See <a href="https://github.com/loot/oblivion/issues/7">loot/oblivion#7</a> for details.</p>
+
 <h1 id="fallout-new-vegas">Fallout: New Vegas</h1>
+
 <p><em>To be determined...</em></p>
+
 <h1 id="fallout-3">Fallout 3</h1>
+
 <pre><code>-400999000 = -999000 Official DLCs, Unofficial patch
 -300990000 = -990000 Patches besides the unofficial patch
 0
  400991000 =  991000 Bashed Patch</code></pre>
+
 <p><em>Based on current usage. Further details to be determined.</em></p>
