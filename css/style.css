@@ -138,6 +138,7 @@ h5 {
   left: 30px;
 }
 
+/* Improve code styling. */
 pre {
   border: 1px solid #e1e4e5;
   background-color: white;
@@ -149,10 +150,14 @@ pre code:not(.loot-search-result) {
   color: black;
   border: none;
 }
-
 code:not(.loot-search-result) {
   background-color: white;
   padding: 2px 5px;
   color: #E74C3C;
   border: 1px solid #e1e4e5;
+}
+
+/* Remove extra margin above the first heading of a page. */
+h3:first-child {
+  margin-top: 0;
 }
