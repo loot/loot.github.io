@@ -10,6 +10,13 @@
 .mdl-textfield {
     vertical-align: middle;
 }
+/* Change drawer colour scheme to black-on-white. */
+div.mdl-layout__drawer {
+    background-color: white;
+}
+.mdl-navigation__link > span {
+    color: rgba(0, 0, 0, 0.87);
+}
 /* Override link font weight. */
 a {
     font-weight: normal;
