@@ -79,7 +79,7 @@ url: [ 'http://oblivion.nexusmods.com/mods/15256' ]</code></pre>
 
 <pre><code>http://loot.github.io/search/?game=&lt;game&gt;&amp;search=&lt;search&gt;</code></pre>
 
-<p>where <code>&lt;game&gt;</code> can be one of <code>oblivion</code>, <code>skyrim</code>, <code>fallout3</code> and <code>falloutnv</code>. <code>&lt;search&gt;</code> is the string you want to search for.</p>
+<p>where <code>&lt;game&gt;</code> can be one of <code>oblivion</code>, <code>skyrim</code>, <code>fallout3</code>, <code>falloutnv</code> or <code>fallout4</code>. <code>&lt;search&gt;</code> is the string you want to search for.</p>
 
 <h3>Common Metadata</h3>
 
@@ -159,4 +159,4 @@ plugins:
 </ul>
 <h3>Message Substitutions</h3>
 
-<p>LOOT v0.7 adds support for metadata message string substitutions. However, this is implemented so that the substitution occurs during parsing, and the pre-substitution message string and substituted strings are not retained in memory. An example consequence of this is that a metadata file written by LOOT will not retain <code>subs</code> keys, or any specifiers in message content strings.</p>
+<p>LOOT has support for metadata message string substitutions, but does not retain the pre-substitution message string and substituted strings, so a metadata file written by LOOT will not retain <code>subs</code> keys, or any specifiers in message content strings. This information is provided in the unlikely event of LOOT writing to a metadata file that you have manually added substitutions to.</p>
