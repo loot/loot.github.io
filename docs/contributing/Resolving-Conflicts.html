@@ -1,0 +1,44 @@
+<p>This is where GitHub Desktop falls short - to resolve conflicts, you're probably going to have to use the command line shell at some point. <a href="http://git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project#Private-Small-Team">This page</a> discusses the issue well, but is aimed at people who don't use a GUI client at all. It's still worth a read to get an understanding of the issues, and its diagrams are very good.</p>
+<p>Below is some guidance for resolving conflicts using GfW and the shell where necessary.</p>
+<h4 id="merging-conflicts-in-the-same-file">Merging Conflicts In The Same File</h4>
+<p>If the online repository is ahead of your local repository when you try to sync, you'll get an error message (&quot;failed to sync this branch due to unmerged files&quot;) and the option to open the shell. Select it, and a command line window will be displayed.</p>
+<p>First of all, enter <code>git status</code>. This will show you the current status of your local repository. Since you're trying to fix the sync error, you'll see some info about how you're currently 'rebasing' the 'master' branch. The &quot;unmerged paths&quot; list will show you the file(s) that need to be merged manually.</p>
+<p>Open the file(s) that need to be merged in your favorite text editor. You will see that it's a mix of your revision and the latest online revision, with lines starting with <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>, <code>=======</code> and <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> separating them. The example after the second paragraph <a href="http://git-scm.com/docs/git-merge#_how_conflicts_are_presented">here</a> may make their meaning clearer, but basically the <code>=======</code> separates the local and online versions of some text, the stuff between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> is your version of some text, and the stuff between <code>=======</code> and <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> is the online version of some text.</p>
+<p>Edit the file, picking and choosing the bits that should stay (you may need to combine them or move them around if a lot of changes were made), and once you're done save your changes. There should now be no lines beginning <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>, <code>=======</code> or <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> left.</p>
+<p>In the shell, enter <code>git add &lt;file&gt;</code> to mark the file you manually merged as resolved. Once all the unmerged paths have been resolved, enter <code>git rebase --continue</code> to finish the merge. You can now close the shell window.</p>
+<p>Back in the GfW window, click the &quot;sync&quot; button to update the online repository with your merged revision. You're done!</p>
+<h5 id="an-example">An Example</h5>
+<p>You sync your local repository to the online repository, and open a file containing the following:</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">This file is to be used to demonstrate conflict resolution.
+
+This is the last line of the file.</code></pre></div>
+<p>You then edit it, so that it becomes:</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">This file is to be used to demonstrate conflict resolution.
+
+This line has been added by you.
+
+This is the last line of the file.</code></pre></div>
+<p>In the meantime, someone else also edits the same file, and syncs their changes with the online repository, so its copy of the file becomes:</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">This file is to be used to demonstrate conflict resolution.
+
+This line has been added by somebody else.
+
+This is the last line of the file.</code></pre></div>
+<p>When you open the file for manual merging, it will have changed to:</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">This file is to be used to demonstrate conflict resolution.
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+This line has been added by somebody else.
+=======
+This line has been added by you.
+&gt;<span class="dt">&gt;&gt;&gt;&gt;&gt;&gt;</span>
+
+<span class="dt">This is the last line of the file.</span></code></pre></div>
+<p>You could decide to keep both lines one after another, in which case you would edit the file so that it becomes:</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">This file is to be used to demonstrate conflict resolution.
+
+This line has been added by somebody else.
+This line has been added by you.
+
+This is the last line of the file.</code></pre></div>
+<p>Now you are ready to do the <code>git add &lt;file&gt;</code> step.</p>

@@ -1,9 +1,0 @@
-As LOOT develops, it gains support for new metadata syntax features. However, using these new features in the masterlists may break functionality for LOOT users who have not updated to the latest version of LOOT, which isn't ideal. This is especially true when LOOT updates alter the load orders produced, as changing load order can affect game stability, and so users may be unable (rather than unwilling) to upgrade.
-
-To allow the use of new features without breaking older versions of LOOT, the masterlists are also versioned. This is done by storing the versions as branches in the masterlists' Git repositories. Whenever a new version of LOOT that includes metadata syntax changes is released, a new branch for that version is created in each masterlist repository, and that branch is made the default for that version of LOOT.
-
-For example, LOOT v0.7.1 uses the `v0.7` masterlist branches by default. The next release to include metadata syntax changes will be LOOT v0.8, which will use `v0.8` masterlist branches. If LOOT v0.9 includes no metadata syntax changes, then it will also use the `v0.8` masterlist branches.
-
-In addition to the obvious version branches, each masterlist repository also has a `master` branch. This is the version branch for LOOT v0.5 and v0.6.x, and it is also the default branch for LOOT v0.7.0, as the masterlist versioning system was introduced in conjunction with the release of LOOT v0.7.1. Users of LOOT v0.7.0 can safely switch to using the `v0.7` branch, but the `master` branch cannot be renamed without breaking masterlist updates for LOOT v0.5 and v0.6.x users, which is why it keeps its ambiguous name.
-
-Updates to the masterlists should be made to their most recent version branches. Back-porting of non-breaking updates to older version branches is left at the discretion of the contributor.
