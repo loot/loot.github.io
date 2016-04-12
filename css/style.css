@@ -112,3 +112,52 @@ code.loot-search-result {
 code.loot-search-result:first-of-type {
     border-top: none;
 }
+
+/* Scale headings */
+h3 {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 30px 0 20px;
+}
+h4 {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 24px 0 16px;
+}
+h5 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin: 21px 0 14px;
+}
+
+/* Position readme version selector */
+#versionSelect {
+  position: relative;
+  top: -2px;
+  left: 30px;
+}
+
+/* Improve code styling. */
+pre {
+  border: 1px solid #e1e4e5;
+  background-color: white;
+  padding: 8px;
+  overflow: auto;
+}
+pre code:not(.loot-search-result) {
+  padding: 0;
+  color: black;
+  border: none;
+}
+code:not(.loot-search-result) {
+  background-color: white;
+  padding: 2px 5px;
+  color: #E74C3C;
+  border: 1px solid #e1e4e5;
+}
+
+/* Remove extra margin above the first heading of a page. */
+h3:first-child {
+  margin-top: 0;
+}

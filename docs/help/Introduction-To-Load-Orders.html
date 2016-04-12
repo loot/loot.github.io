@@ -1,0 +1,28 @@
+---
+layout: page
+title: Introduction To Load Orders
+---
+
+<p>This page provides a general overview of load ordering in the games LOOT supports for those who are unfamiliar with the concept. For simplicity, "the game" will be used when the text refers to any of the games that LOOT supports.</p>
+
+<p>Mod plugins for the game are files that end in <code>.esp</code> or <code>.esm</code>. These files are created by the game's official editing tools, or by third-party modders' tools. They contain various data <em>records</em>, which cover almost all aspects of what is in the game – NPCs, items, races, interiors, worlds, quests, etc. – and can either be new or changes to the records added by another plugin.</p>
+
+<p>When the game is run, it loads each installed plugin one by one in a certain <em>load order</em>. The load order is important for two reasons:</p>
+
+<ul>
+  <li>If one plugin changes a record added by another plugin, the former must load after the latter. If it doesn't, the game will crash on launch.</li>
+  <li>The game can only apply one version of a record, so if multiple plugins contain the same record, the last-loaded plugin's version overrides all others. This is known as the <em>rule of one</em>, and it holds true for almost all record types. Some overrides can cause problems in-game, and a good load order is one that arranges plugins to avoid such problems.</li>
+</ul>
+
+<p>There are a few hardcoded rules related to load order:</p>
+
+<ul>
+  <li>Master plugins always load before non-master plugins. The difference between the two plugin types isn't really relevant, except that a plugin's type is decided by a setting inside it, and not by its file extension (even though <code>.esm</code> stands for Elder Scrolls Master).</li>
+  <li>There is a limit of 255 active plugins that can be loaded by the game. This isn't strictly a load <em>order</em> thing, but is worth mentioning.</li>
+  <li>In Skyrim, <code>Skyrim.esm</code> always loads before all other plugins.</li>
+  <li>In Skyrim, if <code>Update.esm</code> is present, it is always loaded. It loads after all other master plugins, unless it has another position explicitly set.</li>
+</ul>
+
+<p>A plugin's position in the load order is often displayed by mod managers as a hexadecimal number, from 00 to FE (0 to 254 in decimal). The plugin with position 00 loads first, and the plugin with position FE is loaded last. Hexadecimal numbers are used to display the load order positions of plugins because these numbers form the first two digits of the code that the game uses to reference the records that the plugin adds, so knowing the numbers allows modders and mod users to determine from which plugin a record is from.</p>
+
+<p>In Oblivion, Fallout 3 and Fallout: New Vegas, load order is determined by plugin timestamps, and the plugins you have accessed are listed in <code>%LOCALAPPDATA%\&lt;game&gt;\plugins.txt</code>. As such, it's best to use a mod manager to create a backup of your load order. In Skyrim, the load order of active plugins is stored in <code>%LOCALAPPDATA%\&lt;game&gt;\plugins.txt</code>, and modding utilities generally use <code>%LOCALAPPDATA%\&lt;game&gt;\loadorder.txt</code> to store the load order of all plugins. This makes backing up your load order as easy as making copies of those two files.</p>

@@ -1,0 +1,74 @@
+---
+layout: page
+title: Global Priorities
+---
+
+<p>Global priorities are used to sort plugins on a "global" scale. LOOT will normally only sort plugins that conflict with each other, but setting a global priority will allow some plugins to load earlier or later than others, even if they don't conflict. This can be useful to make sure that e.g. unofficial patch plugins are loaded earlier than all other non-official plugins. Details about how they work in practice can be seen in <a href="https://loot.github.io/docs/0.8.1/LOOT%20Metadata%20Syntax.html#structs-plugin">the Metadata Syntax document</a>: see the description for the "priority" field under "Plugin Data Structure".</p>
+
+<p>Below are the global priorities as they are grouped for the games currently supported by LOOT.</p>
+
+<h3>Skyrim</h3>
+
+<pre><code>-1999999 = -999999 Update.esm
+-1999000 = -999000 DLC, Unofficial Patches, SPO
+-1960000 = -960000 Falskar, Wyrmstooth
+-1950000 = -950000
+-1940000 = -940000
+-1930000 = -930000
+-1920000 = -920000
+-1910000 = -910000
+-1900000 = -900000
+-1890000 = -890000
+0
+1980000 = 980000 Skyrim Climate Overhaul
+1910000 = 991000 TES5Edit Merge patch
+1910000 = 991000 Bash Patch
+1920000 = 992000 Post Bash Patch
+1930000 = 993000 Dynamic Patches (Sky Proc)
+1939999 = 993999 SUM.esp
+1940000 = 994000 Qotsafan Compatibility Patches
+1950000 = 995000
+1960000 = 996000
+1970000 = 997000 Deadly Combat PISE Patches
+1980000 = 998000</code></pre>
+
+<p>See <a href="https://github.com/loot/skyrim/issues/26">loot/skyrim#26</a> for details.</p>
+
+<h3>Oblivion</h3>
+
+<pre><code>-400999000 = -999000 Oblivion.esm
+-400980000 = -980000 DLCShiveringIsles.esp
+-400970000 = -970000 DLCHorseArmor.esp
+-400960000 = -960000 DLCOrrery.esp
+-400950000 = -950000 DLCVileLair.esp
+-400940000 = -940000 DLCMehrunesRazor.esp
+-400930000 = -930000 DLCSpellTomes.esp
+-400920000 = -920000 DLCThievesDen.esp
+-400910000 = -910000 DLCBattlehornCastle.esp
+-400900000 = -900000 DLCFrostcrag.esp
+-400890000 = -890000 Knights.esp
+0
+400910000 = 991000 Bash Patch
+400920000 = 992000
+400930000 = 993000
+400940000 = 994000
+400950000 = 995000
+400960000 = 996000
+400970000 = 997000
+400980000 = 998000
+400990000 = 999000</code></pre>
+
+<p>See <a href="https://github.com/loot/oblivion/issues/7">loot/oblivion#7</a> for details.</p>
+
+<h3>Fallout: New Vegas</h3>
+
+<p><em>To be determined...</em></p>
+
+<h3>Fallout 3</h3>
+
+<pre><code>-400999000 = -999000 Official DLCs, Unofficial patch
+-300990000 = -990000 Patches besides the unofficial patch
+0
+ 400991000 =  991000 Bashed Patch</code></pre>
+
+<p><em>Based on current usage. Further details to be determined.</em></p>
