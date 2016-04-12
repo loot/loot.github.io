@@ -51,7 +51,7 @@ permalink: /docs/
 
 <script>
   var select = document.getElementById('versionSelect');
-  select.addEventListener('input', function(evt) {
+  select.addEventListener('change', function(evt) {
     document.getElementById('readmeLink').href = evt.target.value + '/LOOT%20Readme.html';
     document.getElementById('syntaxLink').href = evt.target.value + '/LOOT%20Metadata%20Syntax.html';
   });
