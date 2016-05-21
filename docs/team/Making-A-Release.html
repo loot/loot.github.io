@@ -10,8 +10,6 @@ title: Making A Release
 <ol>
   <li>Make sure that the release date and version history have been updated in the readme and <code>src/api/api.h</code>.</li>
   <li>Update the version numbers in <code>src/api/api.h</code>, <code>src/backend/globals.cpp.in</code>, <code>src/resource.rc</code> and <code>scripts/installer.iss</code>.</li>
-  <li>Compile the .mo translation files from the .po files in the <code>loot</code> repository.</li>
-  <li>Generate a new LaTeX copy of the API documentation, and from that generate a PDF.</li>
 </ol>
 
 <h3>Masterlists</h3>
@@ -27,8 +25,8 @@ title: Making A Release
 <h3>Packaging</h3>
 
 <ol>
-  <li>Build an x86 LOOT executable.</li>
-  <li>Build an x86 LOOT API DLL.</li>
+  <li>Build an x86 LOOT executable and API DLL.</li>
+  <li>Run the potomo script.</li>
   <li>Run the installer script.</li>
   <li>Run the archiver script.</li>
 </ol>
