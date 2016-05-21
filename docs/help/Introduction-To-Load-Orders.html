@@ -19,10 +19,15 @@ title: Introduction To Load Orders
 <ul>
   <li>Master plugins always load before non-master plugins. The difference between the two plugin types isn't really relevant, except that a plugin's type is decided by a setting inside it, and not by its file extension (even though <code>.esm</code> stands for Elder Scrolls Master).</li>
   <li>There is a limit of 255 active plugins that can be loaded by the game. This isn't strictly a load <em>order</em> thing, but is worth mentioning.</li>
-  <li>In Skyrim, <code>Skyrim.esm</code> always loads before all other plugins.</li>
+  <li>In Skyrim and Fallout 4, the game master file (<code>Skyrim.esm</code> and <code>Fallout4.esm</code> respectively) always loads before all other plugins.</li>
   <li>In Skyrim, if <code>Update.esm</code> is present, it is always loaded. It loads after all other master plugins, unless it has another position explicitly set.</li>
+  <li>In Fallout 4, if any of the DLC plugins are present, they are always loaded. They load after all other master plugins, in the order of their release, unless they have other positions explicitly set.</li>
 </ul>
 
 <p>A plugin's position in the load order is often displayed by mod managers as a hexadecimal number, from 00 to FE (0 to 254 in decimal). The plugin with position 00 loads first, and the plugin with position FE is loaded last. Hexadecimal numbers are used to display the load order positions of plugins because these numbers form the first two digits of the code that the game uses to reference the records that the plugin adds, so knowing the numbers allows modders and mod users to determine from which plugin a record is from.</p>
 
-<p>In Oblivion, Fallout 3 and Fallout: New Vegas, load order is determined by plugin timestamps, and the plugins you have accessed are listed in <code>%LOCALAPPDATA%\&lt;game&gt;\plugins.txt</code>. As such, it's best to use a mod manager to create a backup of your load order. In Skyrim, the load order of active plugins is stored in <code>%LOCALAPPDATA%\&lt;game&gt;\plugins.txt</code>, and modding utilities generally use <code>%LOCALAPPDATA%\&lt;game&gt;\loadorder.txt</code> to store the load order of all plugins. This makes backing up your load order as easy as making copies of those two files.</p>
+<p>In Oblivion, Fallout 3 and Fallout: New Vegas, load order is determined by plugin timestamps, and the plugins you have accessed are listed in <code>%LOCALAPPDATA%\&lt;game&gt;\plugins.txt</code>. As such, it's best to use a mod manager to create a backup of your load order.</p>
+
+<p>In Skyrim, the load order of active plugins is stored in <code>%LOCALAPPDATA%\&lt;game&gt;\plugins.txt</code>, and modding utilities generally use <code>%LOCALAPPDATA%\&lt;game&gt;\loadorder.txt</code> to store the load order of all plugins. This makes backing up your load order as easy as making copies of those two files.</p>
+
+<p>In Fallout 4, the load order is stored in <code>%LOCALAPPDATA%\&lt;game&gt;\plugins.txt</code>, and active plugins are prefixed by a <code>*</code>, so you only need to make a copy of that file to back up your load order.</p>
