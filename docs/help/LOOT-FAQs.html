@@ -29,8 +29,8 @@ title: FAQs
 <h4>Common Issues</h4>
 
 <ol start="11">
+  <li><a href="#mo">I'm running LOOT through Mod Organiser and it's not working. What should I do?</li>
   <li><a href="#git-errors">I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?</a></li>
-  <li><a href="#blank-window">LOOT's window is blank when I'm starting it through Mod Organizer. What's up?</a></li>
   <li><a href="#no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</a></li>
   <li><a href="#game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</a></li>
   <li><a href="#line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</a></li>
@@ -108,6 +108,12 @@ title: FAQs
 
 <h4>Common Issues</h4>
 
+<h5 id="mo">I'm running LOOT through Mod Organiser and it's not working. What should I do?</h5>
+
+<p>Running LOOT through Mod Organiser is unsupported. If you're experiencing an issue while running LOOT through Mod Organiser, try replicating the issue while running LOOT independently of Mod Organiser. If the issue persists, please <a href="How-To-Report-Issues-Helpfully.html">report it</a>.</p>
+
+<p>Adding the <code>--single-process</code> argument to Mod Organiser's LOOT launching settings can avoid some issues, though doing so may have negative side effects.</p>
+
 <h5 id="git-errors">I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?</h5>
 
 <p>Try deleting the <code>.git</code> folder in <code>%LOCALAPPDATA%\LOOT\&lt;game folder&gt;\</code>. If that doesn't work, make sure any firewalls or security software you have installed aren't stopping LOOT from reaching the online masterlist.</p>
@@ -115,12 +121,6 @@ title: FAQs
 <p>Alternatively, your WinSock configuration may be corrupt: this can be fixed using the instructions <a href="https://support.microsoft.com/kb/817571">here</a> and <a href="https://support.microsoft.com/kb/318584">here</a>, or there's a fix-it utility <a href="http://h10025.www1.hp.com/ewfrf/wc/document?cc=uk&amp;lc=en&amp;docname=c01184567">here</a>.</p>
 
 <p>If LOOT still can't update its masterlist, you can update manually by downloading <a href="https://raw.githubusercontent.com/loot/skyrim/master/masterlist.yaml">this file</a> and placing it in the <code>%LOCALAPPDATA%\LOOT\Skyrim</code> folder. Replace Skyrim with <code>oblivion</code>, <code>fallout3</code>, <code>falloutnv</code> or <code>fallout4</code> as necessary, in the URL and the folder path.</p>
-
-<h5 id="blank-window">LOOT's window is blank when I'm starting it through Mod Organizer. What's up?</h5>
-
-<p>Mod Organizer 1.2.10 has a bug preventing LOOT 0.7.0 from working properly. This has been fixed in Mod Organizer 1.2.11, and later versions.</p>
-
-<p>Mod Organizer can also interfere with LOOT's startup, causing causes LOOT's window to be blank when started through Mod Organiser: this can be avoided by adding the <code>--single-process</code> argument to Mod Organiser's LOOT launching settings, though doing so may have negative side effects.</p>
 
 <h5 id="no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</h5>
 
