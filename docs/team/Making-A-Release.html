@@ -3,9 +3,7 @@ layout: page
 title: Making A Release
 ---
 
-<p>This page describes what needs to be done when releasing a new version of LOOT.</p>
-
-<h3>Preparation</h3>
+<h3>Prepare</h3>
 
 <ol>
   <li>Make sure that the release date and version history have been updated in the readme and <code>src/api/api.h</code>.</li>
@@ -19,12 +17,16 @@ title: Making A Release
   <li>Update the default masterlist branch settings for each game in <code>src/backend/game/game_settings.cpp</code> and add the old default branch to <code>LootSettings::oldDefaultBranches</code> in <code>src/backend/app/loot_settings.cpp</code>.</li>
 </ol>
 
-<h3>Release!</h3>
+<h3>Release</h3>
 
 <ol>
   <li>Tag the commit and push the tag to GitHub.</li>
   <li>Once AppVeyor's build has passed, update the GitHub Releases entry it created with the changelog for the new version.</li>
-  <li>Commit the release's documentation to an appropriate subfolder in the <code>docs</code> directory of LOOT's website repository, and update <code>docs/index.html</code> to list it.</li>
+</ol>
+
+<h3>Notify</h3>
+
+<ol>
   <li>Post an announcement in the official forum thread.</li>
   <li>Update the "update released" message version check in each masterlist's default branch.</li>
 </ol>
