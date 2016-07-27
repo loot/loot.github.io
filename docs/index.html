@@ -19,8 +19,8 @@ permalink: /docs/
   </select>
 </h3>
 <ul>
-  <li><a id="readmeLink" href="0.9.1/LOOT%20Readme.html">LOOT Readme</a></li>
-  <li><a id="syntaxLink" href="0.9.1/LOOT%20Metadata%20Syntax.html">LOOT Metadata Syntax</a></li>
+  <li><a id="readmeLink" href="">LOOT Readme</a></li>
+  <li><a id="syntaxLink" href="">LOOT Metadata Syntax</a></li>
 </ul>
 
 <h3>Help</h3>
@@ -33,9 +33,15 @@ permalink: /docs/
 {% include team_index.html %}
 
 <script>
+  function updateLinks(folder) {
+    document.getElementById('readmeLink').href = folder + '/LOOT%20Readme.html';
+    document.getElementById('syntaxLink').href = folder + '/LOOT%20Metadata%20Syntax.html';
+  }
+
   var select = document.getElementById('versionSelect');
   select.addEventListener('change', function(evt) {
-    document.getElementById('readmeLink').href = evt.target.value + '/LOOT%20Readme.html';
-    document.getElementById('syntaxLink').href = evt.target.value + '/LOOT%20Metadata%20Syntax.html';
+    updateLinks(evt.target.value);
   });
+
+  updateLinks(select.selectedOptions[0].value);
 </script>
