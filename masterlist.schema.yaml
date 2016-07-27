@@ -12,7 +12,7 @@ type: map
 mapping:
   'common':
     # This is not strictly part of the spec., see:
-    # https://github.com/loot/loot.github.io/wiki/Masterlist-Editing#common-metadata
+    # https://loot.github.io/docs/contributing/Masterlist-Editing.html
     type: seq
     sequence:
       - type: any
