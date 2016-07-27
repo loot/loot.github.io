@@ -16,7 +16,7 @@ title: Making A Release
 <ol>
   <li>For each masterlist, create a new version branch for that release.</li>
   <li>For each masterlist, set the default repository branch on GitHub to the new branch.</li>
-  <li>Update the default masterlist branch settings for each game, in <code>src/backend/game/game_settings.cpp</code> and <code>src/backend/app/loot_settings.cpp</code>.</li>
+  <li>Update the default masterlist branch settings for each game in <code>src/backend/game/game_settings.cpp</code> and add the old default branch to <code>LootSettings::oldDefaultBranches</code> in <code>src/backend/app/loot_settings.cpp</code>.</li>
 </ol>
 
 <h3>Release!</h3>
