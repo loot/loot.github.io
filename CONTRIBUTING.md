@@ -5,7 +5,7 @@ Contributing To LOOT
 
 An issue should only be filed in the loot.github.io repository's issue tracker if it:
 
-* relates to the [loot.github.io](http://loot.github.io) website.
+* relates to the [loot.github.io](https://loot.github.io) website.
 * is an issue affecting several masterlists.
 * affects the LOOT project or team as a whole.
 * is too general or vague to be filed in a more specific repository.
