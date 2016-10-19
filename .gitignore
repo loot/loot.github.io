@@ -1,10 +1,2 @@
 _site/
 .sass-cache/
-bower_components/*
-node_modules/
-
-# Don't ignore the Octokat file
-!/bower_components/octokat/
-/bower_components/octokat/*
-!/bower_components/octokat/dist/
-Gemfile.lock

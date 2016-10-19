@@ -3,8 +3,6 @@
 // Globals
 ///////////////////
 
-var github = new Octokat();
-
 var repos = [
     [ "Oblivion", "oblivion" ],
     [ "Skyrim", "skyrim" ],
@@ -31,14 +29,8 @@ function isRegexEntry(name) {
     }
 }
 
-function readMasterlist(err, data) {
-    if (err) {
-        console.log(err);
-        document.getElementById('progress').classList.add('hidden');
-        return;
-    }
-
-    var masterlist = jsyaml.safeLoad(data);
+function readMasterlist(response) {
+    var masterlist = jsyaml.safeLoad(response.data);
     document.getElementById('progress').classList.add('hidden');
 
     /* Do search here. */
@@ -74,8 +66,6 @@ function readMasterlist(err, data) {
 }
 
 function onSearchInit(evt) {
-    github.repos('loot', gameButton.getAttribute('data-selected')).contents('masterlist.yaml').read(readMasterlist);
-
     /* Clear any previous search results. */
     while (resultsDiv.children.length > 0) {
         resultsDiv.removeChild(resultsDiv.firstElementChild);
@@ -83,6 +73,14 @@ function onSearchInit(evt) {
 
     console.log("Loading masterlist...");
     progress.classList.remove('hidden');
+
+    var repo = (new GitHub())
+        .getRepo('loot', gameButton.getAttribute('data-selected'))
+        .getContents(undefined, 'masterlist.yaml', true)
+        .then(readMasterlist)
+        .catch(function() {
+            document.getElementById('progress').classList.add('hidden');
+        });
 }
 
 function onGameSelect(evt) {

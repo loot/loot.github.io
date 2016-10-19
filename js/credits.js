@@ -1,7 +1,5 @@
 'use strict';
 
-var github = new Octokat();
-
 var numRepos = 0;
 var numProcessedRepos = 0;
 var contributors = [];
@@ -59,32 +57,27 @@ function getContributor(name) {
     return -1;
 }
 
-function storeRepositoryContributors(err, persons) {
-    if (err) {
-        console.log(err);
-        return;
-    }
-
-    for (var i = 0; i < persons.length; ++i) {
-        var person = {
-            contributions: persons[i].contributions
-        };
-        if (persons[i].type == 'Anonymous') {
+function storeRepositoryContributors(response) {
+    response.data.forEach(function(contributor) {
+        var stats = {
+            contributions: contributor.total
+        }
+        if (contributor.author.type == 'Anonymous') {
             // Doesn't have a GitHub account. Leave avatar URL undefined.
-            person.name = persons[i].name;
-            person.html_url = 'mailto:' + persons[i].email;
+            stats.name = contributor.author.name;
+            stats.html_url = 'mailto:' + contributor.author.email;
         } else {
-            person.name = persons[i].login;
-            person.avatar_url = persons[i].avatar.url;
-            person.html_url = persons[i].html.url;
+            stats.name = contributor.author.login;
+            stats.avatar_url = contributor.author.avatar_url;
+            stats.html_url = contributor.author.html_url;
         }
-        var j = getContributor(person.name);
+        var j = getContributor(stats.name);
         if (j === -1) {
-            contributors.push(person);
+            contributors.push(stats);
         } else {
-            contributors[j].contributions += person.contributions;
+            contributors[j].contributions += stats.contributions;
         }
-    }
+    });
     numProcessedRepos += 1;
 
     if (numProcessedRepos === numRepos) {
@@ -97,20 +90,18 @@ function storeRepositoryContributors(err, persons) {
     }
 }
 
-function getRepositoriesContributors(err, repos) {
-    if (err) {
-        console.log(err);
-        return;
-    }
+function getContributors(response) {
+    numRepos = 0;
 
-    // Record number of repositories.
-    numRepos = repos.length;
-
-    for (var i = 0; i < repos.length; ++i) {
-        github.repos('loot', repos[i].name).contributors.fetch({anon: true},
-            storeRepositoryContributors);
-    }
+    var github = new GitHub({token: '711e78a5aa9dbb24b57963e98ec0fdf15a415dc5'});
+    response.data.filter(function(repo) {
+        return !repo.fork;
+    }).forEach(function(repo) {
+        github.getRepo('loot', repo.name)
+            .getContributors().then(storeRepositoryContributors);
+        numRepos += 1;
+    });
 }
 
 // Now fetch the organisation repositories.
-github.orgs('loot').repos.fetch({type: 'sources'}, getRepositoriesContributors);
+(new GitHub({token: '711e78a5aa9dbb24b57963e98ec0fdf15a415dc5'})).getOrganization('loot').getRepos().then(getContributors);
