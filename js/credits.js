@@ -93,7 +93,7 @@ function storeRepositoryContributors(response) {
 function getContributors(response) {
     numRepos = 0;
 
-    var github = new GitHub({token: '711e78a5aa9dbb24b57963e98ec0fdf15a415dc5'});
+    var github = new GitHub();
     response.data.filter(function(repo) {
         return !repo.fork;
     }).forEach(function(repo) {
@@ -104,4 +104,4 @@ function getContributors(response) {
 }
 
 // Now fetch the organisation repositories.
-(new GitHub({token: '711e78a5aa9dbb24b57963e98ec0fdf15a415dc5'})).getOrganization('loot').getRepos().then(getContributors);
+(new GitHub()).getOrganization('loot').getRepos().then(getContributors);
