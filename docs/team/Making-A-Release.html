@@ -6,14 +6,13 @@ title: Making A Release
 <h3>Prepare</h3>
 
 <ol>
-  <li>Update the version numbers in <code>scripts/git/pre-commit</code>, <code>src/backend/app/loot_version.cpp.in</code>, <code>src/resource.rc</code> and <code>scripts/installer.iss</code>.</li>
+  <li>Update the version numbers by running <code>node scripts/set_version_number.js &lt;version&gt;</code>.</li>
   <li>Make sure that the version histories in <code>docs/api/changelog.rst</code>, <code>docs/app/changelog.rst</code> and <code>docs/metadata/changelog.rst</code> have the correct changelogs for the new release and that its release date is set.
 </ol>
 
 <p>If the new release makes metadata syntax changes:</p>
 <ol>
-  <li>For each masterlist, create a new version branch for that release.</li>
-  <li>For each masterlist, set the default repository branch on GitHub to the new branch.</li>
+  <li>Run <a href="https://github.com/loot/lomad">lomad</a> using <code>lomad -t &lt;github personal access token&gt; -a -b &lt;branch name&gt;</code> to (for all masterlists) create a branch for that release and make it the default.</li>
   <li>Update the default masterlist branch settings for each game in <code>src/backend/game/game_settings.cpp</code> and add the old default branch to <code>LootSettings::oldDefaultBranches</code> in <code>src/backend/app/loot_settings.cpp</code>.</li>
 </ol>
 
@@ -28,5 +27,5 @@ title: Making A Release
 
 <ol>
   <li>Post an announcement in the official forum thread.</li>
-  <li>Update the "update released" message version check in each masterlist's default branch.</li>
+  <li>Update the release notification message for all masterlists using <code>lomad -t &lt;github personal access token&gt; -a -n &lt;new version&gt;</code>.</li>
 </ol>
