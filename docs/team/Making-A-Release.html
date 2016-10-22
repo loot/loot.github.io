@@ -12,8 +12,8 @@ title: Making A Release
 
 <p>If the new release makes metadata syntax changes:</p>
 <ol>
-  <li>Run <a href="https://github.com/loot/lomad">lomad</a> using <code>lomad -t &lt;github personal access token&gt; -a -b &lt;branch name&gt;</code> to (for all masterlists) create a branch for that release and make it the default.</li>
-  <li>Update the default masterlist branch settings for each game in <code>src/backend/game/game_settings.cpp</code> and add the old default branch to <code>LootSettings::oldDefaultBranches</code> in <code>src/backend/app/loot_settings.cpp</code>.</li>
+  <li>Run <a href="https://github.com/loot/lomad">lomad</a> using <code>lomad -t &lt;github personal access token&gt; -a -b &lt;branch name&gt;</code> to (for all masterlists) create a branch for that release.</li>
+  <li>Update the default masterlist branch value and add the old value to <code>GameSettings::oldDefaultBranches</code> in <code>src/backend/game/game_settings.cpp</code>.</li>
 </ol>
 
 <h3>Release</h3>
@@ -27,5 +27,5 @@ title: Making A Release
 
 <ol>
   <li>Post an announcement in the official forum thread.</li>
-  <li>Update the release notification message for all masterlists using <code>lomad -t &lt;github personal access token&gt; -a -n &lt;new version&gt;</code>.</li>
+  <li>Update the default branch and its release notification message for all masterlists using <code>lomad -t &lt;github personal access token&gt; -a -d &lt;branch name&gt; -n &lt;new version&gt;</code>.</li>
 </ol>
