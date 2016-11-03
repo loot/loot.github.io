@@ -21,11 +21,9 @@ title: Making A Release
 <ol>
   <li>Tag the commit and push the tag to GitHub.</li>
   <li>Once AppVeyor's build has passed, update the GitHub Releases entry it created with the changelog for the new version.</li>
+  <li>Update the default branch for all masterlists using <code>lomad -t &lt;github personal access token&gt; -a -d &lt;branch name&gt;</code>.</li>
 </ol>
 
-<h3>Notify</h3>
+<h3>Port Metadata</h3>
 
-<ol>
-  <li>Post an announcement in the official forum thread.</li>
-  <li>Update the default branch and its release notification message for all masterlists using <code>lomad -t &lt;github personal access token&gt; -a -d &lt;branch name&gt; -n &lt;new version&gt;</code>.</li>
-</ol>
+<p>Be sure to merge post-branching metadata changes that were made in the masterlists' old default branches into the new default branches.</p>
