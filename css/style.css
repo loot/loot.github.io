@@ -134,8 +134,7 @@ h5 {
 /* Position readme version selector */
 #versionSelect {
   position: relative;
-  top: -2px;
-  left: 30px;
+  left: 5px;
 }
 
 /* Improve code styling. */
