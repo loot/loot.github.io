@@ -9,6 +9,7 @@ var repos = [
     [ "Fallout 3", "fallout3" ],
     [ "Fallout: New Vegas", "falloutnv" ],
     [ "Fallout 4", "fallout4" ]
+    [ "Skyrim SE", "skyrimse" ],
 ]
 
 var repoBranch = 'master';  //The repository branch to search.
@@ -119,6 +120,10 @@ if (pos != -1) {
         gameButton.setAttribute('data-selected', repos[2][1]);
     } else if (game == "falloutnv") {
         gameButton.setAttribute('data-selected', repos[3][1]);
+    } else if (game == "fallout4") {
+        gameButton.setAttribute('data-selected', repos[4][1]);
+    } else if (game == "skyrimse") {
+        gameButton.setAttribute('data-selected', repos[5][1]);
     } else {
         gameButton.setAttribute('data-selected', repos[0][1]);
     }
