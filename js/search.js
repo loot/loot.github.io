@@ -89,6 +89,47 @@ function onGameSelect(evt) {
     gameButton.setAttribute('data-selected', evt.target.getAttribute('data-game'));
 }
 
+function getGameName(gameMasterlistRepo) {
+    const repo = repos.find((repo) => repo[1] === gameMasterlistRepo);
+    if (repo === undefined) {
+        return repo;
+    }
+    return repo[0];
+}
+
+function getURLParameters() {
+    if (window.location.search.length === 0) {
+        return undefined;
+    }
+
+    const search = window.location.search.toLowerCase().split('&');
+
+    if (search.length !== 2) {
+        return undefined;
+    }
+
+    /* Remove the ? prefix */
+    search[0] = search[0].substring(1);
+
+    let parameters = {};
+    search.forEach((parameter) => {
+        if (parameter.startsWith('game=')) {
+            parameters.repo = decodeURIComponent(parameter.substring(5));
+            parameters.game = getGameName(parameters.repo);
+        } else if (parameter.startsWith('search=')) {
+            parameters.search = decodeURIComponent(parameter.substring(7));
+        }
+    });
+
+    if (parameters.search === undefined
+        || parameters.repo === undefined
+        || parameters.game === undefined) {
+        return undefined;
+    }
+
+    return parameters;
+}
+
 // Startup Code
 ///////////////////
 
@@ -107,26 +148,11 @@ searchButton.addEventListener("click", onSearchInit, false);
 searchBox.addEventListener('change', onSearchInit, false);
 
 /* If the page was loaded with a PHP-style GET string `?game=<game>&search=<search>`, read it for the search term and perform a search. */
-var pos = document.URL.indexOf("?game=");
-if (pos != -1) {
-    var pos2 = document.URL.indexOf("&search=");
-    searchBox.value = decodeURIComponent(document.URL.substring(pos2+8));
-    var game = decodeURIComponent(document.URL.substring(pos+6, pos2).toLowerCase());
-    if (game == "oblivion") {
-        gameButton.setAttribute('data-selected', repos[0][1]);
-    } else if (game == "skyrim") {
-        gameButton.setAttribute('data-selected', repos[1][1]);
-    } else if (game == "fallout3") {
-        gameButton.setAttribute('data-selected', repos[2][1]);
-    } else if (game == "falloutnv") {
-        gameButton.setAttribute('data-selected', repos[3][1]);
-    } else if (game == "fallout4") {
-        gameButton.setAttribute('data-selected', repos[4][1]);
-    } else if (game == "skyrimse") {
-        gameButton.setAttribute('data-selected', repos[5][1]);
-    } else {
-        gameButton.setAttribute('data-selected', repos[0][1]);
-    }
+const parameters = getURLParameters();
+if (parameters) {
+    searchBox.value = parameters.search;
+    gameButton.setAttribute('data-selected', parameters.repo);
+    gameButton.textContent = parameters.game;
 
     searchButton.click();
 } else {
