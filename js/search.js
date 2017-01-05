@@ -8,7 +8,7 @@ var repos = [
     [ "Skyrim", "skyrim" ],
     [ "Fallout 3", "fallout3" ],
     [ "Fallout: New Vegas", "falloutnv" ],
-    [ "Fallout 4", "fallout4" ]
+    [ "Fallout 4", "fallout4" ],
     [ "Skyrim SE", "skyrimse" ],
 ]
 
