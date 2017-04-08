@@ -160,3 +160,8 @@ code:not(.loot-search-result) {
 h3:first-child {
   margin-top: 0;
 }
+
+/* Space out definition list items. */
+dt:not(:first-child) {
+  margin-top: 16px;
+}
