@@ -71,6 +71,7 @@ nav > .divider {
     margin: 4px;
     background: white;
     color: inherit;
+    white-space: nowrap;
 }
 .loot-contributor__avatar,
 .loot-contributor__text {
@@ -88,6 +89,13 @@ nav > .divider {
     font-size: 40px;
     text-align: center;
     color: rgba(0, 0, 0, 0.54);
+}
+.loot-contributor__text {
+    width: calc(100% - 56px);
+}
+.loot-contributor__name {
+    overflow: hidden;
+    text-overflow: ellipses;
 }
 .loot-contributor__contributions {
     font-size: 0.857rem;
