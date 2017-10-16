@@ -24,6 +24,7 @@ title: FAQs
   <li><a href="#different-load-order">OK, but I still have specific reasons to have in my game a different load order than the one LOOT proposes. What do I do?</a></li>
   <li><a href="#obsolete-versions">I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?</a></li>
   <li><a href="#sorting-no-changes">I get a "Sorting made no changes to the load order." message when trying to sort my load order. Is this a problem?</a></li>
+  <li><a href="#cef-extensions-error">LOOT has a "Could not load cef_extensions.pak" error in its <code>CEFDebugLog.txt</code>. Is this a problem?</a></li>
 </ol>
 
 <h4>Common Issues</h4>
@@ -105,6 +106,9 @@ title: FAQs
 
   <dt id="sorting-no-changes">I get a "Sorting made no changes to the load order." message when trying to sort my load order. Is this a problem?</dt>
   <dd>No, it just means that the load order LOOT calculated is exactly the same as your current load order, so you don't need to apply or cancel it.</dd>
+  
+  <dt id="cef-extensions-error">LOOT has a "Could not load cef_extensions.pak" error in its <code>CEFDebugLog.txt</code>. Is this a problem?</dt>
+  <dd>No, <code>cef_extensions.pak</code> is unnecessary and LOOT doesn't ship with it, but there's no way to turn off its loading, so that error is always logged.</dd>
 </dl>
 
 <h3>Common Issues</h3>
