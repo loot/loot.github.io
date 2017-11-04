@@ -173,3 +173,14 @@ h3:first-child {
 dt:not(:first-child) {
   margin-top: 16px;
 }
+
+/* Convert settings page styling. */
+section {
+    display: inline-block;
+    width: 45%;
+    padding: 8px;
+}
+#input, #output {
+    width: 100%;
+    min-height: 400px;
+}
