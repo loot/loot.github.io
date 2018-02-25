@@ -37,6 +37,7 @@ title: FAQs
   <li><a href="#game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</a></li>
   <li><a href="#line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</a></li>
   <li><a href="#proxy">I'm using a proxy to connect to the Internet. How do I configure LOOT's masterlist updater to use it?</a></li>
+  <li><a href="#tls">I'm on Windows 7 and get an error whenever I try to update the masterlist. How do I fix this?</a></li>
 </ol>
 
 <h3>Moving From BOSS</h3>
@@ -163,5 +164,11 @@ title: FAQs
       <li>Click "OK", then "OK" in the Environmental Variables dialog.</li>
       <li>Relaunch LOOT.</li>
     </ol>
+  </dd>
+  
+  <dt id="tls">I'm on Windows 7 and get an error whenever I try to update the masterlist. How do I fix this?</dt>
+  <dd>
+    <p>This is an issue that affects many programs on Windows 7 because on the 22nd of February 2018, GitHub disabled support for connections using a version of TLS older than 1.2, and Windows 7 doesn't support TLS 1.2 by default.</p>
+    <p>Windows 7 users must ensure they have the latest Windows updates, and that they have <a href="https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-a-default-secure-protocols-in">enabled TLS 1.2 support</a>.</p>
   </dd>
 </dl>
