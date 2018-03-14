@@ -24,7 +24,6 @@ title: FAQs
   <li><a href="#different-load-order">OK, but I still have specific reasons to have in my game a different load order than the one LOOT proposes. What do I do?</a></li>
   <li><a href="#obsolete-versions">I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?</a></li>
   <li><a href="#sorting-no-changes">I get a "Sorting made no changes to the load order." message when trying to sort my load order. Is this a problem?</a></li>
-  <li><a href="#cef-extensions-error">LOOT has a "Could not load cef_extensions.pak" error in its <code>CEFDebugLog.txt</code>. Is this a problem?</a></li>
   <li><a href="#blocked-resource">LOOT has warnings starting "Blocking load of resource at https://fonts.googleapis.com/css" in its <code>LOOTDebugLog.txt</code>. Is this a problem?</a></li>
 </ol>
 
@@ -108,10 +107,7 @@ title: FAQs
 
   <dt id="sorting-no-changes">I get a "Sorting made no changes to the load order." message when trying to sort my load order. Is this a problem?</dt>
   <dd>No, it just means that the load order LOOT calculated is exactly the same as your current load order, so you don't need to apply or cancel it.</dd>
-  
-  <dt id="cef-extensions-error">LOOT has a "Could not load cef_extensions.pak" error in its <code>CEFDebugLog.txt</code>. Is this a problem?</dt>
-  <dd>No, <code>cef_extensions.pak</code> is unnecessary and LOOT doesn't ship with it, but there's no way to turn off its loading, so that error is always logged.</dd>
-  
+
   <dt id="blocked-resource">LOOT has warnings starting "Blocking load of resource at https://fonts.googleapis.com/css" in its <code>LOOTDebugLog.txt</code>. Is this a problem?</dt>
   <dd>No, LOOT blocks loading URLs it doesn't recognise for safety. The <code>https://fonts.googleapis.com</code> URLs are used by some of LOOT's UI components to get the fonts they use, but this is unnecessary as LOOT already includes copies of the font files.</dd>
 </dl>
@@ -134,7 +130,7 @@ title: FAQs
 
     <p>Alternatively, your WinSock configuration may be corrupt: this can be fixed using the instructions <a href="https://support.microsoft.com/kb/817571">here</a> and <a href="https://support.microsoft.com/kb/318584">here</a>, or there's a fix-it utility <a href="http://h10025.www1.hp.com/ewfrf/wc/document?cc=uk&amp;lc=en&amp;docname=c01184567">here</a>.</p>
 
-    <p>If LOOT still can't update its masterlist, you can update manually by downloading <a href="https://raw.githubusercontent.com/loot/skyrim/master/masterlist.yaml">this file</a> and placing it in the <code>%LOCALAPPDATA%\LOOT\Skyrim</code> folder. Replace Skyrim with <code>oblivion</code>, <code>fallout3</code>, <code>falloutnv</code> or <code>fallout4</code> as necessary, in the URL and the folder path.</p>
+    <p>If LOOT still can't update its masterlist, you can update manually by downloading <a href="https://raw.githubusercontent.com/loot/skyrim/v0.10/masterlist.yaml">this file</a> and placing it in the <code>%LOCALAPPDATA%\LOOT\Skyrim</code> folder. Replace Skyrim with <code>oblivion</code>, <code>fallout3</code>, <code>falloutnv</code> or <code>fallout4</code> as necessary, in the URL and the folder path.</p>
   </dd>
 
   <dt id="no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</dt>
