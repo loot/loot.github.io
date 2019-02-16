@@ -10,6 +10,7 @@ var repos = [
     [ "Fallout: New Vegas", "falloutnv" ],
     [ "Fallout 4", "fallout4" ],
     [ "Skyrim SE", "skyrimse" ],
+    [ "Skyrim VR", "skyrimse" ],
 ]
 
 var repoBranch = 'master';  //The repository branch to search.
