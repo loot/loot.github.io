@@ -32,6 +32,7 @@ title: FAQs
 <ol start="11">
   <li><a href="#mo">I'm running LOOT through Mod Organiser and it's not working. What should I do?</li>
   <li><a href="#git-errors">I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?</a></li>
+  <li><a href="#blank-window">When I run LOOT it opens a blank white window. How do I fix this?</a></li>
   <li><a href="#no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</a></li>
   <li><a href="#game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</a></li>
   <li><a href="#line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</a></li>
@@ -96,10 +97,10 @@ title: FAQs
 
     <ul>
       <li>'Load After' entries can be used for pairs of specific plugins.</li>
-      <li>Priority values can be used when the plugin needs to load before or after many other plugins.</li>
+      <li>Plugin groups can be used when the plugin needs to load before or after many other plugins.</li>
     </ul>
 
-    <p>Be sure to read LOOT's readme for more information on these.</p>
+    <p>Be sure to read LOOT's <a href="https://loot.readthedocs.io/en/stable/index.html">documentation</a> for more information on these.</p>
   </dd>
 
   <dt id="obsolete-versions">I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?</dt>
@@ -133,6 +134,9 @@ title: FAQs
     <p>If LOOT still can't update its masterlist, you can update manually by downloading <a href="https://raw.githubusercontent.com/loot/skyrim/v0.10/masterlist.yaml">this file</a> and placing it in the <code>%LOCALAPPDATA%\LOOT\Skyrim</code> folder. Replace Skyrim with <code>oblivion</code>, <code>fallout3</code>, <code>falloutnv</code> or <code>fallout4</code> as necessary, in the URL and the folder path.</p>
   </dd>
 
+  <dt id="blank-window">When I run LOOT it opens a blank white window. How do I fix this?</dt>
+  <dd>Try running LOOT with the <code>--disable-gpu</code> parameter. It might reduce the responsiveness of the user interface slightly, but it should also avoid the issue.</dd>
+
   <dt id="no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</dt>
   <dd>As version numbers are supplied by mod authors in a wide range of formats and LOOT has to detect as many as possible, it occasionally identifies parts of some descriptions as version numbers incorrectly. Authors can also forget to update their plugins' version numbers. When in doubt, check the version number given in a mod's readme.</dd>
 
@@ -161,7 +165,7 @@ title: FAQs
       <li>Relaunch LOOT.</li>
     </ol>
   </dd>
-  
+
   <dt id="tls">I'm on Windows 7 and get an error whenever I try to update the masterlist. How do I fix this?</dt>
   <dd>
     <p>This is an issue that affects many programs on Windows 7 because on the 22nd of February 2018, GitHub disabled support for connections using a version of TLS older than 1.2, and Windows 7 doesn't support TLS 1.2 by default.</p>

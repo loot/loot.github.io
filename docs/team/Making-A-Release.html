@@ -3,26 +3,44 @@ layout: page
 title: Making A Release
 ---
 
-<h3>Prepare</h3>
+<h3>Releasing libloot</h3>
+
+<h4>Prepare</h4>
+
+<ol>
+  <li>Update the version numbers by running <code>python scripts/set_version_number.py &lt;version&gt;</code>.</li>
+  <li>Make sure that the version histories in <code>docs/api/changelog.rst</code> and <code>docs/metadata/changelog.rst</code> are up to date for the new release and that its release date is set.
+</ol>
+
+<h4>Release</h4>
+
+<ol>
+  <li>Tag the commit and push the tag to GitHub.</li>
+  <li>Activate the tag's documentation version <a href="https://readthedocs.org/dashboard/loot-api/versions/">on Read The Docs</a>.
+</ol>
+
+<h3>Releasing LOOT</h3>
+
+<h4>Prepare</h4>
 
 <ol>
   <li>Update the version numbers by running <code>node scripts/set_version_number.js &lt;version&gt;</code>.</li>
-  <li>Make sure that the version histories in <code>docs/api/changelog.rst</code>, <code>docs/app/changelog.rst</code> and <code>docs/metadata/changelog.rst</code> have the correct changelogs for the new release and that its release date is set.
+  <li>Make sure that the version history in <code>docs/api/changelog.rst</code> is up to date for the new release and that its release date is set.
 </ol>
 
 <p>If the new release makes metadata syntax changes:</p>
 <ol>
   <li>Run <a href="https://github.com/loot/lomad">lomad</a> using <code>lomad -t &lt;github personal access token&gt; -a -b &lt;branch name&gt;</code> to (for all masterlists) create a branch for that release.</li>
-  <li>Update the default masterlist branch value and add the old value to <code>GameSettings::oldDefaultBranches</code> in <code>src/backend/game/game_settings.cpp</code>.</li>
+  <li>Update the default masterlist branch value and add the old value to <code>GameSettings::oldDefaultBranches</code> in <code>src/gui/state/game/game_settings.cpp</code>.</li>
 </ol>
 
-<h3>Release</h3>
+<h4>Release</h4>
 
 <ol>
   <li>Tag the commit and push the tag to GitHub.</li>
   <li>Activate the tag's documentation version <a href="https://readthedocs.org/dashboard/loot/versions/">on Read The Docs</a>.
 </ol>
 
-<h3>Port Metadata</h3>
+<h4>Port Metadata</h4>
 
 <p>Be sure to merge post-branching metadata changes that were made in the masterlists' old default branches into the new default branches.</p>
