@@ -129,9 +129,7 @@ title: FAQs
   <dd>
     <p>Try deleting the <code>.git</code> folder in <code>%LOCALAPPDATA%\LOOT\&lt;game folder&gt;\</code>. If that doesn't work, make sure any firewalls or security software you have installed aren't stopping LOOT from reaching the online masterlist.</p>
 
-    <p>Alternatively, your WinSock configuration may be corrupt: this can be fixed using the instructions <a href="https://support.microsoft.com/kb/817571">here</a> and <a href="https://support.microsoft.com/kb/318584">here</a>, or there's a fix-it utility <a href="http://h10025.www1.hp.com/ewfrf/wc/document?cc=uk&amp;lc=en&amp;docname=c01184567">here</a>.</p>
-
-    <p>If LOOT still can't update its masterlist, you can update manually by downloading <a href="https://raw.githubusercontent.com/loot/skyrim/v0.10/masterlist.yaml">this file</a> and placing it in the <code>%LOCALAPPDATA%\LOOT\Skyrim</code> folder. Replace Skyrim with <code>oblivion</code>, <code>fallout3</code>, <code>falloutnv</code> or <code>fallout4</code> as necessary, in the URL and the folder path.</p>
+    <p>If LOOT still can't update its masterlist, you can update manually by downloading <a href="https://raw.githubusercontent.com/loot/skyrim/v0.15/masterlist.yaml">this file</a> and placing it in the <code>%LOCALAPPDATA%\LOOT\Skyrim</code> folder. Replace <code>skyrim</code> with <code>morrowind</code>, <code>oblivion</code>, <code>fallout3</code>, <code>falloutnv</code>, <code>fallout4</code> or <code>skyrimse</code> as necessary in the URL and the folder path.</p>
   </dd>
 
   <dt id="blank-window">When I run LOOT it opens a blank white window. How do I fix this?</dt>
@@ -143,7 +141,7 @@ title: FAQs
   <dt id="game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</dt>
   <dd>
     <p>Steam removes the game's Registry entry when the game is updated or its cache is verified. Run the game's launcher to add the Registry entry back again. LOOT will then be able to detect the game.</p>
-    <p>Another cause may be that the game is installed in a location where you does not have read permissions, in which case LOOT cannot read your plugins, and so treats the game as undetected. Try checking the game path's permissions, and ensuring you have read access.</p>
+    <p>Another cause may be that the game is installed in a location where you do not have read permissions. In this case, LOOT cannot read your plugins and treats the game as undetected. Try checking the permissions of the game's path and ensuring you have read access.</p>
   </dd>
 
   <dt id="line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</dt>
