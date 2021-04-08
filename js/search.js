@@ -4,13 +4,16 @@
 ///////////////////
 
 var repos = [
+    [ "Morrowind", "morrowind" ],
     [ "Oblivion", "oblivion" ],
+    [ "Nehrim", "oblivion" ],
     [ "Skyrim", "skyrim" ],
+    [ "Skyrim SE", "skyrimse" ],
+    [ "Skyrim VR", "skyrimse" ],
     [ "Fallout 3", "fallout3" ],
     [ "Fallout: New Vegas", "falloutnv" ],
     [ "Fallout 4", "fallout4" ],
-    [ "Skyrim SE", "skyrimse" ],
-    [ "Skyrim VR", "skyrimse" ],
+    [ "Fallout 4 VR", "fallout4" ],
 ]
 
 var repoBranch = 'master';  //The repository branch to search.
