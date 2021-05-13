@@ -37,6 +37,7 @@ title: Masterlist Editing
 <p>The above points are illustrated in the following example.</p>
 
 <pre><code>name: 'Oscuro''s_Oblivion_Overhaul.esm'
+url: [ 'https://www.nexusmods.com/oblivion/mods/15256' ]
 req:
   - name: 'example.esp'
     display: '[Example Mod](https://www.example.com)'
@@ -53,10 +54,9 @@ tag:
 msg:
   - type: say
     content: 'Do not clean. "Dirty" edits are intentional and required for the mod to function.'
-    lang: eng
-url: [ 'https://www.nexusmods.com/oblivion/mods/15256' ]</code></pre>
+    lang: eng</code></pre>
 
-<pre><code>{name: Oscuro's_Oblivion_Overhaul.esm, req: [{ name: example.esp, display: '[Example Mod](https://www.example.com)', condition: 'version("Oscuro''s_Oblivion_Overhaul.esm", "15.0", ==)' }], tag: [ Actors.Spells, Graphics, Invent, Relations, Scripts, Stats, { name: -Relations, condition: file("Mart's Monster Mod for OOO.esm") or file("FCOM_Convergence.esm") }], msg: [{ type: say, content: Do not clean. "Dirty" edits are intentional and required for the mod to function., lang: eng }], url: [ https://www.nexusmods.com/oblivion/mods/15256 ]}</code></pre>
+<pre><code>{name: Oscuro's_Oblivion_Overhaul.esm, url: [ https://www.nexusmods.com/oblivion/mods/15256 ], req: [{ name: example.esp, display: '[Example Mod](https://www.example.com)', condition: 'version("Oscuro''s_Oblivion_Overhaul.esm", "15.0", ==)' }], tag: [ Actors.Spells, Graphics, Invent, Relations, Scripts, Stats, { name: -Relations, condition: file("Mart's Monster Mod for OOO.esm") or file("FCOM_Convergence.esm") }], msg: [{ type: say, content: Do not clean. "Dirty" edits are intentional and required for the mod to function., lang: eng }]}</code></pre>
 
 <p>Although both are valid YAML, the first is using the correct style, and the second is not.</p>
 
