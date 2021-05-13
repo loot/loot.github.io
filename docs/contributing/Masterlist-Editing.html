@@ -51,7 +51,7 @@ msg:
       - lang: en
         text: 'This is an "Example".'</code></pre>
 
-<pre><code>{name: Oscuro's_Oblivion_Overhaul.esm, url: [ https://www.nexusmods.com/oblivion/mods/15256 ], req: [{ name: example.esp, display: '[Example Mod](https://www.example.com)', condition: 'version("Oscuro''s_Oblivion_Overhaul.esm", "15.0", ==)' }], tag: [ Actors.Spells, Graphics, Invent, Relations, Scripts, Stats, { name: -Relations, condition: file("Mart's Monster Mod for OOO.esm") or file("FCOM_Convergence.esm") }], msg: [{ type: say, content: Do not clean. "Dirty" edits are intentional and required for the mod to function., lang: eng }]}</code></pre>
+<pre><code>  - {name: Oscuro's_Oblivion_Overhaul.esm, url: [ https://www.nexusmods.com/oblivion/mods/15256 ], req: [{ name: example.esp, display: '[Example Mod](https://www.example.com)', condition: 'version("Oscuro''s_Oblivion_Overhaul.esm", "15.0", ==)' }], tag: [{ name: -Relations, condition: file("Mart''s Monster Mod for OOO.esm") or file("FCOM_Convergence.esm") }], msg: [{ type: say, content: [{ lang: en, text: This is an "Example".}, {lang: de, text: Dies ist ein "Beispiel".}]}] }</code></pre>
 
 <p>Although both are valid YAML, the first is using the correct style, and the second is not.</p>
 
