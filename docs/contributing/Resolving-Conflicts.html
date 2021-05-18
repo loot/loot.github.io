@@ -3,7 +3,7 @@ layout: page
 title: Resolving Conflicts
 ---
 
-<p>This is where GitHub Desktop falls short - to resolve conflicts, you're probably going to have to use the command line shell at some point. <a href="http://git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project#Private-Small-Team">This page</a> discusses the issue well, but is aimed at people who don't use a GUI client at all. It's still worth a read to get an understanding of the issues, and its diagrams are very good.</p>
+<p>This is where GitHub Desktop falls short - to resolve conflicts, you're probably going to have to use the command line shell at some point. <a href="https://git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project#Private-Small-Team">This page</a> discusses the issue well, but is aimed at people who don't use a GUI client at all. It's still worth a read to get an understanding of the issues, and its diagrams are very good.</p>
 
 <p>Below is some guidance for resolving conflicts using GitHub Desktop and the shell where necessary.</p>
 
@@ -13,7 +13,7 @@ title: Resolving Conflicts
 
 <p>First of all, enter <code>git status</code>. This will show you the current status of your local repository. Since you're trying to fix the sync error, you'll see some info about how you're currently 'rebasing' the 'master' branch. The "unmerged paths" list will show you the file(s) that need to be merged manually.</p>
 
-<p>Open the file(s) that need to be merged in your favorite text editor. You will see that it's a mix of your revision and the latest online revision, with lines starting with <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>, <code>=======</code> and <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> separating them. The example after the second paragraph <a href="http://git-scm.com/docs/git-merge#_how_conflicts_are_presented">here</a> may make their meaning clearer, but basically the <code>=======</code> separates the local and online versions of some text, the stuff between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> is your version of some text, and the stuff between <code>=======</code> and <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> is the online version of some text.</p>
+<p>Open the file(s) that need to be merged in your favorite text editor. You will see that it's a mix of your revision and the latest online revision, with lines starting with <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>, <code>=======</code> and <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> separating them. The example after the second paragraph <a href="https://git-scm.com/docs/git-merge#_how_conflicts_are_presented">here</a> may make their meaning clearer, but basically the <code>=======</code> separates the local and online versions of some text, the stuff between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> is your version of some text, and the stuff between <code>=======</code> and <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> is the online version of some text.</p>
 
 <p>Edit the file, picking and choosing the bits that should stay (you may need to combine them or move them around if a lot of changes were made), and once you're done save your changes. There should now be no lines beginning <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>, <code>=======</code> or <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> left.</p>
 
