@@ -28,10 +28,8 @@ var resultsDiv = document.getElementById('results');
 ///////////////////
 
 function isRegexEntry(name) {
-    var end = name.substring(name.length - 5).toLowerCase();
-    if (end == '\\.esp' || end == '\\.esm') {
-        return true;
-    }
+    const regChars = [':', '\\', '*', '?', '|'];
+    return regChars.some(regChar => name.includes(regChar));
 }
 
 function readMasterlist(response) {
