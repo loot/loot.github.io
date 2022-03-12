@@ -24,21 +24,20 @@ title: FAQs
   <li><a href="#different-load-order">OK, but I still have specific reasons to have in my game a different load order than the one LOOT proposes. What do I do?</a></li>
   <li><a href="#obsolete-versions">I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?</a></li>
   <li><a href="#sorting-no-changes">I get a "Sorting made no changes to the load order." message when trying to sort my load order. Is this a problem?</a></li>
-  <li><a href="#blocked-resource">LOOT has warnings starting "Blocking load of resource at https://fonts.googleapis.com/css" in its <code>LOOTDebugLog.txt</code>. Is this a problem?</a></li>
+  <li><a href="#stylesheet-failure">LOOT has warnings starting "Unable to set stylesheet" and "Failed to find the style sheet in the filesystem" in its <code>LOOTDebugLog.txt</code>. Is this a problem?</a></li>
 </ol>
 
 <h4>Common Issues</h4>
 
 <ol start="13">
   <li><a href="#mo">I'm running LOOT through Mod Organiser and it's not working. What should I do?</a></li>
-  <li><a href="#git-errors">I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?</a></li>
-  <li><a href="#blank-window">When I run LOOT it opens a blank white window. How do I fix this?</a></li>
+  <li><a href="#update-masterlist-errors">I'm getting errors when LOOT tries to update its masterlist. How do I fix this?</a></li>
   <li><a href="#no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</a></li>
   <li><a href="#game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</a></li>
   <li><a href="#line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</a></li>
   <li><a href="#proxy">I'm using a proxy to connect to the Internet. How do I configure LOOT's masterlist updater to use it?</a></li>
-  <li><a href="#tls">I'm on Windows 7 and get an error whenever I try to update the masterlist. How do I fix this?</a></li>
   <li><a href="#antivirus">My antivirus software detects LOOT as malware. What should I do?</a></li>
+  <li><a href="#tls-failure">I'm getting a "TLS initialization failed" error. How do I fix this?</a></li>
 </ol>
 
 <h3>Moving From BOSS</h3>
@@ -110,8 +109,8 @@ title: FAQs
   <dt id="sorting-no-changes">I get a "Sorting made no changes to the load order." message when trying to sort my load order. Is this a problem?</dt>
   <dd>No, it just means that the load order LOOT calculated is exactly the same as your current load order, so you don't need to apply or cancel it.</dd>
 
-  <dt id="blocked-resource">LOOT has warnings starting "Blocking load of resource at https://fonts.googleapis.com/css" in its <code>LOOTDebugLog.txt</code>. Is this a problem?</dt>
-  <dd>No, LOOT blocks loading URLs it doesn't recognise for safety. The <code>https://fonts.googleapis.com</code> URLs are used by some of LOOT's UI components to get the fonts they use, but this is unnecessary as LOOT already includes copies of the font files.</dd>
+  <dt id="stylesheet-failure">LOOT has warnings starting with "Unable to set stylesheet" and "Failed to find the style sheet in the filesystem" in its <code>LOOTDebugLog.txt</code>. Is this a problem?</dt>
+  <dd>Not if the warnings are for the bundled default and dark themes. This is part of LOOT's custom themes support: the first place it looks for themes is in the themes directory, but because the bundled themes are included inside the application itself, they aren't found there and so the warnings are expected. If you're seeing the warnings when trying to use a custom theme, that suggests the custom theme is not installed correctly.</dd>
 </dl>
 
 <h3>Common Issues</h3>
@@ -126,17 +125,14 @@ title: FAQs
     <p>Adding the <code>--single-process</code> argument to Mod Organiser's LOOT launching settings can avoid some issues, though doing so may have negative side effects.</p>
   </dd>
 
-  <dt id="git-errors">I'm getting Git errors when LOOT tries to update its masterlist. How do I fix this?</dt>
+  <dt id="update-masterlist-errors">I'm getting errors when LOOT tries to update its masterlist. How do I fix this?</dt>
   <dd>
-    <p>Try deleting the <code>.git</code> folders in <code>%LOCALAPPDATA%\LOOT\&lt;game folder&gt;\</code> and <code>%LOCALAPPDATA%\LOOT\prelude\</code>. If you can't see any <code>.git</code> folders, make sure that you can <a href="https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-97fbc472-c603-9d90-91d0-1166d1d9f4b5">view hidden files and folders</a>.</p>
+    <p>Make sure any firewalls or security software you have installed aren't stopping LOOT from reaching the online masterlist.</p>
 
-    <p>If that doesn't work, make sure any firewalls or security software you have installed aren't stopping LOOT from reaching the online masterlist.</p>
+    <p>If you're on Windows 7, this may be because on the 22nd of February 2018, GitHub disabled support for connections using a version of TLS older than 1.2, and Windows 7 doesn't support TLS 1.2 by default. Windows 7 users must ensure they have the latest Windows updates, and that they have <a href="https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-a-default-secure-protocols-in">enabled TLS 1.2 support</a>.</p>
 
-    <p>If LOOT still can't update its masterlist, you can update manually by downloading <a href="https://raw.githubusercontent.com/loot/prelude/v0.17/prelude.yaml">this file</a> and placing it in <code>%LOCALAPPDATA%\LOOT\prelude\</code>. Then, download the masterlist for your game from <a href="https://raw.githubusercontent.com/loot/game/v0.17/masterlist.yaml">this location</a> and place it in <code>%LOCALAPPDATA%\LOOT\&lt;game folder&gt;\</code>. Depending on your game, replace <code>game</code> within the URL with <code>morrowind</code>, <code>oblivion</code>, <code>skyrim</code>, <code>skyrimse</code>, <code>skyrimvr</code>, <code>fallout3</code>, <code>falloutnv</code>, <code>fallout4</code>, <code>fallout4vr</code> or <code>enderal</code>, and <code>&lt;game folder&gt;</code> within the folder path with <code>Morrowind</code>, <code>Oblivion</code>, <code>Skyrim</code>, <code>Skyrim Special Edition</code>, <code>Skyrim VR</code>, <code>Fallout3</code>, <code>FalloutNV</code>, <code>Fallout4</code>, <code>Fallout4VR</code>, <code>Nehrim</code>, <code>Enderal</code> or <code>Enderal Special Edition</code>. Note that Oblivion and Nehrim share the <code>oblivion</code> masterlist and Enderal and Enderal Special Edition share the <code>enderal</code> masterlist.</p>
+    <p>If LOOT still can't update its masterlist, it's likely due to connectivity issues that we won't be able to resolve. You can update it manually by downloading <a href="https://raw.githubusercontent.com/loot/prelude/v0.17/prelude.yaml">this file</a> and placing it in <code>%LOCALAPPDATA%\LOOT\prelude\</code>. Then, download the masterlist for your game from <a href="https://raw.githubusercontent.com/loot/game/v0.17/masterlist.yaml">this location</a> and place it in <code>%LOCALAPPDATA%\LOOT\games\&lt;game folder&gt;\</code>. Depending on your game, replace <code>game</code> within the URL with <code>morrowind</code>, <code>oblivion</code>, <code>skyrim</code>, <code>skyrimse</code>, <code>skyrimvr</code>, <code>fallout3</code>, <code>falloutnv</code>, <code>fallout4</code>, <code>fallout4vr</code> or <code>enderal</code>, and <code>&lt;game folder&gt;</code> within the folder path with <code>Morrowind</code>, <code>Oblivion</code>, <code>Skyrim</code>, <code>Skyrim Special Edition</code>, <code>Skyrim VR</code>, <code>Fallout3</code>, <code>FalloutNV</code>, <code>Fallout4</code>, <code>Fallout4VR</code>, <code>Nehrim</code>, <code>Enderal</code> or <code>Enderal Special Edition</code>. Note that Oblivion and Nehrim share the <code>oblivion</code> masterlist and Enderal and Enderal Special Edition share the <code>enderal</code> masterlist. Also note that you'll want to disable the "Update masterlist before sorting" option in LOOT's settings until your connectivity issues have been resolved.</p>
   </dd>
-
-  <dt id="blank-window">When I run LOOT it opens a blank white window. How do I fix this?</dt>
-  <dd>Try running LOOT with the <code>--disable-gpu</code> parameter. It might reduce the responsiveness of the user interface slightly, but it should also avoid the issue.</dd>
 
   <dt id="no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</dt>
   <dd>As version numbers are supplied by mod authors in a wide range of formats and LOOT has to detect as many as possible, it occasionally identifies parts of some descriptions as version numbers incorrectly. Authors can also forget to update their plugins' version numbers. When in doubt, check the version number given in a mod's readme.</dd>
@@ -168,12 +164,6 @@ title: FAQs
     </ol>
   </dd>
 
-  <dt id="tls">I'm on Windows 7 and get an error whenever I try to update the masterlist. How do I fix this?</dt>
-  <dd>
-    <p>This is an issue that affects many programs on Windows 7 because on the 22nd of February 2018, GitHub disabled support for connections using a version of TLS older than 1.2, and Windows 7 doesn't support TLS 1.2 by default.</p>
-    <p>Windows 7 users must ensure they have the latest Windows updates, and that they have <a href="https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-a-default-secure-protocols-in">enabled TLS 1.2 support</a>.</p>
-  </dd>
-
   <dt id="antivirus">My antivirus software detects LOOT as malware. What should I do?</dt>
   <dd>
     <p>First of all, double-check that you've downloaded LOOT from an official source (i.e., <a href="https://github.com/loot/loot/releases/latest">GitHub</a> or <a href="https://www.nexusmods.com/skyrimspecialedition/mods/1918">Nexus Mods</a>). If you downloaded it from anywhere else, the provider may have introduced some form of malware to the installer or package.</p>
@@ -181,5 +171,12 @@ title: FAQs
     <p>If you have downloaded it from an official source, some antivirus software will mistakenly report new releases of LOOT as malware. False positives for new releases are fairly commonplace among antivirus software; just report the flagged executable as a false positive to your antivirus software and/or whitelist it to continue using it.</p>
 
     <p>If you're still suspicious of LOOT, it's an open-source program, so you can review its source code on <a href="https://github.com/loot/loot">GitHub</a> and build it yourself. There is also a link to a VirusTotal report for new releases next to each download at LOOT's Nexus Mods page.</p>
+  </dd>
+
+  <dt id="tls-failure">I'm getting a "TLS initialization failed" error. How do I fix this?</dt>
+  <dd>
+    <p>Make sure you're using the appropriate build of LOOT for your system. If you're on a 64-bit version of Windows 10 (1809) or later, make sure to use the 64-bit build. If you're on Windows 7 or 8.x, or you're on a 32-bit system, make sure to use the 32-bit build.</p>
+
+    <p>You can find out what system you're on with <a href="https://support.microsoft.com/en-us/windows/32-bit-and-64-bit-windows-frequently-asked-questions-c6ca9541-8dce-4d48-0415-94a3faa2e13d">this Microsoft article</a>.</p>
   </dd>
 </dl>
