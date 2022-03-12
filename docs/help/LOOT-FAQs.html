@@ -32,7 +32,6 @@ title: FAQs
 <ol start="13">
   <li><a href="#mo">I'm running LOOT through Mod Organiser and it's not working. What should I do?</a></li>
   <li><a href="#update-masterlist-errors">I'm getting errors when LOOT tries to update its masterlist. How do I fix this?</a></li>
-  <li><a href="#blank-window">When I run LOOT it opens a blank white window. How do I fix this?</a></li>
   <li><a href="#no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</a></li>
   <li><a href="#game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</a></li>
   <li><a href="#line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</a></li>
@@ -132,9 +131,6 @@ title: FAQs
 
     <p>If LOOT still can't update its masterlist, it's likely due to connectivity issues that we won't be able to resolve. You can update it manually by downloading <a href="https://raw.githubusercontent.com/loot/prelude/v0.17/prelude.yaml">this file</a> and placing it in <code>%LOCALAPPDATA%\LOOT\prelude\</code>. Then, download the masterlist for your game from <a href="https://raw.githubusercontent.com/loot/game/v0.17/masterlist.yaml">this location</a> and place it in <code>%LOCALAPPDATA%\LOOT\games\&lt;game folder&gt;\</code>. Depending on your game, replace <code>game</code> within the URL with <code>morrowind</code>, <code>oblivion</code>, <code>skyrim</code>, <code>skyrimse</code>, <code>skyrimvr</code>, <code>fallout3</code>, <code>falloutnv</code>, <code>fallout4</code>, <code>fallout4vr</code> or <code>enderal</code>, and <code>&lt;game folder&gt;</code> within the folder path with <code>Morrowind</code>, <code>Oblivion</code>, <code>Skyrim</code>, <code>Skyrim Special Edition</code>, <code>Skyrim VR</code>, <code>Fallout3</code>, <code>FalloutNV</code>, <code>Fallout4</code>, <code>Fallout4VR</code>, <code>Nehrim</code>, <code>Enderal</code> or <code>Enderal Special Edition</code>. Note that Oblivion and Nehrim share the <code>oblivion</code> masterlist and Enderal and Enderal Special Edition share the <code>enderal</code> masterlist. Also note that you'll want to disable the "Update masterlist before sorting" option in LOOT's settings until your connectivity issues have been resolved.</p>
   </dd>
-
-  <dt id="blank-window">When I run LOOT it opens a blank white window. How do I fix this?</dt>
-  <dd>Try running LOOT with the <code>--disable-gpu</code> parameter. It might reduce the responsiveness of the user interface slightly, but it should also avoid the issue.</dd>
 
   <dt id="no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</dt>
   <dd>As version numbers are supplied by mod authors in a wide range of formats and LOOT has to detect as many as possible, it occasionally identifies parts of some descriptions as version numbers incorrectly. Authors can also forget to update their plugins' version numbers. When in doubt, check the version number given in a mod's readme.</dd>
