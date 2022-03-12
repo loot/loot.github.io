@@ -110,7 +110,7 @@ title: FAQs
   <dd>No, it just means that the load order LOOT calculated is exactly the same as your current load order, so you don't need to apply or cancel it.</dd>
 
   <dt id="stylesheet-failure">LOOT has warnings starting with "Unable to set stylesheet" and "Failed to find the style sheet in the filesystem" in its <code>LOOTDebugLog.txt</code>. Is this a problem?</dt>
-  <dd>No, they're expected for the bundled default and dark themes.</dd>
+  <dd>Not if the warnings are for the bundled default and dark themes. This is part of LOOT's custom themes support: the first place it looks for themes is in the themes directory, but because the bundled themes are included inside the application itself, they aren't found there and so the warnings are expected. If you're seeing the warnings when trying to use a custom theme, that suggests the custom theme is not installed correctly.</dd>
 </dl>
 
 <h3>Common Issues</h3>
