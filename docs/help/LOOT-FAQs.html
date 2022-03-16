@@ -31,13 +31,13 @@ title: FAQs
 
 <ol start="13">
   <li><a href="#mo">I'm running LOOT through Mod Organiser and it's not working. What should I do?</a></li>
+  <li><a href="#tls-failure">I'm getting a "TLS initialization failed" error. How do I fix this?</a></li>
   <li><a href="#update-masterlist-errors">I'm getting errors when LOOT tries to update its masterlist. How do I fix this?</a></li>
   <li><a href="#no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</a></li>
   <li><a href="#game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</a></li>
   <li><a href="#line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</a></li>
   <li><a href="#proxy">I'm using a proxy to connect to the Internet. How do I configure LOOT's masterlist updater to use it?</a></li>
   <li><a href="#antivirus">My antivirus software detects LOOT as malware. What should I do?</a></li>
-  <li><a href="#tls-failure">I'm getting a "TLS initialization failed" error. How do I fix this?</a></li>
 </ol>
 
 <h3>Moving From BOSS</h3>
@@ -125,6 +125,13 @@ title: FAQs
     <p>Adding the <code>--single-process</code> argument to Mod Organiser's LOOT launching settings can avoid some issues, though doing so may have negative side effects.</p>
   </dd>
 
+  <dt id="tls-failure">I'm getting a "TLS initialization failed" error. How do I fix this?</dt>
+  <dd>
+    <p>Make sure you're using the appropriate build of LOOT for your system. If you're on a 64-bit version of Windows 10 (1809) or later, make sure to use the 64-bit build. If you're on Windows 7 or 8.x, or you're on a 32-bit system, make sure to use the 32-bit build.</p>
+
+    <p>You can find out what system you're on with <a href="https://support.microsoft.com/en-us/windows/32-bit-and-64-bit-windows-frequently-asked-questions-c6ca9541-8dce-4d48-0415-94a3faa2e13d">this Microsoft article</a>.</p>
+  </dd>
+
   <dt id="update-masterlist-errors">I'm getting errors when LOOT tries to update its masterlist. How do I fix this?</dt>
   <dd>
     <p>Make sure any firewalls or security software you have installed aren't stopping LOOT from reaching the online masterlist.</p>
@@ -171,12 +178,5 @@ title: FAQs
     <p>If you have downloaded it from an official source, some antivirus software will mistakenly report new releases of LOOT as malware. False positives for new releases are fairly commonplace among antivirus software; just report the flagged executable as a false positive to your antivirus software and/or whitelist it to continue using it.</p>
 
     <p>If you're still suspicious of LOOT, it's an open-source program, so you can review its source code on <a href="https://github.com/loot/loot">GitHub</a> and build it yourself. There is also a link to a VirusTotal report for new releases next to each download at LOOT's Nexus Mods page.</p>
-  </dd>
-
-  <dt id="tls-failure">I'm getting a "TLS initialization failed" error. How do I fix this?</dt>
-  <dd>
-    <p>Make sure you're using the appropriate build of LOOT for your system. If you're on a 64-bit version of Windows 10 (1809) or later, make sure to use the 64-bit build. If you're on Windows 7 or 8.x, or you're on a 32-bit system, make sure to use the 32-bit build.</p>
-
-    <p>You can find out what system you're on with <a href="https://support.microsoft.com/en-us/windows/32-bit-and-64-bit-windows-frequently-asked-questions-c6ca9541-8dce-4d48-0415-94a3faa2e13d">this Microsoft article</a>.</p>
   </dd>
 </dl>
