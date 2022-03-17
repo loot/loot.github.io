@@ -36,7 +36,6 @@ title: FAQs
   <li><a href="#no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</a></li>
   <li><a href="#game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</a></li>
   <li><a href="#line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</a></li>
-  <li><a href="#proxy">I'm using a proxy to connect to the Internet. How do I configure LOOT's masterlist updater to use it?</a></li>
   <li><a href="#antivirus">My antivirus software detects LOOT as malware. What should I do?</a></li>
 </ol>
 
@@ -153,23 +152,6 @@ title: FAQs
 
   <dt id="line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</dt>
   <dd>LOOT has just replaced the <code>CR LF</code> line breaks with <code>LF</code> line breaks. It doesn't make any difference to the game.</dd>
-
-  <dt id="proxy">I'm using a proxy to connect to the Internet. How do I configure LOOT's masterlist updater to use it?</dt>
-  <dd>
-    <p>First of all, LOOT only supports unauthenticated proxies, so if your proxy requires some form of authentication, LOOT won't be able to use it directly.</p>
-
-    <p>If your proxy is unauthenticated, LOOT will use the <code>https_proxy</code> environmental variable. If your proxy configuration doesn't already set it, you can do so in Windows by:</p>
-
-    <ol>
-      <li>Opening the System item in the Control Panel.</li>
-      <li>Open the System Properties dialog by clicking the "Advanced system settings" item in the sidebar.</li>
-      <li>Open the Environmental Variables dialog by clicking the "Environmental Variables..." button in the "Advanced" tab.</li>
-      <li>In the User variables section, click the "New..." button.</li>
-      <li>Put https_proxy as the variable name, and the proxy URL as the variable value in the New User Variable dialog.</li>
-      <li>Click "OK", then "OK" in the Environmental Variables dialog.</li>
-      <li>Relaunch LOOT.</li>
-    </ol>
-  </dd>
 
   <dt id="antivirus">My antivirus software detects LOOT as malware. What should I do?</dt>
   <dd>
