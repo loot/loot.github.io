@@ -19,7 +19,6 @@ title: FAQs
 
 <ol start="6">
   <li><a href="#mo">I'm running LOOT through Mod Organiser and it's not working. What should I do?</a></li>
-  <li><a href="#tls-failure">I'm getting a "TLS initialization failed" error. How do I fix this?</a></li>
   <li><a href="#update-masterlist-errors">I'm getting errors when LOOT tries to update its masterlist. How do I fix this?</a></li>
   <li><a href="#no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</a></li>
   <li><a href="#game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</a></li>
@@ -29,7 +28,7 @@ title: FAQs
 
 <h4>Moving From BOSS</h4>
 
-<ol start="13">
+<ol start="12">
   <li><a href="#boss-v3">What happened to BOSS v3?</a></li>
   <li><a href="#boss-to-loot">Do I have to switch from BOSS to LOOT?</a></li>
   <li><a href="#switching-to-loot">Is there anything I should bear in mind when switching to LOOT?</a></li>
@@ -79,20 +78,13 @@ title: FAQs
     <p>Adding the <code>--single-process</code> argument to Mod Organiser's LOOT launching settings can avoid some issues, though doing so may have negative side effects.</p>
   </dd>
 
-  <dt id="tls-failure">I'm getting a "TLS initialization failed" error. How do I fix this?</dt>
-  <dd>
-    <p>Make sure you're using the appropriate build of LOOT for your system. If you're on a 64-bit version of Windows 10 (1809) or later, make sure to use the 64-bit build. If you're on Windows 7 or 8.x, or you're on a 32-bit system, make sure to use the 32-bit build.</p>
-
-    <p>You can find out what system you're on with <a href="https://support.microsoft.com/en-us/windows/32-bit-and-64-bit-windows-frequently-asked-questions-c6ca9541-8dce-4d48-0415-94a3faa2e13d">this Microsoft article</a>.</p>
-  </dd>
-
   <dt id="update-masterlist-errors">I'm getting errors when LOOT tries to update its masterlist. How do I fix this?</dt>
   <dd>
     <p>Make sure any firewalls or security software you have installed aren't stopping LOOT from reaching the online masterlist.</p>
 
     <p>If you're on Windows 7, this may be because on the 22nd of February 2018, GitHub disabled support for connections using a version of TLS older than 1.2, and Windows 7 doesn't support TLS 1.2 by default. Windows 7 users must ensure they have the latest Windows updates, and that they have <a href="https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-a-default-secure-protocols-in">enabled TLS 1.2 support</a>.</p>
 
-    <p>If LOOT still can't update its masterlist, it's likely due to connectivity issues that we won't be able to resolve. You can update it manually by downloading <a href="https://raw.githubusercontent.com/loot/prelude/v0.17/prelude.yaml">this file</a> and placing it in <code>%LOCALAPPDATA%\LOOT\prelude\</code>. Then, download the masterlist for your game from <a href="https://raw.githubusercontent.com/loot/game/v0.17/masterlist.yaml">this location</a> and place it in <code>%LOCALAPPDATA%\LOOT\games\&lt;game folder&gt;\</code>. Depending on your game, replace <code>game</code> within the URL with <code>morrowind</code>, <code>oblivion</code>, <code>skyrim</code>, <code>skyrimse</code>, <code>skyrimvr</code>, <code>fallout3</code>, <code>falloutnv</code>, <code>fallout4</code>, <code>fallout4vr</code> or <code>enderal</code>, and <code>&lt;game folder&gt;</code> within the folder path with <code>Morrowind</code>, <code>Oblivion</code>, <code>Skyrim</code>, <code>Skyrim Special Edition</code>, <code>Skyrim VR</code>, <code>Fallout3</code>, <code>FalloutNV</code>, <code>Fallout4</code>, <code>Fallout4VR</code>, <code>Nehrim</code>, <code>Enderal</code> or <code>Enderal Special Edition</code>. Note that Oblivion and Nehrim share the <code>oblivion</code> masterlist and Enderal and Enderal Special Edition share the <code>enderal</code> masterlist. Also note that you'll want to disable the "Update masterlist before sorting" option in LOOT's settings until your connectivity issues have been resolved.</p>
+    <p>If LOOT still can't update its masterlist, it's likely due to connectivity issues that are beyond our control. You can update it manually by downloading <a href="https://raw.githubusercontent.com/loot/prelude/v0.17/prelude.yaml">this file</a> and placing it in <code>%LOCALAPPDATA%\LOOT\prelude\</code>. Then, download the masterlist for your game from <a href="https://raw.githubusercontent.com/loot/game/v0.17/masterlist.yaml">this location</a> and place it in <code>%LOCALAPPDATA%\LOOT\games\&lt;game folder&gt;\</code>. Depending on your game, replace <code>game</code> within the URL with <code>morrowind</code>, <code>oblivion</code>, <code>skyrim</code>, <code>skyrimse</code>, <code>skyrimvr</code>, <code>fallout3</code>, <code>falloutnv</code>, <code>fallout4</code>, <code>fallout4vr</code> or <code>enderal</code>, and <code>&lt;game folder&gt;</code> within the folder path with <code>Morrowind</code>, <code>Oblivion</code>, <code>Skyrim</code>, <code>Skyrim Special Edition</code>, <code>Skyrim VR</code>, <code>Fallout3</code>, <code>FalloutNV</code>, <code>Fallout4</code>, <code>Fallout4VR</code>, <code>Nehrim</code>, <code>Enderal</code> or <code>Enderal Special Edition</code>. Note that Oblivion and Nehrim share the <code>oblivion</code> masterlist and Enderal and Enderal Special Edition share the <code>enderal</code> masterlist. Also note that you'll want to disable the "Update masterlist before sorting" option in LOOT's settings until your connectivity issues have been resolved.</p>
   </dd>
 
   <dt id="no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</dt>
