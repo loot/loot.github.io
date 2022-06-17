@@ -10,6 +10,7 @@ var repos = [
     [ "Skyrim", "skyrim" ],
     [ "Skyrim SE", "skyrimse" ],
     [ "Skyrim VR", "skyrimvr" ],
+    [ "Enderal", "enderal" ],
     [ "Fallout 3", "fallout3" ],
     [ "Fallout: New Vegas", "falloutnv" ],
     [ "Fallout 4", "fallout4" ],
