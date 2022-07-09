@@ -241,7 +241,7 @@ Enhanced Vegetation [150%].esp
         content:
           - lang: en
             text: 'A few lines from Skyrim.ini: %1%'
-          # Other languages omitted for brevity	
+          # Other languages omitted for brevity
         subs:
           - |
 
@@ -697,12 +697,12 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 
 <ul>
   <li><code>- name: '\w{1,}\.\w{3}'</code> is the first part of the regex.</li>
-	<li>Within the two apostrophes <code>''</code> the expression <code>\w{1,}</code> searches for one or more characters of any sort (Latin Alphabet, Integer Number 0 to 9 and the underscore <code>_</code>), the escaped period <code>\.</code> marks the point the file extension begins and <code>\w{3}</code> is used to find exactly three characters for the file extension (which can either be <code>esm</code>, <code>esp</code> or <code>esl</code>).</li>
-	<li>The next part of the regex is <code>\r?\n</code>.</li>
-	<li>The combination <code>\r\n</code> of the carriage return (CR) character <code>\r</code> and the line feed (LF) character <code>\n</code> act together as mechanism to detect a new line of text. It is important to know that while the Windows-style new line consists out of CR LF, files in Git are usually saved with just LF. To ensure that the above regex works in both invironments the question mark <code>?</code> has been added directly after <code>\r</code> to make it optional.</li>
-	<li>The last part of the regex is <code>.*url</code>.</li>
-	<li>It consists out of the non-escaped period <code>.</code> which matches all characters except the line break, the asterisk <code>*</code> which means <i>zero or more</i> and the string <code>url</code>.</li>
-	<li>The full regex is therefore able to find plugin entries, where directly after the <code>- name: ''</code> line the location data with a <code>url</code> follows.</li>
+  <li>Within the two apostrophes <code>''</code> the expression <code>\w{1,}</code> searches for one or more characters of any sort (Latin Alphabet, Integer Number 0 to 9 and the underscore <code>_</code>), the escaped period <code>\.</code> marks the point the file extension begins and <code>\w{3}</code> is used to find exactly three characters for the file extension (which can either be <code>esm</code>, <code>esp</code> or <code>esl</code>).</li>
+  <li>The next part of the regex is <code>\r?\n</code>.</li>
+  <li>The combination <code>\r\n</code> of the carriage return (CR) character <code>\r</code> and the line feed (LF) character <code>\n</code> act together as mechanism to detect a new line of text. It is important to know that while the Windows-style new line consists out of CR LF, files in Git are usually saved with just LF. To ensure that the above regex works in both invironments the question mark <code>?</code> has been added directly after <code>\r</code> to make it optional.</li>
+  <li>The last part of the regex is <code>.*url</code>.</li>
+  <li>It consists out of the non-escaped period <code>.</code> which matches all characters except the line break, the asterisk <code>*</code> which means <i>zero or more</i> and the string <code>url</code>.</li>
+  <li>The full regex is therefore able to find plugin entries, where directly after the <code>- name: ''</code> line the location data with a <code>url</code> follows.</li>
 </ul>
 
 
@@ -726,8 +726,8 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 
 <ul>
   <li><code>- name: '\w{1,}\.\w{3}'\r?\n.*</code> is exactly the same as in the above regex. The only difference is that instead of <code>url</code> now the capturing group <code>(after|clean|dirty|^display|group|inc|msg|req)</code> is used.</li>
-	<li>Inside the capturing group <code>( )</code> are the different & alternative keys from the masterlists seperated by the OR operand <code>|</code>, so that every other one <i>except</i> the <code>url</code> is found.</li>
-	<li>The circumflex <code>^</code> is in front of <code>display</code>, because <code>detail</code> is never found directly under the main <code>name</code> key of a plugin entry.</li>
+  <li>Inside the capturing group <code>( )</code> are the different & alternative keys from the masterlists seperated by the OR operand <code>|</code>, so that every other one <i>except</i> the <code>url</code> is found.</li>
+  <li>The circumflex <code>^</code> is in front of <code>display</code>, because <code>detail</code> is never found directly under the main <code>name</code> key of a plugin entry.</li>
 </ul>
 
 <p>If the <code>display</code> key would not be excluded, false positive search results such as the following one would be found:</p>
@@ -767,7 +767,7 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 
 <ul>
   <li><code>- name: '\w{1,}\.\w{3}'</code> is exactly the same as in the above regex.</li>
-	<li>The potential whitespace is found by <code>\s</code> and after that the dollar sign <code>$</code> is used to find the end of the line.</li>
+  <li>The potential whitespace is found by <code>\s</code> and after that the dollar sign <code>$</code> is used to find the end of the line.</li>
 </ul>
 
 
@@ -796,7 +796,7 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 
 <ul>
   <li>The regex starts with <code>url:</code>, followed by <code>\s</code> to detect whitespace.</li>
-	<li>After that the opening square bracket is escaped.</li>
+  <li>After that the opening square bracket is escaped.</li>
 </ul>
 
 
@@ -827,8 +827,8 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 
 <ul>
   <li>The regex <code>\w{3}: \d{4}</code> follows the way cleaning data is added to the masterlist.</li>
-	<li>First exactly three characters are searched through <code>\w{3}</code> which in the masterlist in this context can be either <code>itm</code>, <code>udr</code> or <code>nav</code>, after which a colon <code>:</code> follows.</li>
-	<li>After that an exactly four digit long number is searched (including a leading whitespace) through <code> \d{4}</code>. In this example <code>itm: 2733</code> has been found.</li>
+  <li>First exactly three characters are searched through <code>\w{3}</code> which in the masterlist in this context can be either <code>itm</code>, <code>udr</code> or <code>nav</code>, after which a colon <code>:</code> follows.</li>
+  <li>After that an exactly four digit long number is searched (including a leading whitespace) through <code> \d{4}</code>. In this example <code>itm: 2733</code> has been found.</li>
 </ul>
 
 
@@ -859,10 +859,10 @@ cc\w{3}fo4\d{3}
 <ul>
   <li>All Creation Club plugin filenames start with <code>cc</code> followed by a set of three varying characters from the Latin alphabet. The regular expression to match these three characters is <code>\w{3}</code>.</li>
   <li>After that all Creation Club plugins for Skyrim Special Edition include <code>sse</code> in their filenames, followed by exactly three integer numbers from the range 0 to 9. The regular expression for that is <code>sse\d{3}</code>.</li>
-	<li>For the Fallout 4 Creation Club plugins the next set of characters ist <code>fo4</code> in most cases, and in minority of cases it is <code>f04</code>, followed by exactly three integer numbers from the range 0 to 9. The regular expression for that is <code>fo4\d{3}</code>, though this expression will not find the ones with <code>f04</code>.
+  <li>For the Fallout 4 Creation Club plugins the next set of characters ist <code>fo4</code> in most cases, and in minority of cases it is <code>f04</code>, followed by exactly three integer numbers from the range 0 to 9. The regular expression for that is <code>fo4\d{3}</code>, though this expression will not find the ones with <code>f04</code>.
   <li>After the three integer numbers follows a hyphen <code>-</code> (or in a minority of cases, an underscore <code>_</code>) followed by a descriptive string such as <code>backpacks</code> or <code>pipmystery</code>. Our regex isn't interested in that part however, as it isn't really necessary in order to find the Creation Club plugins - it's good enough already.</li>
   <li>As a more general approach, <code>cc\w{6}\d{3}</code> could also be used, and this variation should find all Creation Club plugins from both Skyrim Special Edition and Fallout 4.</li>
-	<li>You could generalise it even more to <code>cc\w{9}</code> as <code>\w</code> in addition to characters from the latin alphabet & the underscore also finds integer numbers. However, this approach would also easily find false positives such as <code>konahrik_accoutrements.esp</code>.</li>
+  <li>You could generalise it even more to <code>cc\w{9}</code> as <code>\w</code> in addition to characters from the latin alphabet & the underscore also finds integer numbers. However, this approach would also easily find false positives such as <code>konahrik_accoutrements.esp</code>.</li>
 </ul>
 
 
@@ -920,9 +920,9 @@ cc\w{3}fo4\d{3}
 <ul>
   <li>Finds most occurrences, taking advantage of the expected indentation of such elements & how it will be preceded by a colon & newline & followed by a less indented line.</li>
   <li>The regex starts with <code>: *\r?\n</code> to find a colon <code>:</code> after which a whitespace and the asterisk <code>*</code> follow to indicate <i>zero or more</i> whitespaces after the colon. After that <code>\r?\n</code> is used to find an immediately following end of the line. This is done so that for example <code>after:</code> can be matched, after which then the potential single-element list could follow in the next line.</li>
-	<li>The next step is to find a hyphen <code>-</code> in the next line of text using <code> {3,}-</code>. For this we use a whitespace followed by the quantifier <code>{3,}</code> which as such searches <i>three or more whitespaces</i>, followed by the hyphen <code>-</code>.</li>
-	<li>After that we continue with <code>.*</code> to find <i>zero or more</i> of characters the non-escaped period (any character except line break) may find after the hyphen (e.g. <code> 'TheChoiceIsYours.esp'</code>) and follow that up with <code>\r?\n</code> to find the end of the second line.</li>
-	<li>The final step is to use <code> {2,4}(?! )</code> for what comes after the single-element lists. First we use <code> {2,4}</code> to indicate <i>two to four whitespaces</i> followed by a negative lookahead <code>(?! )</code> to rule out any matches with additional whitespaces in this line. A <code>clean</code> tag indented by four spaces would fulfill this check.</li>
+  <li>The next step is to find a hyphen <code>-</code> in the next line of text using <code> {3,}-</code>. For this we use a whitespace followed by the quantifier <code>{3,}</code> which as such searches <i>three or more whitespaces</i>, followed by the hyphen <code>-</code>.</li>
+  <li>After that we continue with <code>.*</code> to find <i>zero or more</i> of characters the non-escaped period (any character except line break) may find after the hyphen (e.g. <code> 'TheChoiceIsYours.esp'</code>) and follow that up with <code>\r?\n</code> to find the end of the second line.</li>
+  <li>The final step is to use <code> {2,4}(?! )</code> for what comes after the single-element lists. First we use <code> {2,4}</code> to indicate <i>two to four whitespaces</i> followed by a negative lookahead <code>(?! )</code> to rule out any matches with additional whitespaces in this line. A <code>clean</code> tag indented by four spaces would fulfill this check.</li>
 </ul>
 
 <p>While this regex is already great in finding single-element lists, it wouldn't find these instances:</p>
@@ -947,7 +947,7 @@ cc\w{3}fo4\d{3}
 
 <ul>
   <li><code>{2,4}(?! )</code> has been placed inside a capturing group <code>( )</code> as the first alternative.</li>
-	<li>Within this capturing group are two alternatives, seperated by the OR operand <code>|</code> and the second alternative is <code>\r?\n+</code> which aim is to find <i>one or more new lines</i> after the second line.</li>
+  <li>Within this capturing group are two alternatives, seperated by the OR operand <code>|</code> and the second alternative is <code>\r?\n+</code> which aim is to find <i>one or more new lines</i> after the second line.</li>
 </ul>
 
 <p>While the improved regex already finds all of the above examples, it also finds the following case, which is a false positive search result:</p>
@@ -958,7 +958,7 @@ cc\w{3}fo4\d{3}
         content:
           - lang: en
             text: 'A few lines from Skyrim.ini: %1%'
-          # Other languages omitted for brevity	
+          # Other languages omitted for brevity
         subs:
           - |
 
@@ -978,7 +978,7 @@ cc\w{3}fo4\d{3}
 
 <ul>
   <li>Instead of the non-escaped period in <code>-.*</code> we now use <code>-[^\r?\n|]*</code> to exclude the <code>|</code> character in the next line.</li>
-	<li>This is achieved through searching <i>one character that is not x</i> with <code>[^x]</code> and <code>x</code> being <code>\r?\n|</code>.</li>
+  <li>This is achieved through searching <i>one character that is not x</i> with <code>[^x]</code> and <code>x</code> being <code>\r?\n|</code>.</li>
 </ul>
 
 
@@ -1009,9 +1009,9 @@ cc\w{3}fo4\d{3}
 <ul>
   <li>Relevant use case: <a href="https://github.com/loot/loot.github.io/issues/92">Revisit merger tags for WB v310</a></li>
   <li>The regex <code>(\[|-|:)</code> is meant to be read as <code>(a|b|c)</code>, so as a capturing group <code>( )</code> where three alternatives are seperated with the OR operand <code>|</code>.</li>
-	<li>In this example, <code>a</code> would be the escaped opening square bracket <code>[</code>, <code>b</code> would be a hyphen <code>-</code> and <code>c</code> would be the colon <code>:</code></li>
-	<li>After the capturing group and before the other tags follows a whitespace and an asterisk <code> *</code> to search for <i>zero or more whitespaces</i>.</li>
-	<li>Another capturing group <code>(Actors\.Perks|Invent|Outfits|(R\.)?Relations|Derel)</code> is used to search for the different tags that should be reevaluated at a later date.</li>
+  <li>In this example, <code>a</code> would be the escaped opening square bracket <code>[</code>, <code>b</code> would be a hyphen <code>-</code> and <code>c</code> would be the colon <code>:</code></li>
+  <li>After the capturing group and before the other tags follows a whitespace and an asterisk <code> *</code> to search for <i>zero or more whitespaces</i>.</li>
+  <li>Another capturing group <code>(Actors\.Perks|Invent|Outfits|(R\.)?Relations|Derel)</code> is used to search for the different tags that should be reevaluated at a later date.</li>
 </ul>
 
 
@@ -1046,8 +1046,8 @@ cc\w{3}fo4\d{3}
 <ul>
   <li>Relevant use case: <a href="https://github.com/loot/loot.github.io/issues/91">Revisit mods with NoMerge tag for WB v311+</a></li>
   <li>The regex <code>(\[|-|:)</code> is meant to be read as <code>(a|b|c)</code>, so as a capturing group <code>( )</code> where three alternatives are seperated with the OR operand <code>|</code>.</li>
-	<li>In this example, <code>a</code> would be the escaped opening square bracket <code>[</code>, <code>b</code> would be a hyphen <code>-</code> and <code>c</code> would be the colon <code>:</code></li>
-	<li>After the capturing group and before the NoMerge tag follows a whitespace and an asterisk <code> *</code> to search for <i>zero or more whitespaces</i>.</li>
+  <li>In this example, <code>a</code> would be the escaped opening square bracket <code>[</code>, <code>b</code> would be a hyphen <code>-</code> and <code>c</code> would be the colon <code>:</code></li>
+  <li>After the capturing group and before the NoMerge tag follows a whitespace and an asterisk <code> *</code> to search for <i>zero or more whitespaces</i>.</li>
 </ul>
 
 
@@ -1095,8 +1095,8 @@ Replace:
 <ul>
   <li>Replaces the Bash Tag <code>Invent</code> with <code>Test</code>.</li>
   <li>While searching for whitespaces can be done with the regular expression <code>\s</code>, replacing them must be done the normal way.</li>
-	<li>This means that any number of whitespaces that have been found through a regex (e.g. <code>\s{6}</code>), must be typed individually within the Replace field.</li>
-	<li>The end of the line is detected with the dollar sign <code>$</code>.</li>
+  <li>This means that any number of whitespaces that have been found through a regex (e.g. <code>\s{6}</code>), must be typed individually within the Replace field.</li>
+  <li>The end of the line is detected with the dollar sign <code>$</code>.</li>
 </ul>
 
 
