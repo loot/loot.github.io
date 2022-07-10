@@ -82,11 +82,11 @@ Let's take a look at <a href="https://www.nexusmods.com/skyrimspecialedition/mod
 <p>Through testing the following rules could be derived:</p>
 
 <ul>
-  <li><code>\d</code> can be used exclusively for integer numbers 0 to 9</li>
-  <li><code>\D</code> can be used to identify (non-number) characters from the Latin Alphabet (except <code>Ä Æ Ö Ü</code>) and all the Special Characters</li>
+  <li><code>\d</code> can be used exclusively for digits 0 to 9</li>
+  <li><code>\D</code> can be used to identify (non-digit) characters from the Latin Alphabet (except <code>Ä Æ Ö Ü</code>) and all the Special Characters</li>
 
-  <li><code>\w</code> can be used for the integer numbers 0 to 9, for any of the normal letters from the Latin Alphabet and for the underscore _</li>
-  <li><code>\W</code> can detect exclusively all the special characters except the underscore _ (and no numbers or Latin characters)</li>
+  <li><code>\w</code> can be used for the digits 0 to 9, for any of the normal letters from the Latin Alphabet and for the underscore _</li>
+  <li><code>\W</code> can detect exclusively all the special characters except the underscore _ (and no digits or Latin characters)</li>
 
   <li><code>\s</code> detects whitespace</li>
   <li><code>\S</code> can detect non-whitespace characters: Numbers, Latin characters (except additional ones) and the special characters</li>
@@ -155,7 +155,7 @@ Bashed Patch, 2.esp
   <li>After the string <code>Bashed Patch</code> and before the escaping of the period <code>\.</code> has the term <code>.*</code> been introduced.</li>
   <li>The non-escaped period from <code>.*</code> is a regular expression that matches any character except the line break.</li>
   <li>The asterisk <code>*</code> after the non-escaped period means <i>zero or more times</i>.</li>
-  <li>Therefore the above Regex matches any plugin name that begins with <code>Bashed Patch</code>, after which any sort and number of characters may follow, until <code>.esp</code> is found.</li>
+  <li>Therefore the above Regex matches any plugin name that begins with <code>Bashed Patch</code>, after which any sort and digit of characters may follow, until <code>.esp</code> is found.</li>
 </ul>
 
 <p>This means, that in addition to it's standard name <code>Bashed Patch, 0.esp</code> (and also <code>Bashed Patch, 1.esp</code> and <code>Bashed Patch, 2.esp</code>) the following variants would be found by the Regex as well:</p>
@@ -194,9 +194,9 @@ RichMerchantsSkyrim_x10.esp
 
 <ul>
   <li>The period <code>.</code> has been escaped through writing a backslash <code>\</code> in front of it.</li>
-  <li>The character <code>\d</code> is used to match the integer numbers 0 to 9.</li>
+  <li>The character <code>\d</code> is used to match the digits 0 to 9.</li>
   <li>The <code>+</code> means <i>one or more times</i>.</li>
-  <li>The Regex therefore finds <code>RichMerchantsSkyrim_x</code> followed by one or more integer numbers.</li>
+  <li>The Regex therefore finds <code>RichMerchantsSkyrim_x</code> followed by one or more digits.</li>
 </ul>
 
 
@@ -225,7 +225,7 @@ Enhanced Vegetation [150%].esp
 <ul>
   <li>The period <code>.</code> has been escaped through writing a backslash <code>\</code> in front of it.</li>
   <li>The square brackets <code>[</code> and <code>]</code> have been escaped as well, since otherwise they would be interpreted as a regular expression.</li>
-  <li>Within the square brackets is the expression <code>\d{3}</code> which meaning becomes <i>exactly three integer numbers</i>.</li>
+  <li>Within the square brackets is the expression <code>\d{3}</code> which meaning becomes <i>exactly three digits</i>.</li>
   <li>After this expression then comes a <code>%</code>, which is a normal character and which is needed because the plugin names include it.</li>
   <li>Notice that besides for <code>name</code> the regex can also be used for <code>condition</code>.</li>
 </ul>
@@ -270,7 +270,7 @@ Example 1234.esp
 
 <ul>
   <li>The period <code>.</code> has been escaped through writing a backslash <code>\</code> in front of it.</li>
-  <li>The expression <code>\d{3,}</code> finds plugins that contain three or more integer numbers.</li>
+  <li>The expression <code>\d{3,}</code> finds plugins that contain three or more digits.</li>
   <li>In addition to the regex this example also showcases a method to display blocks of code within a message for plugins.</li>
   <li>The mentioned <code>Skyrim.ini</code> can be found in <code>C:\Users\USER\Documents\My Games\Skyrim</code></li>
 </ul>
@@ -296,7 +296,7 @@ ArrowsmithES.esp
 
 <ul>
   <li>The period <code>.</code> has been escaped through writing a backslash <code>\</code> in front of it.</li>
-  <li>As described in the Rules section is the character <code>\w</code> used to detect the letters from the Latin alphabet, the underscore <code>_</code> as well as integer numbers 0 to 9.</li>
+  <li>As described in the Rules section is the character <code>\w</code> used to detect the letters from the Latin alphabet, the underscore <code>_</code> as well as digits 0 to 9.</li>
   <li>The expression <code>\w{0,2}</code> therefore finds strings of length zero to two characters.</li>
   <li>The plugin name from the orignal upload is <code>Arrowsmith.esp</code>, and the name from from the Spanish translation is <code>ArrowsmithES.esp</code>. The regex <code>\w{0,2}</code> can now detect whether or not <code>ES</code> is absent or present.</li>
 </ul>
@@ -435,8 +435,8 @@ ccQDRSSE001-SurvivalMode.esl
   <li>The period <code>.</code> has been escaped through writing a backslash <code>\</code> in front of it.</li>
   <li>The file extension is written as <code>es(l|m)</code>, so through the use of a capturing group <code>( )</code> and the OR operand <code>|</code> both <code>esl</code> and <code>esm</code> are valid matches for the regex.</li>
   <li>All Creation Club plugin filenames start with <code>cc</code> followed by a set of three varying characters from the Latin alphabet. The regular expression for that is <code>[A-Z]{3}</code>, so exactly three characters from the range A to Z.</li>
-  <li>After that all Creation Club plugins for Skyrim Special Edition include <code>SSE</code> in their filenames, followed by exactly three integer numbers from the range 0 to 9. The regular expression for that is <code>SSE[0-9]{3}</code>.</li>
-  <li>After the three integer numbers follows a hyphen <code>-</code> (or in a minority of cases, an underscore <code>_</code>) followed by a descriptive string such as <code>Fish</code> or <code>SurvivalMode</code>.</li>
+  <li>After that all Creation Club plugins for Skyrim Special Edition include <code>SSE</code> in their filenames, followed by exactly three digits from the range 0 to 9. The regular expression for that is <code>SSE[0-9]{3}</code>.</li>
+  <li>After the three digits follows a hyphen <code>-</code> (or in a minority of cases, an underscore <code>_</code>) followed by a descriptive string such as <code>Fish</code> or <code>SurvivalMode</code>.</li>
   <li>The regular expression <code>.*</code> matches these strings, so the non-escaped period <code>.</code> which finds all characters except the line break, and the asterisk <code>*</code> that means <i>zero or more</i>.</li>
 </ul>
 
@@ -858,11 +858,11 @@ cc\w{3}fo4\d{3}
 
 <ul>
   <li>All Creation Club plugin filenames start with <code>cc</code> followed by a set of three varying characters from the Latin alphabet. The regular expression to match these three characters is <code>\w{3}</code>.</li>
-  <li>After that all Creation Club plugins for Skyrim Special Edition include <code>sse</code> in their filenames, followed by exactly three integer numbers from the range 0 to 9. The regular expression for that is <code>sse\d{3}</code>.</li>
-  <li>For the Fallout 4 Creation Club plugins the next set of characters ist <code>fo4</code> in most cases, and in minority of cases it is <code>f04</code>, followed by exactly three integer numbers from the range 0 to 9. The regular expression for that is <code>fo4\d{3}</code>, though this expression will not find the ones with <code>f04</code>.
-  <li>After the three integer numbers follows a hyphen <code>-</code> (or in a minority of cases, an underscore <code>_</code>) followed by a descriptive string such as <code>backpacks</code> or <code>pipmystery</code>. Our regex isn't interested in that part however, as it isn't really necessary in order to find the Creation Club plugins - it's good enough already.</li>
+  <li>After that all Creation Club plugins for Skyrim Special Edition include <code>sse</code> in their filenames, followed by exactly three digits from the range 0 to 9. The regular expression for that is <code>sse\d{3}</code>.</li>
+  <li>For the Fallout 4 Creation Club plugins the next set of characters ist <code>fo4</code> in most cases, and in minority of cases it is <code>f04</code>, followed by exactly three digits from the range 0 to 9. The regular expression for that is <code>fo4\d{3}</code>, though this expression will not find the ones with <code>f04</code>.
+  <li>After the three digits follows a hyphen <code>-</code> (or in a minority of cases, an underscore <code>_</code>) followed by a descriptive string such as <code>backpacks</code> or <code>pipmystery</code>. Our regex isn't interested in that part however, as it isn't really necessary in order to find the Creation Club plugins - it's good enough already.</li>
   <li>As a more general approach, <code>cc\w{6}\d{3}</code> could also be used, and this variation should find all Creation Club plugins from both Skyrim Special Edition and Fallout 4.</li>
-  <li>You could generalise it even more to <code>cc\w{9}</code> as <code>\w</code> in addition to characters from the latin alphabet & the underscore also finds integer numbers. However, this approach would also easily find false positives such as <code>konahrik_accoutrements.esp</code>.</li>
+  <li>You could generalise it even more to <code>cc\w{9}</code> as <code>\w</code> in addition to characters from the latin alphabet & the underscore also finds digits. However, this approach would also easily find false positives such as <code>konahrik_accoutrements.esp</code>.</li>
 </ul>
 
 
