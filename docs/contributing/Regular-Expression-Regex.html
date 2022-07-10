@@ -58,7 +58,7 @@ Let's take a look at <a href="https://www.nexusmods.com/skyrimspecialedition/mod
 
 <p>In order to get a feeling what sorts of characters these expressions are capable of matching, let's take the following set of characters as reference:</p>
 
-<p>Numbers:</p>
+<p>Digits:</p>
 <p><code>0 1 2 3 4 5 6 7 8 9</code></p>
 
 <p>Latin Alphabet:</p>
@@ -89,7 +89,7 @@ Let's take a look at <a href="https://www.nexusmods.com/skyrimspecialedition/mod
   <li><code>\W</code> can detect exclusively all the special characters except the underscore _ (and no digits or Latin characters)</li>
 
   <li><code>\s</code> detects whitespace</li>
-  <li><code>\S</code> can detect non-whitespace characters: Numbers, Latin characters (except additional ones) and the special characters</li>
+  <li><code>\S</code> can detect non-whitespace characters: digits, Latin characters (except additional ones) and the special characters</li>
 
   <li>None of the expressions <code>\d \D \w \W \S</code> apply for the Greek and Japanese characters</li>
 </ul>
@@ -697,7 +697,7 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 
 <ul>
   <li><code>- name: '\w{1,}\.\w{3}'</code> is the first part of the regex.</li>
-  <li>Within the two apostrophes <code>''</code> the expression <code>\w{1,}</code> searches for one or more characters of any sort (Latin Alphabet, Integer Number 0 to 9 and the underscore <code>_</code>), the escaped period <code>\.</code> marks the point the file extension begins and <code>\w{3}</code> is used to find exactly three characters for the file extension (which can either be <code>esm</code>, <code>esp</code> or <code>esl</code>).</li>
+  <li>Within the two apostrophes <code>''</code> the expression <code>\w{1,}</code> searches for one or more characters of any sort (latin alphabet, digits 0 to 9 and the underscore <code>_</code>), the escaped period <code>\.</code> marks the point the file extension begins and <code>\w{3}</code> is used to find exactly three characters for the file extension (which can either be <code>esm</code>, <code>esp</code> or <code>esl</code>).</li>
   <li>The next part of the regex is <code>\r?\n</code>.</li>
   <li>The combination <code>\r\n</code> of the carriage return (CR) character <code>\r</code> and the line feed (LF) character <code>\n</code> act together as mechanism to detect a new line of text. It is important to know that while the Windows-style new line consists out of CR LF, files in Git are usually saved with just LF. To ensure that the above regex works in both invironments the question mark <code>?</code> has been added directly after <code>\r</code> to make it optional.</li>
   <li>The last part of the regex is <code>.*url</code>.</li>
