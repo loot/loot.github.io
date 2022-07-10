@@ -9,13 +9,13 @@ title: Regular Expression - Regex
 A regular expression (shortened as regex or regexp) is a sequence of characters that specifies a search pattern in text.
 </blockquote>
 
-<h1>General</h1>
+<h3>General</h3>
 <ul>
   <li>Overview of Regular Expressions: <a href="https://www.rexegg.com/regex-quickstart.html">Quick-Start: Regex Cheat Sheet</a></li>
   <li>Quickly test your Regex: <a href="https://regex101.com/">Regular Expressions 101</a></li>
 </ul>
 
-<h2>Advantages of Regex</h2>
+<h4>Advantages of Regex</h4>
 Let's take a look at <a href="https://www.nexusmods.com/skyrimspecialedition/mods/41713/">DragonPriest Retexture</a> for a first example:
 
 <p>The DragonPriest Retexture mod includes the two different plugins <code>AcolyteMasks.esl</code> and <code>AcolyteMasks.esp</code>. If we want to add a <code>url</code> for each plugin, we could write the masterlist entry like this:<p>
@@ -51,7 +51,7 @@ Let's take a look at <a href="https://www.nexusmods.com/skyrimspecialedition/mod
 <p>Both plugins <code>AcolyteMasks.esl</code> and <code>AcolyteMasks.esp</code> will now have their locations displayed in LOOT.</p>
 
 
-<h2>Characters and Rules</h2>
+<h4>Characters and Rules</h4>
 
 <p>The following regular expressions can be used to match characters:</p>
 <p><code>\d \D \w \W \s \S</code></p>
@@ -96,11 +96,11 @@ Let's take a look at <a href="https://www.nexusmods.com/skyrimspecialedition/mod
 
 
 
-<h1>Regex while Editing</h1>
+<h3>Regex while Editing</h3>
 
-<h2>Quantifiers</h2>
+<h4>Quantifiers</h4>
 
-<h3>Once or none: <code>?</code></h3>
+<h5>Once or none: <code>?</code></h5>
 
 <p>Exemplary masterlist entry: <a href="https://www.nexusmods.com/skyrim/mods/25603/">Map Markers Complete</a></p>
 
@@ -128,7 +128,7 @@ Map Markers Complete OC.esp
 </ul>
 
 
-<h3>Zero or more times: <code>*</code></h3>
+<h5>Zero or more times: <code>*</code></h5>
 
 <p>Exemplary masterlist entry:</p>
 
@@ -172,7 +172,7 @@ Bashed PatchAAA.esp
 <p>Also see: <a href="https://wrye-bash.github.io/docs/Wrye%20Bash%20General%20Readme.html#patch">Wrye Bash General Readme</a></p>
 
 
-<h3>One or more times: <code>+</code></h3>
+<h5>One or more times: <code>+</code></h5>
 
 <p>Exemplary masterlist entry: <a href="https://www.nexusmods.com/skyrimspecialedition/mods/1772/">Rich Skyrim Merchants</a></p>
 
@@ -200,7 +200,7 @@ RichMerchantsSkyrim_x10.esp
 </ul>
 
 
-<h3>Exactly x times: <code>{x}</code></h3>
+<h5>Exactly x times: <code>{x}</code></h5>
 
 <p>Exemplary masterlist entry: <a href="https://www.nexusmods.com/oblivion/mods/23783/">Enhanced Vegetation</a></p>
 
@@ -231,7 +231,7 @@ Enhanced Vegetation [150%].esp
 </ul>
 
 
-<h3>x or more times: <code>{x,}</code></h3>
+<h5>x or more times: <code>{x,}</code></h5>
 
 <p>Exemplary masterlist entry:</p>
 
@@ -276,7 +276,7 @@ Example 1234.esp
 </ul>
 
 
-<h3>x to y times: <code>{x,y}</code></h3>
+<h5>x to y times: <code>{x,y}</code></h5>
 
 <p>Exemplary masterlist entry: <a href="https://www.nexusmods.com/skyrim/mods/1178/">Arrowsmith - Reupload</a> | <a href="https://www.nexusmods.com/skyrim/mods/1771/">ArrowsmithES</a></p>
 
@@ -302,9 +302,9 @@ ArrowsmithES.esp
 </ul>
 
 
-<h2>Character Classes</h2>
+<h4>Character Classes</h4>
 
-<h3>One of the characters in brackets: <code>[ ... ]</code></h3>
+<h5>One of the characters in brackets: <code>[ ... ]</code></h5>
 
 <p>Exemplary masterlist entry: <a href="https://www.nexusmods.com/skyrimspecialedition/mods/30817/">Lanterns Of Skyrim II</a></p>
 
@@ -411,7 +411,7 @@ Coins of Tamriel V4 SSE Hardcore Edition.esp
 </ul>
 
 
-<h3>Range x to y: <code>[x-y]</code></h3>
+<h5>Range x to y: <code>[x-y]</code></h5>
 
 <p>Exemplary masterlist entry:</p>
 
@@ -441,7 +441,7 @@ ccQDRSSE001-SurvivalMode.esl
 </ul>
 
 
-<h3>One character that is not x: <code>[^x]</code></h3>
+<h5>One character that is not x: <code>[^x]</code></h5>
 
 <p>Exemplary masterlist entry:</p>
 
@@ -567,9 +567,9 @@ ccQDRSSE001-SurvivalMode.esl
 </ul>
 
 
-<h2>Lookarounds</h2>
+<h4>Lookarounds</h4>
 
-<h3>Negative lookahead: <code>(?! ...)</code></h3>
+<h5>Negative lookahead: <code>(?! ...)</code></h5>
 
 <p>Exemplary masterlist entry: <a href="https://www.nexusmods.com/skyrimspecialedition/mods/30247/">Kalilies NPCs</a></p>
 
@@ -598,9 +598,9 @@ Kalilies NPCs + AI Overhaul + Cutting Room Floor Patch.esp
 </ul>
 
 
-<h2>More Examples</h2>
+<h4>More Examples</h4>
 
-<h3>Requiem</h3>
+<h5>Requiem</h5>
 
 <p>Exemplary masterlist entry: <a href="https://www.nexusmods.com/skyrim/mods/19281/">Requiem - The Roleplaying Overhaul</a></p>
 
@@ -633,7 +633,7 @@ Requiem - Vanilla Dragonborn DLC.esp
 </ul>
 
 
-<h3>Skyrim Project Optimization</h3>
+<h5>Skyrim Project Optimization</h5>
 
 <p>Exemplary masterlist entry: <a href="https://www.nexusmods.com/skyrimspecialedition/mods/14084/">Skyrim Project Optimization SE</a></p>
 
@@ -664,9 +664,9 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 
 
 
-<h1>Regex while Searching</h1>
+<h3>Regex while Searching</h3>
 
-<h2>General</h2>
+<h4>General</h4>
 
 <p>The LOOT masterlists are <code>.yaml</code> files that include thousands of lines and data for many different plugins. Sometimes and for specific reasons we found it useful to make use of regular expressions while searching different terms within the masterlists.</p>
 
@@ -675,9 +675,9 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 <img src="../../images/Notepad_Regular_Expression_01.png" alt="Notepad_Regex_01" width="1300" height="400">
 
 
-<h2>Examples</h2>
+<h4>Examples</h4>
 
-<h3>Find <code>- name: ''</code> entries followed by <code>url</code></h3>
+<h5>Find <code>- name: ''</code> entries followed by <code>url</code></h5>
 
 <p>Regular Expression:</p>
 
@@ -706,7 +706,7 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 </ul>
 
 
-<h3>Find <code>- name: ''</code> entries not followed by <code>url</code></h3>
+<h5>Find <code>- name: ''</code> entries not followed by <code>url</code></h5>
 
 <p>Regular Expression:</p>
 
@@ -744,7 +744,7 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 </code></pre>
 
 
-<h3>Find instances of trailing whitespaces after <code>- name: ''</code></h3>
+<h5>Find instances of trailing whitespaces after <code>- name: ''</code></h5>
 
 <p>Regular Expression:</p>
 
@@ -771,7 +771,7 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 </ul>
 
 
-<h3>Find instances of single line location data</h3>
+<h5>Find instances of single line location data</h5>
 
 <p>Regular Expression:</p>
 
@@ -800,7 +800,7 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 </ul>
 
 
-<h3>Find plugins with x dirty edits</h3>
+<h5>Find plugins with x dirty edits</h5>
 
 <p>Regular Expression:</p>
 
@@ -832,7 +832,7 @@ Skyrim Project Optimization - No Homes - Full Version.esm
 </ul>
 
 
-<h3>Find Creation Club plugins</h3>
+<h5>Find Creation Club plugins</h5>
 
 <p>Regular Expressions:</p>
 
@@ -866,7 +866,7 @@ cc\w{3}fo4\d{3}
 </ul>
 
 
-<h3>Find block style single-element lists</h3>
+<h5>Find block style single-element lists</h5>
 
 <p>Lists that have only one element that aren't written in flow style can look like the <code>after</code> tag in the following example:</p>
 
@@ -982,7 +982,7 @@ cc\w{3}fo4\d{3}
 </ul>
 
 
-<h3>Revisit merger bash tags</h3>
+<h5>Revisit merger bash tags</h5>
 
 <p>Regular Expressions:</p>
 
@@ -1015,7 +1015,7 @@ cc\w{3}fo4\d{3}
 </ul>
 
 
-<h3>Find NoMerge bash tags</h3>
+<h5>Find NoMerge bash tags</h5>
 
 <p>Regular Expressions:</p>
 
@@ -1052,9 +1052,9 @@ cc\w{3}fo4\d{3}
 
 
 
-<h1>Find & Replace</h1>
+<h3>Find & Replace</h3>
 
-<h2>General</h2>
+<h4>General</h4>
 
 <p>Find & Replace is a feature of e.g. Notepad++ as well as VSCode, to easily find a specific term and replace it with another, with a single button press.</p>
 
@@ -1063,9 +1063,9 @@ cc\w{3}fo4\d{3}
 <p>This would certainly decrease the time needed to work on the task at hand, however it would also come with an elevated risk to miss something or replace some parts that weren't intended to be replaced.</p>
 
 
-<h2>Examples</h2>
+<h4>Examples</h4>
 
-<h3>Replace file extension</h3>
+<h5>Replace file extension</h5>
 
 <pre><code>Find:
 .esp
@@ -1081,7 +1081,7 @@ Replace:
 </ul>
 
 
-<h3>Replace Invent Bash Tag</h3>
+<h5>Replace Invent Bash Tag</h5>
 
 <pre><code>Find:
 \s{6}-\sInvent$
@@ -1100,7 +1100,7 @@ Replace:
 </ul>
 
 
-<h3>Update location data to include a <code>name</code></h3>
+<h5>Update location data to include a <code>name</code></h5>
 
 <pre><code>Find:
 \s{4}url: \[\s(.*)\s\]
