@@ -276,7 +276,7 @@ Example 1234.esp
 </ul>
 
 
-<h5>x to y times: <code>{x,y}</code></h5>
+<h5>x to y times (inclusive): <code>{x,y}</code></h5>
 
 <p>Exemplary masterlist entry: <a href="https://www.nexusmods.com/skyrim/mods/1178/">Arrowsmith - Reupload</a> | <a href="https://www.nexusmods.com/skyrim/mods/1771/">ArrowsmithES</a></p>
 
@@ -297,7 +297,7 @@ ArrowsmithES.esp
 <ul>
   <li>The period <code>.</code> has been escaped through writing a backslash <code>\</code> in front of it.</li>
   <li>As described in the Rules section is the character <code>\w</code> used to detect the letters from the Latin alphabet, the underscore <code>_</code> as well as digits 0 to 9.</li>
-  <li>The expression <code>\w{0,2}</code> therefore finds strings of length zero to two characters.</li>
+  <li>The inclusive expression <code>\w{0,2}</code> therefore finds strings of length zero to two characters.</li>
   <li>The plugin name from the orignal upload is <code>Arrowsmith.esp</code>, and the name from from the Spanish translation is <code>ArrowsmithES.esp</code>. The regex <code>\w{0,2}</code> can now detect whether or not <code>ES</code> is absent or present.</li>
 </ul>
 
