@@ -562,7 +562,7 @@ ccQDRSSE001-SurvivalMode.esl
 
 <ul>
   <li>The <code>condition</code> in this example includes the regular expression: <code>file("SKSE/Plugins/([^\.]+\.dll)")</code></li>
-  <li>The objective is to find <code>.dll</code> files within the folder structure <code></code>SKSE/Plugins/</li>
+  <li>The objective is to find <code>.dll</code> files within the folder structure <code>SKSE/Plugins/</code>.</li>
   <li>As a first step the period <code>.</code> in front of <code>dll</code> has been escaped through writing a backslash <code>\</code> in front of it.</li>
   <li>The remaining part of the regex <code>[^\.]+</code> consists out of three parts.</li>
   <li><code>[^x]</code> will find a character that is <i>not x</i>, which is achieved by placing the circumflex <code>^</code> within square brackets <code>[ ]</code>. In this case <code>x</code> is an escaped period <code>\.</code> so <i>not a period</i> is what we want. After the square brackets comes the quantifier plus <code>+</code> which means <i>one or more times</i>.</li>
