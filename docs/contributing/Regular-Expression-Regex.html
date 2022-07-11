@@ -1103,6 +1103,38 @@ Replace:
 </ul>
 
 
+<h5>Add missing trailing slashes to Nexus Mods <code>url</code></h5>
+
+<pre><code>Find:
+/mods/(\d{1,})'
+
+Replace:
+/mods/\1/'
+</code></pre>
+
+<p>Exemplary search result:</p>
+
+<pre><code>  - name: 'Altitude.esp'
+    url: [ 'https://www.nexusmods.com/newvegas/mods/71404' ]
+</code></pre>
+
+<p>Replacement:</p>
+
+<pre><code>  - name: 'Altitude.esp'
+    url: [ 'https://www.nexusmods.com/newvegas/mods/71404/' ]
+</code></pre>
+
+<p>Summary:</p>
+
+<ul>
+  <li><code>\d{1,}</code> is used to detect <i>one or more</i> digits, to match the mod page number in the link, e.g. <code>71404</code>.</li>
+  <li>This expression is then placed within a capturing group <code>( )</code>, so that the Replace Field has access to it.</li>
+  <li>After the capturing group comes an apostrophe <code>'</code> to detect the end of the link that has no trailing slash.</li>
+  <li><code>\1</code> in the Replace field copies the contents of the first capturing group over from the Find field (in this case there is only one).</li>
+  <li>As the last step comes <code>/'</code> after <code>\1</code> to add the trailing slash.</li>
+</ul>
+
+
 <h5>Update location data to include a <code>name</code></h5>
 
 <pre><code>Find:
