@@ -32,7 +32,9 @@ Let's take a look at <a href="https://www.nexusmods.com/skyrimspecialedition/mod
         name: 'DragonPriest Retexture'
 </code></pre>
 
-<p>This method however is not exactly efficient, as we have added the same link twice to the masterlist. With the help of a regex we can simplify the above expression.</p>
+<p>This writing-style is a valid method to add metadata to the masterlists and it also means that searching for the plugin entry (e.g. <code>AcolyteMasks.esl</code>) is fast and easy, as it is exactly the same as the actual plugin name.</p>
+
+<p>The downside to it is however, that these non-regex entries take up more space than their regex counterparts, as we have added the same link twice to the masterlist. In order to keep things maintainable, we often choose to make use of regular expressions such as the following one:</p>
 
 <pre><code>  - name: 'AcolyteMasks\.es(l|p)'
     url:
