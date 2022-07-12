@@ -53,6 +53,40 @@ Let's take a look at <a href="https://www.nexusmods.com/skyrimspecialedition/mod
 <p>Both plugins <code>AcolyteMasks.esl</code> and <code>AcolyteMasks.esp</code> will now have their locations displayed in LOOT.</p>
 
 
+<h4>Regex within LOOT</h4>
+
+<p>Now that we taken the first step to understand what regular expressions are, it should be noted that LOOT uses three different regex implementations in different places.</p>
+
+<ul>
+  <li>Masterlist entry matching and the contains filter uses <code>C++</code>'s standard regex.</li>
+  <li>Condition evaluation uses the <code>Rust</code> regex library.</li>
+  <li>The search dialog uses <code>Qt</code>'s regex implementation.</li>
+</ul>
+
+<p>This means, that depending on where you want to use a regular expression within LOOT, <a href="https://en.wikipedia.org/wiki/Unicode">unicode characters</a> for character matching might be supported or not.</p>
+
+<pre><code>  - name: 'Example\.es(m|p)'
+    msg:
+      - <<: *useOnlyOneX
+        subs: [ 'Example Plugin' ]
+        condition: 'many("Example\.es(m|p)")'
+</code></pre>
+
+<p>The regex in the <code>name</code> field uses <code>C++</code>'s standard regex, which doesn't support unicode.</p>
+
+<p>The regex in the <code>condition</code> field uses the <code>Rust</code> regex library, which supports unicode by default.</p>
+
+<img src="../../images/Regex_Search_Cards.png" alt="Regex_Search_Cards" width="602" height="409">
+
+<p>The search dialog uses <code>Qt</code>'s regex implementation, which doesn't support unicode characters by default (though support could be enabled).</p>
+
+<img src="../../images/Regex_Filter_Contain.png" alt="Regex_Filter_Contain" width="890" height="570">
+
+<p>The contains filter uses <code>C++</code>'s standard regex, which doesn't support unicode.</p>
+
+<p>The following section will concentrate on the use of regex in the name field of plugin objects in the masterlist, so that we get a better understanding of what is possible while adding and updating plugin entries.</p>
+
+
 <h4>Characters and Rules</h4>
 
 <p>The following regular expressions can be used to match characters:</p>
