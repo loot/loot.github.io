@@ -632,6 +632,7 @@ Kalilies NPCs + AI Overhaul + Cutting Room Floor Patch.esp
   <li>Before and after the two capturing groups is the regular expression <code>.*</code> (the non-escaped period <code>.</code> matches all characters except the line break, and the asterisk <code>*</code> means <i>zero or more</i>). Placing these before and after the two capturing groups ensures, that around the central strings <code>KaliliesNPC</code> and <code>Kalilies NPC</code> any sort and number of characters is matched and found.</li>
   <li>Inside the first capturing group is the OR operand <code>|</code> so that both <code>KaliliesNPC</code> and <code>Kalilies NPC</code> and valid matches.</li>
   <li>Inside the second capturing group is the <i>negative lookahead</i> <code>?! WARP</code> to exclude any search results that contain <code>WARP</code> in the filename. This is necessary, since otherwise there is a false positive search result in the form of <code>KaliliesNPCs WARP PATCH.esp</code> from <a href="https://www.nexusmods.com/skyrimspecialedition/mods/33942/">Kalilies NPCs WARP patch</a>. Since it is the purpose of this regex to provide a <code>url</code> for the plugins from the original mod page, and not for the plugin(s) from other mod pages, this is an important and efficient method to achieve the outlined purpose.</li>
+  <li>It should be noted, that support for lookaround varies by implementation and in LOOT negative lookahead is supported everywhere apart from inside conditions.</li>
 </ul>
 
 
