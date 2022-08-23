@@ -34,7 +34,7 @@ function isRegexEntry(name) {
 }
 
 function readMasterlist(response) {
-    var masterlist = jsyaml.safeLoad(response.data);
+    var masterlist = jsyaml.load(response.data);
     document.getElementById('progress').classList.add('hidden');
 
     /* Do search here. */
@@ -53,7 +53,7 @@ function readMasterlist(response) {
                 console.log("Match: " + JSON.stringify(masterlist["plugins"][index]));
                 var code = document.createElement('code');
                 code.className = 'loot-search-result';
-                code.textContent = '  - ' + jsyaml.safeDump(masterlist["plugins"][index]).replace(new RegExp('\n', 'g'), '\n    ').trim();
+                code.textContent = '  - ' + jsyaml.dump(masterlist["plugins"][index]).replace(new RegExp('\n', 'g'), '\n    ').trim();
                 resultsDiv.appendChild(code);
             }
         }

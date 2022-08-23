@@ -37,7 +37,7 @@ function upgradeOldYaml(yaml) {
 
 function yamlToToml(evt) {
     try {
-        const settings = upgradeOldYaml(jsyaml.safeLoad(evt.target.value));
+        const settings = upgradeOldYaml(jsyaml.load(evt.target.value));
 
         const options = {
             space: 2,
