@@ -4,7 +4,7 @@ safe: true
 lsi: false
 
 # Enable page redirection
-gems:
+plugins:
   - jekyll-redirect-from
 
 whitelist:
