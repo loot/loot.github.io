@@ -1,4 +1,6 @@
 'use strict';
+import { load } from 'https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.mjs';
+import TOML from 'https://cdn.skypack.dev/-/@ltd/j-toml@v1.33.3-g895G5Q2ba82bha6HlB9/dist=es2019,mode=imports/optimized/@ltd/j-toml.js';
 
 function upgradeOldYaml(yaml) {
     if (yaml['Debug Verbosity'] && !yaml.enableDebugLogging) {
@@ -37,20 +39,13 @@ function upgradeOldYaml(yaml) {
 
 function yamlToToml(evt) {
     try {
-        const settings = upgradeOldYaml(jsyaml.load(evt.target.value));
+        const settings = upgradeOldYaml(load(evt.target.value));
 
         const options = {
-            space: 2,
-            replace: function(key, value) {
-                if (typeof value === 'number') {
-                    /* Settings only use integers, no floats. */
-                    return Math.round(value).toString();
-                }
-
-                return false;
-            }
+            indent: 2,
+            newline: '\n'
         }
-        const toml = tomlify.toToml(settings, options);
+        const toml = TOML.stringify(settings, options);
 
         document.getElementById('output').value = toml;
 

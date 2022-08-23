@@ -1,4 +1,6 @@
 'use strict';
+import { Octokit } from "https://cdn.skypack.dev/pin/@octokit/rest@v19.0.4-xPNRCbtf1MpCCpqHe5lx/mode=imports,min/optimized/@octokit/rest.js";
+import { throttling } from "https://cdn.skypack.dev/pin/@octokit/plugin-throttling@v4.2.0-q2ZrzGw3H4mnkheWbYZl/mode=imports,min/optimized/@octokit/plugin-throttling.js";
 
 function addToList(listElement, person) {
     const a = document.createElement('a');
@@ -45,12 +47,12 @@ function sortContributors(a,b) {
 }
 
 function getStats(contributor) {
-    const isAnon = contributor.author.type === 'Anonymous';
+    const isAnon = contributor.type === 'Anonymous';
     return {
-        contributions: contributor.total,
-        name: isAnon ? contributor.author.name : contributor.author.login,
-        avatar_url: isAnon ? undefined : contributor.author.avatar_url,
-        html_url: isAnon ? 'mailto:' + contributor.author.email : contributor.author.html_url
+        contributions: contributor.contributions,
+        name: isAnon ? contributor.name : contributor.login,
+        avatar_url: isAnon ? undefined : contributor.avatar_url,
+        html_url: isAnon ? 'mailto:' + contributor.email : contributor.html_url
     };
 }
 
@@ -81,13 +83,26 @@ function getContributorsStats(contributors) {
 }
 
 async function getContributors() {
-    const github = new GitHub();
+    const ThrottledOctokit = Octokit.plugin(throttling);
 
-    const reposResponse = await github.getOrganization('loot').getRepos();
+    const octokit = new ThrottledOctokit({
+        throttle: {
+            onAbuseLimit: () => true,
+            onRateLimit: () => true
+        }
+    });
 
-    const promises = reposResponse.data
+    const repos = await octokit.paginate(octokit.rest.repos.listForOrg, {
+        org: 'loot'
+    });
+
+    const promises = repos
         .filter(repo => !repo.fork)
-        .map(repo => github.getRepo('loot', repo.name).getContributors());
+        .map(repo => octokit.paginate(octokit.rest.repos.listContributors, {
+            owner: 'loot',
+            repo: repo.name,
+            anon: true
+        }));
 
     return Promise.all(promises).then(results => results.flat());
 }

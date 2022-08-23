@@ -1,4 +1,7 @@
 'use strict';
+import { Octokit } from 'https://cdn.skypack.dev/pin/@octokit/rest@v19.0.4-xPNRCbtf1MpCCpqHe5lx/mode=imports,min/optimized/@octokit/rest.js';
+import { throttling } from 'https://cdn.skypack.dev/pin/@octokit/plugin-throttling@v4.2.0-q2ZrzGw3H4mnkheWbYZl/mode=imports,min/optimized/@octokit/plugin-throttling.js';
+import { dump, load } from 'https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.mjs';
 
 // Globals
 ///////////////////
@@ -76,13 +79,27 @@ function onSearchInit(evt) {
     console.log("Loading masterlist...");
     progress.classList.remove('hidden');
 
-    var repo = (new GitHub())
-        .getRepo('loot', gameButton.getAttribute('data-selected'))
-        .getContents(undefined, 'masterlist.yaml', true)
-        .then(readMasterlist)
-        .catch(function() {
-            document.getElementById('progress').classList.add('hidden');
-        });
+    const ThrottledOctokit = Octokit.plugin(throttling);
+
+    const octokit = new ThrottledOctokit({
+        throttle: {
+            onAbuseLimit: () => true,
+            onRateLimit: () => true
+        }
+    });
+
+    octokit.rest.repos.getContent({
+        owner: 'loot',
+        repo: gameButton.getAttribute('data-selected'),
+        path: 'masterlist.yaml',
+        mediaType: {
+            format: 'raw'
+        }
+    })
+    .then(readMasterlist)
+    .catch(function() {
+        document.getElementById('progress').classList.add('hidden');
+    });
 }
 
 function onGameSelect(evt) {
