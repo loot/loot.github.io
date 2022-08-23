@@ -68,8 +68,8 @@ function handleFileSelect(evt) {
     evt.stopPropagation();
     evt.preventDefault();
 
-    var files = evt.dataTransfer.files; // FileList object.
-    var reader = new FileReader();
+    const files = evt.dataTransfer.files; // FileList object.
+    const reader = new FileReader();
     reader.onload = function(event) {
         const input = document.getElementById('input');
         input.value = event.target.result;

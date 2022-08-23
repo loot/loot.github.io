@@ -3,7 +3,7 @@
 // Globals
 ///////////////////
 
-var repos = [
+const repos = [
     [ "Morrowind", "morrowind" ],
     [ "Oblivion", "oblivion" ],
     [ "Nehrim", "oblivion" ],
@@ -17,13 +17,13 @@ var repos = [
     [ "Fallout 4 VR", "fallout4vr" ],
 ]
 
-var repoBranch = 'master';  //The repository branch to search.
+const gameSelect = document.getElementById('gameSelectMenu');
+const gameButton = document.getElementById(gameSelect.getAttribute('for'));
+const searchButton = document.getElementById('searchButton');
+const searchBox = document.getElementById('searchBox');
+const resultsDiv = document.getElementById('results');
 
-var gameSelect = document.getElementById('gameSelectMenu');
-var gameButton = document.getElementById(gameSelect.getAttribute('for'));
-var searchButton = document.getElementById('searchButton');
-var searchBox = document.getElementById('searchBox');
-var resultsDiv = document.getElementById('results');
+const newLineRegex = new RegExp('\n', 'g');
 
 // Functions
 ///////////////////
@@ -34,33 +34,31 @@ function isRegexEntry(name) {
 }
 
 function readMasterlist(response) {
-    var masterlist = jsyaml.load(response.data);
+    const masterlist = load(response.data);
     document.getElementById('progress').classList.add('hidden');
 
     /* Do search here. */
     console.log("Starting search.");
     if (masterlist.hasOwnProperty('plugins')) {
-        for (var i in masterlist['plugins']) {
-            var index = -1;
-            if (isRegexEntry(masterlist["plugins"][i].name)) {
-                if (RegExp(masterlist["plugins"][i].name, 'i').test(searchBox.value)) {
-                    index = i;
-                }
-            } else if (masterlist["plugins"][i].name.toLowerCase().indexOf(searchBox.value.toLowerCase()) !== -1) {
-                index = i;
+        const matches = masterlist.plugins.filter(plugin => {
+            if (isRegexEntry(plugin.name)) {
+                return RegExp(plugin.name, 'i').test(searchBox.value);
             }
-            if (index != -1) {
-                console.log("Match: " + JSON.stringify(masterlist["plugins"][index]));
-                var code = document.createElement('code');
-                code.className = 'loot-search-result';
-                code.textContent = '  - ' + jsyaml.dump(masterlist["plugins"][index]).replace(new RegExp('\n', 'g'), '\n    ').trim();
-                resultsDiv.appendChild(code);
-            }
+
+            return plugin.name.toLowerCase().includes(searchBox.value.toLowerCase());
+        });
+
+        for (const match of matches) {
+            console.log("Match: " + JSON.stringify(match));
+            const code = document.createElement('code');
+            code.className = 'loot-search-result';
+            code.textContent = '  - ' + dump(match).replace(newLineRegex, '\n    ').trim();
+            resultsDiv.appendChild(code);
         }
     }
 
-    if (resultsDiv.children.length == 0) {
-        var elem = document.createElement('code');
+    if (resultsDiv.children.length === 0) {
+        const elem = document.createElement('code');
         elem.className = 'loot-search-result';
         elem.textContent = "No matching entries found.";
         resultsDiv.appendChild(elem);
@@ -137,11 +135,11 @@ function getURLParameters() {
 ///////////////////
 
 /* Fill the drop-down games box with stuff. */
-for (var i=0; i < repos.length; ++i) {
-    var option = document.createElement('li');
+for (const repo of repos) {
+    const option = document.createElement('li');
     option.className = 'mdl-menu__item';
-    option.textContent = repos[i][0];
-    option.setAttribute('data-game', repos[i][1]);
+    option.textContent = repo[0];
+    option.setAttribute('data-game', repo[1]);
     gameSelect.appendChild(option);
     option.addEventListener('click', onGameSelect, false);
 }

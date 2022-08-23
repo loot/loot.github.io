@@ -1,15 +1,11 @@
 'use strict';
 
-var numRepos = 0;
-var numProcessedRepos = 0;
-var contributors = [];
-
 function addToList(listElement, person) {
-    var a = document.createElement('a');
-    var avatar = document.createElement('div');
-    var text = document.createElement('div');
-    var name = document.createElement('div');
-    var contributions = document.createElement('div');
+    const a = document.createElement('a');
+    const avatar = document.createElement('div');
+    const text = document.createElement('div');
+    const name = document.createElement('div');
+    const contributions = document.createElement('div');
 
     a.classList.add('loot-contributor', 'mdl-shadow--2dp');
 
@@ -23,11 +19,11 @@ function addToList(listElement, person) {
     contributions.textContent = person.contributions + ' contributions';
 
     if (person.avatar_url) {
-        var img = document.createElement('img');
+        const img = document.createElement('img');
         img.src = person.avatar_url;
         avatar.appendChild(img);
     } else {
-        var icon = document.createElement('i');
+        const icon = document.createElement('i');
         icon.className = 'material-icons';
         icon.textContent = 'face';
         avatar.appendChild(icon);
@@ -48,60 +44,60 @@ function sortContributors(a,b) {
     }
 }
 
-function getContributor(name) {
-    for (var i = 0; i < contributors.length; ++i) {
-        if (contributors[i].name === name) {
-            return i;
-        }
-    }
-    return -1;
+function getStats(contributor) {
+    const isAnon = contributor.author.type === 'Anonymous';
+    return {
+        contributions: contributor.total,
+        name: isAnon ? contributor.author.name : contributor.author.login,
+        avatar_url: isAnon ? undefined : contributor.author.avatar_url,
+        html_url: isAnon ? 'mailto:' + contributor.author.email : contributor.author.html_url
+    };
 }
 
-function storeRepositoryContributors(response) {
-    response.data.forEach(function(contributor) {
-        var stats = {
-            contributions: contributor.total
-        }
-        if (contributor.author.type == 'Anonymous') {
-            // Doesn't have a GitHub account. Leave avatar URL undefined.
-            stats.name = contributor.author.name;
-            stats.html_url = 'mailto:' + contributor.author.email;
-        } else {
-            stats.name = contributor.author.login;
-            stats.avatar_url = contributor.author.avatar_url;
-            stats.html_url = contributor.author.html_url;
-        }
-        var j = getContributor(stats.name);
-        if (j === -1) {
-            contributors.push(stats);
-        } else {
-            contributors[j].contributions += stats.contributions;
-        }
-    });
-    numProcessedRepos += 1;
+function statsReducer(previous, current) {
+    const existing = previous.find(element => element.name === current.name);
+    if (existing === undefined) {
+        return previous.concat(current);
+    }
 
-    if (numProcessedRepos === numRepos) {
-        var contrib = document.getElementById('contrib');
-        contributors.sort(sortContributors);
-        contrib.removeChild(contrib.firstElementChild);
-        for (var i = 0; i < contributors.length; i++) {
-            addToList(contrib, contributors[i]);
-        }
+    existing.contributions += current.contributions;
+    return previous;
+}
+
+function displayContributorsStats(contributorsStats) {
+    const contrib = document.getElementById('contrib');
+    contrib.removeChild(contrib.firstElementChild);
+
+    for (const contributor of contributorsStats) {
+        addToList(contrib, contributor);
     }
 }
 
-function getContributors(response) {
-    numRepos = 0;
-
-    var github = new GitHub();
-    response.data.filter(function(repo) {
-        return !repo.fork;
-    }).forEach(function(repo) {
-        github.getRepo('loot', repo.name)
-            .getContributors().then(storeRepositoryContributors);
-        numRepos += 1;
-    });
+function getContributorsStats(contributors) {
+    return contributors
+        .map(getStats)
+        .reduce(statsReducer, [])
+        .sort(sortContributors);
 }
 
-// Now fetch the organisation repositories.
-(new GitHub()).getOrganization('loot').getRepos().then(getContributors);
+async function getContributors() {
+    const github = new GitHub();
+
+    const reposResponse = await github.getOrganization('loot').getRepos();
+
+    const promises = reposResponse.data
+        .filter(repo => !repo.fork)
+        .map(repo => github.getRepo('loot', repo.name).getContributors());
+
+    return Promise.all(promises).then(results => results.flat());
+}
+
+async function getAndDisplayContributorsStats() {
+    const contributors = await getContributors();
+
+    const stats = getContributorsStats(contributors);
+
+    displayContributorsStats(stats);
+}
+
+getAndDisplayContributorsStats();
