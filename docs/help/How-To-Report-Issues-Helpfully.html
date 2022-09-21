@@ -51,7 +51,8 @@ title: How To Report Issues Helpfully
 <ol>
   <li>In LOOT's settings, toggle the Enable Debug Logging checkbox on.</li>
   <li>Run LOOT again to replicate the issue.</li>
-  <li>Upload the log file generated at <code>%LOCALAPPDATA%\LOOT\LOOTDebugLog.txt</code>.</li>
+  <li>Select "Open LOOT Data Folder" in the File menu.</li>
+  <li>Upload the generated <code>LOOTDebugLog.txt</code> log file contained within.</li>
 </ol>
 
 <p>If you're reporting the issue in the LOOT application issue tracker, you can attach the log files to your report by dragging and dropping them into the report's text box, as explained <a href="https://help.github.com/articles/file-attachments-on-issues-and-pull-requests/">here</a>.</p>
@@ -65,7 +66,7 @@ title: How To Report Issues Helpfully
 <p>If LOOT is crashing on startup, or you can't get to its settings dialog for some other reason, its settings file can be manually edited to enable debug logging.</p>
 
 <ol>
-  <li>Open <code>%LOCALAPPDATA%\LOOT\settings.toml</code> in a text editor, eg. Notepad.</li>
+  <li>Open <code>%LOCALAPPDATA%\LOOT\settings.toml</code> in a text editor, eg. Notepad. If you use the <code>loot-data-path</code> command-line argument, open the <code>settings.toml</code> within your custom LOOT data directory instead.</li>
   <li>Replace the text <code>enableDebugLogging = false</code> with <code>enableDebugLogging = true</code>.</li>
   <li>Save the file.</li>
 </ol>
