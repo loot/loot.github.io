@@ -24,11 +24,12 @@ title: FAQs
   <li><a href="#game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</a></li>
   <li><a href="#line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</a></li>
   <li><a href="#antivirus">My antivirus software detects LOOT as malware. What should I do?</a></li>
+  <li><a href="#path-limit">I'm using Mod Organizer and receiving the error "The system cannot find the file specified.: '&lt;path to plugin&gt;.ghost'" How do I fix this?</a></li>
 </ol>
 
 <h4>Moving From BOSS</h4>
 
-<ol start="12">
+<ol start="13">
   <li><a href="#boss-v3">What happened to BOSS v3?</a></li>
   <li><a href="#boss-to-loot">Do I have to switch from BOSS to LOOT?</a></li>
   <li><a href="#switching-to-loot">Is there anything I should bear in mind when switching to LOOT?</a></li>
@@ -105,6 +106,11 @@ title: FAQs
     <p>If you have downloaded it from an official source, some antivirus software will mistakenly report new releases of LOOT as malware. False positives for new releases are fairly commonplace among antivirus software; just report the flagged executable as a false positive to your antivirus software and/or whitelist it to continue using it.</p>
 
     <p>If you're still suspicious of LOOT, it's an open-source program, so you can review its source code on <a href="https://github.com/loot/loot">GitHub</a> and build it yourself. There is also a link to a VirusTotal report for new releases next to each download at LOOT's Nexus Mods page.</p>
+  </dd>
+
+  <dt id="path-limit">I'm using Mod Organizer and receiving an error of the form "The system cannot find the file specified.: '&lt;path to plugin&gt;.ghost'" How do I fix this?</dt>
+  <dd>
+    <p>This error tends to happen when the name of the mod in Mod Organizer containing the plugin mentioned in the error message is too long, i.e., long enough that the full path of the plugin is over the Windows path length limit of 260. Try shortening the mod's name.</p>
   </dd>
 </dl>
 
