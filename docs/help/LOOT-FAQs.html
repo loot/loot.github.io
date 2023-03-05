@@ -83,7 +83,75 @@ title: FAQs
 
     <p>If you're on Windows 7, this may be because on the 22nd of February 2018, GitHub disabled support for connections using a version of TLS older than 1.2, and Windows 7 doesn't support TLS 1.2 by default. Windows 7 users must ensure they have the latest Windows updates, and that they have <a href="https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-a-default-secure-protocols-in">enabled TLS 1.2 support</a>.</p>
 
-    <p>If LOOT still can't update its masterlist, it's likely due to connectivity issues that are beyond our control (e.g., a temporary outage or your ISP blocking the domain the masterlists are downloaded from). You can attempt to update it manually by downloading <a href="https://raw.githubusercontent.com/loot/prelude/v0.18/prelude.yaml">this file</a> (or <a href="https://github.com/loot/prelude/archive/refs/heads/v0.18.zip">this ZIP</a> if you can't access the previous site, just extract the <code>prelude.yaml</code> file from it), selecting "Open LOOT Data Folder" within LOOT's File menu and placing <code>prelude.yaml</code> in the <code>prelude</code> folder. Then, replacing <code>game</code> in the link first, download the masterlist for your game from <a href="https://raw.githubusercontent.com/loot/game/v0.18/masterlist.yaml">this link</a> (or <a href="https://github.com/loot/game/archive/refs/heads/v0.18.zip">this ZIP</a>, just extract the <code>masterlist.yaml</code> file from it) and place it in <code>games\&lt;game folder&gt;\</code>. Depending on your game, replace <code>game</code> within the URL with <code>morrowind</code>, <code>oblivion</code>, <code>skyrim</code>, <code>skyrimse</code>, <code>skyrimvr</code>, <code>fallout3</code>, <code>falloutnv</code>, <code>fallout4</code>, <code>fallout4vr</code> or <code>enderal</code>, and <code>&lt;game folder&gt;</code> within the folder path with <code>Morrowind</code>, <code>Oblivion</code>, <code>Skyrim</code>, <code>Skyrim Special Edition</code>, <code>Skyrim VR</code>, <code>Fallout3</code>, <code>FalloutNV</code>, <code>Fallout4</code>, <code>Fallout4VR</code>, <code>Nehrim</code>, <code>Enderal</code> or <code>Enderal Special Edition</code>. N.b., Oblivion and Nehrim share the <code>oblivion</code> masterlist, and Enderal and Enderal Special Edition share the <code>enderal</code> masterlist. Finally, disable the "Update masterlist before sorting" option in LOOT's settings until your connectivity issues have been resolved.</p>
+    <p>If LOOT still can't update its masterlist, it's likely due to connectivity issues that are beyond our control (e.g., a temporary outage or your ISP blocking the domain the masterlists are downloaded from). You can attempt to update it manually by downloading <a href="https://raw.githubusercontent.com/loot/prelude/v0.18/prelude.yaml">this file</a> (or <a href="https://github.com/loot/prelude/archive/refs/heads/v0.18.zip">this ZIP</a> if you can't access the previous site, just extract the <code>prelude.yaml</code> file from it), selecting "Open LOOT Data Folder" within LOOT's File menu and placing <code>prelude.yaml</code> in the <code>prelude</code> folder. Then, using the following table, download the <code>masterlist.yaml</code> file for your game from the masterlist link (or extract it from the alternative ZIP) and place it in the corresponding game folder. Finally, disable the "Update masterlist before sorting" option in LOOT's settings until your connectivity issues have been resolved.</p>
+
+    <table>
+      <tr>
+        <th>Game</th>
+        <th>Links</th>
+        <th>Game Folder</th>
+      </tr>
+      <tr>
+        <td>Morrowind</td>
+        <td><a href="https://raw.githubusercontent.com/loot/morrowind/v0.18/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/morrowind/archive/refs/heads/v0.18.zip">ZIP</a></td>
+        <td><code>games\Morrowind</code></td>
+      </tr>
+      <tr>
+        <td>Oblivion</td>
+        <td><a href="https://raw.githubusercontent.com/loot/oblivion/v0.18/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/oblivion/archive/refs/heads/v0.18.zip">ZIP</a></td>
+        <td><code>games\Oblivion</code></td>
+      </tr>
+      <tr>
+        <td>Skyrim</td>
+        <td><a href="https://raw.githubusercontent.com/loot/skyrim/v0.18/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/skyrim/archive/refs/heads/v0.18.zip">ZIP</a></td>
+        <td><code>games\Skyrim</code></td>
+      </tr>
+      <tr>
+        <td>Skyrim Special Edition</td>
+        <td><a href="https://raw.githubusercontent.com/loot/skyrimse/v0.18/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/skyrimse/archive/refs/heads/v0.18.zip">ZIP</a></td>
+        <td><code>games\Skyrim Special Edition</code></td>
+      </tr>
+      <tr>
+        <td>Skyrim VR</td>
+        <td><a href="https://raw.githubusercontent.com/loot/skyrimvr/v0.18/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/skyrimvr/archive/refs/heads/v0.18.zip">ZIP</a></td>
+        <td><code>games\Skyrim VR</code></td>
+      </tr>
+      <tr>
+        <td>Fallout 3</td>
+        <td><a href="https://raw.githubusercontent.com/loot/fallout3/v0.18/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/fallout3/archive/refs/heads/v0.18.zip">ZIP</a></td>
+        <td><code>games\Fallout3</code></td>
+      </tr>
+      <tr>
+        <td>Fallout: New Vegas</td>
+        <td><a href="https://raw.githubusercontent.com/loot/falloutnv/v0.18/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/falloutnv/archive/refs/heads/v0.18.zip">ZIP</a></td>
+        <td><code>games\FalloutNV</code></td>
+      </tr>
+      <tr>
+        <td>Fallout 4</td>
+        <td><a href="https://raw.githubusercontent.com/loot/fallout4/v0.18/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/fallout4/archive/refs/heads/v0.18.zip">ZIP</a></td>
+        <td><code>games\Fallout4</code></td>
+      </tr>
+      <tr>
+        <td>Fallout 4 VR</td>
+        <td><a href="https://raw.githubusercontent.com/loot/fallout4vr/v0.18/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/fallout4vr/archive/refs/heads/v0.18.zip">ZIP</a></td>
+        <td><code>games\Fallout4VR</code></td>
+      </tr>
+      <tr>
+        <td>Nehrim</td>
+        <td><a href="https://raw.githubusercontent.com/loot/oblivion/v0.18/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/oblivion/archive/refs/heads/v0.18.zip">ZIP</a></td>
+        <td><code>games\Nehrim</code></td>
+      </tr>
+      <tr>
+        <td>Enderal</td>
+        <td><a href="https://raw.githubusercontent.com/loot/enderal/v0.18/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/enderal/archive/refs/heads/v0.18.zip">ZIP</a></td>
+        <td><code>games\Enderal</code></td>
+      </tr>
+      <tr>
+        <td>Enderal Special Edition</td>
+        <td><a href="https://raw.githubusercontent.com/loot/enderal/v0.18/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/enderal/archive/refs/heads/v0.18.zip">ZIP</a></td>
+        <td><code>games\Enderal Special Edition</code></td>
+      </tr>
+    </table>
   </dd>
 
   <dt id="no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</dt>
