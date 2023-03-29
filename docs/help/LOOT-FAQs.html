@@ -160,8 +160,12 @@ title: FAQs
   <dt id="game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</dt>
   <dd>
     <p>Steam removes the game's Registry entry when the game is updated or its cache is verified. Run the game's launcher to add the Registry entry back again. LOOT will then be able to detect the game. If you've manually moved your game, make sure to <a href="https://help.steampowered.com/en/faqs/view/4BD4-4528-6B2E-8327#move">properly migrate it</a> so that Steam recognizes it.</p>
+
     <p>Another cause may be that the game is installed in a location where you do not have read permissions. In this case, LOOT cannot read your plugins and treats the game as undetected. Try checking the permissions of the game's path and ensuring you have read access.</p>
-    <p>You can also enter your game's install path manually in LOOT's settings menu. In the menu, select your game's settings profile in the left-hand side (if it's not there, select "Open LOOT Data Folder" within LOOT's File menu and delete <code>settings.toml</code> to restore your settings to default or make a new profile for your game) and enter your install path in the "Install Path" field.</p>
+
+    <p>You can also set your game's install path manually in LOOT's settings menu. In the menu, select your game's settings profile in the left-hand panel (if it's not there, select "Open LOOT Data Folder" within LOOT's File menu and delete <code>settings.toml</code> to restore your settings to default, or make a new profile for your game) and enter your install path in the "Install Path" field.</p>
+
+    <p>If you have multiple installations of a game, you will need to manually set your install path depending on which installation you'd like to manage (LOOT can only automatically find whichever one is set in your registry). For convience, you may want to create LOOT shortcuts for each installation with the <code>--game-path</code> <a href="https://loot.readthedocs.io/en/stable/app/usage/initialisation.html#initialisation">command-line parameter</a>.</p>
   </dd>
 
   <dt id="line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</dt>
