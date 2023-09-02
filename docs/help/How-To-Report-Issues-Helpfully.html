@@ -61,12 +61,17 @@ title: How To Report Issues Helpfully
 
 <p>Note that LOOT wipes the log each time it starts, so if you encounter an issue, don't run LOOT again without first uploading or making a copy of the log.</p>
 
-<h5>If you can't reach the settings dialog</h5>
+<h4>If you can't reach the settings dialog</h4>
 
 <p>If LOOT is crashing on startup, or you can't get to its settings dialog for some other reason, its settings file can be manually edited to enable debug logging.</p>
 
 <ol>
-  <li>Open <code>%LOCALAPPDATA%\LOOT\settings.toml</code> in a text editor, eg. Notepad. If you use the <code>loot-data-path</code> command-line argument, open the <code>settings.toml</code> within your custom LOOT data directory instead.</li>
+  <li>Open <code>settings.toml</code> in a text editor, eg. Notepad.
+  <ul>
+    <li>On Windows, <code>settings.toml</code> can be found at <code>%LOCALAPPDATA%\LOOT\settings.toml</code>.</li>
+    <li>On Linux, <code>settings.toml</code> can be found at <code>$HOME/.var/app/io.github.loot.loot/data/LOOT/settings.toml</code> if you have LOOT installed as a Flatpak application, or at <code>$XDG_DATA_HOME/LOOT/settings.toml</code> otherwise.</li>
+    <li>If you use the <code>loot-data-path</code> command-line argument, open the <code>settings.toml</code> within your custom LOOT data directory.</li>
+  </ul>
   <li>Replace the text <code>enableDebugLogging = false</code> with <code>enableDebugLogging = true</code>.</li>
   <li>Save the file.</li>
 </ol>
