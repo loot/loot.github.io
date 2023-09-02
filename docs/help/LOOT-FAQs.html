@@ -13,6 +13,7 @@ title: FAQs
   <li><a href="#obsolete-versions">I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?</a></li>
   <li><a href="#sorting-no-changes">I get a "Sorting made no changes to the load order." message when trying to sort my load order. Is this a problem?</a></li>
   <li><a href="#stylesheet-failure">LOOT has warnings starting with "Unable to set stylesheet" and "Failed to find the style sheet in the filesystem" in its <code>LOOTDebugLog.txt</code>. Is this a problem?</a></li>
+  <li><a href="#case-sensitivity">I get a warning about a case-sensitive location being used. How can I resolve this?</a></li>
 </ol>
 
 <h4>Common Issues</h4>
@@ -65,6 +66,28 @@ title: FAQs
 
   <dt id="stylesheet-failure">LOOT has warnings starting with "Unable to set stylesheet" and "Failed to find the style sheet in the filesystem" in its <code>LOOTDebugLog.txt</code>. Is this a problem?</dt>
   <dd>Not if the warnings are for the bundled default and dark themes. This is part of LOOT's custom themes support: the first place it looks for themes is in the themes directory, but because the bundled themes are included inside the application itself, they aren't found there and so the warnings are expected. If you're seeing the warnings when trying to use a custom theme, that suggests the custom theme is not installed correctly.</dd>
+
+  <dt id="case-sensitivity">I get a warning about a game using a case-sensitive location. How can I resolve this?</dt>
+  <dd>
+    <p>If you are running LOOT on a Steam Deck, the easiest way is to use Steam to <a href="https://help.steampowered.com/en/faqs/view/4BD4-4528-6B2E-8327#move">move</a> the game in question to a microSD card that has been formatted by Steam (as described on <a href="https://help.steampowered.com/en/faqs/view/69E3-14AF-9764-4C28">this page</a>).</p>
+
+    <p>Otherwise, assuming you are using Linux, you can manually create a partition or disk image and format it with a case-insensitive filesystem, mount the filesystem, and then move the game to that filesystem. Case-insensitive filesystems include ext4 (with the casefold option), F2FS (with the casefold option), exFAT and NTFS. Here is an example of the steps needed to prepare a case-insensitive ext4 disk image before a game can be moved to it:</p>
+
+    <pre><code>IMAGE_LOCATION=~/Downloads/casefolded.img
+MOUNT_POINT=~/Downloads/casefolded
+
+truncate --size=15G "$IMAGE_LOCATION"
+mkfs.ext4 -O casefold "$IMAGE_LOCATION"
+echo "$IMAGE_LOCATION $MOUNT_POINT ext4 defaults 0 0" | sudo tee -a /etc/fstab > /dev/null
+
+mkdir -p "$MOUNT_POINT"
+
+sudo mount "$IMAGE_LOCATION" "$MOUNT_POINT"
+sudo chown "$USER" "$MOUNT_POINT"
+
+mkdir "$MOUNT_POINT/SteamLibrary"
+chattr +F "$MOUNT_POINT/SteamLibrary"</code></pre>
+  </dd>
 </dl>
 
 <h3>Common Issues</h3>
