@@ -16,7 +16,7 @@ title: Making A Release
 
 <ol>
   <li>Tag the commit and push the tag to GitHub.</li>
-  <li>Activate the tag's documentation version <a href="https://readthedocs.org/dashboard/loot-api/versions/">on Read The Docs</a>.
+  <li>Activate the tag's documentation version <a href="https://readthedocs.org/dashboard/loot-api/versions/">on Read The Docs</a> if it is not automatically activated.
 </ol>
 
 <h3>Releasing LOOT</h3>
@@ -24,8 +24,9 @@ title: Making A Release
 <h4>Prepare</h4>
 
 <ol>
-  <li>Update the version numbers by running <code>node scripts/set_version_number.js &lt;version&gt;</code>.</li>
-  <li>Make sure that the version history in <code>docs/api/changelog.rst</code> is up to date for the new release and that its release date is set.
+  <li>Update the version numbers by running <code>python scripts/set_version_number.py &lt;version&gt;</code>.</li>
+  <li>Make sure that the version history in <code>docs/app/changelog.rst</code> is up to date for the new release and that its release date is set.
+  <li>Add the release to the &lt;releases&gt; element in <code>resources/linux/io.github.loot.loot.metainfo.xml</code>.</li>
 </ol>
 
 <p>If the new release makes metadata syntax changes:</p>
@@ -38,8 +39,18 @@ title: Making A Release
 
 <ol>
   <li>Tag the commit and push the tag to GitHub.</li>
-  <li>Activate the tag's documentation version <a href="https://readthedocs.org/dashboard/loot/versions/">on Read The Docs</a>.
+  <li>Once the tag's GitHub Actions release workflow has completed, publish the draft release that it created.</li>
+  <li>Activate the tag's documentation version <a href="https://readthedocs.org/dashboard/loot/versions/">on Read The Docs</a> if it is not automatically activated.
 </ol>
+
+<h4>Update Flathub</h4>
+
+<ol>
+  <li>Update <a href="https://github.com/flathub/io.github.loot.loot/blob/master/io.github.loot.loot.yml"><code>io.github.loot.loot.yml</code></a> in the <code>flathub/io.github.loot.loot</code> GitHub repository to match the <code>resources/linux/io.github.loot.loot.yml</code> file in the <code>loot/loot</code> GitHub repository, except that the LOOT release archive should be downloaded from the LOOT release published on GitHub.</li>
+  <li>Open a pull request to merge the changes into the <code>master</code> branch, and merge it.</li>
+</ol>
+
+<p>See the <a href="https://docs.flathub.org/docs/for-app-authors/maintanance">Flathub documentation</a> for details on how Flathub builds and publishes changes.</p>
 
 <h4>Port Metadata</h4>
 
