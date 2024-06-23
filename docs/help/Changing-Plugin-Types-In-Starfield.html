@@ -1,0 +1,28 @@
+---
+layout: page
+title: Changing plugin types in Starfield
+---
+
+<p>On June 9, 2024, Bethesda released the Starfield Creation Kit as part of their June 2024 Update. The workflow through which mods are created and shared with the community has undergone some fundamental changes, as mod authors now create their mods as <code>.esp</code> files - with the intention of never using these files in-game. Instead, these files are now expected to be converted to <code>.esm</code> masters, which means that your load order should consist only out of <code>.esm</code> Master plugins.</p>
+
+<img src="../../images/Master_Types.png" alt="Master_Types" width="508" height="385">
+
+<p>There are three different Master types to choose from, with each of them using the <code>.esm</code> filename extension:</p>
+
+<ul>
+  <li><code>Full Master</code> are standard <code>ESMs</code>.</li>
+  <li><code>Medium Master</code> use the load order slot <code>FD</code> and allow 65.535 records each in up to 256 plugins.</li>
+  <li><code>Small Master</code> use the load order slot <code>FE</code> and allow 4.095 records each in up to 4096 plugins. These plugins are what was previously known as <code>Light</code> masters.</li>
+</ul>
+
+<p>While this new system allows for more variety in the mod creation process, changing the format of a released and published mod is not supported by Bethesda. In fact, it has been found that changing the master type through an update will break other mods, that use your plugin as a master.</p>
+
+<p>As such, it is strongly implied that mod authors should never change the type of their <code>.esm</code> Master plugins. When being asked about this situation by the Nexus, Bethesda provided them with the following answer:</p>
+
+<pre><code>
+Changing the flag on an existing creation [plugin] isn't supported.
+
+If a mod gets too big for the file type it’s flagged as, and the author wants to change it, they may want to save it as a distinct version. This will make it more clear to users that they can’t swap out without potential disruption. Same as an ESL being replaced by an ESP, or an ESP replaced by an ESM [in Skyrim SE or Fallout 4].
+</code></pre>
+
+<p>Source: <a href="https://www.nexusmods.com/news/14993">Nexus Article</a>/<p>
