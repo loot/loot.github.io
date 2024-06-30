@@ -33,6 +33,7 @@ title: Making A Release
 <ol>
   <li>Run <a href="https://github.com/loot/lomad">lomad</a> using <code>lomad -t &lt;github personal access token&gt; -a -b &lt;branch name&gt;</code> to (for all masterlists) create a branch for that release.</li>
   <li>Update the default masterlist branch value and add the old value to <code>GameSettings::oldDefaultBranches</code> in <code>src/gui/state/game/game_settings.cpp</code>.</li>
+  <li>Update the <b>Repository branch</b> setting in the <a href="https://hosted.weblate.org/settings/loot/prelude/#vcs">Version control tab</a> of the settings page for the LOOT masterlist prelude on Weblate.</li>
 </ol>
 
 <h4>Release</h4>
