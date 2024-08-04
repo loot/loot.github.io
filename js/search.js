@@ -7,6 +7,7 @@ import { dump, load } from 'https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0
 ///////////////////
 
 const repos = [
+    [ "Starfield", "starfield" ],
     [ "Morrowind", "morrowind" ],
     [ "Oblivion", "oblivion" ],
     [ "Nehrim", "oblivion" ],
