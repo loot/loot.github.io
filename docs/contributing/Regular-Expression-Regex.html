@@ -55,15 +55,19 @@ Let's take a look at <a href="https://www.nexusmods.com/skyrimspecialedition/mod
 
 <h4>Regex within LOOT</h4>
 
-<p>Now that we taken the first step to understand what regular expressions are, it should be noted that LOOT uses three different regex implementations in different places.</p>
+<p>Now that we taken the first step to understand what regular expressions are, it should be noted that LOOT currently uses three different regex engines in different places.</p>
 
 <ul>
-  <li>Masterlist entry matching and the contains filter uses <code>C++</code>'s standard regex.</li>
+  <li>Masterlist entry matching uses the Rust <code>regress</code> library.</li>
   <li>Condition evaluation uses the Rust <code>regex</code> library.</li>
-  <li>The search dialog uses <code>Qt</code>'s regex implementation.</li>
+  <li>The contains filter and search dialog uses <code>Qt</code>'s regex implementation.</li>
 </ul>
 
-<p>This means, that depending on where you want to use a regular expression within LOOT, <a href="https://en.wikipedia.org/wiki/Unicode">unicode characters</a> for character matching might be supported or not.</p>
+<p>These different regex engines support different flavours of regex syntax, but they behave similarly. The most significant differences are:</p>
+<ul>
+  <li>Regexes in conditions do not support lookaround.</li>
+  <li>The three engines define <code>\d</code>, <code>\D</code>, <code>\w</code>, <code>\W</code>, <code>\s</code> and <code>\S</code> differently for non-<a href="https://en.wikipedia.org/wiki/ASCII#Character_set">ASCII</a> characters.</li>
+</ul>
 
 <pre><code>  - name: 'Example\.es(m|p)'
     msg:
@@ -72,17 +76,17 @@ Let's take a look at <a href="https://www.nexusmods.com/skyrimspecialedition/mod
         condition: 'many("Example\.es(m|p)")'
 </code></pre>
 
-<p>The regex in the <code>name</code> field uses <code>C++</code>'s standard regex, which doesn't support unicode.</p>
+<p>The regex in the <code>name</code> field uses the Rust <code>regress</code>library.</p>
 
-<p>The regex in the <code>condition</code> field uses the Rust <code>regex</code> library, which supports unicode by default.</p>
+<p>The regex in the <code>condition</code> field uses the Rust <code>regex</code> library.</p>
 
 <img src="../../images/Regex_Search_Cards.png" alt="Regex_Search_Cards" width="602" height="409">
 
-<p>The search dialog uses <code>Qt</code>'s regex implementation, which doesn't support unicode characters by default (though support may be enabled in a future LOOT release).</p>
+<p>The search dialog uses <code>Qt</code>'s regex implementation.</p>
 
 <img src="../../images/Regex_Filter_Contain.png" alt="Regex_Filter_Contain" width="890" height="570">
 
-<p>The contains filter uses <code>C++</code>'s standard regex, which doesn't support unicode.</p>
+<p>The contains filter uses <code>Qt</code>'s regex implementation.</p>
 
 <p>The following section will concentrate on the use of regex in the name field of plugin objects in the masterlist, so that we get a better understanding of what is possible while adding and updating plugin entries.</p>
 
@@ -92,42 +96,42 @@ Let's take a look at <a href="https://www.nexusmods.com/skyrimspecialedition/mod
 <p>The following regular expressions can be used to match characters:</p>
 <p><code>\d \D \w \W \s \S</code></p>
 
+<p>Different regex engines define <code>\d</code>, <code>\w</code> and <code>\s</code> differently for non-<a href="https://en.wikipedia.org/wiki/ASCII#Character_set">ASCII</a> characters:</p>
+<ul>
+  <li><code>\d</code> matches any digit character. The <code>regress</code> engine defines <code>\d</code> as matching the digits <code>0</code> to <code>9</code>, but the <code>regex</code> and <code>Qt</code> engines will also match non-ASCII decimal digits such as <code>੩</code>.</li>
+  <li><code>\w</code> matches any word character. The three engines all define what counts as a word character differently, with too many differences to detail here.</li>
+  <li><code>\s</code> matches any whitespace character.
+    <ul>
+      <li><code>regex</code> matches all Unicode Whitespace characters.</li>
+      <li><code>Qt</code> matches all Unicode Whitespace characters, plus <code><a href="https://unicode-explorer.com/c/180E">U+180E</a></code>.</li>
+      <li><code>regress</code> matches all Unicode Whitespace characters except <code><a href="https://unicode-explorer.com/c/0085">U+0085</a></code>, and also matches <code><a href="https://unicode-explorer.com/c/FEFF">U+FEFF</a></code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The uppercase expressions are easy to define: <code>\D</code> matches everything that doesn't match <code>\d</code>, <code>\W</code> matches everything that doesn't match <code>\w</code>, and <code>\S</code> matches everything that doesn't match <code>\s</code>.</p>
+
 <p>In order to get a feeling what sorts of characters these expressions are capable of matching, let's take the following set of characters as reference:</p>
 
-<p>Digits:</p>
-<p><code>0 1 2 3 4 5 6 7 8 9</code></p>
+<p>Digits: <code>0 1 2 3 4 5 6 7 8 9</code></p>
 
-<p>Latin Alphabet:</p>
-<p><code>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</code></p>
+<p>Latin Alphabet: <code>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</code></p>
 
-<p>Additional Latin Characters:</p>
-<p><code>Ä Æ Ö Ü</code></p>
+<p>Additional Latin Characters: <code>Ä Æ Ö Ü</code></p>
 
-<p>Special Characters:</p>
-<p><code>! # $ % & ( ) , . ' ` - ; [ ] ^ _ { } ~ € + = Œ ੩</code></p>
+<p>Special Characters: <code>! # $ % & ( ) , . ' ` - ; [ ] ^ _ { } ~ € + = Œ ੩</code></p>
 
-<p>Greek Alphabet:</p>
-<p><code>α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ ς τ υ φ χ ψ ω</code></p>
+<p>Greek Alphabet: <code>α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ ς τ υ φ χ ψ ω</code></p>
 
-<p>Japanese Hiragana:</p>
-<p><code>あ い う え お か き く け こ さ し す せ そ た ち つ て と な に ぬ ね の は ひ ふ へ ほ ま み む め も や ゆ よ ら り る れ ろ わ を ん</code></p>
+<p>Japanese Hiragana: <code>あ い う え お か き く け こ さ し す せ そ た ち つ て と な に ぬ ね の は ひ ふ へ ほ ま み む め も や ゆ よ ら り る れ ろ わ を ん</code></p>
 
-<p>Japanese Katakana:</p>
-<p><code>ア イ ウ エ オ カ キ ク ケ コ サ シ ス セ ソ タ チ ツ テ ト ナ ニ ヌ ネ ノ ハ ヒ フ ヘ ホ マ ミ ム メ モ ヤ ユ ヨ ラ リ ル レ ロ ワ ヲ ン</code></p>
+<p>Japanese Katakana: <code>ア イ ウ エ オ カ キ ク ケ コ サ シ ス セ ソ タ チ ツ テ ト ナ ニ ヌ ネ ノ ハ ヒ フ ヘ ホ マ ミ ム メ モ ヤ ユ ヨ ラ リ ル レ ロ ワ ヲ ン</code></p>
 
 <p>Through testing the following rules could be derived:</p>
 
 <ul>
-  <li><code>\d</code> can be used exclusively for digits 0 to 9</li>
-  <li><code>\D</code> can be used to identify (non-digit) characters from the Latin Alphabet (except <code>Ä Æ Ö Ü</code>) and all the Special Characters</li>
-
-  <li><code>\w</code> can be used for the digits 0 to 9, for any of the normal letters from the Latin Alphabet and for the underscore _</li>
-  <li><code>\W</code> can detect exclusively all the special characters except the underscore _ (and no digits or Latin characters)</li>
-
-  <li><code>\s</code> detects whitespace</li>
-  <li><code>\S</code> can detect non-whitespace characters: digits, Latin characters (except additional ones) and the special characters</li>
-
-  <li>None of the expressions <code>\d \D \w \W \S</code> apply for the Greek and Japanese characters</li>
+  <li><code>\d</code> can be used exclusively for digits 0 to 9 when using <code>regress</code>, but will also match <code>੩</code> when using <code>regex</code> or <code>Qt</code>.</li>
+  <li><code>\w</code> can be used for the digits 0 to 9, for any of the normal letters from the Latin Alphabet and for the underscore <code>_</code> when using <code>regress</code>. It will match all of the reference characters above except the symbols <code>! # $ % & ( ) , . ' ` - ; [ ] ^ { } ~ € + =</code> when using <code>Qt</code> or <code>regex</code>.</li>
 </ul>
 
 
