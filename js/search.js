@@ -13,12 +13,12 @@ const repos = [
     [ "Nehrim", "oblivion" ],
     [ "Skyrim", "skyrim" ],
     [ "Skyrim SE", "skyrimse" ],
-    [ "Skyrim VR", "skyrimvr" ],
+    [ "Skyrim VR", "skyrimse" ],
     [ "Enderal", "enderal" ],
     [ "Fallout 3", "fallout3" ],
     [ "Fallout: New Vegas", "falloutnv" ],
     [ "Fallout 4", "fallout4" ],
-    [ "Fallout 4 VR", "fallout4vr" ],
+    [ "Fallout 4 VR", "fallout4" ],
 ]
 
 const gameSelect = document.getElementById('gameSelectMenu');
