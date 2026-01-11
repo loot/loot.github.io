@@ -1,6 +1,4 @@
-'use strict';
-import { Octokit } from '@octokit/rest';
-import { throttling } from '@octokit/plugin-throttling';
+import { Octokit } from '/js/octokit.js';
 
 // Commit 37e464f6001d440ae532516f40fe19162537475a and earlier are common
 // between the loot and libloot repositories, so are double-counted by GitHub.
@@ -243,9 +241,7 @@ function fixStats(contributorsStats) {
 }
 
 async function getContributors() {
-    const ThrottledOctokit = Octokit.plugin(throttling);
-
-    const octokit = new ThrottledOctokit({
+    const octokit = new Octokit({
         throttle: {
             onAbuseLimit: () => true,
             onRateLimit: () => true

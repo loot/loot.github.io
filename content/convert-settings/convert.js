@@ -1,5 +1,5 @@
 'use strict';
-import { load } from 'js-yaml';
+import { load } from '/js/js-yaml.js';
 import TOML from '@ltd/j-toml';
 
 function upgradeOldYaml(yaml) {

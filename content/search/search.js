@@ -1,7 +1,5 @@
-'use strict';
-import { Octokit } from '@octokit/rest';
-import { throttling } from '@octokit/plugin-throttling';
-import { dump, load } from 'js-yaml';
+import { Octokit } from '/js/octokit.js';
+import { dump, load } from '/js/js-yaml.js';
 
 // Globals
 ///////////////////
@@ -80,9 +78,7 @@ function onSearchInit(evt) {
     console.log("Loading masterlist...");
     progress.classList.remove('hidden');
 
-    const ThrottledOctokit = Octokit.plugin(throttling);
-
-    const octokit = new ThrottledOctokit({
+    const octokit = new Octokit({
         throttle: {
             onAbuseLimit: () => true,
             onRateLimit: () => true

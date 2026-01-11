@@ -32,15 +32,22 @@
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 <link rel="stylesheet" href="{{ $cssOverrides.RelPermalink }}">
 
+{{ $externals := slice "/js/js-yaml.js" "/js/octokit.js" }}
+{{
+    $jsBuildOpts := dict
+        "format" "esm"
+        "minify" (not hugo.IsDevelopment)
+        "sourceMap" (cond hugo.IsDevelopment "external" "")
+        "target" "es2023"
+        "externals" $externals
+}}
+
+{{ (resources.Get "js/octokit.js" | js.Build $jsBuildOpts).Publish }}
+{{ (resources.Get "js/js-yaml.js" | js.Build $jsBuildOpts).Publish }}
+
 {{ range .Resources.ByType "text" }}
     {{ if eq .MediaType.Type "text/javascript" }}
-        {{ $opts := dict
-            "format" "esm"
-            "minify" (not hugo.IsDevelopment)
-            "sourceMap" (cond hugo.IsDevelopment "external" "")
-            "target" "es2023"
-        }}
-        {{ $scriptSrc := . | js.Build $opts }}
+        {{ $scriptSrc := . | js.Build $jsBuildOpts }}
         <script src="{{ $scriptSrc.RelPermalink }}" type="module"></script>
     {{ end }}
 {{ end }}
