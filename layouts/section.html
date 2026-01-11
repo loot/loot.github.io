@@ -1,0 +1,19 @@
+{{ define "main" }}
+  {{ .Content }}
+  {{ with .Sections }}
+    {{ range . }}
+      <h3>{{ .LinkTitle}}</h3>
+      <ul>
+        {{ range .Pages }}
+          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  {{ else }}
+    <ul>
+      {{ range .Pages }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}

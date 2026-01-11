@@ -1,0 +1,268 @@
+---
+layout: page
+title: FAQs
+weight: 1
+aliases:
+  - LOOT-FAQs.html
+---
+
+<h3>Contents</h3>
+
+<h4>Using LOOT</h4>
+
+<ol>
+  <li><a href="#check-the-ordering">I'm suspicious that LOOT is ordering plugin X after plugin Y. How do I double-check the ordering?</a></li>
+  <li><a href="#different-load-order">OK, but I still have specific reasons to have in my game a different load order than the one LOOT proposes. What do I do?</a></li>
+  <li><a href="#obsolete-versions">I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?</a></li>
+  <li><a href="#sorting-no-changes">I get a "Sorting made no changes to the load order." message when trying to sort my load order. Is this a problem?</a></li>
+  <li><a href="#stylesheet-failure">LOOT has warnings starting with "Unable to set stylesheet" and "Failed to find the style sheet in the filesystem" in its <code>LOOTDebugLog.txt</code>. Is this a problem?</a></li>
+  <li><a href="#case-sensitivity">I get a warning about a case-sensitive location being used. How can I resolve this?</a></li>
+</ol>
+
+<h4>Common Issues</h4>
+
+<ol start="6">
+  <li><a href="#mo">I'm running LOOT through Mod Organiser and it's not working. What should I do?</a></li>
+  <li><a href="#update-masterlist-errors">I'm getting errors when LOOT tries to update its masterlist. How do I fix this?</a></li>
+  <li><a href="#no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</a></li>
+  <li><a href="#game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</a></li>
+  <li><a href="#line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</a></li>
+  <li><a href="#antivirus">My antivirus software detects LOOT as malware. What should I do?</a></li>
+  <li><a href="#path-limit">I'm using Mod Organizer and receiving the error "The system cannot find the file specified.: '&lt;path to plugin&gt;.ghost'" How do I fix this?</a></li>
+</ol>
+
+<h4>Moving From BOSS</h4>
+
+<ol start="13">
+  <li><a href="#boss-v3">What happened to BOSS v3?</a></li>
+  <li><a href="#boss-to-loot">Do I have to switch from BOSS to LOOT?</a></li>
+  <li><a href="#switching-to-loot">Is there anything I should bear in mind when switching to LOOT?</a></li>
+  <li><a href="#skyproc-patcher">I have a SkyProc patcher that runs BOSS. How do I get it to run LOOT instead?</a></li>
+  <li><a href="#unrecognised-plugins">How can LOOT not have unrecognised plugins?</a></li>
+  <li><a href="#sort-basis">Does LOOT sort based only on plugin content?</a></li>
+  <li><a href="#correct-load-order">How can the load order LOOT gives be right if BOSS gives a very different load order?</a></li>
+</ol>
+
+<h3>Using LOOT</h3>
+
+<dl>
+  <dt id="check-the-ordering">I'm suspicious that LOOT is ordering plugin X after plugin Y. How do I double-check the ordering?</dt>
+  <dd>The most thorough method is to look for conflicts in TES5Edit and decide for yourself if the load order LOOT gives resolves them to your liking.</dd>
+
+  <dt id="different-load-order">I have specific reasons to have in <em>my</em> game a different load order than the one LOOT proposes. What do I do?</dt>
+  <dd>
+    <p>Users can supply metadata themselves to alter the order LOOT gives. There are two types of metadata that can be supplied to change load order:</p>
+
+    <ul>
+      <li>'Load After' entries can be used for pairs of specific plugins.</li>
+      <li>Plugin groups can be used when the plugin needs to load before or after many other plugins.</li>
+    </ul>
+
+    <p>Be sure to read LOOT's <a href="https://loot.readthedocs.io/en/stable/index.html">documentation</a> for more information on these.</p>
+  </dd>
+
+  <dt id="obsolete-versions">I've run LOOT with obsolete versions of some plugins and LOOT didn't tell me to update them! How come?</dt>
+  <dd>LOOT isn't omniscient. It may provide warnings for outdated plugins through the masterlist, but this depends on user feedback. LOOT has no way of being able to tell by itself if a plugin is outdated or not.</dd>
+
+  <dt id="sorting-no-changes">I get a "Sorting made no changes to the load order." message when trying to sort my load order. Is this a problem?</dt>
+  <dd>No, it just means that the load order LOOT calculated is exactly the same as your current load order, so you don't need to apply or cancel it.</dd>
+
+  <dt id="stylesheet-failure">LOOT has warnings starting with "Unable to set stylesheet" and "Failed to find the style sheet in the filesystem" in its <code>LOOTDebugLog.txt</code>. Is this a problem?</dt>
+  <dd>Not if the warnings are for the bundled default and dark themes. This is part of LOOT's custom themes support: the first place it looks for themes is in the themes directory, but because the bundled themes are included inside the application itself, they aren't found there and so the warnings are expected. If you're seeing the warnings when trying to use a custom theme, that suggests the custom theme is not installed correctly.</dd>
+
+  <dt id="case-sensitivity">I get a warning about a game using a case-sensitive location. How can I resolve this?</dt>
+  <dd>
+    <p>If you are running LOOT on a Steam Deck, the easiest way is to use Steam to <a href="https://help.steampowered.com/en/faqs/view/4BD4-4528-6B2E-8327#move">move</a> the game in question to a microSD card that has been formatted by Steam (as described on <a href="https://help.steampowered.com/en/faqs/view/69E3-14AF-9764-4C28">this page</a>).</p>
+
+    <p>Otherwise, assuming you are using Linux, you can manually create a partition or disk image and format it with a case-insensitive filesystem, mount the filesystem, and then move the game to that filesystem. Case-insensitive filesystems include ext4 (with the casefold option), F2FS (with the casefold option), exFAT and NTFS. Here is an example of the steps needed to prepare a case-insensitive ext4 disk image before a game can be moved to it:</p>
+
+    <pre><code>IMAGE_LOCATION=~/Downloads/casefolded.img
+MOUNT_POINT=~/Downloads/casefolded
+
+truncate --size=15G "$IMAGE_LOCATION"
+mkfs.ext4 -O casefold "$IMAGE_LOCATION"
+echo "$IMAGE_LOCATION $MOUNT_POINT ext4 defaults 0 0" | sudo tee -a /etc/fstab > /dev/null
+
+mkdir -p "$MOUNT_POINT"
+
+sudo mount "$IMAGE_LOCATION" "$MOUNT_POINT"
+sudo chown "$USER" "$MOUNT_POINT"
+
+mkdir "$MOUNT_POINT/SteamLibrary"
+chattr +F "$MOUNT_POINT/SteamLibrary"</code></pre>
+  </dd>
+</dl>
+
+<h3>Common Issues</h3>
+
+<dl>
+  <dt id="mo">I'm running LOOT through Mod Organiser and it's not working. What should I do?</dt>
+  <dd>
+    <p>Running LOOT through Mod Organiser is unsupported. If you're experiencing an issue while running LOOT through Mod Organiser, try replicating the issue while running LOOT independently of Mod Organiser. If the issue persists, please <a href="How-To-Report-Issues-Helpfully.html">report it</a>.</p>
+
+    <p>Some users have reported that antivirus software can interfere with LOOT, so, if you are experiencing issues, try checking if your antivirus software is involved and whitelist or exclude LOOT.</p>
+  </dd>
+
+  <dt id="update-masterlist-errors">I'm getting errors when LOOT tries to update its masterlist. How do I fix this?</dt>
+  <dd>
+    <p>Make sure any firewalls or security software you have installed aren't stopping LOOT from reaching the online masterlist.</p>
+
+    <p>If LOOT still can't update its masterlist, it's likely due to connectivity issues that are beyond our control (e.g., a temporary outage or your ISP blocking the domain the masterlists are downloaded from). You can attempt to update it manually by downloading <a href="https://raw.githubusercontent.com/loot/prelude/v0.26/prelude.yaml">this file</a> (or <a href="https://github.com/loot/prelude/archive/refs/heads/v0.26.zip">this ZIP</a> if you can't access the previous site, just extract the <code>prelude.yaml</code> file from it), selecting "Open LOOT Data Folder" within LOOT's File menu and placing <code>prelude.yaml</code> in the <code>prelude</code> folder.</p>
+
+    <p>Then, using the following table, download the <code>masterlist.yaml</code> file for your game from the masterlist link (or extract it from the alternative ZIP) and place it in the corresponding game folder. Finally, disable the "Update masterlist before sorting" option in LOOT's settings until your connectivity issues have been resolved.</p>
+
+    <table>
+      <tr>
+        <th>Game</th>
+        <th>Links</th>
+        <th>Game Folder</th>
+      </tr>
+      <tr>
+        <td>Morrowind</td>
+        <td><a href="https://raw.githubusercontent.com/loot/morrowind/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/morrowind/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\Morrowind</code></td>
+      </tr>
+      <tr>
+        <td>OpenMW</td>
+        <td><a href="https://raw.githubusercontent.com/loot/morrowind/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/morrowind/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\OpenMW</code></td>
+      </tr>
+      <tr>
+        <td>Oblivion</td>
+        <td><a href="https://raw.githubusercontent.com/loot/oblivion/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/oblivion/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\Oblivion</code></td>
+      </tr>
+      <tr>
+        <td>Skyrim</td>
+        <td><a href="https://raw.githubusercontent.com/loot/skyrim/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/skyrim/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\Skyrim</code></td>
+      </tr>
+      <tr>
+        <td>Skyrim Special Edition</td>
+        <td><a href="https://raw.githubusercontent.com/loot/skyrimse/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/skyrimse/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\Skyrim Special Edition</code></td>
+      </tr>
+      <tr>
+        <td>Skyrim VR</td>
+        <td><a href="https://raw.githubusercontent.com/loot/skyrimse/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/skyrimse/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\Skyrim VR</code></td>
+      </tr>
+      <tr>
+        <td>Fallout 3</td>
+        <td><a href="https://raw.githubusercontent.com/loot/fallout3/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/fallout3/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\Fallout3</code></td>
+      </tr>
+      <tr>
+        <td>Fallout: New Vegas</td>
+        <td><a href="https://raw.githubusercontent.com/loot/falloutnv/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/falloutnv/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\FalloutNV</code></td>
+      </tr>
+      <tr>
+        <td>Fallout 4</td>
+        <td><a href="https://raw.githubusercontent.com/loot/fallout4/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/fallout4/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\Fallout4</code></td>
+      </tr>
+      <tr>
+        <td>Fallout 4 VR</td>
+        <td><a href="https://raw.githubusercontent.com/loot/fallout4/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/fallout4/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\Fallout4VR</code></td>
+      </tr>
+      <tr>
+        <td>Nehrim</td>
+        <td><a href="https://raw.githubusercontent.com/loot/oblivion/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/oblivion/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\Nehrim</code></td>
+      </tr>
+      <tr>
+        <td>Enderal</td>
+        <td><a href="https://raw.githubusercontent.com/loot/enderal/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/enderal/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\Enderal</code></td>
+      </tr>
+      <tr>
+        <td>Enderal Special Edition</td>
+        <td><a href="https://raw.githubusercontent.com/loot/enderal/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/enderal/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\Enderal Special Edition</code></td>
+      </tr>
+      <tr>
+        <td>Starfield</td>
+        <td><a href="https://raw.githubusercontent.com/loot/starfield/v0.26/masterlist.yaml">Masterlist</a>, <a href="https://github.com/loot/starfield/archive/refs/heads/v0.26.zip">ZIP</a></td>
+        <td><code>games\Starfield</code></td>
+      </tr>
+    </table>
+  </dd>
+
+  <dt id="no-version-number">LOOT shows the wrong or no version number for some plugins. Why?</dt>
+  <dd>As version numbers are supplied by mod authors in a wide range of formats and LOOT has to detect as many as possible, it occasionally identifies parts of some descriptions as version numbers incorrectly. Authors can also forget to update their plugins' version numbers. When in doubt, check the version number given in a mod's readme.</dd>
+
+  <dt id="game-not-detected">A game is installed, but LOOT cannot detect it. How do I fix this?</dt>
+  <dd>
+    <p>Steam removes the game's Registry entry when the game is updated or its cache is verified. Run the game's launcher to add the Registry entry back again. LOOT will then be able to detect the game. If you've manually moved your game, make sure to <a href="https://help.steampowered.com/en/faqs/view/4BD4-4528-6B2E-8327#move">properly migrate it</a> so that Steam recognizes it.</p>
+
+    <p>Another cause may be that the game is installed in a location where you do not have read permissions. In this case, LOOT cannot read your plugins and treats the game as undetected. Try checking the permissions of the game's path and ensuring you have read access.</p>
+
+    <p>You can also set your game's install path manually in LOOT's settings menu. In the menu, select your game's settings profile in the left-hand panel (if it's not there, select "Open LOOT Data Folder" within LOOT's File menu and delete <code>settings.toml</code> to restore your settings to default, or make a new profile for your game) and enter your install path in the "Install Path" field.</p>
+
+    <p>If you have multiple installations of a game, you will need to manually set your install path depending on which installation you'd like to manage (LOOT can only automatically find whichever one is set in your registry). For convience, you may want to create LOOT shortcuts for each installation with the <code>--game-path</code> <a href="https://loot.readthedocs.io/en/stable/app/usage/initialisation.html#initialisation">command-line parameter</a>.</p>
+  </dd>
+
+  <dt id="line-breaks">When LOOT updates the load order, it removes line breaks from <code>plugins.txt</code> and <code>loadorder.txt</code>. Won't this break something?</dt>
+  <dd>LOOT has just replaced the <code>CR LF</code> line breaks with <code>LF</code> line breaks. It doesn't make any difference to the game.</dd>
+
+  <dt id="antivirus">My antivirus software detects LOOT as malware. What should I do?</dt>
+  <dd>
+    <p>First of all, double-check that you've downloaded LOOT from an official source (i.e., <a href="https://github.com/loot/loot/releases/latest">GitHub</a> or <a href="https://www.nexusmods.com/site/mods/439/">Nexus Mods</a>). If you downloaded it from anywhere else, the provider may have introduced some form of malware to the installer or package.</p>
+
+    <p>If you have downloaded it from an official source, some antivirus software will mistakenly report new releases of LOOT as malware. False positives for new releases are fairly commonplace among antivirus software; just report the flagged executable as a false positive to your antivirus software and/or whitelist it to continue using it.</p>
+
+    <p>If you're still suspicious of LOOT, it's an open-source program, so you can review its source code on <a href="https://github.com/loot/loot">GitHub</a> and build it yourself. There is also a link to a VirusTotal report for new releases next to each download at LOOT's Nexus Mods page.</p>
+  </dd>
+
+  <dt id="path-limit">I'm using Mod Organizer and receiving an error of the form "The system cannot find the file specified.: '&lt;path to plugin&gt;.ghost'" How do I fix this?</dt>
+  <dd>
+    <p>This error tends to happen when the name of the mod in Mod Organizer containing the plugin mentioned in the error message is too long, i.e., long enough that the full path of the plugin is over the Windows path length limit of 260. Try shortening the mod's name.</p>
+  </dd>
+</dl>
+
+<h3>Moving From BOSS</h3>
+
+<dl>
+  <dt id="boss-v3">What happened to BOSS v3?</dt>
+  <dd>LOOT started development as BOSS v3, but it became a separate utility to avoid confusion once it became clear how little in common it had with BOSS v2.</dd>
+
+  <dt id="boss-to-loot">Do I have to switch from BOSS to LOOT?</dt>
+  <dd>No. However, BOSS is no longer maintained, and LOOT generally provides superior functionality.</dd>
+
+  <dt id="switching-to-loot">Is there anything I should bear in mind when switching to LOOT?</dt>
+  <dd>
+    <p>It's worth double-checking the load order LOOT gives you, in case it's gotten something wrong. Also, if you're not starting a new game, changing your load order may cause in-game issues. To avoid disaster, you can backup your load order as follows:</p>
+
+    <ol>
+      <li>Make a backup of your current <code>.ess</code> save file, and its accompanying <code>.skse</code> file (if you have SKSE installed). These are found in the <code>%USERPROFILE%\Documents\My Games\Skyrim\Saves</code> folder.</li>
+      <li>Make a backup of your load order files, <code>plugins.txt</code> and <code>loadorder.txt</code>, which are found in the <code>%LOCALAPPDATA%\Skyrim</code> folder.</li>
+    </ol>
+
+    <p>That way, if something does go wrong, you have backups to roll back to. If you don't overwrite or delete save files, you don't need to back them up, so long as you can remember which save was made before you made the changes that caused problems.</p>
+  </dd>
+
+  <dt id="skyproc-patcher">I have a SkyProc patcher that runs BOSS. How do I get it to run LOOT instead?</dt>
+  <dd>
+    <p>LOOT support may be added to SkyProc patchers in time. Until then, you can do the following:</p>
+
+    <ol>
+      <li>Run LOOT.</li>
+      <li>Run your SkyProc patcher(s) with the <code>-NOBOSS</code> argument.</li>
+      <li>Have fun.</li>
+    </ol>
+  </dd>
+
+  <dt id="unrecognised-plugins">How can LOOT not have unrecognised plugins?</dt>
+  <dd>To sort a plugin, BOSS needs it to be added to its masterlist, which is hand-ordered by its maintainers. LOOT instead reads the contents of each plugin to see which plugins conflict, etc. and uses that information to decide on the best ordering. This means that it can sort all plugins without needing them to become recognised first.</dd>
+
+  <dt id="sort-basis">Does LOOT sort based only on plugin content?</dt>
+  <dd>No. While it can sort most plugins correctly, sometimes it gets things wrong, and LOOT's masterlist is used to provide metadata so that it can sort such plugins correctly. Unlike in BOSS, LOOT's masterlist doesn't give specific load order positions, which makes it more adaptable and easier to maintain.</dd>
+
+  <dt id="correct-load-order">How can the load order LOOT gives be right if BOSS gives a very different load order?</dt>
+  <dd>There can be more than one correct load order for a given set of plugins. For example, some plugins may not conflict or depend on each other, so their relative orders wouldn't matter. The load order BOSS gives is hand-made to look 'neat' as well as work, so plugins from the same mod will usually get grouped together, but LOOT doesn't know which plugins belong to which mod, so it just puts them where it thinks they work.</dd>
+</dl>
+
+<!-- Add empty space at the bottom for scrolling convenience -->
+<p style="margin-left: 0;padding: 0 0 75em 0;border-width: 0px; border-color: white; border-style:none;"></p>

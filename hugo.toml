@@ -1,0 +1,11 @@
+baseURL = 'https://loot.github.io/'
+languageCode = 'en-us'
+title = 'LOOT'
+
+[outputs]
+  home = ['html']
+  page = ['html']
+  rss = ['rss']
+  section = ['html']
+  taxonomy = []
+  term = []
