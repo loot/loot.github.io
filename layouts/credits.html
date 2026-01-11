@@ -1,0 +1,22 @@
+{{ define "main" }}
+  {{ .Content }}
+
+  <div id="contrib">
+    {{ $contributors := .Resources.Get "contributors.json" | transform.Unmarshal }}
+    {{ range $contributors }}
+      <a href="{{ .html_url }}" class="loot-contributor mdl-shadow--2dp">
+        <div class="loot-contributor__avatar">
+          {{- if .avatar_url }}
+            <img src="{{ .avatar_url }}"/>
+          {{- else }}
+            <i class="material-icons">face</i>
+          {{- end }}
+        </div>
+        <div class="loot-contributor__text">
+          <div class="loot-contributor__name">{{ .name }}</div>
+          <div class="loot-contributor__contributions">{{ .contributions }} contributions</div>
+        </div>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}

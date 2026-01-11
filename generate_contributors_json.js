@@ -1,4 +1,5 @@
-import { Octokit } from '/js/octokit.js';
+import { Octokit } from './assets/js/octokit.js';
+import { writeFile } from 'fs/promises';
 
 // Commit 37e464f6001d440ae532516f40fe19162537475a and earlier are common
 // between the loot and libloot repositories, so are double-counted by GitHub.
@@ -122,42 +123,6 @@ const contributorMapping = new Map([
     ['David Tan', ['Velgus', 'David']],
 ]);
 
-function addToList(listElement, person) {
-    const a = document.createElement('a');
-    const avatar = document.createElement('div');
-    const text = document.createElement('div');
-    const name = document.createElement('div');
-    const contributions = document.createElement('div');
-
-    a.classList.add('loot-contributor', 'mdl-shadow--2dp');
-
-    avatar.className = 'loot-contributor__avatar';
-    text.className = 'loot-contributor__text';
-    name.className = 'loot-contributor__name';
-    contributions.className = 'loot-contributor__contributions';
-
-    a.href = person.html_url;
-    name.textContent = person.name;
-    contributions.textContent = person.contributions + ' contributions';
-
-    if (person.avatar_url) {
-        const img = document.createElement('img');
-        img.src = person.avatar_url;
-        avatar.appendChild(img);
-    } else {
-        const icon = document.createElement('i');
-        icon.className = 'material-icons';
-        icon.textContent = 'face';
-        avatar.appendChild(icon);
-    }
-
-    a.appendChild(avatar);
-    a.appendChild(text);
-    text.appendChild(name);
-    text.appendChild(contributions);
-    listElement.appendChild(a);
-}
-
 function sortContributors(a,b) {
     if (a.contributions != b.contributions) {
         return b.contributions - a.contributions;
@@ -184,17 +149,6 @@ function statsReducer(previous, current) {
 
     existing.contributions += current.contributions;
     return previous;
-}
-
-function displayContributorsStats(contributorsStats) {
-    contributorsStats.sort(sortContributors);
-
-    const contrib = document.getElementById('contrib');
-    contrib.removeChild(contrib.firstElementChild);
-
-    for (const contributor of contributorsStats) {
-        addToList(contrib, contributor);
-    }
 }
 
 function getContributorsStats(contributors) {
@@ -241,7 +195,7 @@ function fixStats(contributorsStats) {
 }
 
 async function getContributors() {
-    const octokit = new Octokit();
+    const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
     const repos = await octokit.paginate(octokit.rest.repos.listForOrg, {
         org: 'loot'
@@ -258,14 +212,18 @@ async function getContributors() {
     return Promise.all(promises).then(results => results.flat());
 }
 
-async function getAndDisplayContributorsStats() {
+async function main() {
     const contributors = await getContributors();
 
     const stats = getContributorsStats(contributors);
 
     const fixedStats = fixStats(stats);
 
-    displayContributorsStats(fixedStats);
+    fixedStats.sort(sortContributors);
+
+    const json = JSON.stringify(fixedStats, null, 2);
+
+    await writeFile('./content/credits/contributors.json', json);
 }
 
-getAndDisplayContributorsStats();
+await main();
