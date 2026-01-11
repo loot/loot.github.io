@@ -80,7 +80,7 @@ function onSearchInit(evt) {
 
     const octokit = new Octokit({
         throttle: {
-            onAbuseLimit: () => true,
+            onSecondaryRateLimit: () => true,
             onRateLimit: () => true
         }
     });

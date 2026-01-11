@@ -243,7 +243,7 @@ function fixStats(contributorsStats) {
 async function getContributors() {
     const octokit = new Octokit({
         throttle: {
-            onAbuseLimit: () => true,
+            onSecondaryRateLimit: () => true,
             onRateLimit: () => true
         }
     });
