@@ -78,12 +78,7 @@ function onSearchInit(evt) {
     console.log("Loading masterlist...");
     progress.classList.remove('hidden');
 
-    const octokit = new Octokit({
-        throttle: {
-            onSecondaryRateLimit: () => true,
-            onRateLimit: () => true
-        }
-    });
+    const octokit = new Octokit();
 
     octokit.rest.repos.getContent({
         owner: 'loot',

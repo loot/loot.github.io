@@ -241,12 +241,7 @@ function fixStats(contributorsStats) {
 }
 
 async function getContributors() {
-    const octokit = new Octokit({
-        throttle: {
-            onSecondaryRateLimit: () => true,
-            onRateLimit: () => true
-        }
-    });
+    const octokit = new Octokit();
 
     const repos = await octokit.paginate(octokit.rest.repos.listForOrg, {
         org: 'loot'
