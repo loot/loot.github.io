@@ -15,8 +15,14 @@
     <script>location={{ .Params.redirect_to }}</script>
 {{ end }}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js" integrity="sha512-mPYFRGkgrXvIQo9eMKjv5vuy73j7kXXelllj3W49nVCKarBVOUxNai2dnqVIp8QnnVS7AKHwdFyZSVibSqWtkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.indigo-blue.min.css" integrity="sha512-jrmVK4Tmxje8FYWsi+8bsHBx9EwGB9i3jHw8WTzf6JrRm1c5jWBGY9eluAv0xKrssO3uxbVWhLaYh13CmkytJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{{ $materialJs := resources.Get "material-design-lite/material.min.js" }}
+{{ $materialJsMap := resources.Get "material-design-lite/material.min.js.map" }}
+{{ $materialCss := resources.Get "material-design-lite/dist/material.indigo-blue.min.css" }}
+
+<script src="{{ $materialJs.RelPermalink }}"></script>
+{{ $materialJsMap.Publish }}
+<link rel="stylesheet" href="{{ $materialCss.RelPermalink }}">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
 
@@ -25,6 +31,19 @@
 
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 <link rel="stylesheet" href="{{ $cssOverrides.RelPermalink }}">
+
+{{ range .Resources.ByType "text" }}
+    {{ if eq .MediaType.Type "text/javascript" }}
+        {{ $opts := dict
+            "format" "esm"
+            "minify" (not hugo.IsDevelopment)
+            "sourceMap" (cond hugo.IsDevelopment "external" "")
+            "target" "es2023"
+        }}
+        {{ $scriptSrc := . | js.Build $opts }}
+        <script src="{{ $scriptSrc.RelPermalink }}" type="module"></script>
+    {{ end }}
+{{ end }}
 
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">

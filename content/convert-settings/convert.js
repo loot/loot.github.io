@@ -1,6 +1,6 @@
 'use strict';
-import { load } from 'https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.mjs';
-import TOML from 'https://cdn.skypack.dev/-/@ltd/j-toml@v1.33.3-g895G5Q2ba82bha6HlB9/dist=es2019,mode=imports/optimized/@ltd/j-toml.js';
+import { load } from 'js-yaml';
+import TOML from '@ltd/j-toml';
 
 function upgradeOldYaml(yaml) {
     if (yaml['Debug Verbosity'] && !yaml.enableDebugLogging) {

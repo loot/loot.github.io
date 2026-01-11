@@ -1,7 +1,7 @@
 'use strict';
-import { Octokit } from 'https://cdn.skypack.dev/pin/@octokit/rest@v19.0.4-xPNRCbtf1MpCCpqHe5lx/mode=imports,min/optimized/@octokit/rest.js';
-import { throttling } from 'https://cdn.skypack.dev/pin/@octokit/plugin-throttling@v4.2.0-q2ZrzGw3H4mnkheWbYZl/mode=imports,min/optimized/@octokit/plugin-throttling.js';
-import { dump, load } from 'https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.mjs';
+import { Octokit } from '@octokit/rest';
+import { throttling } from '@octokit/plugin-throttling';
+import { dump, load } from 'js-yaml';
 
 // Globals
 ///////////////////

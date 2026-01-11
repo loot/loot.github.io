@@ -1,6 +1,6 @@
 'use strict';
-import { Octokit } from "https://cdn.skypack.dev/pin/@octokit/rest@v19.0.4-xPNRCbtf1MpCCpqHe5lx/mode=imports,min/optimized/@octokit/rest.js";
-import { throttling } from "https://cdn.skypack.dev/pin/@octokit/plugin-throttling@v4.2.0-q2ZrzGw3H4mnkheWbYZl/mode=imports,min/optimized/@octokit/plugin-throttling.js";
+import { Octokit } from '@octokit/rest';
+import { throttling } from '@octokit/plugin-throttling';
 
 // Commit 37e464f6001d440ae532516f40fe19162537475a and earlier are common
 // between the loot and libloot repositories, so are double-counted by GitHub.

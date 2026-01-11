@@ -6,3 +6,5 @@ Gemfile.lock
 # Hugo-generated files
 /public/
 /.hugo_build.lock
+
+node_modules/

@@ -9,3 +9,13 @@ title = 'LOOT'
   section = ['html']
   taxonomy = []
   term = []
+
+[module]
+  [[module.mounts]]
+    disableWatch = false
+    source = 'assets'
+    target = 'assets'
+
+  [[module.mounts]]
+    source = 'node_modules/material-design-lite'
+    target = 'assets/material-design-lite'
