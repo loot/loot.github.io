@@ -20,7 +20,7 @@
     "@ltd/j-toml": "^1.33.0",
     "@octokit/plugin-throttling": "^11.0.0",
     "@octokit/rest": "^22.0.0",
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^4.3.0",
     "material-design-lite": "^1.3.0"
   }
 }
